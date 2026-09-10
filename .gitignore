@@ -1,0 +1,5 @@
+.DS_Store
+node_modules/
+
+# Cloned reference apps from context/clone.sh — keep the catalog and script
+/context/apps/
