@@ -1,0 +1,397 @@
+:root {
+  color-scheme: dark;
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  line-height: 1.45;
+  --bg: #1c1a16;
+  --text: #f6f1e6;
+  --heading: #fffdf8;
+  --muted: #ddd4c2;
+  --link: #ffd45c;
+  --link-hover: #ffe9a3;
+  --border: #6b6454;
+  --eyebrow: #d4cbb6;
+  color: var(--text);
+  background: var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem;
+}
+
+.eyebrow,
+.shortcut-label {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--eyebrow);
+  margin: 0 0 0.5rem;
+}
+
+h1,
+h2,
+h3,
+.md h1,
+.md h2,
+.md h3 {
+  color: var(--heading);
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 1.85rem;
+  margin: 0 0 0.5rem;
+}
+
+h2 {
+  font-size: 1.35rem;
+  margin: 0 0 0.5rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.35rem;
+}
+
+.lede {
+  color: var(--muted);
+  margin: 0 0 1.5rem;
+}
+
+a {
+  color: var(--link);
+  font-weight: 600;
+  text-underline-offset: 0.18em;
+}
+
+a:visited {
+  color: var(--link);
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+nav a {
+  font-size: 1.05rem;
+}
+
+.cards {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.75rem;
+}
+
+.cards li {
+  border-top: 1px solid var(--border);
+  padding: 0.95rem 0;
+}
+
+.cards a {
+  font-size: 1.15rem;
+}
+
+.cards p {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+}
+
+.example {
+  color: var(--muted) !important;
+  font-size: 0.95rem;
+}
+
+.track-block h3 {
+  font-size: 1.12rem;
+  margin: 1.25rem 0 0.4rem;
+}
+
+.shortcut {
+  border: 1px solid var(--border);
+  padding: 0.85rem 1rem;
+  margin: 0 0 1.25rem;
+}
+
+.shortcut-label {
+  font-size: 0.7rem;
+  margin: 0 0 0.4rem;
+}
+
+.shortcut p {
+  margin: 0 0 0.4rem;
+  color: var(--text);
+}
+
+.coach-cta {
+  border-top: 1px solid var(--border);
+  margin: 1.75rem 0 1rem;
+  padding-top: 1rem;
+}
+
+.coach-cta h3 {
+  font-size: 1.12rem;
+  margin: 0 0 0.4rem;
+}
+
+.md h2 {
+  font-size: 1.2rem;
+  margin: 1.25rem 0 0.4rem;
+}
+
+.md h3 {
+  font-size: 1.05rem;
+}
+
+.md blockquote {
+  margin: 0.75rem 0;
+  padding-left: 0.9rem;
+  border-left: 3px solid var(--link);
+  color: var(--muted);
+}
+
+.md li {
+  margin-left: 1.1rem;
+}
+
+.md strong {
+  color: var(--heading);
+}
+
+.coach-message {
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.coach-panel {
+  border: 1px solid var(--border);
+  padding: 0.85rem 1rem;
+  margin: 1rem 0;
+}
+
+.coach-wrong {
+  border-color: #c45c5c;
+}
+
+.coach-success {
+  border-color: var(--link);
+}
+
+.coach-choices {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.coach-choices button,
+.coach-controls button {
+  font: inherit;
+  color: var(--heading);
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 0.65rem 0.85rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.coach-choices button:hover,
+.coach-controls button:hover {
+  border-color: var(--link);
+}
+
+.coach-choices button:focus-visible,
+.coach-controls button:focus-visible,
+.coach-trail summary:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
+}
+
+.coach-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0 0 1.25rem;
+}
+
+.coach-trail {
+  margin: 0 0 1.25rem;
+}
+
+.coach-trail summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.coach-trail ol {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+}
+
+.coach-trail .current {
+  color: var(--heading);
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0.75rem 0;
+}
+
+input {
+  font: inherit;
+  color: var(--heading);
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 0.55rem 0.7rem;
+}
+
+.coach-controls a {
+  display: inline-block;
+  border: 1px solid var(--border);
+  padding: 0.65rem 0.85rem;
+  text-decoration: none;
+}
+
+.brand {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  margin: 0 0 0.5rem;
+}
+
+.brand:hover,
+.brand:visited {
+  color: inherit;
+}
+
+.brand h1 {
+  margin: 0;
+}
+
+.brand:hover h1 {
+  color: var(--link-hover);
+}
+
+.brand:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
+}
+
+.pass-filters {
+  margin: 0 0 1.25rem;
+}
+
+.pass-group {
+  border: 0;
+  margin: 0 0 0.85rem;
+  padding: 0;
+}
+
+.pass-group legend {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--eyebrow);
+  padding: 0;
+  margin: 0 0 0.4rem;
+}
+
+.pass-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.pass-chip {
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--heading);
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.55rem;
+  cursor: pointer;
+}
+
+.pass-chip.is-on {
+  border-color: var(--tag, var(--link));
+  box-shadow: inset 0 0 0 1px var(--tag, var(--link));
+}
+
+.tagger {
+  margin: 0.6rem 0 0;
+}
+
+.tagger summary {
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.tagger-applied {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.5rem 0;
+}
+
+.hint-list {
+  color: var(--muted);
+  padding-left: 1.2rem;
+}
+
+.choice-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin: 1rem 0;
+}
+
+.choice {
+  font: inherit;
+  color: var(--heading);
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 0.7rem 0.85rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.choice:hover,
+.choice.is-picked {
+  border-color: var(--link);
+}
+
+.choice.is-correct {
+  border-color: var(--link);
+}
+
+.choice.is-wrong {
+  border-color: #c45c5c;
+}
