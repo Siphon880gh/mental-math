@@ -11,7 +11,7 @@ import GuideView from "./pages/GuideView";
 import ScenarioPlayer from "./pages/ScenarioPlayer";
 import Scenarios from "./pages/Scenarios";
 import TrackGuides from "./pages/TrackGuides";
-import { TRACK_NAV } from "./lib/tracks";
+import SiteNav from "./components/SiteNav";
 
 export default function App() {
   return (
@@ -25,14 +25,7 @@ export default function App() {
           Recognize number shapes, then calculate on the fly. Five minutes. No
           calculator.
         </p>
-        <nav>
-          <Link to={TRACK_NAV.quick.href}>{TRACK_NAV.quick.label}</Link>
-          <Link to={TRACK_NAV.stakeholder.href}>{TRACK_NAV.stakeholder.label}</Link>
-          <Link to="/drills">Drills</Link>
-          <Link to="/cases">Cases</Link>
-          <Link to="/scenarios">Scenarios</Link>
-          <Link to="/games">Games</Link>
-        </nav>
+        <SiteNav />
       </header>
       <Routes>
         <Route path="/" element={<Dashboard />} />

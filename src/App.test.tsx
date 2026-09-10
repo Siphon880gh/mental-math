@@ -55,6 +55,9 @@ test("guides hub splits tracks and redirects archive to Track A", () => {
   ).not.toBeInTheDocument();
   expect(screen.getByRole("link", { name: /number anchors/i })).toBeInTheDocument();
   expect(screen.queryByRole("link", { name: /fully loaded headcount/i })).not.toBeInTheDocument();
+  // Tag group labels live inside the Filter popover — open it to assert them.
+  const filterBtn = screen.getAllByRole("button", { name: /^filter$/i })[0];
+  fireEvent.click(filterBtn);
   expect(screen.getAllByText(/first-pass tag/i).length).toBeGreaterThan(0);
   expect(screen.getAllByText(/second-pass tag/i).length).toBeGreaterThan(0);
 });
