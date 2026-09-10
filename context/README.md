@@ -24,3 +24,5 @@ The script shallow-clones (`--depth 1`) into `context/apps/`. If a folder is alr
 ## Authoring
 
 After cloning, open matching patterns under `context/apps/` when creating math guides, drills, or coaching trees.
+
+Lesson notes for extra arithmetic and startup math (not in the original `_Biz Math` pack) live in [`docs-more/`](./docs-more/README.md). Rewrite them into `familyId` resources; do not paste the files verbatim into the UI (the app already loads those markdown files as Guides).

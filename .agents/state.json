@@ -1,0 +1,155 @@
+{
+  "current_epic_id": "E4",
+  "current_milestone_id": "E4.M1",
+  "status": "in_progress",
+  "last_updated_iso": "2026-09-10T10:00:00Z",
+  "milestone_story_status": {
+    "E1.M1.S1": "done",
+    "E1.M1.S2": "done",
+    "E1.M1.S3": "done",
+    "E3.M1.S1": "done",
+    "E3.M1.S2": "done",
+    "E4.M1.S4": "done",
+    "E9.M4.S1": "done"
+  },
+  "app": {
+    "name": "Mental Math Trainer (REFLEX_CORE)",
+    "one_liner": "Two-track Guides hub: quick everyday math vs stakeholder planning math; each guide has a step-by-step coach. Beginner path still gates cases on fluency.",
+    "platform": "web"
+  },
+  "decisions": {
+    "platform": "web (React 19 + Vite + TypeScript)",
+    "approach": "A",
+    "approach_name": "fluency-first trainer + timed gate + MVP freeze",
+    "progress_key": "reflex_core_progress_v1",
+    "join_key": "familyId",
+    "tracks": {
+      "A": "quick math for business and everyday life",
+      "B": "business and entrepreneurship stakeholder discussion and planning math"
+    },
+    "guides_hub": true,
+    "archive_retired": true,
+    "coach_slug": "same as guide / familyId",
+    "no_runtime_llm": true,
+    "learner_persona_primary": "founder / operator calculating in conversation",
+    "curriculum_principle": "Recognize number shapes then scale; one Guides hub with tracks A/B; coach per guide; drills before graded conversation cases",
+    "mvp_freeze_after": [
+      "E1.M1",
+      "E3.M1",
+      "E4.M1",
+      "E4.M2",
+      "E4.M3",
+      "E4.M0",
+      "E5.M1",
+      "E5.M2",
+      "E8.M1",
+      "E8.M2",
+      "E8.M3",
+      "E2.M1",
+      "E3.M2",
+      "E6.M1"
+    ],
+    "content_floors_p0": {
+      "guides_per_family": 1,
+      "coach_per_guide_p0": 1,
+      "drills_per_path_group": 8,
+      "stacked_founder_cases": 3,
+      "coaching_sessions": 1
+    },
+    "fluency_gate": {
+      "groups": ["percents", "conversions"],
+      "min_accuracy": 0.8,
+      "median_latency_ms": { "percents": 5000, "conversions": 6000 }
+    },
+    "execution_rules": [
+      "One milestone in_progress at a time",
+      "familyId is problem type; resource type is separate",
+      "One Guides hub; Track A then Track B; coach slug matches guide",
+      "Do not restore Archive as a learner surface",
+      "Rewrite context/docs; do not paste verbatim",
+      "SAMPLE numbers only",
+      "Deny post-P0 until MVP freeze checklist green",
+      "After Done(global) milestones, drain content with LOOPS/LOOP-Graph.md"
+    ]
+  },
+  "beginner_learning_order": [
+    "Number anchors",
+    "Magnitude / zeros",
+    "Percent shortcuts",
+    "Time-money conversions and divide-by-5",
+    "Break-even and markup",
+    "Timed fluency gate",
+    "Stacked founder conversation cases",
+    "CFO smell tests (post-MVP)"
+  ],
+  "milestones": {
+    "implementation_order": [
+      "E1.M1",
+      "E3.M1",
+      "E4.M1",
+      "E4.M2",
+      "E4.M3",
+      "E4.M0",
+      "E5.M1",
+      "E5.M2",
+      "E8.M1",
+      "E8.M2",
+      "E8.M3",
+      "E2.M1",
+      "E3.M2",
+      "E6.M1"
+    ],
+    "post_mvp_order": ["E5.M3", "E8.M4", "E2.M2", "E4.M4"],
+    "later_order": ["E7.M1", "E7.M2"],
+    "advanced_order": ["E9.M1", "E9.M2", "E9.M4", "E9.M3"],
+    "rationale": "P0 playable reflex path including one coaching tree; post-P0 volume; E7 games; E9 CFO. Then LOOPS/ graph drains content.",
+    "by_epic": {
+      "E1": ["E1.M1"],
+      "E2": ["E2.M1", "E2.M2"],
+      "E3": ["E3.M1", "E3.M2"],
+      "E4": ["E4.M1", "E4.M2", "E4.M3", "E4.M0", "E4.M4"],
+      "E5": ["E5.M1", "E5.M2", "E5.M3"],
+      "E6": ["E6.M1"],
+      "E7": ["E7.M1", "E7.M2"],
+      "E8": ["E8.M1", "E8.M2", "E8.M3", "E8.M4"],
+      "E9": ["E9.M1", "E9.M2", "E9.M4", "E9.M3"]
+    }
+  },
+  "identified_epics": [
+    { "id": "E0", "name": "Planning & Decisions", "priority": "Mandatory", "status": "complete" },
+    { "id": "E1", "name": "Family catalog", "priority": "MVP", "status": "complete" },
+    { "id": "E2", "name": "Learning path planner", "priority": "MVP", "status": "todo" },
+    { "id": "E3", "name": "Progress & unlocks", "priority": "MVP", "status": "in_progress" },
+    { "id": "E4", "name": "Guides, drills, fluency gate", "priority": "MVP", "status": "todo" },
+    { "id": "E5", "name": "Conversation cases", "priority": "MVP", "status": "todo" },
+    { "id": "E6", "name": "Dashboard", "priority": "MVP", "status": "todo" },
+    { "id": "E7", "name": "Mini-games", "priority": "Later", "status": "todo" },
+    { "id": "E8", "name": "Step-by-step coaching", "priority": "MVP thin + later library", "status": "todo" },
+    { "id": "E9", "name": "CFO / advanced packs", "priority": "Advanced", "status": "todo" }
+  ],
+  "completed": [
+    "E0.discovery",
+    "E0.spec",
+    "E0.epic_map",
+    "E0.loops",
+    "E0.graph",
+    "E1.M1.S1",
+    "E1.M1.S2",
+    "E1.M1.S3",
+    "E1.M1",
+    "E3.M1.S1",
+    "E3.M1.S2",
+    "E3.M1.S3",
+    "E3.M1"
+  ],
+  "docs": {
+    "spec": "docs/superpowers/specs/2026-09-10-mental-math-trainer-design.md",
+    "epic_map": "EPIC_MAP.md",
+    "implementation_stories": "IMPLEMENTATION_STORIES.md",
+    "resources": "RESOURCES.md",
+    "milestone_loop": "AGENTS_LOOP-Continue-Milestone.md",
+    "content_graph": "LOOPS/LOOP-Graph.md",
+    "p0_plan": "docs/superpowers/plans/2026-09-10-mental-math-p0.md"
+  },
+  "next_action": "E4.M1.S1 — gradeAnswer in src/lib/grading.ts with tests for 50×40=2000 and 25×8=200"
+}
