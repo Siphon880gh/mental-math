@@ -7,6 +7,7 @@ describe("games", () => {
     expect(GAMES.map((g) => g.slug)).toEqual(["decimal-shift", "percent-swap", "percent-chips"]);
     expect(getGame("decimal-shift")?.familyId).toBe("percent-shift");
     expect(GAME_SKIPS.some((s) => s.familyId === "anchors" && s.reason === "no_mechanic")).toBe(true);
+    expect(GAME_SKIPS.some((s) => s.familyId === "magnitude" && s.reason === "no_mechanic")).toBe(true);
     expect(GAME_SKIPS.some((s) => s.familyId === "dilution")).toBe(true);
     expect(getGame("missing")).toBeUndefined();
   });

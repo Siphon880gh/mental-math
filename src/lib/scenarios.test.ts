@@ -5,8 +5,8 @@ describe("scenarios", () => {
   it("has unique ids, one correct choice, multiple skills, and both tracks", () => {
     const ids = SCENARIOS.map((row) => row.id);
     expect(new Set(ids).size).toBe(ids.length);
-    expect(scenariosForTrack("quick").length).toBeGreaterThanOrEqual(3);
-    expect(scenariosForTrack("stakeholder").length).toBeGreaterThanOrEqual(3);
+    expect(scenariosForTrack("quick").length).toBeGreaterThanOrEqual(12);
+    expect(scenariosForTrack("stakeholder").length).toBeGreaterThanOrEqual(12);
     for (const row of SCENARIOS) {
       expect(row.skillIds.length).toBeGreaterThanOrEqual(2);
       expect(row.hints.length).toBeGreaterThanOrEqual(1);

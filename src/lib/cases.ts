@@ -105,6 +105,9 @@ export const CASES: CaseStudy[] = [
   c("sf-int-720-be", "stacked-founder", "hour-month", "break_even", "intermediate",
     "SAMPLE: $0.50/hr instance, price $20/mo. Users per instance?",
     18, ["0.50×720 = $360/mo", "360÷20 = 18", "Same 18 shape as $1/hr at $40"], "users"),
+  c("sf-booth-30", "stacked-founder", "break-even", "break_even", "beginner",
+    "SAMPLE: conference booth $2,400, tickets $80. Heads to cover the booth?",
+    30, ["2,400÷80 = 30"], "users"),
 
   c("cf-200k", "cfo-feasibility", "cfo-feasibility", "smell_test", "beginner",
     "SAMPLE: $20/mo, 10k possible customers. Monthly ceiling?",
@@ -133,6 +136,9 @@ export const CASES: CaseStudy[] = [
   c("cf-int-room", "cfo-feasibility", "cfo-feasibility", "smell_test", "intermediate",
     "SAMPLE: same $200k ceiling, infra $5k. Infra as a percent of ceiling?",
     2.5, ["5k / 200k = 2.5%", "Room to operate"]),
+  c("cf-12-5k", "cfo-feasibility", "cfo-feasibility", "smell_test", "beginner",
+    "SAMPLE: $12/mo, 5,000 possible seats. Monthly ceiling?",
+    60000, ["12×5,000 = $60k"], "usd"),
 
   c("ue-ltv-60", "cfo-unit-econ", "cfo-unit-econ", "ltv_cac", "beginner",
     "SAMPLE: $20/mo, they stay 3 months. LTV?",
@@ -161,6 +167,9 @@ export const CASES: CaseStudy[] = [
   c("ue-int-90", "cfo-unit-econ", "cfo-unit-econ", "ltv_cac", "intermediate",
     "SAMPLE: LTV $90, CAC $30.",
     3, ["90÷30 = 3×"]),
+  c("ue-40x5", "cfo-unit-econ", "cfo-unit-econ", "ltv_cac", "beginner",
+    "SAMPLE: $40/mo, they stay 5 months. LTV?",
+    200, ["40×5 = $200"], "usd"),
 
   c("rw-6", "cfo-runway", "cfo-runway", "runway", "beginner",
     "SAMPLE: $120k in the bank, $20k burn. Months?",
@@ -189,6 +198,9 @@ export const CASES: CaseStudy[] = [
   c("rw-int-cut", "cfo-runway", "cfo-runway", "runway", "intermediate",
     "SAMPLE: $60k cash. Cut burn from $20k to $10k. Months after the cut?",
     6, ["60÷10 = 6"]),
+  c("rw-10", "cfo-runway", "cfo-runway", "runway", "beginner",
+    "SAMPLE: $100k cash, $10k burn. Months?",
+    10, ["100÷10 = 10"]),
 
   c("gr-900", "cfo-growth", "cfo-growth", "growth_claim", "beginner",
     "SAMPLE: 100 users at 20%/mo. About how many in 12 months?",
@@ -217,6 +229,9 @@ export const CASES: CaseStudy[] = [
   c("gr-int-68", "cfo-growth", "cfo-growth", "growth_claim", "intermediate",
     "SAMPLE: 40 users × 1.7 in 3 months.",
     68, ["40×1.7 = 68"], "users"),
+  c("gr-2250", "cfo-growth", "cfo-growth", "growth_claim", "beginner",
+    "SAMPLE: 250 users × ~9 in a year at 20%/mo.",
+    2250, ["250×9 = 2,250"], "users"),
 
   c("ef-45", "startup-efficiency", "rule-of-40", "rule_of_40", "beginner",
     "SAMPLE: 30% growth, 15% margin. Rule of 40 sum?",
@@ -245,6 +260,9 @@ export const CASES: CaseStudy[] = [
   c("ef-int-12", "startup-efficiency", "cac-payback", "payback", "intermediate",
     "SAMPLE: CAC $120, GP $10/mo.",
     12, ["120÷10=12", "On the ≤12 line"]),
+  c("ef-50", "startup-efficiency", "rule-of-40", "rule_of_40", "beginner",
+    "SAMPLE: 25% growth, 25% margin. Rule of 40 sum?",
+    50, ["25+25=50", "Passes ~40"]),
 
   c("mp-300k", "startup-marketplace", "take-rate", "take_rate", "beginner",
     "SAMPLE: $2M GMV, 15% take. Revenue?",
@@ -273,6 +291,9 @@ export const CASES: CaseStudy[] = [
   c("mp-int-small", "startup-marketplace", "processing-fees", "fees", "intermediate",
     "SAMPLE: $0.59 fee on $10 is what percent?",
     5.9, ["0.59/10 = 5.9%", "Small tickets hurt"]),
+  c("mp-75k", "startup-marketplace", "take-rate", "take_rate", "beginner",
+    "SAMPLE: $1.5M GMV, 5% take. Revenue?",
+    75000, ["5% of 1.5M = $75k"], "usd"),
 
   c("pc-156", "startup-people-capital", "fully-loaded", "loaded_cost", "beginner",
     "SAMPLE: $120k salary. Loaded at ×1.3?",
@@ -301,6 +322,9 @@ export const CASES: CaseStudy[] = [
   c("pc-int-nrr80", "startup-people-capital", "nrr", "nrr_read", "intermediate",
     "SAMPLE: cohort $100k → $80k. NRR %?",
     80, ["80/100 = 80%"]),
+  c("pc-195", "startup-people-capital", "fully-loaded", "loaded_cost", "beginner",
+    "SAMPLE: $150k salary ×1.3.",
+    195000, ["150×1.3 = $195k"], "usd"),
 ];
 
 export function casesForPack(packId: CasePackId): CaseStudy[] {

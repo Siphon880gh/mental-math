@@ -18,7 +18,7 @@ describe("drill banks", () => {
     for (const id of PATH_DRILL_GROUP_IDS) {
       expect(itemsForGroup(id).length).toBeGreaterThanOrEqual(16);
     }
-    for (const id of ["cfo-feasibility", "cfo-unit-econ", "cfo-runway", "cfo-growth", "foundations", "startup"]) {
+    for (const id of ["cfo-feasibility", "cfo-unit-econ", "cfo-runway", "cfo-growth", "foundations", "startup", "stacked-founder"]) {
       expect(itemsForGroup(id).length).toBeGreaterThanOrEqual(8);
     }
     expect(DRILL_GROUPS.filter((g) => g.pathGroup).map((g) => g.id)).toEqual([...PATH_DRILL_GROUP_IDS]);

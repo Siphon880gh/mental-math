@@ -104,6 +104,12 @@ export const DRILL_ITEMS: DrillItem[] = [
   d("pct-tip-80", "percents", "percent-tip", "SAMPLE: 20% of 80.", 16, ["×2=160", "one place left → 16"]),
   d("pct-tip-15", "percents", "percent-tip", "SAMPLE: 20% of 15.", 3, ["×2=30", "one place left → 3"]),
   d("pct-tip-42", "percents", "percent-tip", "SAMPLE: 20% of $42.30.", 8.46, ["×2=84.60", "one place left → 8.46"], "usd"),
+  d("pct-1-12000", "percents", "percent-shift", "SAMPLE: 1% of 12,000.", 120, ["two places left → 120"]),
+  d("pct-10-360", "percents", "percent-shift", "SAMPLE: 10% of 360.", 36, ["one place left → 36"]),
+  d("pct-12-25", "percents", "percent-reversible", "SAMPLE: 12% of 25.", 3, ["swap → 25% of 12", "quarter of 12 = 3"]),
+  d("pct-40-60", "percents", "percent-tens", "SAMPLE: 40% of 60.", 24, ["drop zeros → 4×6=24"]),
+  d("pct-20-2000", "percents", "percent-chunks", "SAMPLE: 20% of 2,000.", 400, ["10%=200 twice", "400"]),
+  d("pct-tip-60", "percents", "percent-tip", "SAMPLE: 20% of 60.", 12, ["×2=120", "one place left → 12"]),
 
   d("cv-80-5", "conversions", "div-by-5", "SAMPLE: 80 ÷ 5.", 16, ["×2=160", "one place left → 16"]),
   d("cv-45-5", "conversions", "div-by-5", "SAMPLE: 45 ÷ 5.", 9, ["×2=90", "one place left → 9"]),
@@ -121,6 +127,10 @@ export const DRILL_ITEMS: DrillItem[] = [
   d("cv-100y", "conversions", "month-year", "SAMPLE: $100/mo as yearly.", 1200, ["100×12=1,200"], "usd"),
   d("cv-720y", "conversions", "month-year", "SAMPLE: $720/mo as yearly.", 8640, ["720×12=8,640"], "usd"),
   d("cv-80y", "conversions", "month-year", "SAMPLE: $80/mo as yearly.", 960, ["80×12=960"], "usd"),
+  d("cv-250-5", "conversions", "div-by-5", "SAMPLE: 250 ÷ 5.", 50, ["×2=500", "one place left → 50"]),
+  d("cv-4hr", "conversions", "hour-month", "SAMPLE: $4/hr as monthly.", 2880, ["4×720=2,880"], "usd"),
+  d("cv-1500d", "conversions", "month-day", "SAMPLE: $1,500/mo as daily.", 50, ["1,500÷30=50"], "usd"),
+  d("cv-50y", "conversions", "month-year", "SAMPLE: $50/mo as yearly.", 600, ["50×12=600"], "usd"),
 
   d("be-3000-50", "break-even", "break-even", "SAMPLE: cost $3,000, price $50. Users?", 60, ["3,000÷50", "cancel zero → 300÷5=60"]),
   d("be-1000-50", "break-even", "break-even", "SAMPLE: cost $1,000, price $50.", 20, ["1,000÷50=20"]),
@@ -194,6 +204,8 @@ export const DRILL_ITEMS: DrillItem[] = [
   d("fd-61-28", "foundations", "left-to-right", "SAMPLE: 61 + 28.", 89, ["60+20=80", "1+8=9", "89"]),
   d("fd-199x3", "foundations", "round-compensate", "SAMPLE: 199 × 3.", 597, ["200×3=600", "minus 3 → 597"]),
   d("fd-24x5", "foundations", "double-half", "SAMPLE: 24 × 5.", 120, ["×10=240", "half → 120"]),
+  d("fd-72-8", "foundations", "rule-of-72", "SAMPLE: years to double at 8%.", 9, ["72÷8=9"]),
+  d("fd-19x6", "foundations", "round-compensate", "SAMPLE: 19 × 6.", 114, ["20×6=120", "minus 6 → 114"]),
 
   d("st-mrr-80", "startup", "mrr-arr", "SAMPLE: $80k MRR as ARR (×12, smell ~$1M).", 960000, ["80,000×12=960,000"], "usd"),
   d("st-mrr-100", "startup", "mrr-arr", "SAMPLE: $100k MRR as ARR.", 1200000, ["100,000×12=1,200,000"], "usd"),
@@ -228,10 +240,17 @@ export const DRILL_ITEMS: DrillItem[] = [
   d("st-tam-120", "startup", "tam-fermi", "SAMPLE: 200k buyers × $600/year. TAM $M?", 120, ["200,000×600=120,000,000", "$120M"]),
   d("st-tam-slice", "startup", "tam-fermi", "SAMPLE: 1,000 buyers × $600/year. ARR $k?", 600, ["1,000×600=600,000", "$600k"]),
   d("st-tam-50-12", "startup", "tam-fermi", "SAMPLE: 50k buyers × $12/year. TAM $k?", 600, ["50,000×12=600,000", "$600k"]),
+  d("st-mrr-25", "startup", "mrr-arr", "SAMPLE: $25k MRR as ARR.", 300000, ["25,000×12=300,000"], "usd"),
+  d("st-churn-4", "startup", "churn", "SAMPLE: 4% monthly churn. Lifetime months?", 25, ["1/0.04=25"]),
 
   d("stf-1-40", "stacked-founder", "stacked-founder", "SAMPLE: $1/hr, $40/mo. Users per server?", 18, ["×720 → 720", "720÷40=18"]),
   d("stf-2-40", "stacked-founder", "stacked-founder", "SAMPLE: $2/hr, $40/mo. Users per server?", 36, ["×720 → 1,440", "1,440÷40=36"]),
   d("stf-10k-5", "stacked-founder", "stacked-founder", "SAMPLE: 10k visitors, 5% conversion. Customers?", 500, ["1%=100", "×5 → 500"]),
+  d("stf-05-20", "stacked-founder", "hour-month", "SAMPLE: $0.50/hr, $20/mo. Users per instance?", 18, ["0.50×720=360", "360÷20=18"]),
+  d("stf-3-60", "stacked-founder", "hour-month", "SAMPLE: $3/hr, $60/mo. Users per box?", 36, ["3×720=2,160", "2,160÷60=36"]),
+  d("stf-8k-10", "stacked-founder", "percent-shift", "SAMPLE: 8,000 visitors, 10% convert. Customers?", 800, ["10% is one place left", "800"]),
+  d("stf-900-y", "stacked-founder", "month-year", "SAMPLE: $900/mo box. Yearly cost?", 10800, ["900×12=10,800"], "usd"),
+  d("stf-1hr-y", "stacked-founder", "hour-month", "SAMPLE: $1/hr GPU. Yearly cost of the box?", 8640, ["×720 → $720/mo", "720×12=8,640"], "usd"),
 ];
 
 export function itemsForGroup(groupId: string): DrillItem[] {

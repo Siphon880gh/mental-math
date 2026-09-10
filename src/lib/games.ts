@@ -1,7 +1,8 @@
 /**
  * Mini-game registry.
  *
- * Skips (no_mechanic): anchors (pure recall), break-even (drill/case),
+ * Skips (no_mechanic): anchors (pure recall), magnitude (shares decimal-shift
+ * with percent-shift), break-even (drill/case),
  * stacked-founder (case), all cfo-* and extra startup families, percent-tens,
  * hour-month / month-day / month-year, markup, extra mental families,
  * percent-tip (shares ×2-then-shift with div-by-5 — only one widget, used on
@@ -43,6 +44,7 @@ export const GAMES: GameMeta[] = [
 
 export const GAME_SKIPS: { familyId: FamilyId; reason: "no_mechanic" }[] = [
   { familyId: "anchors", reason: "no_mechanic" },
+  { familyId: "magnitude", reason: "no_mechanic" },
   { familyId: "percent-tens", reason: "no_mechanic" },
   { familyId: "percent-tip", reason: "no_mechanic" },
   { familyId: "div-by-5", reason: "no_mechanic" },
