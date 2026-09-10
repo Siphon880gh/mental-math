@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import SessionPeekBanner from "../components/SessionPeekBanner";
+import { useSessionPeek } from "../components/useSessionPeek";
 import { getCase } from "../lib/cases";
 import { gradeAnswer } from "../lib/grading";
 import { THINKING_MODE_TIPS } from "../lib/thinkingModeTips";
@@ -7,11 +9,14 @@ import {
   areCasesLocked,
   recordCaseComplete,
 } from "../lib/progressStore";
+import { isSessionPeekOn } from "../lib/sessionPeek";
 
 export default function CasePlayer() {
   const { caseId = "" } = useParams();
   const study = getCase(caseId);
-  const locked = areCasesLocked();
+  const gated = areCasesLocked();
+  const { peek, enable, disable } = useSessionPeek();
+  const locked = gated && !peek;
   const [draft, setDraft] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
@@ -27,13 +32,13 @@ export default function CasePlayer() {
     return (
       <section>
         <h2>Cases locked</h2>
-        <p>
-          Graded cases stay locked until you pass percents and conversions on a
-          timer (≥80%, median ≤5s percents / ≤6s conversions).
-        </p>
-        <Link to="/drills/percents">Percents drill</Link>
-        {" · "}
-        <Link to="/drills/conversions">Conversions drill</Link>
+        <SessionPeekBanner
+          surface="case"
+          peek={peek}
+          onEnable={enable}
+          onDisable={disable}
+          showGateLinks
+        />
       </section>
     );
   }
@@ -44,6 +49,14 @@ export default function CasePlayer() {
 
   return (
     <section>
+      {gated ? (
+        <SessionPeekBanner
+          surface="case"
+          peek={peek}
+          onEnable={enable}
+          onDisable={disable}
+        />
+      ) : null}
       <p className="eyebrow">
         {study.packId} · {study.difficulty} · {study.thinkingMode}
       </p>
@@ -53,7 +66,7 @@ export default function CasePlayer() {
           e.preventDefault();
           if (!submitted) {
             setSubmitted(true);
-            recordCaseComplete(study.packId);
+            if (!isSessionPeekOn()) recordCaseComplete(study.packId);
           }
         }}
       >

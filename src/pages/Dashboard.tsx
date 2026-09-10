@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import SessionPeekBanner from "../components/SessionPeekBanner";
+import { useSessionPeek } from "../components/useSessionPeek";
 import {
   BEGINNER_PATH_ID,
   OPERATOR_PATH_ID,
@@ -29,6 +31,7 @@ export default function Dashboard() {
   const other = operator ? BEGINNER_PATH_ID : OPERATOR_PATH_ID;
   const otherPath = getPathTemplate(other);
   const gated = areCasesLocked(progress);
+  const { peek, enable, disable } = useSessionPeek();
 
   return (
     <section>
@@ -55,10 +58,13 @@ export default function Dashboard() {
         <Link to={ctaHref}>{complete ? "Browse guides" : "Continue"}</Link>
       </p>
       {gated ? (
-        <p className="example">
-          Cases stay locked until percents (≤5s median) and conversions (≤6s
-          median) hit ≥80% on /drills/percents and /drills/conversions.
-        </p>
+        <SessionPeekBanner
+          surface="cases"
+          peek={peek}
+          onEnable={enable}
+          onDisable={disable}
+          showGateLinks
+        />
       ) : null}
       <h3>Milestones</h3>
       <ul className="cards">

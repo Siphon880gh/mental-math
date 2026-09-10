@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import SessionPeekBanner from "../components/SessionPeekBanner";
+import { useSessionPeek } from "../components/useSessionPeek";
 import { getDrillGroup, itemsForGroup } from "../lib/drillData";
 import { gradeAnswer, median } from "../lib/grading";
 import {
@@ -7,12 +9,15 @@ import {
   loadProgress,
   recordDrillGroup,
 } from "../lib/progressStore";
+import { isSessionPeekOn } from "../lib/sessionPeek";
 
 export default function DrillPlayer() {
   const { groupId = "" } = useParams();
   const group = getDrillGroup(groupId);
   const items = useMemo(() => itemsForGroup(groupId), [groupId]);
-  const locked = isPathDrillLocked(groupId);
+  const gated = isPathDrillLocked(groupId);
+  const { peek, enable, disable } = useSessionPeek();
+  const locked = gated && !peek;
   const [index, setIndex] = useState(0);
   const [draft, setDraft] = useState("");
   const [started, setStarted] = useState(() => Date.now());
@@ -51,10 +56,17 @@ export default function DrillPlayer() {
     return (
       <section>
         <h2>{group.title}</h2>
-        <p>This path group is locked until the previous milestone is complete.</p>
-        <Link to="/">Home</Link>
-        {" · "}
-        <Link to="/drills">All drills</Link>
+        <SessionPeekBanner
+          surface="drill"
+          peek={peek}
+          onEnable={enable}
+          onDisable={disable}
+        />
+        <p>
+          <Link to="/">Home</Link>
+          {" · "}
+          <Link to="/drills">All drills</Link>
+        </p>
       </section>
     );
   }
@@ -83,11 +95,13 @@ export default function DrillPlayer() {
   const next = () => {
     if (index + 1 >= items.length) {
       const correct = gradesRef.current.filter((g) => g === "correct" || g === "close").length;
-      recordDrillGroup(groupId, {
-        correct,
-        total: items.length,
-        medianLatencyMs: median(latenciesRef.current),
-      });
+      if (!isSessionPeekOn()) {
+        recordDrillGroup(groupId, {
+          correct,
+          total: items.length,
+          medianLatencyMs: median(latenciesRef.current),
+        });
+      }
       setDone(true);
       return;
     }
@@ -98,7 +112,13 @@ export default function DrillPlayer() {
   };
 
   if (done) {
-    const score = loadProgress().drillScores[groupId];
+    const stored = loadProgress().drillScores[groupId];
+    const correct = gradesRef.current.filter((g) => g === "correct" || g === "close").length;
+    const score = stored ?? {
+      correct,
+      total: items.length,
+      medianLatencyMs: median(latenciesRef.current),
+    };
     return (
       <section>
         <h2>{group.title} complete</h2>
@@ -115,6 +135,14 @@ export default function DrillPlayer() {
 
   return (
     <section>
+      {gated ? (
+        <SessionPeekBanner
+          surface="drill"
+          peek={peek}
+          onEnable={enable}
+          onDisable={disable}
+        />
+      ) : null}
       <p className="eyebrow">
         {group.title} · {index + 1}/{items.length} · {elapsed}s
       </p>

@@ -6,6 +6,7 @@ import { defaultProgress, saveProgress } from "./lib/progressStore";
 
 afterEach(() => {
   localStorage.clear();
+  sessionStorage.clear();
 });
 
 test("renders app title", () => {
@@ -135,6 +136,32 @@ test("cases entry names the fluency gate and hides thought chains", () => {
     screen.getAllByText(/percents \+ conversions timed gate/i).length,
   ).toBeGreaterThan(0);
   expect(screen.queryByText(/hourly ×720/i)).not.toBeInTheDocument();
+  expect(screen.getByRole("button", { name: /browse this session/i })).toBeInTheDocument();
+});
+
+test("browse this session opens locked cases without unlocking the gate", () => {
+  localStorage.clear();
+  render(
+    <MemoryRouter initialEntries={["/cases"]}>
+      <App />
+    </MemoryRouter>,
+  );
+  fireEvent.click(screen.getByRole("button", { name: /browse this session/i }));
+  expect(screen.getByRole("link", { name: /sf-gpu-18/i })).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: /turn off temporary peek/i })).toBeInTheDocument();
+  expect(screen.queryByText(/hourly ×720/i)).not.toBeInTheDocument();
+});
+
+test("open this drill this session plays a locked path group", () => {
+  localStorage.clear();
+  render(
+    <MemoryRouter initialEntries={["/drills/percents"]}>
+      <App />
+    </MemoryRouter>,
+  );
+  expect(screen.getByRole("heading", { name: /percents/i })).toBeInTheDocument();
+  fireEvent.click(screen.getByRole("button", { name: /open this drill this session/i }));
+  expect(screen.getByText(/1% of 8,500/i)).toBeInTheDocument();
 });
 
 test("unlocked case shows the prompt and hides the chain until submit", () => {

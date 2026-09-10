@@ -1,9 +1,13 @@
 import { Link, useSearchParams } from "react-router-dom";
+import SessionPeekBanner from "../components/SessionPeekBanner";
+import { useSessionPeek } from "../components/useSessionPeek";
 import { CASE_PACKS, casesForPack } from "../lib/cases";
 import { areCasesLocked } from "../lib/progressStore";
 
 export default function Cases() {
-  const locked = areCasesLocked();
+  const gated = areCasesLocked();
+  const { peek, enable, disable } = useSessionPeek();
+  const locked = gated && !peek;
   const [params] = useSearchParams();
   const packFilter = params.get("pack");
   const packs = packFilter
@@ -13,14 +17,23 @@ export default function Cases() {
   return (
     <section>
       <h2>Cases</h2>
+      {gated ? (
+        <SessionPeekBanner
+          surface="cases"
+          peek={peek}
+          onEnable={enable}
+          onDisable={disable}
+          showGateLinks
+        />
+      ) : (
+        <p className="lede">Conversation prompt, commit a number, then see the chain. SAMPLE only.</p>
+      )}
       {locked ? (
         <p>
           Graded cases stay locked until the timed fluency gate: ≥80% on
           /drills/percents (median ≤5s) and /drills/conversions (median ≤6s).
         </p>
-      ) : (
-        <p className="lede">Conversation prompt, commit a number, then see the chain. SAMPLE only.</p>
-      )}
+      ) : null}
       {packs.map((pack) => {
         const rows = casesForPack(pack.id);
         return (
