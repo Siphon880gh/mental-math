@@ -35,6 +35,7 @@ test("logo goes Home and nav splits tracks, no Home or Archive", () => {
   expect(within(nav).getByRole("link", { name: /^games$/i })).toBeInTheDocument();
   expect(within(nav).queryByRole("link", { name: /^archive$/i })).not.toBeInTheDocument();
   expect(screen.getByRole("link", { name: /mental math trainer/i })).toHaveAttribute("href", "/");
+  expect(nav.closest("header")).toBeNull();
 });
 
 test("guides hub splits tracks and redirects archive to Track A", () => {
