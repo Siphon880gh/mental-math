@@ -5,6 +5,7 @@ import {
   getGuide,
   GUIDES,
   guidesForTrack,
+  hrefForFamilyGuide,
 } from "./guides";
 import { allCurriculumFamilyIds } from "./tracks";
 
@@ -25,6 +26,8 @@ describe("guides catalog", () => {
     expect(getGuide("anchors")?.track).toBe("quick");
     expect(getGuide("dilution")?.track).toBe("stakeholder");
     expect(getGuide("anchors")?.relatedCoachSlug).toBe("anchors");
+    expect(hrefForFamilyGuide("percent-chunks")).toBe("/guides/percent-chunks");
+    expect(hrefForFamilyGuide("month-year")).toBe("/guides/month-year");
   });
 
   it("round-trips getGuide and keeps lesson body", () => {
@@ -32,5 +35,6 @@ describe("guides catalog", () => {
     expect(guide?.familyId).toBe("rule-of-72");
     expect(guide?.body).toMatch(/72 ÷/i);
     expect(getGuide("missing")).toBeUndefined();
+    expect(getGuide("month-year")?.body).toMatch(/Multiply by 10 for \$300\/year/);
   });
 });

@@ -128,6 +128,8 @@ Twelve months. Yearly to monthly is ÷12.
 
 $30/mo → $360/year.
 
+Multiply by 10 for $300/year. Then multiply by 2 for $60/year. Sum them for $360/year.
+
 ## Check
 - $100/mo → $1,200/year
 - $2/hr → $720/mo → $8,640/year

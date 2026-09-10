@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { LessonLink } from "../components/LessonLink";
 
 const CHIPS = [50, 25, 10, 5];
 const TARGET = 35;
@@ -28,7 +29,7 @@ export default function ChunkAdder() {
       </p>
       {win ? <p className="coach-success coach-panel">35% of 2,000 = 700. Three tenths plus 5%.</p> : null}
       <p>
-        <Link to="/guides/percent-chunks">Related guide</Link>
+        <LessonLink familyId="percent-chunks">Related guide</LessonLink>
         {" · "}
         <Link to="/games">All games</Link>
       </p>

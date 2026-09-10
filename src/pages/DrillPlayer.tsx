@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { LessonLink } from "../components/LessonLink";
 import SessionPeekBanner from "../components/SessionPeekBanner";
 import { useSessionPeek } from "../components/useSessionPeek";
 import { getDrillGroup, itemsForGroup } from "../lib/drillData";
@@ -147,6 +148,9 @@ export default function DrillPlayer() {
         {group.title} · {index + 1}/{items.length} · {elapsed}s
       </p>
       <h2>{item.prompt}</h2>
+      <p className="example">
+        Skill: <LessonLink familyId={item.familyId} />
+      </p>
       <form
         onSubmit={(e) => {
           e.preventDefault();

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { LessonLink } from "../components/LessonLink";
 
 const START = 8500;
 
@@ -27,7 +28,7 @@ export default function DecimalShift() {
       {win10 ? <p className="coach-success coach-panel">10% of 8,500 is 850. One more left for 1%.</p> : null}
       {win1 ? <p className="coach-success coach-panel">1% of 8,500 is 85. Two places left.</p> : null}
       <p>
-        <Link to="/guides/percent-shift">Related guide</Link>
+        <LessonLink familyId="percent-shift">Related guide</LessonLink>
         {" · "}
         <Link to="/games">All games</Link>
       </p>

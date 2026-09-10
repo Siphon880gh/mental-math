@@ -185,8 +185,8 @@ export const TRICKS: Trick[] = [
     id: "month-year-12",
     familyId: "month-year",
     title: "Monthly to yearly is ×12",
-    rule: "Twelve months. Yearly to monthly is ÷12.",
-    example: "$30/mo → $360/year. $2/hr already became $720/mo → ×12 = $8,640/year.",
+    rule: "Twelve months. Yearly to monthly is ÷12. ×12 is ×10 plus ×2.",
+    example: "$30/mo → $300 + $60 = $360/year. $2/hr already became $720/mo → ×12 = $8,640/year.",
     category: "Conversions",
   },
   {

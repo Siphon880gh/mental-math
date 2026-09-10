@@ -817,7 +817,7 @@ export const SESSION_SPECS: MethodTreeSpec[] = [
   spec(
     "month-year",
     "Monthly to yearly is ×12",
-    "SAMPLE $30/mo → $360/year. Chain: $2/hr → $720/mo → $8,640/year.",
+    "SAMPLE $30/mo → $360/year as ×10 plus ×2. Chain: $2/hr → $720/mo → $8,640/year.",
     B,
     {
       layers: [
@@ -827,7 +827,7 @@ export const SESSION_SPECS: MethodTreeSpec[] = [
             "SAMPLE: $30/mo SaaS. Investor asks yearly.\n\nWhich move?",
           correct: {
             id: "x12",
-            label: "×12",
+            label: "×12 — that's ×10 plus ×2",
             next: "apply",
           },
           wrongs: [
@@ -835,7 +835,7 @@ export const SESSION_SPECS: MethodTreeSpec[] = [
               id: "x10",
               label: "×10 as a round year",
               explain:
-                "A year is 12 months, not 10. ×10 understates by 20%.\n\nReturn to ×12.",
+                "×10 is the easy chunk, not the year. 30×10=$300; still add ×2 ($60).\n\nReturn to ×12.",
             },
             {
               id: "x720",
@@ -847,50 +847,55 @@ export const SESSION_SPECS: MethodTreeSpec[] = [
         },
         {
           id: "apply",
-          message: "30 × 12.\n\nYearly?",
+          message:
+            "×12 is ×10 plus ×2.\n\n30×10 is $300. 30×2 is $60. Yearly?",
           correct: {
             id: "360",
-            label: "$360/year",
+            label: "$360/year (300+60)",
             next: "check",
           },
           wrongs: [
             {
               id: "300",
-              label: "$300/year — ×10",
-              explain: "30×10=300. You still owe two months: +60 → 360.\n\nRevisit ×12.",
+              label: "$300/year — stopped at ×10",
+              explain:
+                "×10 is $300. The extra two months are $60. Sum $360.\n\nRevisit ×12.",
             },
             {
-              id: "36",
-              label: "$36/year — dropped a zero",
-              explain: "30×12=360.\n\nRevisit ×12.",
+              id: "60",
+              label: "$60/year — only the ×2",
+              explain:
+                "×2 is the two extra months ($60). Add the ×10 chunk ($300) → $360.\n\nRevisit ×12.",
             },
           ],
         },
         {
           id: "check",
           message:
-            "Chain: $2/hr already became $720/mo. Yearly?",
+            "Chain: $2/hr already became $720/mo. 720×10=7,200. 720×2=1,440. Yearly?",
           correct: {
             id: "8640",
-            label: "$8,640/year (720 × 12)",
+            label: "$8,640/year (7,200+1,440)",
             next: "success",
           },
           wrongs: [
             {
               id: "7200",
-              label: "$7,200 — 720 × 10",
-              explain: "×10 skips two months. 720×12=8,640.\n\nTry the chain again.",
+              label: "$7,200 — stopped at ×10",
+              explain:
+                "720×10=7,200. Still add ×2: 1,440 → 8,640.\n\nTry the chain again.",
             },
             {
               id: "1440",
-              label: "$1,440 — that was $2/hr monthly, not yearly",
-              explain: "$1,440 is $2×720 monthly. Yearly still ×12 on 720.\n\nTry the chain again.",
+              label: "$1,440 — monthly, or only the ×2",
+              explain:
+                "$1,440 is $2×720 monthly, or 720×2. Yearly is 7,200+1,440=8,640.\n\nTry the chain again.",
             },
           ],
         },
       ],
       success:
-        "Session complete. Monthly × 12 = yearly. You can stack it after ×720.\n\nSAMPLE: $30/mo→$360/year; $2/hr→$8,640/year.",
+        "Session complete. Monthly × 12 = yearly. Do ×12 as ×10 plus ×2.\n\nSAMPLE: $30/mo→$300+$60=$360/year; $2/hr→$8,640/year.",
     },
   ),
   spec(

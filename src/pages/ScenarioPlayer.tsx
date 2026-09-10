@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { SkillLinks } from "../components/LessonLink";
 import { getScenario } from "../lib/scenarios";
 import { hrefForTrack, TRACK_LABEL } from "../lib/tracks";
 
@@ -28,7 +29,9 @@ export default function ScenarioPlayer() {
       <h2>{study.title}</h2>
       <p>{study.prompt}</p>
       {showSkills ? (
-        <p className="example">Skills in play: {study.skillIds.join(" · ")}</p>
+        <p className="example">
+          <SkillLinks ids={study.skillIds} />
+        </p>
       ) : null}
       <p className="coach-controls">
         <button

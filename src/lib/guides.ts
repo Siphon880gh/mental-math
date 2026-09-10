@@ -196,6 +196,16 @@ export function guidesForFamily(familyId: FamilyId): Guide[] {
   return GUIDES.filter((guide) => guide.familyId === familyId);
 }
 
+export function guideForFamily(familyId: FamilyId): Guide | undefined {
+  return getGuide(familyId) ?? guidesForFamily(familyId)[0];
+}
+
+/** Lesson URL for a skill / family. Null only if the catalog is missing that family. */
+export function hrefForFamilyGuide(familyId: FamilyId): string | null {
+  const guide = guideForFamily(familyId);
+  return guide ? `/guides/${guide.slug}` : null;
+}
+
 export function guidesForTrack(track: TrackId): Guide[] {
   return GUIDES.filter((guide) => guide.track === track);
 }

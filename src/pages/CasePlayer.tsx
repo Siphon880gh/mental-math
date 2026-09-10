@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { LessonLink } from "../components/LessonLink";
 import SessionPeekBanner from "../components/SessionPeekBanner";
 import { useSessionPeek } from "../components/useSessionPeek";
 import { getCase } from "../lib/cases";
@@ -61,6 +62,9 @@ export default function CasePlayer() {
         {study.packId} · {study.difficulty} · {study.thinkingMode}
       </p>
       <h2>{study.prompt}</h2>
+      <p className="example">
+        Skill: <LessonLink familyId={study.familyId} />
+      </p>
       <form
         onSubmit={(e) => {
           e.preventDefault();

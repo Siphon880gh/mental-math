@@ -1,10 +1,41 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { TRACK_LABEL, TRACK_NAV, type TrackId } from "../lib/tracks";
+import { getGuide } from "../lib/guides";
+import { getScenario } from "../lib/scenarios";
+import {
+  TRACK_A_FAMILY_IDS,
+  TRACK_B_FAMILY_IDS,
+  TRACK_LABEL,
+  TRACK_NAV,
+  type TrackId,
+} from "../lib/tracks";
+
+function slugAfter(pathname: string, prefix: string): string | null {
+  if (!pathname.startsWith(prefix)) return null;
+  const slug = pathname.slice(prefix.length).split("/")[0];
+  return slug || null;
+}
 
 function activeTrackForPath(pathname: string): TrackId | null {
-  if (pathname.startsWith(TRACK_NAV.quick.href)) return "quick";
-  if (pathname.startsWith(TRACK_NAV.stakeholder.href)) return "stakeholder";
+  if (pathname === TRACK_NAV.quick.href || pathname.startsWith(`${TRACK_NAV.quick.href}/`)) {
+    return "quick";
+  }
+  if (
+    pathname === TRACK_NAV.stakeholder.href ||
+    pathname.startsWith(`${TRACK_NAV.stakeholder.href}/`)
+  ) {
+    return "stakeholder";
+  }
+  const guideSlug = slugAfter(pathname, "/guides/");
+  if (guideSlug) return getGuide(guideSlug)?.track ?? null;
+  const coachSlug = slugAfter(pathname, "/coach/");
+  if (coachSlug) {
+    if ((TRACK_B_FAMILY_IDS as readonly string[]).includes(coachSlug)) return "stakeholder";
+    if ((TRACK_A_FAMILY_IDS as readonly string[]).includes(coachSlug)) return "quick";
+    return null;
+  }
+  const scenarioId = slugAfter(pathname, "/scenarios/");
+  if (scenarioId) return getScenario(scenarioId)?.track ?? null;
   return null;
 }
 
@@ -45,6 +76,7 @@ export default function SiteNav() {
         className={stuck ? "site-nav is-stuck" : "site-nav"}
         aria-label="Primary"
         data-stuck={stuck ? "true" : "false"}
+        data-caption={showing ? "true" : "false"}
       >
         <div className="site-nav__inner">
           <ul className="site-nav__row">
@@ -81,7 +113,7 @@ export default function SiteNav() {
           </ul>
           <p
             className="site-nav__caption"
-            data-visible={showing !== null && !stuck}
+            data-visible={showing !== null}
             aria-live="polite"
           >
             <span key={showing ?? "empty"} className="site-nav__caption-text">

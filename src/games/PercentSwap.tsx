@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { LessonLink } from "../components/LessonLink";
 
 export default function PercentSwap() {
   const [swapped, setSwapped] = useState(false);
@@ -33,7 +34,7 @@ export default function PercentSwap() {
         <p className="coach-success coach-panel">14% of 50 is 50% of 14 → 7.</p>
       ) : null}
       <p>
-        <Link to="/guides/percent-reversible">Related guide</Link>
+        <LessonLink familyId="percent-reversible">Related guide</LessonLink>
         {" · "}
         <Link to="/games">All games</Link>
       </p>

@@ -74,6 +74,14 @@ export default function Dashboard() {
             <p>
               {progress.milestones[node.id] ?? "locked"} · {node.coachTip}
             </p>
+            <p className="example">
+              {node.contentRefs.map((ref, index) => (
+                <span key={ref}>
+                  {index > 0 ? " · " : null}
+                  <Link to={hrefForRef(ref)}>{ref.replace(":", " ")}</Link>
+                </span>
+              ))}
+            </p>
           </li>
         ))}
       </ul>

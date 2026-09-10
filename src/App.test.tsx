@@ -36,6 +36,35 @@ test("logo goes Home and nav splits tracks, no Home or Archive", () => {
   expect(within(nav).queryByRole("link", { name: /^archive$/i })).not.toBeInTheDocument();
   expect(screen.getByRole("link", { name: /mental math trainer/i })).toHaveAttribute("href", "/");
   expect(nav.closest("header")).toBeNull();
+  fireEvent.mouseEnter(within(nav).getByRole("link", { name: /^track a$/i }));
+  expect(
+    within(nav).getByText(/a\. quick math for business and everyday life/i),
+  ).toBeInTheDocument();
+});
+
+test("nav shows the active track name, including on a Track A lesson", () => {
+  const { unmount } = render(
+    <MemoryRouter initialEntries={["/track-a"]}>
+      <App />
+    </MemoryRouter>,
+  );
+  const nav = screen.getByRole("navigation");
+  expect(within(nav).getByRole("link", { name: /^track a$/i })).toHaveClass("is-current");
+  expect(
+    within(nav).getByText(/a\. quick math for business and everyday life/i),
+  ).toBeInTheDocument();
+  unmount();
+
+  render(
+    <MemoryRouter initialEntries={["/guides/anchors"]}>
+      <App />
+    </MemoryRouter>,
+  );
+  const lessonNav = screen.getByRole("navigation");
+  expect(within(lessonNav).getByRole("link", { name: /^track a$/i })).toHaveClass("is-current");
+  expect(
+    within(lessonNav).getByText(/a\. quick math for business and everyday life/i),
+  ).toBeInTheDocument();
 });
 
 test("guides hub splits tracks and redirects archive to Track A", () => {
@@ -71,8 +100,8 @@ test("guide page renders lesson body from docs-more", () => {
   );
   expect(screen.getByText(/percent sold ≈ cash \/ post-money/i)).toBeInTheDocument();
   expect(
-    screen.getByText(/b\. business and entrepreneurship stakeholder discussion/i),
-  ).toBeInTheDocument();
+    screen.getAllByText(/b\. business and entrepreneurship stakeholder discussion/i).length,
+  ).toBeGreaterThan(0);
   expect(screen.getByRole("link", { name: /open coach: dilution/i })).toBeInTheDocument();
 });
 
@@ -94,8 +123,8 @@ test("track A guide opens a playable coach on the same slug", async () => {
     </MemoryRouter>,
   );
   expect(
-    screen.getByText(/a\. quick math for business and everyday life/i),
-  ).toBeInTheDocument();
+    screen.getAllByText(/a\. quick math for business and everyday life/i).length,
+  ).toBeGreaterThan(0);
   fireEvent.click(screen.getByRole("link", { name: /open coach: anchors/i }));
   expect(
     await screen.findByRole("heading", { name: /hear the chord, then scale zeros/i }),
@@ -216,8 +245,31 @@ test("scenarios split by track and hide cheat until asked", () => {
   expect(screen.queryByText(/users = 720 ÷ 40 = 18/i)).not.toBeInTheDocument();
   fireEvent.click(screen.getByRole("button", { name: /^hint$/i }));
   expect(screen.getByText(/×720 shortcut/i)).toBeInTheDocument();
+  const hourMonth = screen.getByRole("link", { name: /hour-month, opens in a new window/i });
+  expect(hourMonth).toHaveAttribute("href", "/guides/hour-month");
+  expect(hourMonth).toHaveAttribute("target", "_blank");
+  const breakEven = screen.getByRole("link", { name: /break-even, opens in a new window/i });
+  expect(breakEven).toHaveAttribute("href", "/guides/break-even");
+  expect(breakEven).toHaveAttribute("target", "_blank");
   fireEvent.click(screen.getByRole("button", { name: /^cheat$/i }));
   expect(screen.getByText(/users = 720 ÷ 40 = 18/i)).toBeInTheDocument();
   fireEvent.click(screen.getByRole("button", { name: /^18$/i }));
   expect(screen.getByText(/correct\. sample only/i)).toBeInTheDocument();
+});
+
+test("scenario skill names open the matching guide in a new window", () => {
+  render(
+    <MemoryRouter initialEntries={["/scenarios/percent-then-year"]}>
+      <App />
+    </MemoryRouter>,
+  );
+  expect(screen.queryByRole("link", { name: /percent-chunks, opens in a new window/i })).not.toBeInTheDocument();
+  fireEvent.click(screen.getByRole("button", { name: /^hint$/i }));
+  const chunks = screen.getByRole("link", { name: /percent-chunks, opens in a new window/i });
+  expect(chunks).toHaveAttribute("href", "/guides/percent-chunks");
+  expect(chunks).toHaveAttribute("target", "_blank");
+  expect(chunks).toHaveAttribute("rel", expect.stringContaining("noopener"));
+  const year = screen.getByRole("link", { name: /month-year, opens in a new window/i });
+  expect(year).toHaveAttribute("href", "/guides/month-year");
+  expect(year).toHaveAttribute("target", "_blank");
 });

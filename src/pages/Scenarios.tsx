@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { SkillLinks } from "../components/LessonLink";
 import { PassFilterBar, ResourceTagger } from "../components/PassTags";
 import { usePassTags } from "../components/usePassTags";
 import { scenariosForTrack } from "../lib/scenarios";
@@ -25,7 +26,8 @@ function TrackBlock({
               <li key={row.id}>
                 <Link to={`/scenarios/${row.id}`}>{row.title}</Link>
                 <p>
-                  {row.skillIds.length} skills · SAMPLE
+                  <SkillLinks ids={row.skillIds} label={null} />
+                  {" · SAMPLE"}
                 </p>
                 <ResourceTagger
                   resourceKey={key}
