@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "cross-cancel",
+    "title": "Cancel factors before you multiply",
+    "summary": "SAMPLE 6/8 × 4/3 cancels to 1. Compare fractions with a×d vs b×c.",
+    "familyId": "cross-cancel",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Cancel across the fraction product. Compare with cross products.\n\nSAMPLE: 6/8×4/3=1; 7/11 > 8/13; 8/12×9/2=3.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 6/8 × 4/3. Do not multiply 24/24 first.\n\nMove?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "cancel",
+            "label": "Cancel 6 with 3, 4 with 8 → 1",
+            "next": "compare"
+          },
+          {
+            "id": "twentyfour",
+            "label": "6×4=24, 8×3=24, then reduce 24/24",
+            "next": "wrong_start_twentyfour"
+          },
+          {
+            "id": "add",
+            "label": "Add 6/8 + 4/3",
+            "next": "wrong_start_add"
+          }
+        ]
+      },
+      "wrong_start_twentyfour": {
+        "message": "Same answer, extra work. Cancel on sight before the product.\n\nReturn to cancel.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_add": {
+        "message": "The prompt was a product, not a sum.\n\nReturn to cancel.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "compare": {
+        "message": "7/11 vs 8/13. Which is larger, without decimals?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "seven",
+            "label": "7×13=91, 8×11=88, so 7/11",
+            "next": "check"
+          },
+          {
+            "id": "eights",
+            "label": "8/13 because 8>7 and 13>11",
+            "next": "wrong_compare_eights"
+          },
+          {
+            "id": "eleven",
+            "label": "7×11 vs 8×13",
+            "next": "wrong_compare_eleven"
+          }
+        ]
+      },
+      "wrong_compare_eights": {
+        "message": "Larger pieces on both sides is not a comparison. Cross multiply.\n\nRevisit the cross.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "compare"
+      },
+      "wrong_compare_eleven": {
+        "message": "That is a×b vs c×d, not a×d vs b×c.\n\nRevisit the cross.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "compare"
+      },
+      "check": {
+        "message": "8/12 × 9/2 after cancel?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "three",
+            "label": "3",
+            "next": "success"
+          },
+          {
+            "id": "one",
+            "label": "1 — cancelled everything",
+            "next": "wrong_check_one"
+          },
+          {
+            "id": "36",
+            "label": "8×9 / 12×2 = 72/24 wait, 3… no, 36",
+            "next": "wrong_check_36"
+          }
+        ]
+      },
+      "wrong_check_one": {
+        "message": "8/12 is 2/3, times 9/2 = 3.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_36": {
+        "message": "72/24 is 3. Do not stop at 36.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "rule-of-40",
+    "title": "Growth percent plus margin percent",
+    "summary": "SAMPLE 30% growth and 15% margin → 45, later-stage smell test around 40.",
+    "familyId": "rule-of-40",
+    "tags": [
+      "intermediate"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Rule of 40 ≈ growth% + margin%. Later-stage smell, not a law of physics.\n\nSAMPLE: 30+15=45 pass; 80−50=30 miss.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 30% growth, 15% profit margin. Rule of 40?\n\nOperation?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "sum",
+            "label": "Add them: 30 + 15 = 45",
+            "next": "pass"
+          },
+          {
+            "id": "product",
+            "label": "Multiply 30% × 15%",
+            "next": "wrong_start_product"
+          },
+          {
+            "id": "growth_only",
+            "label": "Use 30 only because growth is the 40",
+            "next": "wrong_start_growth_only"
+          }
+        ]
+      },
+      "wrong_start_product": {
+        "message": "The rule is a sum of two percents, not a product.\n\nReturn to the sum.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_growth_only": {
+        "message": "You still add margin. High growth with negative margin can fail.\n\nReturn to the sum.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "pass": {
+        "message": "45 versus 40.\n\nRead?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "pass40",
+            "label": "Passes the later-stage smell test",
+            "next": "check"
+          },
+          {
+            "id": "fail",
+            "label": "Fails because neither number is 40",
+            "next": "wrong_pass_fail"
+          },
+          {
+            "id": "early",
+            "label": "Treat 40 as a seed-stage law",
+            "next": "wrong_pass_early"
+          }
+        ]
+      },
+      "wrong_pass_fail": {
+        "message": "The test is the sum, not each term.\n\nRevisit the read.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "pass"
+      },
+      "wrong_pass_early": {
+        "message": "It is a later-stage heuristic. Still compute the sum; do not weaponize it on a pre-revenue SAMPLE.\n\nRevisit the read.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "pass"
+      },
+      "check": {
+        "message": "80% growth, −50% margin. Sum?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "thirty",
+            "label": "30 — misses 40 even with hot growth",
+            "next": "success"
+          },
+          {
+            "id": "80",
+            "label": "80 — ignore the loss",
+            "next": "wrong_check_80"
+          },
+          {
+            "id": "130",
+            "label": "130 — add 80 and 50 as positives",
+            "next": "wrong_check_130"
+          }
+        ]
+      },
+      "wrong_check_80": {
+        "message": "Margin is in the sum. 80−50=30.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_130": {
+        "message": "The margin is negative.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

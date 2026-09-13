@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "month-year",
+    "title": "Monthly to yearly is ×12",
+    "summary": "SAMPLE $30/mo → $360/year as ×10 plus ×2. $100/mo is the same move: $1,000 + $200 = $1,200/year.",
+    "familyId": "month-year",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Monthly × 12 = yearly. Do ×12 as ×10 plus ×2.\n\nSAMPLE: $30/mo→$300+$60=$360/year. $100/mo→$1,000+$200=$1,200/year.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: $30/mo SaaS. Investor asks yearly.\n\nWhich move?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "x12",
+            "label": "×12 — that's ×10 plus ×2",
+            "next": "apply"
+          },
+          {
+            "id": "x10",
+            "label": "×10 as a round year",
+            "next": "wrong_start_x10"
+          },
+          {
+            "id": "x720",
+            "label": "×720 — mixing in the hourly constant",
+            "next": "wrong_start_x720"
+          }
+        ]
+      },
+      "wrong_start_x10": {
+        "message": "×10 is the easy chunk, not the year. 30×10=$300; still add ×2 ($60).\n\nReturn to ×12.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_x720": {
+        "message": "720 converts hours to months. Months to years is 12.\n\nReturn to ×12.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "apply": {
+        "message": "×12 is ×10 plus ×2.\n\n30×10 is $300. 30×2 is $60. Yearly?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "360",
+            "label": "$360/year (300+60)",
+            "next": "check"
+          },
+          {
+            "id": "300",
+            "label": "$300/year — stopped at ×10",
+            "next": "wrong_apply_300"
+          },
+          {
+            "id": "60",
+            "label": "$60/year — only the ×2",
+            "next": "wrong_apply_60"
+          }
+        ]
+      },
+      "wrong_apply_300": {
+        "message": "×10 is $300. The extra two months are $60. Sum $360.\n\nRevisit ×12.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "apply"
+      },
+      "wrong_apply_60": {
+        "message": "×2 is the two extra months ($60). Add the ×10 chunk ($300) → $360.\n\nRevisit ×12.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "apply"
+      },
+      "check": {
+        "message": "$100/mo. Same ×12: ×10 plus ×2.\n\n100×10 is $1,000. 100×2 is $200. Yearly?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "1200",
+            "label": "$1,200/year (1,000+200)",
+            "next": "success"
+          },
+          {
+            "id": "1000",
+            "label": "$1,000/year — stopped at ×10",
+            "next": "wrong_check_1000"
+          },
+          {
+            "id": "200",
+            "label": "$200/year — only the ×2",
+            "next": "wrong_check_200"
+          }
+        ]
+      },
+      "wrong_check_1000": {
+        "message": "×10 is $1,000. The extra two months are $200. Sum $1,200.\n\nTry the idea again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_200": {
+        "message": "×2 is the two extra months ($200). Add the ×10 chunk ($1,000) → $1,200.\n\nTry the idea again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

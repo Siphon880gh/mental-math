@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "dilution",
+    "title": "Percent sold is cash over post-money",
+    "summary": "SAMPLE pre $8M, raise $2M → post $10M, sold 20%. Listen for pre vs post.",
+    "familyId": "dilution",
+    "tags": [
+      "intermediate"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Post-money = pre + cash. Percent sold ≈ cash / post. Ask pre vs post.\n\nSAMPLE: $2M on $10M post = 20%.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: pre-money $8M, raise $2M. What percent did you sell?\n\nWhich denominator?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "post",
+            "label": "Cash ÷ post-money; post = pre + cash → $10M, 20%",
+            "next": "listen"
+          },
+          {
+            "id": "pre",
+            "label": "$2M / $8M pre = 25%",
+            "next": "wrong_start_pre"
+          },
+          {
+            "id": "two",
+            "label": "2% because they put in $2M",
+            "next": "wrong_start_two"
+          }
+        ]
+      },
+      "wrong_start_pre": {
+        "message": "That uses the wrong denominator. Investor % is cash/post, not cash/pre.\n\nReturn to post.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_two": {
+        "message": "Dollars are not percents. 2/10=20%.\n\nReturn to post.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "listen": {
+        "message": "A term sheet says '$8M' without pre or post.\n\nWhat do you do?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "ask",
+            "label": "Ask pre vs post — it changes the sold percent",
+            "next": "check"
+          },
+          {
+            "id": "assume_pre",
+            "label": "Always assume pre",
+            "next": "wrong_listen_assume_pre"
+          },
+          {
+            "id": "assume_post",
+            "label": "Always assume post",
+            "next": "wrong_listen_assume_post"
+          }
+        ]
+      },
+      "wrong_listen_assume_pre": {
+        "message": "Ambiguity is the trick. The math changes if $8M is already post.\n\nRevisit the question.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "listen"
+      },
+      "wrong_listen_assume_post": {
+        "message": "Same problem. Force the word pre or post.\n\nRevisit the question.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "listen"
+      },
+      "check": {
+        "message": "Pre $8M, raise $2M. If someone used pre as the base they said 25%. True sold?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "twenty",
+            "label": "20% of post ($10M)",
+            "next": "success"
+          },
+          {
+            "id": "25",
+            "label": "25% is close enough",
+            "next": "wrong_check_25"
+          },
+          {
+            "id": "80",
+            "label": "80% — founders keep 8 of 10",
+            "next": "wrong_check_80"
+          }
+        ]
+      },
+      "wrong_check_25": {
+        "message": "25 vs 20 is a real extra fifth of the company in the story. Use post.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_80": {
+        "message": "Founders remaining is 80%; sold is 20%. The question was percent sold.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

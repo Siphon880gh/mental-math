@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "capacity-split",
+    "title": "Boxes is users divided by per-box capacity",
+    "summary": "SAMPLE 1,000 users / 20 per server = 50 servers. Cancel zeros first.",
+    "familyId": "capacity-split",
+    "tags": [
+      "intermediate"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Boxes = users ÷ per-box capacity. Cancel zeros.\n\nSAMPLE: 1,000/20=50.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 1,000 simultaneous users, 20 per server. How many boxes?\n\nMove?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "div",
+            "label": "Users ÷ capacity → 1,000 / 20 = 50",
+            "next": "zeros"
+          },
+          {
+            "id": "times",
+            "label": "1,000 × 20 = 20,000 servers",
+            "next": "wrong_start_times"
+          },
+          {
+            "id": "twenty",
+            "label": "20 servers because capacity is 20",
+            "next": "wrong_start_twenty"
+          }
+        ]
+      },
+      "wrong_start_times": {
+        "message": "That explodes the fleet. Divide users by how many each box holds.\n\nReturn to divide.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_twenty": {
+        "message": "You copied capacity as the fleet size. 1,000/20=50.\n\nReturn to divide.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "zeros": {
+        "message": "1,000 / 20. Fast cancel?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "cancel",
+            "label": "1,000 / 20 = 50",
+            "next": "check"
+          },
+          {
+            "id": "10",
+            "label": "10 — cancelled too far",
+            "next": "wrong_zeros_10"
+          },
+          {
+            "id": "2000",
+            "label": "2,000 — multiplied after cancelling",
+            "next": "wrong_zeros_2000"
+          }
+        ]
+      },
+      "wrong_zeros_10": {
+        "message": "1,000/20 is 50, not 10.\n\nRevisit the cancel.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "zeros"
+      },
+      "wrong_zeros_2000": {
+        "message": "Stay on divide.\n\nRevisit the cancel.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "zeros"
+      },
+      "check": {
+        "message": "400 users, 20 per box. Fleet?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "twenty_boxes",
+            "label": "20 servers",
+            "next": "success"
+          },
+          {
+            "id": "400",
+            "label": "400 servers",
+            "next": "wrong_check_400"
+          },
+          {
+            "id": "8",
+            "label": "8 servers",
+            "next": "wrong_check_8"
+          }
+        ]
+      },
+      "wrong_check_400": {
+        "message": "400/20=20.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_8": {
+        "message": "That would be 400/50. Capacity was 20.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

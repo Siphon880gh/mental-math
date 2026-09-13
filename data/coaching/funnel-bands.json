@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "funnel-bands",
+    "title": "SaaS funnel bands, then compress",
+    "summary": "SAMPLE 10,000 visits: ~20% signup then ~5% paid → about 100 paying.",
+    "familyId": "funnel-bands",
+    "tags": [
+      "intermediate"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Visit→signup 10–30%, signup→paid 2–10%. Mid: 20% then 5%.\n\nSAMPLE: 10k visits → ~100 paid.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 10,000 visits, no analytics. Paying users in the ballpark?\n\nFirst band?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "signup",
+            "label": "Visit→signup ~10–30%, mid 20% → ~2,000 signups",
+            "next": "paid"
+          },
+          {
+            "id": "all_pay",
+            "label": "10,000 paying — traffic is customers",
+            "next": "wrong_start_all_pay"
+          },
+          {
+            "id": "one_pct",
+            "label": "1% signup because 1% is a round percent",
+            "next": "wrong_start_one_pct"
+          }
+        ]
+      },
+      "wrong_start_all_pay": {
+        "message": "Funnels compress. Most visits never pay.\n\nReturn to signup band.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_one_pct": {
+        "message": "Visit→signup typically 10–30%, not 1%.\n\nReturn to signup band.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "paid": {
+        "message": "~2,000 signups. Signup→paid band, mid smell?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "five",
+            "label": "~5% of 2,000 → about 100 paid",
+            "next": "check"
+          },
+          {
+            "id": "twenty_again",
+            "label": "Another 20% → 400 paid",
+            "next": "wrong_paid_twenty_again"
+          },
+          {
+            "id": "2000_paid",
+            "label": "2,000 paid — signups all convert",
+            "next": "wrong_paid_2000_paid"
+          }
+        ]
+      },
+      "wrong_paid_twenty_again": {
+        "message": "Paid conversion is tighter: about 2–10%, mid 5%.\n\nRevisit paid.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "paid"
+      },
+      "wrong_paid_2000_paid": {
+        "message": "Signup is not paid.\n\nRevisit paid.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "paid"
+      },
+      "check": {
+        "message": "8,000 visits, conservative 10% then 10%. Paid?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "eighty",
+            "label": "80 paying",
+            "next": "success"
+          },
+          {
+            "id": "800",
+            "label": "800 — only the first 10%",
+            "next": "wrong_check_800"
+          },
+          {
+            "id": "8",
+            "label": "8 — two extra zeros dropped",
+            "next": "wrong_check_8"
+          }
+        ]
+      },
+      "wrong_check_800": {
+        "message": "You stopped at signups. 800 signups × 10% paid = 80.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_8": {
+        "message": "8,000×0.1×0.1=80.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

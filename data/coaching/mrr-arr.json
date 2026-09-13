@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "mrr-arr",
+    "title": "ARR is MRR × 12",
+    "summary": "SAMPLE $80k MRR → about $1M ARR. One-time fees are not MRR.",
+    "familyId": "mrr-arr",
+    "tags": [
+      "intermediate"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. ARR ≈ MRR × 12. One-time is not MRR.\n\nSAMPLE: $80k→~$1M; strip setup before you annualize.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: $80k MRR. Someone says ARR.\n\nMove?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "x12",
+            "label": "×12 → about $960k, smell as ~$1M ARR",
+            "next": "onetime"
+          },
+          {
+            "id": "x10",
+            "label": "×10 because a million is easier",
+            "next": "wrong_start_x10"
+          },
+          {
+            "id": "same",
+            "label": "ARR is the same $80k, just yearly branding",
+            "next": "wrong_start_same"
+          }
+        ]
+      },
+      "wrong_start_x10": {
+        "message": "×10 understates 20%. ARR is twelve months of MRR.\n\nReturn to ×12.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_same": {
+        "message": "ARR is the annualized run rate, not the monthly number relabeled.\n\nReturn to ×12.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "onetime": {
+        "message": "That $80k includes $10k of one-time setup this month.\n\nMRR to annualize?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "strip",
+            "label": "$70k recurring × 12, not the $80k blob",
+            "next": "check"
+          },
+          {
+            "id": "keep",
+            "label": "Keep $80k — cash is cash",
+            "next": "wrong_onetime_keep"
+          },
+          {
+            "id": "zero",
+            "label": "MRR is $0 because of the contamination",
+            "next": "wrong_onetime_zero"
+          }
+        ]
+      },
+      "wrong_onetime_keep": {
+        "message": "MRR excludes one-time. Annualizing a setup fee pretends it repeats.\n\nRevisit the strip.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "onetime"
+      },
+      "wrong_onetime_zero": {
+        "message": "Strip the $10k; $70k still recurs.\n\nRevisit the strip.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "onetime"
+      },
+      "check": {
+        "message": "Clean $100k MRR. ARR smell?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "1_2",
+            "label": "About $1.2M",
+            "next": "success"
+          },
+          {
+            "id": "1m",
+            "label": "$1M even",
+            "next": "wrong_check_1m"
+          },
+          {
+            "id": "100k",
+            "label": "$100k ARR",
+            "next": "wrong_check_100k"
+          }
+        ]
+      },
+      "wrong_check_1m": {
+        "message": "100k×12=1.2M. $1M would be ~83k MRR.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_100k": {
+        "message": "That is still monthly.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

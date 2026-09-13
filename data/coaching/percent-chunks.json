@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "percent-chunks",
+    "title": "Build from 50 / 25 / 10 / 5",
+    "summary": "SAMPLE 35% of 2,000: three tenths plus a 5% chunk.",
+    "familyId": "percent-chunks",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Percents are Lego: 50, 25, 10, 5.\n\nSAMPLE: 35% of 2,000=700, 15% of 800=120.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 35% of 2,000. You do not need a 35% button.\n\nHow do you chunk it?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "tenths",
+            "label": "10% + 10% + 10% + 5%",
+            "next": "add"
+          },
+          {
+            "id": "thirty_five",
+            "label": "Treat 35% as 1/35 of 2,000",
+            "next": "wrong_start_thirty_five"
+          },
+          {
+            "id": "half",
+            "label": "Call it about half because 35 is close to 50",
+            "next": "wrong_start_half"
+          }
+        ]
+      },
+      "wrong_start_thirty_five": {
+        "message": "35% is 35 per hundred, not one thirty-fifth. Chunk from 10% and 5%.\n\nReturn to the chunks.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_half": {
+        "message": "Half would be 1,000 — way high. 35% is three tenths plus 5%.\n\nReturn to the chunks.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "add": {
+        "message": "10% of 2,000 is 200. 5% is 100.\n\nThree tenths plus 5%?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "700",
+            "label": "200 + 200 + 200 + 100 = 700",
+            "next": "check"
+          },
+          {
+            "id": "600",
+            "label": "600 — forget the 5%",
+            "next": "wrong_add_600"
+          },
+          {
+            "id": "500",
+            "label": "500 — 25% plus 10% but drop a tenth",
+            "next": "wrong_add_500"
+          }
+        ]
+      },
+      "wrong_add_600": {
+        "message": "Three tenths are 600. 35% still needs the 5% (100).\n\nRevisit the add.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "add"
+      },
+      "wrong_add_500": {
+        "message": "25%+10%=35% would be 500+200=700, same answer if you keep both chunks.\n\nRevisit the add.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "add"
+      },
+      "check": {
+        "message": "15% of 800. 10% is 80, 5% is 40.\n\nWhat is 15%?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "120",
+            "label": "120",
+            "next": "success"
+          },
+          {
+            "id": "80",
+            "label": "80 — only the tenth",
+            "next": "wrong_check_80"
+          },
+          {
+            "id": "200",
+            "label": "200 — 25% of 800",
+            "next": "wrong_check_200"
+          }
+        ]
+      },
+      "wrong_check_80": {
+        "message": "15% needs the extra 5% (40). 80+40=120.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_200": {
+        "message": "25% would be 200. This is 15% → 120.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

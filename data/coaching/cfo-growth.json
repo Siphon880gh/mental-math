@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "cfo-growth",
+    "title": "20% a month is not a 50× year",
+    "summary": "SAMPLE: 20%/mo ≈ 1.7× in 3 months, ~3× in 6, ~9× in 12. 100 users cannot become 50,000.",
+    "familyId": "cfo-growth",
+    "tags": [
+      "intermediate"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Keep the 20%/mo table: ~1.7× / 3× / 9× at 3 / 6 / 12 months.\n\nSAMPLE: 100 cannot become 50k; ~900 in a year.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE claim: 100 users at 20%/mo will be 50,000 in a year.\n\nFirst instinct?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "table",
+            "label": "Pull the 20% table: ~9× in 12 months, not 500×",
+            "next": "nine"
+          },
+          {
+            "id": "linear",
+            "label": "20% × 12 = 240% so 100 → 340 users, close enough to 50k",
+            "next": "wrong_start_linear"
+          },
+          {
+            "id": "believe",
+            "label": "Believe 50k — 20% sounds fast",
+            "next": "wrong_start_believe"
+          }
+        ]
+      },
+      "wrong_start_linear": {
+        "message": "Linear add is the wrong model, and 340 is not 50k anyway. Compound ~9×.\n\nReturn to the table.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_believe": {
+        "message": "Fast is not 500×. Memorize ~9× in a year at 20%/mo.\n\nReturn to the table.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "nine": {
+        "message": "100 × ~9.\n\nYear-end users?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "900",
+            "label": "About 900, not 50,000",
+            "next": "check"
+          },
+          {
+            "id": "50000",
+            "label": "50,000 if we round 9× up aggressively",
+            "next": "wrong_nine_50000"
+          },
+          {
+            "id": "120",
+            "label": "120 — added 20 once",
+            "next": "wrong_nine_120"
+          }
+        ]
+      },
+      "wrong_nine_50000": {
+        "message": "9× on 100 is 900. 50,000 is 500×.\n\nRevisit 9×.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "nine"
+      },
+      "wrong_nine_120": {
+        "message": "That is one month, not twelve compounded.\n\nRevisit 9×.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "nine"
+      },
+      "check": {
+        "message": "Same 20% table: 3 months is about 1.7×. 100 users?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "170",
+            "label": "About 170",
+            "next": "success"
+          },
+          {
+            "id": "160",
+            "label": "160 — 20%×3 linear then 100+60",
+            "next": "wrong_check_160"
+          },
+          {
+            "id": "300",
+            "label": "300 — 20%× something with 100×3",
+            "next": "wrong_check_300"
+          }
+        ]
+      },
+      "wrong_check_160": {
+        "message": "Linear 60% would be 160. Compound is a bit more (~1.73× ≈ 173). The taught round is ~1.7×.\n\n160 is the linear trap — try again and pick the table.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_300": {
+        "message": "Do not multiply users by 3. 1.7× on 100 ≈ 170.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

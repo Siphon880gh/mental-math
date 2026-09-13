@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "concurrency",
+    "title": "Only 10–20% are on at once",
+    "summary": "SAMPLE 100 logos → about 10–20 concurrent. Size infra for the slice, not the roster.",
+    "familyId": "concurrency",
+    "tags": [
+      "intermediate"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Concurrent ≈ 10–20% of logos. Size for the slice.\n\nSAMPLE: 100 logos → 10 quiet / 20 busy.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 100 paying logos. Someone sizes GPUs as if all 100 run now.\n\nFirst?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "slice",
+            "label": "Concurrent ≈ 10–20% → about 10–20 jobs, not 100",
+            "next": "busy"
+          },
+          {
+            "id": "all",
+            "label": "100 logos = 100 simultaneous jobs",
+            "next": "wrong_start_all"
+          },
+          {
+            "id": "one",
+            "label": "Assume 1% — one person on",
+            "next": "wrong_start_one"
+          }
+        ]
+      },
+      "wrong_start_all": {
+        "message": "That is how you overbuy. Most logos are idle. Use 10–20%.\n\nReturn to concurrency.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_one": {
+        "message": "1% is too quiet for this heuristic. Band is 10–20%.\n\nReturn to concurrency.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "busy": {
+        "message": "They say it will be a busy hour. Which end of the band?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "twenty",
+            "label": "20% of 100 → 20 concurrent",
+            "next": "check"
+          },
+          {
+            "id": "ten",
+            "label": "Still 10 — the band does not move",
+            "next": "wrong_busy_ten"
+          },
+          {
+            "id": "fifty",
+            "label": "50% because busy means half",
+            "next": "wrong_busy_fifty"
+          }
+        ]
+      },
+      "wrong_busy_ten": {
+        "message": "Quiet ≈ 10%, busy ≈ 20%. Busy hour uses the top of the band.\n\nRevisit the band.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "busy"
+      },
+      "wrong_busy_fifty": {
+        "message": "Busy in this shortcut is 20%, not 50%.\n\nRevisit the band.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "busy"
+      },
+      "check": {
+        "message": "1,000 logos, quiet day. Concurrent smell?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "hundred",
+            "label": "About 100 (10%)",
+            "next": "success"
+          },
+          {
+            "id": "thousand",
+            "label": "1,000 — every logo is on",
+            "next": "wrong_check_thousand"
+          },
+          {
+            "id": "200",
+            "label": "200 — always use 20%",
+            "next": "wrong_check_200"
+          }
+        ]
+      },
+      "wrong_check_thousand": {
+        "message": "Quiet day is the low end: 10%.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_200": {
+        "message": "20% is the busy end. Quiet is 10% → 100.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

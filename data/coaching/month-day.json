@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "month-day",
+    "title": "Monthly to daily is ÷30",
+    "summary": "SAMPLE $900/mo → $30/day. Reverse: daily × 30 ≈ monthly.",
+    "familyId": "month-day",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Monthly ÷ 30 ≈ daily; daily × 30 ≈ monthly.\n\nSAMPLE: $900/mo→$30/day, $20/day→$600/mo.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: $900 per month server bill. Someone asks the daily burn.\n\nWhich move?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "div30",
+            "label": "÷30",
+            "next": "apply"
+          },
+          {
+            "id": "div7",
+            "label": "÷7 because a week has seven days",
+            "next": "wrong_start_div7"
+          },
+          {
+            "id": "div720",
+            "label": "÷720 — that is monthly back to hourly",
+            "next": "wrong_start_div720"
+          }
+        ]
+      },
+      "wrong_start_div7": {
+        "message": "Weekly would be ÷4-ish from monthly, not ÷7 from monthly. Daily is ÷30.\n\nReturn to the constant.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_div720": {
+        "message": "÷720 is the hour-month inverse. Daily is ÷30.\n\nReturn to the constant.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "apply": {
+        "message": "900 ÷ 30.\n\nDaily?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "30",
+            "label": "$30/day",
+            "next": "check"
+          },
+          {
+            "id": "3",
+            "label": "$3/day — extra zero dropped",
+            "next": "wrong_apply_3"
+          },
+          {
+            "id": "90",
+            "label": "$90/day — ÷10",
+            "next": "wrong_apply_90"
+          }
+        ]
+      },
+      "wrong_apply_3": {
+        "message": "900÷30=30, not 3.\n\nRevisit the divide.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "apply"
+      },
+      "wrong_apply_90": {
+        "message": "÷10 would be a 10-day month. Use 30.\n\nRevisit the divide.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "apply"
+      },
+      "check": {
+        "message": "Reverse: $20/day back to monthly.\n\n×30?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "600",
+            "label": "$600/mo",
+            "next": "success"
+          },
+          {
+            "id": "200",
+            "label": "$200/mo — ×10",
+            "next": "wrong_check_200"
+          },
+          {
+            "id": "20",
+            "label": "$20/mo — forgot to scale",
+            "next": "wrong_check_20"
+          }
+        ]
+      },
+      "wrong_check_200": {
+        "message": "×10 is not a month. 20×30=600.\n\nTry the reverse again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_20": {
+        "message": "Daily and monthly cannot be the same number here.\n\nTry the reverse again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

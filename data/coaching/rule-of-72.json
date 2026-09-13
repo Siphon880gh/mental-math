@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "rule-of-72",
+    "title": "Years to double ≈ 72 ÷ rate",
+    "summary": "SAMPLE 6%/year → 12 years. 9% → 8 years. Compounding, not simple interest.",
+    "familyId": "rule-of-72",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Years to double ≈ 72 ÷ annual percent (compounding).\n\nSAMPLE: 6%→12 years, 9%→8, 10%→~7.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 6% a year, compounding. Years to double?\n\nWhich shortcut?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "div72",
+            "label": "72 ÷ 6 ≈ 12 years",
+            "next": "nine"
+          },
+          {
+            "id": "div100",
+            "label": "100 ÷ 6 ≈ 16 years (rule of 100)",
+            "next": "wrong_start_div100"
+          },
+          {
+            "id": "six",
+            "label": "6 years because the rate is 6%",
+            "next": "wrong_start_six"
+          }
+        ]
+      },
+      "wrong_start_div100": {
+        "message": "Rule of 100 is closer to simple interest. Compounding uses ~72.\n\nReturn to 72.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_six": {
+        "message": "The rate is not the year count. 72÷6=12.\n\nReturn to 72.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "nine": {
+        "message": "9% a year. 72 ÷ 9?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "eight",
+            "label": "8 years",
+            "next": "check"
+          },
+          {
+            "id": "9",
+            "label": "9 years",
+            "next": "wrong_nine_9"
+          },
+          {
+            "id": "72",
+            "label": "72 years",
+            "next": "wrong_nine_72"
+          }
+        ]
+      },
+      "wrong_nine_9": {
+        "message": "72÷9=8, not 9.\n\nRevisit 9%.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "nine"
+      },
+      "wrong_nine_72": {
+        "message": "You skipped the divide.\n\nRevisit 9%.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "nine"
+      },
+      "check": {
+        "message": "Someone says 10% doubles in 5 years. Smell test?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "seven",
+            "label": "72÷10 ≈ 7 years, so 5 years is too aggressive",
+            "next": "success"
+          },
+          {
+            "id": "agree",
+            "label": "Agree — 10% feels like a five-year double",
+            "next": "wrong_check_agree"
+          },
+          {
+            "id": "ten",
+            "label": "10 years because 10%",
+            "next": "wrong_check_ten"
+          }
+        ]
+      },
+      "wrong_check_agree": {
+        "message": "Rule of 72 says ~7 years at 10%. 5 years would need ~14%.\n\nTry the smell test again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_ten": {
+        "message": "That is the rate copied as years. Use 72÷10.\n\nTry the smell test again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

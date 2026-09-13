@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "nrr",
+    "title": "NRR is same-customer revenue later",
+    "summary": "SAMPLE start $100k, later $130k from those accounts → 130% NRR. Expansion can exceed 100%.",
+    "familyId": "nrr",
+    "tags": [
+      "intermediate"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. NRR = later revenue from the same customers ÷ starting revenue. Can be over 100%.\n\nSAMPLE: 130%; new logos stay out.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: a cohort starts at $100k. A year later those same accounts are $130k.\n\nNRR?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "130",
+            "label": "130% — ending ÷ starting from the same customers",
+            "next": "new"
+          },
+          {
+            "id": "30",
+            "label": "30% — the growth chunk only",
+            "next": "wrong_start_30"
+          },
+          {
+            "id": "logo",
+            "label": "Logo retention: they kept 100% of customers so NRR is 100%",
+            "next": "wrong_start_logo"
+          }
+        ]
+      },
+      "wrong_start_30": {
+        "message": "NRR is a retention index around 100, not the delta. 130/100=130%.\n\nReturn to the ratio.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_logo": {
+        "message": "NRR is revenue, including expansion. Logos can stay flat while dollars grow.\n\nReturn to the ratio.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "new": {
+        "message": "The company also added $50k from brand-new customers.\n\nDoes that enter NRR?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "no",
+            "label": "No — NRR is the starting cohort only",
+            "next": "check"
+          },
+          {
+            "id": "yes",
+            "label": "Yes — all revenue growth counts",
+            "next": "wrong_new_yes"
+          },
+          {
+            "id": "half",
+            "label": "Count half the new revenue as expansion",
+            "next": "wrong_new_half"
+          }
+        ]
+      },
+      "wrong_new_yes": {
+        "message": "That would be a company-level growth rate. NRR holds the cohort still.\n\nRevisit new logos.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "new"
+      },
+      "wrong_new_half": {
+        "message": "New logos are not expansion of the starting cohort.\n\nRevisit new logos.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "new"
+      },
+      "check": {
+        "message": "Start $100k, later $80k from those accounts (churn/contraction).\n\nNRR?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "80",
+            "label": "80%",
+            "next": "success"
+          },
+          {
+            "id": "20",
+            "label": "20% churn, so NRR is 20%",
+            "next": "wrong_check_20"
+          },
+          {
+            "id": "180",
+            "label": "180% — add start and end",
+            "next": "wrong_check_180"
+          }
+        ]
+      },
+      "wrong_check_20": {
+        "message": "20% is the drop. NRR is what remains: 80%.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_180": {
+        "message": "Do not add the two snapshots.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

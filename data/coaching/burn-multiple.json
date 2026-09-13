@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "burn-multiple",
+    "title": "Burn multiple is burn over new ARR",
+    "summary": "SAMPLE burn $2M, ARR +$1M → 2×. 1–2× efficient; 5×+ expensive growth.",
+    "familyId": "burn-multiple",
+    "tags": [
+      "intermediate"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Burn multiple = net burn ÷ net new ARR. 1–2× vs 5×+.\n\nSAMPLE: $2M/$1M=2×; $5M/$1M=5×.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: net burn $2M, net new ARR $1M this period.\n\nBurn multiple?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "two",
+            "label": "2 ÷ 1 = 2×",
+            "next": "read"
+          },
+          {
+            "id": "invert",
+            "label": "1 ÷ 2 = 0.5×",
+            "next": "wrong_start_invert"
+          },
+          {
+            "id": "arr_stock",
+            "label": "Divide burn by total ARR stock, not the new slice",
+            "next": "wrong_start_arr_stock"
+          }
+        ]
+      },
+      "wrong_start_invert": {
+        "message": "The taught ratio is burn / new ARR, how many dollars of burn per new ARR dollar.\n\nReturn to the ratio.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_arr_stock": {
+        "message": "Efficiency is about the increment: net new ARR.\n\nReturn to the ratio.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "read": {
+        "message": "2× versus the 1–2× efficient band, 5×+ expensive.\n\nRead?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "ok",
+            "label": "Efficient-enough SAMPLE — not the 5× red zone",
+            "next": "check"
+          },
+          {
+            "id": "fail",
+            "label": "Failed because it is not 1×",
+            "next": "wrong_read_fail"
+          },
+          {
+            "id": "five",
+            "label": "Call it 5× because burn is $2M",
+            "next": "wrong_read_five"
+          }
+        ]
+      },
+      "wrong_read_fail": {
+        "message": "1–2× is the efficient band. 2× sits on the edge, not in the 5× junk pile.\n\nRevisit the band.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "read"
+      },
+      "wrong_read_five": {
+        "message": "The 2 is already the multiple. Do not promote it to 5.\n\nRevisit the band.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "read"
+      },
+      "check": {
+        "message": "Burn $5M, new ARR $1M. Multiple?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "five",
+            "label": "5× — expensive growth",
+            "next": "success"
+          },
+          {
+            "id": "one",
+            "label": "1× — they added a million",
+            "next": "wrong_check_one"
+          },
+          {
+            "id": "six",
+            "label": "6× — add burn and ARR",
+            "next": "wrong_check_six"
+          }
+        ]
+      },
+      "wrong_check_one": {
+        "message": "The million is the denominator. 5/1=5.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_six": {
+        "message": "Do not add the two dollars. Divide.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "left-to-right",
+    "title": "Add from the large place first",
+    "summary": "SAMPLE 47+36: lock 40+30=70, then pour 7+6=13 → 83. Running total, not right-to-left school addition.",
+    "familyId": "left-to-right",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Large place first, then pour the rest as a running total.\n\nSAMPLE: 47+36=83, 58−23=35.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 47 + 36 while walking. School habit is ones first.\n\nWhat does this family train?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "left",
+            "label": "Add tens first as a running total, then the ones",
+            "next": "tens"
+          },
+          {
+            "id": "ones",
+            "label": "Ones first: 7+6=13, write 3 carry 1",
+            "next": "wrong_start_ones"
+          },
+          {
+            "id": "round_both",
+            "label": "Round both to 50 and 40 and stop at 90",
+            "next": "wrong_start_round_both"
+          }
+        ]
+      },
+      "wrong_start_ones": {
+        "message": "That works on paper. In conversation, lock the large place so you already know you are in the 70s.\n\nReturn to left-to-right.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_round_both": {
+        "message": "That is round-then-compensate (a different family). Here, keep 47 and 36, just add left first.\n\nReturn to left-to-right.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "tens": {
+        "message": "40 + 30 = 70. Ones: 7 + 6 = 13.\n\nRunning total?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "83",
+            "label": "70 + 13 = 83",
+            "next": "check"
+          },
+          {
+            "id": "76",
+            "label": "76 — add 6 to 70 and drop the 7",
+            "next": "wrong_tens_76"
+          },
+          {
+            "id": "107",
+            "label": "107 — treat 47+36 as 47+60",
+            "next": "wrong_tens_107"
+          }
+        ]
+      },
+      "wrong_tens_76": {
+        "message": "Both ones still count: 7 and 6.\n\nRevisit the pour.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "tens"
+      },
+      "wrong_tens_107": {
+        "message": "36 is 30+6, not 60.\n\nRevisit the pour.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "tens"
+      },
+      "check": {
+        "message": "58 − 23, left to right. 50−20=30, 8−3=5.\n\nResult?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "35",
+            "label": "35",
+            "next": "success"
+          },
+          {
+            "id": "31",
+            "label": "31 — subtract 8−3 wrong as 3−8 with a borrow story",
+            "next": "wrong_check_31"
+          },
+          {
+            "id": "81",
+            "label": "81 — added instead of subtracting",
+            "next": "wrong_check_81"
+          }
+        ]
+      },
+      "wrong_check_31": {
+        "message": "Left-to-right: tens 30, ones 5, total 35.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_81": {
+        "message": "The prompt is subtract.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

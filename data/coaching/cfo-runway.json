@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "cfo-runway",
+    "title": "Runway is cash ÷ monthly burn",
+    "summary": "SAMPLE $120k cash, $20k burn → 6 months. Directional, not a close.",
+    "familyId": "cfo-runway",
+    "tags": [
+      "intermediate"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Runway ≈ cash ÷ monthly burn. Directional SAMPLE math, not a board close.\n\nSAMPLE: 120/20=6 months, 50/25=2.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: $120k in the bank, $20k net burn a month.\n\nRunway shape?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "div",
+            "label": "Cash ÷ monthly burn",
+            "next": "months"
+          },
+          {
+            "id": "times",
+            "label": "Cash × burn",
+            "next": "wrong_start_times"
+          },
+          {
+            "id": "revenue",
+            "label": "Ignore burn; use cash ÷ revenue",
+            "next": "wrong_start_revenue"
+          }
+        ]
+      },
+      "wrong_start_times": {
+        "message": "That is a nonsense product. Months = cash / burn.\n\nReturn to the shape.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_revenue": {
+        "message": "Revenue is not what empties the account. Burn is.\n\nReturn to the shape.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "months": {
+        "message": "120 ÷ 20.\n\nMonths?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "six",
+            "label": "6 months",
+            "next": "check"
+          },
+          {
+            "id": "12",
+            "label": "12 months — treated 20 as 10",
+            "next": "wrong_months_12"
+          },
+          {
+            "id": "20",
+            "label": "20 months — copied the burn",
+            "next": "wrong_months_20"
+          }
+        ]
+      },
+      "wrong_months_12": {
+        "message": "120/20=6.\n\nRevisit the divide.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "months"
+      },
+      "wrong_months_20": {
+        "message": "Burn is the denominator, not the answer.\n\nRevisit the divide.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "months"
+      },
+      "check": {
+        "message": "$50k cash, $25k burn.\n\nMonths?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "two",
+            "label": "2 months — short",
+            "next": "success"
+          },
+          {
+            "id": "25",
+            "label": "25 months",
+            "next": "wrong_check_25"
+          },
+          {
+            "id": "half",
+            "label": "0.5 months — inverted the ratio",
+            "next": "wrong_check_half"
+          }
+        ]
+      },
+      "wrong_check_25": {
+        "message": "50/25=2.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_half": {
+        "message": "That would be burn/cash. Runway is cash/burn.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

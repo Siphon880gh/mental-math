@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "percent-tip",
+    "title": "Twenty percent is double, then one place left",
+    "summary": "SAMPLE 20% of $42.30: ×2 → 84.60, then ÷10 → $8.46.",
+    "familyId": "percent-tip",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. 20% = ×2, then one place left (÷10).\n\nSAMPLE: 20% of $42.30=$8.46, 20% of 80=16.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 20% tip on $42.30.\n\nWhat is the 20% motion?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "double_shift",
+            "label": "Double the bill, then move one place left",
+            "next": "apply"
+          },
+          {
+            "id": "ten_twice",
+            "label": "Take 10% twice in your head, but skip the double-shift name",
+            "next": "wrong_start_ten_twice"
+          },
+          {
+            "id": "twenty_bucks",
+            "label": "Round the tip to $20 because the bill is about 40",
+            "next": "wrong_start_twenty_bucks"
+          }
+        ]
+      },
+      "wrong_start_ten_twice": {
+        "message": "10% twice is the same number. This family trains ×2, then one place left.\n\nReturn to the motion.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_twenty_bucks": {
+        "message": "$20 would be ~50%. 20% of ~40 is about $8.\n\nReturn to the motion.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "apply": {
+        "message": "$42.30 × 2 = $84.60. One place left is ÷10.\n\nTip?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "846",
+            "label": "$8.46",
+            "next": "check"
+          },
+          {
+            "id": "84",
+            "label": "$84.60 — forgot the place shift",
+            "next": "wrong_apply_84"
+          },
+          {
+            "id": "4_23",
+            "label": "$4.23 — that is 10%",
+            "next": "wrong_apply_4_23"
+          }
+        ]
+      },
+      "wrong_apply_84": {
+        "message": "Doubling without ÷10 is 200%. One place left on 84.60 is 8.46.\n\nRevisit the shift.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "apply"
+      },
+      "wrong_apply_4_23": {
+        "message": "4.23 is one place left on 42.30 (10%). 20% is twice that.\n\nRevisit the shift.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "apply"
+      },
+      "check": {
+        "message": "20% of 80, same motion.\n\nWhat is it?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "16",
+            "label": "16",
+            "next": "success"
+          },
+          {
+            "id": "8",
+            "label": "8 — 10%",
+            "next": "wrong_check_8"
+          },
+          {
+            "id": "160",
+            "label": "160 — doubled and kept the extra zero",
+            "next": "wrong_check_160"
+          }
+        ]
+      },
+      "wrong_check_8": {
+        "message": "8 is 10% of 80. Double that for 20% → 16.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_160": {
+        "message": "160 would be 200%. ×2 then one place: 160 → 16.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

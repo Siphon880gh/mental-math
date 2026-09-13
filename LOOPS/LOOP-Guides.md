@@ -2,7 +2,7 @@
 
 Deepen `/guides` and `/guides/:slug`. This is the **only** literacy hub. Shortcuts render on the guide. Each guide links a step-by-step coach on the same slug.
 
-Companions: [`src/lib/guides.ts`](../src/lib/guides.ts) · [`src/lib/tracks.ts`](../src/lib/tracks.ts) · [`RESOURCES.md`](../RESOURCES.md) · [`LOOP-Coach.md`](./LOOP-Coach.md)
+Companions: [`app/Catalog/Guides.php`](../app/Catalog/Guides.php) · [`app/Catalog/Tracks.php`](../app/Catalog/Tracks.php) · [`RESOURCES.md`](../RESOURCES.md) · [`LOOP-Coach.md`](./LOOP-Coach.md)
 
 ---
 
@@ -13,15 +13,15 @@ Companions: [`src/lib/guides.ts`](../src/lib/guides.ts) · [`src/lib/tracks.ts`]
 ```
 
 **Before starting**
-1. Leave working `npm run dev` alone; verify with `npm run lint` && `npm run test` && `npm run build`.
+1. Leave working `composer serve` / `php -S` alone; verify with `./vendor/bin/phpunit`.
 2. Stop yourself anytime; hard-stop on 10-round error budget or Done(guides).
 
 **On each tick**
 - Re-inventory guides by `familyId` and `track`.
 - Add **exactly one** new guide (`slug` unique, slug = `familyId` unless a second distinct lesson).
 - Set `track` via `trackForFamily`. Wire `relatedCoachSlug` to the same slug.
-- Include a shortcut row in `tricks.ts` if the family has none.
-- Lint + test + build.
+- Include a shortcut row in `data/tricks.json` if the family has none.
+- Run PHPUnit.
 
 ---
 
@@ -42,7 +42,7 @@ Do not add an Archive nav or `/archive` index. `/archive` stays a redirect to `/
 
 Floor **≥1 guide per family**. Skip a family that already has a guide.
 
-1. Track A — `TRACK_A_FAMILY_IDS` order (`src/lib/tracks.ts`)
+1. Track A — `TRACK_A_FAMILY_IDS` order (`app/Catalog/Tracks.php`)
 2. Track B — `TRACK_B_FAMILY_IDS` order
 
 Then optional second guide only if the family still confuses two distinct shortcuts (must be a new slug, not a clone). Default: stop at one per family.
@@ -64,11 +64,11 @@ One principle guide per familyId, on a two-track Guides hub.
 **Done (per tick):** Exactly one new guide.
 
 # CONTEXT
-- `src/lib/guides.ts` (slug, familyId, title, summary, body, track, relatedCoachSlug)
-- Tracks: `src/lib/tracks.ts`
-- Shortcut rows: `src/lib/tricks.ts` (render on the guide, not a separate Archive)
+- Guides: `data/inline-guides.json` / `data/guide-specs.json` + `context/docs-more/` (slug, familyId, title, summary, body, track, relatedCoachSlug)
+- Tracks: `app/Catalog/Tracks.php`
+- Shortcut rows: `data/tricks.json` (render on the guide, not a separate Archive)
 - Source ideas: `context/docs/_Biz Math/` and `context/docs-more/` — original wording
-- Auto-verify: `npm run lint` && `npm run test` && `npm run build`
+- Auto-verify: `./vendor/bin/phpunit`
 
 # STEP-BY-STEP CADENCE
 1. **Orient** — first family with zero guides (Track A, then Track B).
@@ -82,7 +82,7 @@ One principle guide per familyId, on a two-track Guides hub.
 - [ ] Correct track heading (A or B full label)
 - [ ] Coach CTA uses the same slug
 - [ ] Original copy
-- [ ] lint + test + build 0
+- [ ] PHPUnit 0
 
 # STOP CONDITIONS
 - Done(guides) → STOP with family → slug → track list.
@@ -93,5 +93,5 @@ One principle guide per familyId, on a two-track Guides hub.
 1. slug + familyId + track
 2. PASS | FIXING (n/10) | STOP
 3. Next family
-4. lint/test/build status
+4. PHPUnit status
 ```

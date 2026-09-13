@@ -2,7 +2,7 @@
 
 Walk [`context/docs-more-more/more-tricks.md`](../context/docs-more-more/more-tricks.md). For each numbered section and each of the 12 “master techniques,” either **map it to an existing family** or **ship a new Track A family**. Do not clone a shortcut the app already teaches.
 
-Companions: [`src/lib/moreTricksCoverage.ts`](../src/lib/moreTricksCoverage.ts) · [`LOOP-More-Tricks-Audit.md`](./LOOP-More-Tricks-Audit.md) · [`LOOP-Guides.md`](./LOOP-Guides.md) · [`LOOP-Coach.md`](./LOOP-Coach.md)
+Companions: [`data/more-tricks.json`](../data/more-tricks.json) · [`LOOP-More-Tricks-Audit.md`](./LOOP-More-Tricks-Audit.md) · [`LOOP-Guides.md`](./LOOP-Guides.md) · [`LOOP-Coach.md`](./LOOP-Coach.md)
 
 These families are **not** on the Beginner Reflex Path. They append to `EXTRA_MENTAL_FAMILY_IDS`.
 
@@ -15,15 +15,15 @@ These families are **not** on the Beginner Reflex Path. They append to `EXTRA_ME
 ```
 
 **Before starting**
-1. Leave working `npm run dev` alone; verify with `npm run lint` && `npm run test` && `npm run build`.
+1. Leave working `composer serve` / `php -S` alone; verify with `./vendor/bin/phpunit`.
 2. Stop yourself anytime; hard-stop on 10-round error budget or Done(more-tricks).
 3. Do not run the graph loop or the audit loop in the same session until this file’s Done.
 
 **On each tick**
-- Re-read the Coverage queue vs `src/lib/moreTricksCoverage.ts` and live registries.
+- Re-read the Coverage queue vs `data/more-tricks.json` and live registries.
 - Ship **exactly one** unit (see Unit types).
 - Rewrite from more-tricks.md — do not paste it. SAMPLE numbers only.
-- Lint + test + build.
+- Run PHPUnit.
 
 ---
 
@@ -116,11 +116,11 @@ Incorporate every uncovered mental move from more-tricks.md into Track A.
 
 # CONTEXT
 - Source: `context/docs-more-more/more-tricks.md` — rewrite, do not paste
-- Registry: `src/lib/moreTricksCoverage.ts`
-- New families: EXTRA_MENTAL_FAMILY_IDS, tricks.ts, docs-more lesson, guides.ts SPECS, coaching spec + session file, foundations drills ≥3, GAME_SKIPS, LOOP-Graph echo
+- Registry: `data/more-tricks.json`
+- New families: EXTRA_MENTAL_FAMILY_IDS, `data/tricks.json`, docs-more lesson, `data/guide-specs.json`, coaching JSON, foundations drills ≥3, GAME_SKIPS, LOOP-Graph echo
 - Extra rows: same familyId; they render on `/guides/:slug`
 - SAMPLE numbers; Beginner unlocks unchanged
-- Auto-verify: `npm run lint` && `npm run test` && `npm run build`
+- Auto-verify: `./vendor/bin/phpunit`
 
 # STEP-BY-STEP CADENCE
 1. **Orient** — first queue row not shipped/skip.
@@ -134,7 +134,7 @@ Incorporate every uncovered mental move from more-tricks.md into Track A.
 - [ ] Closes next gap (no duplicate of an already-taught move)
 - [ ] Original wording; ## Same idea, new numbers on new guides
 - [ ] Unlock order / gate thresholds unchanged
-- [ ] lint + test + build 0
+- [ ] PHPUnit 0
 
 # STOP CONDITIONS
 - Done(more-tricks) → STOP with family list + skip list.
@@ -145,5 +145,5 @@ Incorporate every uncovered mental move from more-tricks.md into Track A.
 1. unit (familyId or deepen target or skip ids)
 2. PASS | FIXING (n/10) | STOP
 3. Next gap
-4. lint/test/build status
+4. PHPUnit status
 ```

@@ -44,7 +44,7 @@ Archive is retired. See [`LOOP-Archive.md`](./LOOP-Archive.md). Do not restore i
 Prefer **no interval** so each wake adds the next content unit.
 
 **Before starting**
-1. Leave working `npm run dev` alone. Verify with `npm run lint` && `npm run test` && `npm run build`.
+1. Leave working `composer serve` / `php -S` alone. Verify with `./vendor/bin/phpunit`.
 2. Stop the loop yourself when you want. Hard-stop on the error budget or Done(section).
 3. Do not run [`AGENTS_LOOP-Continue-Milestone.md`](../AGENTS_LOOP-Continue-Milestone.md) in the same session.
 
@@ -58,7 +58,7 @@ Prefer **no interval** so each wake adds the next content unit.
 - One content unit per tick.
 - Distinct items: do not clone-and-tweak a prompt with a renamed title.
 - Thought chains teach the **shape**, not long division.
-- After any code change: `npm run lint` && `npm run test` && `npm run build`.
+- After any code change: `./vendor/bin/phpunit`.
 - Create or adapt `.agents/skills/*` when the same authoring workflow repeats.
 - Do not change Beginner Reflex Path unlock order.
 

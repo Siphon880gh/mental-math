@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "tam-fermi",
+    "title": "Fermi TAM is customers times yearly price",
+    "summary": "SAMPLE 200k dentists × $600/year → $120M TAM; 1,000 customers is $600k ARR. Watch a 10× error in one factor.",
+    "familyId": "tam-fermi",
+    "tags": [
+      "intermediate"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Stack customers × yearly price, then take a believable slice. Watch 10× zeros.\n\nSAMPLE: 200k×$600=$120M TAM; 1,000 customers=$600k ARR.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 200k dentists, $50/mo tool. Yearly TAM stack?\n\nFirst?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "year",
+            "label": "Price yearly: $50×12=$600, then × 200k dentists",
+            "next": "tam"
+          },
+          {
+            "id": "monthly_tam",
+            "label": "200k × $50 and call that TAM",
+            "next": "wrong_start_monthly_tam"
+          },
+          {
+            "id": "pop",
+            "label": "Use US population 330M as the customer count",
+            "next": "wrong_start_pop"
+          }
+        ]
+      },
+      "wrong_start_monthly_tam": {
+        "message": "That is a monthly ceiling. TAM talk is usually yearly: ×12 first.\n\nReturn to yearly.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_pop": {
+        "message": "Fermi TAM uses the reachable buyer, not census.\n\nReturn to yearly.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "tam": {
+        "message": "200,000 × $600. 200k×600=120,000k.\n\nTAM?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "120m",
+            "label": "$120M",
+            "next": "slice"
+          },
+          {
+            "id": "12m",
+            "label": "$12M — dropped a zero",
+            "next": "wrong_tam_12m"
+          },
+          {
+            "id": "1_2b",
+            "label": "$1.2B — extra zero",
+            "next": "wrong_tam_1_2b"
+          }
+        ]
+      },
+      "wrong_tam_12m": {
+        "message": "200k×600: 2×6=12, then five zeros from 200,000 and two from 600 wait — 200,000×600=120,000,000.\n\nRevisit the zeros.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "tam"
+      },
+      "wrong_tam_1_2b": {
+        "message": "That would be 2M dentists or $6,000/year.\n\nRevisit the zeros.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "tam"
+      },
+      "slice": {
+        "message": "You might get 1,000 of those dentists. ARR?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "600k",
+            "label": "1,000 × $600 = $600k ARR, not $120M",
+            "next": "success"
+          },
+          {
+            "id": "tam_as_arr",
+            "label": "Quote $120M as if it were your ARR",
+            "next": "wrong_slice_tam_as_arr"
+          },
+          {
+            "id": "50k",
+            "label": "$50k — 1,000 × $50 and forget yearly",
+            "next": "wrong_slice_50k"
+          }
+        ]
+      },
+      "wrong_slice_tam_as_arr": {
+        "message": "TAM is the pond. Your slice is customers × price.\n\nTry the slice again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "slice"
+      },
+      "wrong_slice_50k": {
+        "message": "$50 is monthly. Yearly is $600 × 1,000 = $600k.\n\nTry the slice again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "slice"
+      }
+    }
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "utilization",
+    "title": "Plan at about 70% of max",
+    "summary": "SAMPLE 10 jobs/sec advertised → plan on 7. Do not size as if you run at 100%.",
+    "familyId": "utilization",
+    "tags": [
+      "intermediate"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Safe load ≈ 0.7 × advertised max.\n\nSAMPLE: 10/sec → 7; 100 seats → 70.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: a box claims 10 jobs/sec. What do you plan for?\n\nShortcut?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "seventy",
+            "label": "About 70% → 7 jobs/sec safe",
+            "next": "why"
+          },
+          {
+            "id": "ten",
+            "label": "10 — they published 10",
+            "next": "wrong_start_ten"
+          },
+          {
+            "id": "half",
+            "label": "5 — always half",
+            "next": "wrong_start_half"
+          }
+        ]
+      },
+      "wrong_start_ten": {
+        "message": "Published max is a ceiling. Sustained load uses ~70%.\n\nReturn to 70%.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_half": {
+        "message": "The rule is ~70%, not 50%. 0.7×10=7.\n\nReturn to 70%.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "why": {
+        "message": "Why not plan at 100%?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "headroom",
+            "label": "Spikes and degradation — 100% is not a plan",
+            "next": "check"
+          },
+          {
+            "id": "vendor",
+            "label": "Vendors lie by 30%",
+            "next": "wrong_why_vendor"
+          },
+          {
+            "id": "always70",
+            "label": "Because 70 is a lucky number",
+            "next": "wrong_why_always70"
+          }
+        ]
+      },
+      "wrong_why_vendor": {
+        "message": "Maybe, but the move is operational: leave headroom.\n\nRevisit why.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "why"
+      },
+      "wrong_why_always70": {
+        "message": "It is a load-planning heuristic, not superstition.\n\nRevisit why.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "why"
+      },
+      "check": {
+        "message": "100 seats advertised. Filled plan?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "70seats",
+            "label": "70 filled",
+            "next": "success"
+          },
+          {
+            "id": "100seats",
+            "label": "100 filled — sold out",
+            "next": "wrong_check_100seats"
+          },
+          {
+            "id": "30seats",
+            "label": "30 — that is the 30% pad",
+            "next": "wrong_check_30seats"
+          }
+        ]
+      },
+      "wrong_check_100seats": {
+        "message": "0.7×100=70.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_30seats": {
+        "message": "You reserved 30% empty, so filled is 70, not 30.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@ Deepen `/coach/:slug`. Runtime (validate, navigate, persist, path trail) already
 
 **Pairing rule:** one session per guide. Slug = `familyId` = guide slug.
 
-Companions: [`src/lib/coaching/`](../src/lib/coaching/) · [`src/lib/guides.ts`](../src/lib/guides.ts) · [`LOOP-Guides.md`](./LOOP-Guides.md)
+Companions: [`data/coaching/`](../data/coaching/) · [`app/Catalog/Guides.php`](../app/Catalog/Guides.php) · [`LOOP-Guides.md`](./LOOP-Guides.md)
 
 ---
 
@@ -15,13 +15,13 @@ Companions: [`src/lib/coaching/`](../src/lib/coaching/) · [`src/lib/guides.ts`]
 ```
 
 **Before starting**
-1. Leave working `npm run dev` alone; verify with `npm run lint` && `npm run test` && `npm run build` (include coaching tests).
+1. Leave working `composer serve` / `php -S` alone; verify with `./vendor/bin/phpunit` (include coaching tests).
 2. Stop yourself anytime; hard-stop on 10-round error budget or Done(coach).
 
 **On each tick**
 - Add **exactly one** new session file (slug unique, equals the unpaired guide).
 - Minimum: `start` + ≥2 continue layers · ≥2 `wrong` with `rewind_to` · ≥1 `success`.
-- Register so `hasCoachSession(slug)` is true.
+- Drop `data/coaching/<slug>.json` so `Sessions::has($slug)` is true.
 
 ---
 
@@ -61,12 +61,12 @@ One valid decision graph per guide / familyId.
 **Done (per tick):** Exactly one new session module.
 
 # CONTEXT
-- New file: `src/lib/coaching/sessions/<slug>.ts`
-- Register in `src/lib/coaching/sessions/index.ts` and `src/lib/coaching/catalog.ts`
+- New file: `data/coaching/<slug>.json`
+- Auto-loaded by `Reflex\Coaching\Sessions`; validate with `Reflex\Coaching\Validate::session`
 - slug = familyId = guide slug
 - Track A then Track B
 - validate must pass or the session is dropped
-- Auto-verify: `npm run test` && `npm run lint` && `npm run build`
+- Auto-verify: `./vendor/bin/phpunit`
 
 # STEP-BY-STEP CADENCE
 1. **Orient** — first guide with no session (Track A, then Track B).
@@ -79,7 +79,7 @@ One valid decision graph per guide / familyId.
 - [ ] One session; familyId set; slug matches guide
 - [ ] validate ok; ≥2 wrong + rewind; ≥1 success
 - [ ] No LLM / randomness
-- [ ] lint + test + build 0
+- [ ] PHPUnit 0
 
 # STOP CONDITIONS
 - Done(coach) → STOP with slug list by track.
@@ -90,5 +90,5 @@ One valid decision graph per guide / familyId.
 1. slug + familyId + track
 2. PASS | FIXING (n/10) | STOP
 3. Next family
-4. test/lint/build status
+4. PHPUnit status
 ```

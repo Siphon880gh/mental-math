@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "anchors",
+    "title": "Hear the chord, then scale zeros",
+    "summary": "SAMPLE 50×40: do not long-multiply. Recognize 5×4=20, then park the zeros.",
+    "familyId": "anchors",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. You used a memorized chord, scaled zeros on purpose, and checked with a second pair.\n\nSAMPLE only — 50×40=2,000 and 25×8=200.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: someone asks 50 × 40 in a pricing chat.\n\nWhat do you reach for first?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "chord",
+            "label": "Hear 5 × 4 = 20, then put the extra zeros back",
+            "next": "scale"
+          },
+          {
+            "id": "long",
+            "label": "Stack 50 under 40 and multiply digit by digit",
+            "next": "wrong_start_long"
+          },
+          {
+            "id": "guess",
+            "label": "Guess 2,000 because both numbers look big",
+            "next": "wrong_start_guess"
+          }
+        ]
+      },
+      "wrong_start_long": {
+        "message": "Long multiplication is slow on purpose. The chord 5×4=20 is already in your head — use it, then scale.\n\nReturn to the first move.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_guess": {
+        "message": "A vibe is not a chord. 50×40 happens to be 2,000, but you got there by luck. Lock 5×4 first.\n\nReturn to the first move.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "scale": {
+        "message": "5 × 4 = 20. 50 has one extra zero, 40 has one extra zero.\n\nHow do the zeros land?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "two",
+            "label": "Two extra zeros → 2,000",
+            "next": "check"
+          },
+          {
+            "id": "one",
+            "label": "Only one extra zero because 50 already ends in zero",
+            "next": "wrong_scale_one"
+          },
+          {
+            "id": "drop",
+            "label": "Drop all zeros and call it 20",
+            "next": "wrong_scale_drop"
+          }
+        ]
+      },
+      "wrong_scale_one": {
+        "message": "Each factor’s extra zero counts. 50 and 40 each donate one → two zeros on 20.\n\nRevisit the zeros.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "scale"
+      },
+      "wrong_scale_drop": {
+        "message": "You stripped the magnitude. The chord is 20; the business number is 2,000.\n\nRevisit the zeros.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "scale"
+      },
+      "check": {
+        "message": "Same chord, new pair: 25 × 8. 25 × 4 = 100, so 25 × 8 is a double.\n\nWhat is it?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "two_hundred",
+            "label": "200 — double of the 100 chord",
+            "next": "success"
+          },
+          {
+            "id": "twenty",
+            "label": "20 — treat 25 like 2.5",
+            "next": "wrong_check_twenty"
+          },
+          {
+            "id": "two_k",
+            "label": "2,000 — copy the zeros from 50×40",
+            "next": "wrong_check_two_k"
+          }
+        ]
+      },
+      "wrong_check_twenty": {
+        "message": "Do not move the decimal on a whole 25. 25×4=100, ×8 is twice that → 200.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_two_k": {
+        "message": "Zeros are not a costume you reuse. 25 and 8 have no spare zeros.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

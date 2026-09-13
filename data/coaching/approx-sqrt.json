@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "approx-sqrt",
+    "title": "Nearby square, then bump d / 2a",
+    "summary": "SAMPLE √104: 10²=100, leftover 4, 4/20=0.2 → 10.2. Or one Babylonian average.",
+    "familyId": "approx-sqrt",
+    "tags": [
+      "intermediate"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. √(a²+d) ≈ a + d/(2a). One Babylonian average if you have a guess.\n\nSAMPLE: √104≈10.2, √16 from 5 → 4.1.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: √104 in a “how long is the side” aside. 10²=100.\n\nBump?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "point2",
+            "label": "d=4, 2a=20, 4/20=0.2 → 10.2",
+            "next": "babylon"
+          },
+          {
+            "id": "eleven",
+            "label": "11, because 11²=121 is closer than 9²",
+            "next": "wrong_start_eleven"
+          },
+          {
+            "id": "four",
+            "label": "10+4=14",
+            "next": "wrong_start_four"
+          }
+        ]
+      },
+      "wrong_start_eleven": {
+        "message": "104 is just above 100, not near 121. Use 10 + 4/20.\n\nReturn to the bump.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_four": {
+        "message": "You add d, not d/(2a). The bump is 0.2.\n\nReturn to the bump.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "babylon": {
+        "message": "√16, sloppy guess 5. One Babylonian step?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "41",
+            "label": "(5 + 16/5)/2 = 4.1",
+            "next": "check"
+          },
+          {
+            "id": "five",
+            "label": "Stay at 5",
+            "next": "wrong_babylon_five"
+          },
+          {
+            "id": "21",
+            "label": "5 + 16/5 = 8.2, and stop (forgot the /2)",
+            "next": "wrong_babylon_21"
+          }
+        ]
+      },
+      "wrong_babylon_five": {
+        "message": "The step averages 5 with 3.2.\n\nRevisit the average.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "babylon"
+      },
+      "wrong_babylon_21": {
+        "message": "That is the sum, not the average. Divide by 2.\n\nRevisit the average.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "babylon"
+      },
+      "check": {
+        "message": "√103. 10²=100, d=3. Bump?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "1015",
+            "label": "3/20=0.15 → 10.15",
+            "next": "success"
+          },
+          {
+            "id": "103",
+            "label": "10.3 — added 3 as tenths",
+            "next": "wrong_check_103"
+          },
+          {
+            "id": "13",
+            "label": "10+3=13",
+            "next": "wrong_check_13"
+          }
+        ]
+      },
+      "wrong_check_103": {
+        "message": "d/2a is 3/20, not 3/10.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_13": {
+        "message": "Again, divide d by 2a.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

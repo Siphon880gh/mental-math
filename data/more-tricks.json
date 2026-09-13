@@ -1,0 +1,629 @@
+[
+  {
+    "id": "1",
+    "title": "Divisibility tricks",
+    "status": "shipped",
+    "familyIds": [
+      "divisibility"
+    ],
+    "trickIds": [
+      "divisibility-digit-sum",
+      "divisibility-last-two",
+      "divisibility-alt-11"
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Core mental multiplication",
+    "status": "shipped",
+    "familyIds": [
+      "double-half",
+      "round-compensate",
+      "multiply-near",
+      "difference-squares",
+      "criss-cross",
+      "regroup-factors"
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Fixed-multiplier tricks",
+    "status": "shipped",
+    "familyIds": [
+      "double-half",
+      "multiply-near"
+    ],
+    "trickIds": [
+      "double-half-x50",
+      "double-half-x125",
+      "multiply-near-x99",
+      "multiply-near-x101"
+    ]
+  },
+  {
+    "id": "4",
+    "title": "Vedic-style multiplication",
+    "status": "shipped",
+    "familyIds": [
+      "criss-cross",
+      "multiply-near"
+    ],
+    "trickIds": [
+      "criss-cross-two-digit",
+      "multiply-near-x11-three"
+    ]
+  },
+  {
+    "id": "5",
+    "title": "Squaring tricks",
+    "status": "shipped",
+    "familyIds": [
+      "multiply-near",
+      "difference-squares"
+    ],
+    "trickIds": [
+      "multiply-near-x9",
+      "difference-squares-same-tens"
+    ]
+  },
+  {
+    "id": "6",
+    "title": "Japanese / Chinese visual traditions",
+    "status": "skip",
+    "familyIds": [
+      "complements",
+      "magnitude"
+    ],
+    "skipReason": "Line multiplication, soroban-as-training, rods, and suanpan are visual or apparatus. Complements and place-value already ship as mental moves."
+  },
+  {
+    "id": "7",
+    "title": "Historical rapid-multiplication systems",
+    "status": "shipped",
+    "familyIds": [
+      "double-half"
+    ],
+    "trickIds": [
+      "double-half-peasant"
+    ],
+    "skipReason": "Lattice / gelosia is visual; peasant and Egyptian doubling ship on double-half."
+  },
+  {
+    "id": "8",
+    "title": "Fast division rewrite table",
+    "status": "shipped",
+    "familyIds": [
+      "easy-division",
+      "div-by-5"
+    ],
+    "trickIds": [
+      "easy-division-rewrite"
+    ]
+  },
+  {
+    "id": "9",
+    "title": "Factor the divisor",
+    "status": "shipped",
+    "familyIds": [
+      "easy-division"
+    ],
+    "trickIds": [
+      "easy-division-factor"
+    ]
+  },
+  {
+    "id": "10",
+    "title": "Scale both numbers",
+    "status": "shipped",
+    "familyIds": [
+      "easy-division"
+    ],
+    "trickIds": [
+      "easy-division-scale"
+    ]
+  },
+  {
+    "id": "11",
+    "title": "Partial-quotient division",
+    "status": "shipped",
+    "familyIds": [
+      "easy-division"
+    ],
+    "trickIds": [
+      "easy-division-rewrite"
+    ]
+  },
+  {
+    "id": "12",
+    "title": "Division as a missing-factor problem",
+    "status": "shipped",
+    "familyIds": [
+      "easy-division"
+    ],
+    "trickIds": [
+      "easy-division-factor"
+    ]
+  },
+  {
+    "id": "13",
+    "title": "Addition techniques",
+    "status": "shipped",
+    "familyIds": [
+      "left-to-right",
+      "complements"
+    ],
+    "trickIds": [
+      "left-to-right-add",
+      "complements-make-ten"
+    ]
+  },
+  {
+    "id": "14",
+    "title": "Compensation (add 99 / 998)",
+    "status": "shipped",
+    "familyIds": [
+      "round-compensate"
+    ],
+    "trickIds": [
+      "round-compensate-49x6"
+    ]
+  },
+  {
+    "id": "15",
+    "title": "Subtraction by equal adjustment",
+    "status": "shipped",
+    "familyIds": [
+      "equal-adjust"
+    ],
+    "trickIds": [
+      "equal-adjust-both"
+    ]
+  },
+  {
+    "id": "16",
+    "title": "Complements to 10 / 100 / 1000",
+    "status": "shipped",
+    "familyIds": [
+      "complements"
+    ],
+    "trickIds": [
+      "complements-make-ten"
+    ]
+  },
+  {
+    "id": "17",
+    "title": "Pairing numbers",
+    "status": "shipped",
+    "familyIds": [
+      "complements"
+    ],
+    "trickIds": [
+      "complements-pair"
+    ]
+  },
+  {
+    "id": "18",
+    "title": "Gauss / arithmetic-series pairing",
+    "status": "shipped",
+    "familyIds": [
+      "complements"
+    ],
+    "trickIds": [
+      "complements-gauss"
+    ]
+  },
+  {
+    "id": "19",
+    "title": "Fast percentages",
+    "status": "shipped",
+    "familyIds": [
+      "percent-chunks",
+      "percent-shift",
+      "percent-tip",
+      "fraction-percent"
+    ],
+    "trickIds": [
+      "percent-chunks-12-5"
+    ]
+  },
+  {
+    "id": "20",
+    "title": "Swap percentages",
+    "status": "shipped",
+    "familyIds": [
+      "percent-reversible"
+    ],
+    "trickIds": [
+      "percent-swap"
+    ]
+  },
+  {
+    "id": "21",
+    "title": "Fraction ↔ percentage benchmarks",
+    "status": "shipped",
+    "familyIds": [
+      "fraction-percent"
+    ],
+    "trickIds": [
+      "fraction-percent-eighth",
+      "fraction-percent-eighths"
+    ]
+  },
+  {
+    "id": "22",
+    "title": "Cross-cancel before multiplying fractions",
+    "status": "shipped",
+    "familyIds": [
+      "cross-cancel"
+    ],
+    "trickIds": [
+      "cross-cancel-factors"
+    ]
+  },
+  {
+    "id": "23",
+    "title": "Compare fractions by cross multiplication",
+    "status": "shipped",
+    "familyIds": [
+      "cross-cancel"
+    ],
+    "trickIds": [
+      "cross-cancel-compare"
+    ]
+  },
+  {
+    "id": "24",
+    "title": "Estimation by compatible numbers",
+    "status": "shipped",
+    "familyIds": [
+      "round-compensate"
+    ],
+    "trickIds": [
+      "round-compensate-compatible"
+    ]
+  },
+  {
+    "id": "25",
+    "title": "Rounding and correcting",
+    "status": "shipped",
+    "familyIds": [
+      "round-compensate"
+    ],
+    "trickIds": [
+      "round-compensate-49x6"
+    ]
+  },
+  {
+    "id": "26",
+    "title": "Casting out nines",
+    "status": "shipped",
+    "familyIds": [
+      "cast-nines"
+    ],
+    "trickIds": [
+      "cast-nines-root"
+    ]
+  },
+  {
+    "id": "27",
+    "title": "Last-digit checking",
+    "status": "shipped",
+    "familyIds": [
+      "cast-nines"
+    ],
+    "trickIds": [
+      "cast-nines-last-digit"
+    ]
+  },
+  {
+    "id": "28",
+    "title": "Digital-root shortcuts",
+    "status": "shipped",
+    "familyIds": [
+      "divisibility",
+      "cast-nines"
+    ],
+    "trickIds": [
+      "divisibility-digit-sum",
+      "cast-nines-root"
+    ]
+  },
+  {
+    "id": "29",
+    "title": "Power-of-10 thinking",
+    "status": "shipped",
+    "familyIds": [
+      "magnitude"
+    ],
+    "trickIds": [
+      "magnitude-append-zeros"
+    ]
+  },
+  {
+    "id": "30",
+    "title": "Fast decimal multiplication",
+    "status": "shipped",
+    "familyIds": [
+      "magnitude"
+    ],
+    "trickIds": [
+      "magnitude-decimal-mult"
+    ]
+  },
+  {
+    "id": "31",
+    "title": "Fast decimal division",
+    "status": "shipped",
+    "familyIds": [
+      "easy-division"
+    ],
+    "trickIds": [
+      "easy-division-scale"
+    ]
+  },
+  {
+    "id": "32",
+    "title": "Difference-of-squares recognition",
+    "status": "shipped",
+    "familyIds": [
+      "difference-squares"
+    ],
+    "trickIds": [
+      "difference-squares-center"
+    ]
+  },
+  {
+    "id": "33",
+    "title": "Algebraic square identities",
+    "status": "shipped",
+    "familyIds": [
+      "difference-squares"
+    ],
+    "trickIds": [
+      "difference-squares-center"
+    ]
+  },
+  {
+    "id": "34",
+    "title": "Near-square multiplication",
+    "status": "shipped",
+    "familyIds": [
+      "difference-squares"
+    ],
+    "trickIds": [
+      "difference-squares-near"
+    ]
+  },
+  {
+    "id": "35",
+    "title": "Square near 100",
+    "status": "shipped",
+    "familyIds": [
+      "multiply-near"
+    ],
+    "trickIds": [
+      "multiply-near-square-100"
+    ]
+  },
+  {
+    "id": "36",
+    "title": "Approximate square roots",
+    "status": "shipped",
+    "familyIds": [
+      "approx-sqrt"
+    ],
+    "trickIds": [
+      "approx-sqrt-bump"
+    ]
+  },
+  {
+    "id": "37",
+    "title": "Babylonian / Newton square-root method",
+    "status": "shipped",
+    "familyIds": [
+      "approx-sqrt"
+    ],
+    "trickIds": [
+      "approx-sqrt-babylon"
+    ]
+  },
+  {
+    "id": "38",
+    "title": "Multiplication-table relationships",
+    "status": "shipped",
+    "familyIds": [
+      "anchors"
+    ],
+    "trickIds": [
+      "anchors-relate-facts"
+    ]
+  },
+  {
+    "id": "39",
+    "title": "Commutative switching",
+    "status": "shipped",
+    "familyIds": [
+      "percent-reversible"
+    ],
+    "trickIds": [
+      "percent-swap"
+    ]
+  },
+  {
+    "id": "40",
+    "title": "Associative regrouping",
+    "status": "shipped",
+    "familyIds": [
+      "regroup-factors"
+    ],
+    "trickIds": [
+      "regroup-factors-associate"
+    ]
+  },
+  {
+    "id": "41",
+    "title": "Choose the easiest order",
+    "status": "shipped",
+    "familyIds": [
+      "regroup-factors"
+    ],
+    "trickIds": [
+      "regroup-factors-order"
+    ]
+  },
+  {
+    "id": "42",
+    "title": "Memorize strategically useful number facts",
+    "status": "shipped",
+    "familyIds": [
+      "anchors",
+      "fraction-percent"
+    ],
+    "trickIds": [
+      "anchors-squares-powers",
+      "fraction-percent-eighth"
+    ]
+  },
+  {
+    "id": "master-1",
+    "title": "Complements to 10/100/1000",
+    "status": "shipped",
+    "familyIds": [
+      "complements"
+    ],
+    "trickIds": [
+      "complements-make-ten"
+    ]
+  },
+  {
+    "id": "master-2",
+    "title": "Place-value decomposition",
+    "status": "shipped",
+    "familyIds": [
+      "magnitude",
+      "left-to-right"
+    ],
+    "trickIds": [
+      "magnitude-append-zeros",
+      "left-to-right-add"
+    ]
+  },
+  {
+    "id": "master-3",
+    "title": "Distributive property",
+    "status": "shipped",
+    "familyIds": [
+      "regroup-factors",
+      "round-compensate"
+    ],
+    "trickIds": [
+      "regroup-factors-associate"
+    ]
+  },
+  {
+    "id": "master-4",
+    "title": "Round and compensate",
+    "status": "shipped",
+    "familyIds": [
+      "round-compensate"
+    ],
+    "trickIds": [
+      "round-compensate-49x6"
+    ]
+  },
+  {
+    "id": "master-5",
+    "title": "Double and halve",
+    "status": "shipped",
+    "familyIds": [
+      "double-half"
+    ],
+    "trickIds": [
+      "double-half-x5"
+    ]
+  },
+  {
+    "id": "master-6",
+    "title": "Factor before calculating",
+    "status": "shipped",
+    "familyIds": [
+      "regroup-factors",
+      "easy-division"
+    ],
+    "trickIds": [
+      "regroup-factors-order",
+      "easy-division-factor"
+    ]
+  },
+  {
+    "id": "master-7",
+    "title": "Difference of squares",
+    "status": "shipped",
+    "familyIds": [
+      "difference-squares"
+    ],
+    "trickIds": [
+      "difference-squares-center"
+    ]
+  },
+  {
+    "id": "master-8",
+    "title": "Near-base multiplication",
+    "status": "shipped",
+    "familyIds": [
+      "multiply-near"
+    ],
+    "trickIds": [
+      "multiply-near-x9"
+    ]
+  },
+  {
+    "id": "master-9",
+    "title": "Divisibility rules",
+    "status": "shipped",
+    "familyIds": [
+      "divisibility"
+    ],
+    "trickIds": [
+      "divisibility-digit-sum"
+    ]
+  },
+  {
+    "id": "master-10",
+    "title": "Convert division into multiplication",
+    "status": "shipped",
+    "familyIds": [
+      "easy-division",
+      "div-by-5"
+    ],
+    "trickIds": [
+      "easy-division-rewrite"
+    ]
+  },
+  {
+    "id": "master-11",
+    "title": "Memorize squares / powers / common fractions",
+    "status": "shipped",
+    "familyIds": [
+      "anchors",
+      "fraction-percent"
+    ],
+    "trickIds": [
+      "anchors-squares-powers",
+      "fraction-percent-eighth"
+    ]
+  },
+  {
+    "id": "master-12",
+    "title": "Estimate and independently check the result",
+    "status": "shipped",
+    "familyIds": [
+      "round-compensate",
+      "cast-nines"
+    ],
+    "trickIds": [
+      "round-compensate-compatible",
+      "cast-nines-root"
+    ]
+  }
+]

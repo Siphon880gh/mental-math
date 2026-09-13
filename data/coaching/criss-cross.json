@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "criss-cross",
+    "title": "Vertical, then crosswise, then vertical",
+    "summary": "SAMPLE 23×21: ones 3, cross 8, tens 4 → 483.",
+    "familyId": "criss-cross",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Ones, cross, tens — carry when a slot hits 10.\n\nSAMPLE: 23×21=483, 12×13=156.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 23 × 21 in a seating grid. You want three slots, not long multiply.\n\nOrder?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "slots",
+            "label": "Ones product, then the two crosses added, then tens product",
+            "next": "apply"
+          },
+          {
+            "id": "add",
+            "label": "23+21=44 and stop",
+            "next": "wrong_start_add"
+          },
+          {
+            "id": "only_ones",
+            "label": "3×1=3 and call it 3",
+            "next": "wrong_start_only_ones"
+          }
+        ]
+      },
+      "wrong_start_add": {
+        "message": "That is addition. Need the three multiply slots.\n\nReturn to the slots.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_only_ones": {
+        "message": "That is only the ones slot. Cross and tens still count.\n\nReturn to the slots.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "apply": {
+        "message": "23 × 21. Ones 3×1=3. Cross?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "eight",
+            "label": "2×1 + 3×2 = 8, tens 2×2=4 → 483",
+            "next": "check"
+          },
+          {
+            "id": "five",
+            "label": "2+1+3+2=8 as an add of the digits, tens leftover",
+            "next": "wrong_apply_five"
+          },
+          {
+            "id": "six",
+            "label": "2×3=6 for the cross",
+            "next": "wrong_apply_six"
+          }
+        ]
+      },
+      "wrong_apply_five": {
+        "message": "The 8 happens to match but you must multiply crosses, not add digits.\n\nRevisit the cross.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "apply"
+      },
+      "wrong_apply_six": {
+        "message": "Cross is 2×1 plus 3×2, not the two tens digits.\n\nRevisit the cross.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "apply"
+      },
+      "check": {
+        "message": "12 × 13. Same three slots?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "156",
+            "label": "2×3=6, 1×3+2×1=5, 1×1=1 → 156",
+            "next": "success"
+          },
+          {
+            "id": "36",
+            "label": "12+13+11=36",
+            "next": "wrong_check_36"
+          },
+          {
+            "id": "169",
+            "label": "13²=169",
+            "next": "wrong_check_169"
+          }
+        ]
+      },
+      "wrong_check_36": {
+        "message": "Not the slots. Ones 6, cross 5, tens 1.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_169": {
+        "message": "That is 13×13, not 12×13.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

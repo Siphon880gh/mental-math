@@ -2,7 +2,7 @@
 
 Deepen Home `/` copy. **Not** a feature-rewrite loop.
 
-Companions: [`src/pages/Dashboard.tsx`](../src/pages/Dashboard.tsx) · [`src/lib/learningPaths.ts`](../src/lib/learningPaths.ts)
+Companions: [`app/views/pages/home.php`](../app/views/pages/home.php) · [`app/Catalog/LearningPaths.php`](../app/Catalog/LearningPaths.php)
 
 ---
 
@@ -13,7 +13,7 @@ Companions: [`src/pages/Dashboard.tsx`](../src/pages/Dashboard.tsx) · [`src/lib
 ```
 
 **Before starting**
-1. Leave working `npm run dev` alone; verify with `npm run lint` && `npm run test` && `npm run build`.
+1. Leave working `composer serve` / `php -S` alone; verify with `./vendor/bin/phpunit`.
 2. Stop yourself anytime; hard-stop on 10-round error budget or Done(home).
 
 **On each tick**
@@ -50,7 +50,7 @@ Home copy matches shipped resources; no path mechanic changes.
 # CONTEXT
 - Dashboard + learningPaths + any thinking-mode tip map
 - Tone: sentence case; SAMPLE honesty; no SNAKE_CASE in UI
-- Auto-verify: `npm run lint` && `npm run test` && `npm run build`
+- Auto-verify: `./vendor/bin/phpunit`
 
 # STEP-BY-STEP CADENCE
 1. **Orient** — next Coverage row vs source strings.
@@ -62,7 +62,7 @@ Home copy matches shipped resources; no path mechanic changes.
 - [ ] One copy cluster
 - [ ] No unlock / schema / route changes
 - [ ] Tips do not name missing slugs
-- [ ] lint + test + build 0
+- [ ] PHPUnit 0
 
 # STOP CONDITIONS
 - Done(home) → STOP.
@@ -73,5 +73,5 @@ Home copy matches shipped resources; no path mechanic changes.
 1. file + which string
 2. PASS | FIXING (n/10) | STOP
 3. Next row
-4. lint/test/build status
+4. PHPUnit status
 ```

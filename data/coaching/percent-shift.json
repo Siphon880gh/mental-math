@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "percent-shift",
+    "title": "1% is two places left",
+    "summary": "SAMPLE 1% of 8,500 and 10% of 470: shift the decimal, do not divide by guessing.",
+    "familyId": "percent-shift",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. 1% = two places left; 10% = one place.\n\nSAMPLE: 1% of 8,500=85, 10% of 470=47.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 1% of 8,500 in a fee chat.\n\nWhich motion is 1%?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "two",
+            "label": "Move the decimal two places left",
+            "next": "apply"
+          },
+          {
+            "id": "one",
+            "label": "Move one place left (that is 10%)",
+            "next": "wrong_start_one"
+          },
+          {
+            "id": "divide_8",
+            "label": "Divide 8,500 by 8 because percent feels like eighths",
+            "next": "wrong_start_divide_8"
+          }
+        ]
+      },
+      "wrong_start_one": {
+        "message": "10% is one place. 1% is two places. Mixing them off-by-tens the answer.\n\nReturn to the shift rule.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_divide_8": {
+        "message": "Percent is per hundred, not per eight. Shift two places for 1%.\n\nReturn to the shift rule.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "apply": {
+        "message": "Two places left on 8,500.\n\nWhat is 1%?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "85",
+            "label": "85",
+            "next": "ten"
+          },
+          {
+            "id": "850",
+            "label": "850 — only one place",
+            "next": "wrong_apply_850"
+          },
+          {
+            "id": "8_5",
+            "label": "8.5 — three places",
+            "next": "wrong_apply_8_5"
+          }
+        ]
+      },
+      "wrong_apply_850": {
+        "message": "850 would be 10%. 1% of 8,500 is 85.\n\nRevisit the two-place move.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "apply"
+      },
+      "wrong_apply_8_5": {
+        "message": "Three places is 0.1%. Stop at two.\n\nRevisit the two-place move.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "apply"
+      },
+      "ten": {
+        "message": "Now 10% of 470. One place left.\n\nWhat is it?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "47",
+            "label": "47",
+            "next": "success"
+          },
+          {
+            "id": "4_7",
+            "label": "4.7 — used the 1% shift",
+            "next": "wrong_ten_4_7"
+          },
+          {
+            "id": "470",
+            "label": "470 — 10% of a number is the number",
+            "next": "wrong_ten_470"
+          }
+        ]
+      },
+      "wrong_ten_4_7": {
+        "message": "4.7 is 1% of 470. 10% is one place: 47.\n\nTry 10% again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "ten"
+      },
+      "wrong_ten_470": {
+        "message": "That would be 100%. One place left from 470 is 47.\n\nTry 10% again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "ten"
+      }
+    }
+  }
+}

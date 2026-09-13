@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "cac-payback",
+    "title": "Payback is CAC over monthly gross profit",
+    "summary": "SAMPLE CAC $240, $40/mo gross profit → 6 months. Aim ≤12. Use profit after COGS, not list price.",
+    "familyId": "cac-payback",
+    "tags": [
+      "intermediate"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Payback months = CAC ÷ monthly gross profit. Aim ≤12. Not list price.\n\nSAMPLE: 240/40=6; 240/15=16.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: CAC $240, $40/mo gross profit after COGS.\n\nPayback months?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "six",
+            "label": "240 ÷ 40 = 6 months",
+            "next": "list"
+          },
+          {
+            "id": "price",
+            "label": "240 ÷ list price $80/mo = 3 months",
+            "next": "wrong_start_price"
+          },
+          {
+            "id": "year",
+            "label": "240 months because CAC is 240",
+            "next": "wrong_start_year"
+          }
+        ]
+      },
+      "wrong_start_price": {
+        "message": "List price is not gross profit. Payback uses profit after COGS.\n\nReturn to GP.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_year": {
+        "message": "You copied CAC as months. Divide by monthly GP.\n\nReturn to GP.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "list": {
+        "message": "6 months versus the ≤12 healthy SaaS smell.\n\nRead?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "good",
+            "label": "Inside a year — passes the SAMPLE bar",
+            "next": "check"
+          },
+          {
+            "id": "slow",
+            "label": "Too slow because it is not one month",
+            "next": "wrong_list_slow"
+          },
+          {
+            "id": "ignore",
+            "label": "Ignore 12; any payback is fine",
+            "next": "wrong_list_ignore"
+          }
+        ]
+      },
+      "wrong_list_slow": {
+        "message": "The bar is about a year, not overnight.\n\nRevisit the bar.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "list"
+      },
+      "wrong_list_ignore": {
+        "message": "Long payback is a working-capital story. The taught bar is ≤12.\n\nRevisit the bar.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "list"
+      },
+      "check": {
+        "message": "CAC $240, GP $15/mo. Months?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "sixteen",
+            "label": "16 — misses ≤12",
+            "next": "success"
+          },
+          {
+            "id": "12",
+            "label": "12 — round to the target",
+            "next": "wrong_check_12"
+          },
+          {
+            "id": "15",
+            "label": "15 months — copy GP",
+            "next": "wrong_check_15"
+          }
+        ]
+      },
+      "wrong_check_12": {
+        "message": "240/15=16. Do not round to the slogan.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_15": {
+        "message": "GP is the denominator, not the month count.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

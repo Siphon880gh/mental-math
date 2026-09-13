@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "magnitude",
+    "title": "Move zeros, do not recompute",
+    "summary": "SAMPLE 70×8: keep 7×8=56 and append the zero.",
+    "familyId": "magnitude",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. You kept the base fact and moved zeros instead of recomputing.\n\nSAMPLE: 70×8=560, 90×6=540.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 70 × 8 in a headcount chat.\n\nWhat is the first move?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "keep",
+            "label": "Keep 7 × 8 = 56 and treat the 70 as ×10",
+            "next": "append"
+          },
+          {
+            "id": "redo",
+            "label": "Recompute 70 × 8 from scratch as a new fact",
+            "next": "wrong_start_redo"
+          },
+          {
+            "id": "add",
+            "label": "Add 70 eight times",
+            "next": "wrong_start_add"
+          }
+        ]
+      },
+      "wrong_start_redo": {
+        "message": "70×8 is not a new table. It is 7×8 with a zero moved.\n\nReturn to the first move.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_add": {
+        "message": "Repeated addition is the slow path. Magnitude scaling is append-zeros.\n\nReturn to the first move.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "append": {
+        "message": "7 × 8 = 56. 70 is 7 × 10.\n\nWhere does the zero go?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "560",
+            "label": "Append one zero → 560",
+            "next": "check"
+          },
+          {
+            "id": "56",
+            "label": "Leave it at 56",
+            "next": "wrong_append_56"
+          },
+          {
+            "id": "5600",
+            "label": "Append two zeros because 70 looks like 700",
+            "next": "wrong_append_5600"
+          }
+        ]
+      },
+      "wrong_append_56": {
+        "message": "You dropped the ×10. 70 is ten times 7.\n\nRevisit the zero.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "append"
+      },
+      "wrong_append_5600": {
+        "message": "70 has one extra zero, not two. 700 × 8 would be 5,600.\n\nRevisit the zero.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "append"
+      },
+      "check": {
+        "message": "Same base: 9 × 6 = 54. What is 90 × 6?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "540",
+            "label": "540 — one zero on 54",
+            "next": "success"
+          },
+          {
+            "id": "54",
+            "label": "54 — ignore the extra zero on 90",
+            "next": "wrong_check_54"
+          },
+          {
+            "id": "5400",
+            "label": "5,400 — treat 90 as 900",
+            "next": "wrong_check_5400"
+          }
+        ]
+      },
+      "wrong_check_54": {
+        "message": "90 is 9 × 10. The product must grow by 10×.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_5400": {
+        "message": "900 × 6 is the two-zero version. This prompt is 90.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

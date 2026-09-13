@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "processing-fees",
+    "title": "Card fees ≈ 2.9% plus 30 cents",
+    "summary": "SAMPLE $10 charge → ~$0.59. Smell test ~3% of volume; small tickets are a much higher percent.",
+    "familyId": "processing-fees",
+    "tags": [
+      "intermediate"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. 2.9%+$0.30; small tickets are a higher effective percent; ~3% on large volume.\n\nSAMPLE: $10→~$0.59; $50k→~$1.5k.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: $10 charge. Processor is 2.9% + $0.30.\n\nFee?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "combo",
+            "label": "2.9% of $10 ≈ $0.29, plus $0.30 → about $0.59",
+            "next": "pct"
+          },
+          {
+            "id": "three",
+            "label": "3% of $10 = $0.30 and ignore the flat 30 cents",
+            "next": "wrong_start_three"
+          },
+          {
+            "id": "ten",
+            "label": "$10 fee because the charge is $10",
+            "next": "wrong_start_ten"
+          }
+        ]
+      },
+      "wrong_start_three": {
+        "message": "On small tickets the flat 30¢ is as big as the percent. Add both.\n\nReturn to 2.9+30.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_ten": {
+        "message": "The charge is the volume, not the fee.\n\nReturn to 2.9+30.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "pct": {
+        "message": "$0.59 on $10 is what percent?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "six",
+            "label": "About 6% — small tickets hurt",
+            "next": "check"
+          },
+          {
+            "id": "three",
+            "label": "Still ~3%",
+            "next": "wrong_pct_three"
+          },
+          {
+            "id": "thirty",
+            "label": "30%",
+            "next": "wrong_pct_thirty"
+          }
+        ]
+      },
+      "wrong_pct_three": {
+        "message": "3% is the large-ticket smell. $0.59/$10 ≈ 6%.\n\nRevisit the percent.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "pct"
+      },
+      "wrong_pct_thirty": {
+        "message": "You treated 30 cents as 30 percent.\n\nRevisit the percent.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "pct"
+      },
+      "check": {
+        "message": "$50k processed, large tickets. ~3% smell?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "1500",
+            "label": "About $1,500",
+            "next": "success"
+          },
+          {
+            "id": "50k",
+            "label": "$50k — the volume",
+            "next": "wrong_check_50k"
+          },
+          {
+            "id": "150",
+            "label": "$150 — 0.3%",
+            "next": "wrong_check_150"
+          }
+        ]
+      },
+      "wrong_check_50k": {
+        "message": "Fees are a slice of volume, ~3% → $1.5k.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_150": {
+        "message": "3% of 50k is 1,500, not 150.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

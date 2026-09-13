@@ -46,4 +46,4 @@ Do not duplicate the original ladder (anchors, magnitude, percent shortcuts, ÷5
 
 These families are **not** on the Beginner Reflex Path. They live on the Guides hub under the matching track, then drills/cases via `LOOPS/` and E9.
 
-A later arithmetic catalog (`context/docs-more-more/more-tricks.md`) is mapped in `src/lib/moreTricksCoverage.ts` and drained with `LOOPS/LOOP-More-Tricks.md`.
+A later arithmetic catalog (`context/docs-more-more/more-tricks.md`) is mapped in `data/more-tricks.json` and drained with `LOOPS/LOOP-More-Tricks.md`.

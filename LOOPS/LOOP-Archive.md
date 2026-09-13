@@ -2,7 +2,7 @@
 
 Archive is **not** a learner surface. Literacy is **Guides** only (`/guides`), with Track A and Track B. `/archive` redirects to `/guides`.
 
-Shortcuts (rule + example) live on `/guides/:slug`, stored as `Trick` rows in `src/lib/tricks.ts`.
+Shortcuts (rule + example) live on `/guides/:slug`, stored as `Trick` rows in `data/tricks.json`.
 
 Do **not** run this file as a graph node. The graph has six nodes: Guides → Coach → Drills → Games → Cases → Home.
 

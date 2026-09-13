@@ -24,7 +24,7 @@ Requires **MVP freeze** (runtime exists). If P0 is incomplete, stop and use [`AG
 **Default policy: `FOUNDATION_THEN_ECHO`.** Drain Guides (Track A then Track B), then **pair each guide with its coach**, then walk remaining family echo chains, then drain leftover floors.
 
 **Before starting**
-1. Leave working `npm run dev` alone; verify with `npm run lint` && `npm run test` && `npm run build`.
+1. Leave working `composer serve` / `php -S` alone; verify with `./vendor/bin/phpunit`.
 2. Stop yourself anytime; hard-stop on the error budget or Done(graph).
 3. Do not also start a single-section `/loop` or the milestone loop in the same session.
 
@@ -202,7 +202,7 @@ Run the six LOOPS/ section content loops as one graph until every section’s Do
 - Picker + families: `LOOPS/LOOP-Graph.md`
 - Authoring: only the chosen `LOOPS/LOOP-*.md`
 - Shared: SAMPLE; original copy from context docs; familyId join key; tracks A/B on Guides; Guide→Coach same slug; Beginner unlocks unchanged; one unit per tick
-- Auto-verify: `npm run lint` && `npm run test` && `npm run build`
+- Auto-verify: `./vendor/bin/phpunit`
 - Policy default: FOUNDATION_THEN_ECHO
 - If MVP freeze is not green: STOP and run AGENTS_LOOP-Continue-Milestone.md instead
 - Do not restore `/archive` as a learner surface
@@ -211,7 +211,7 @@ Run the six LOOPS/ section content loops as one graph until every section’s Do
 1. **Orient** — inventory counts from source; determine stage/family; pick target loop + gap.
 2. **Announce** which loop and why (drain node vs coach pair vs echo hop vs leftover).
 3. **Author** using that section file’s cadence only.
-4. **Verify** using that section’s rubric + lint/test/build.
+4. **Verify** using that section’s rubric + PHPUnit.
 5. **On PASS** — compute next hop (echo) or stay (drain until Done(section)). Unpaired guide → next_hop Coach.
 6. **On FAIL** — same section; max 10 rounds → Error Handoff Summary (include graph stage/family).
 7. **Do not** start a second section unit in the same tick after PASS unless time remains **and** you re-run the picker (still one unit).
@@ -221,7 +221,7 @@ PASS only if:
 - [ ] Picker chose a legal target
 - [ ] Section rubric for that loop also PASSes
 - [ ] No unlock/schema drift; no pasted context docs; tracks labeled A/B
-- [ ] lint + test + build 0
+- [ ] PHPUnit 0
 
 # STOP CONDITIONS
 - Done(graph) → STOP with per-section floors vs counts.
@@ -235,7 +235,7 @@ PASS only if:
 3. why this loop (guides drain | coach pair | echo hop from X | leftover drain)
 4. PASS | FIXING (n/10) | STOP
 5. next_hop (loop + family) or Done(section) / Done(graph)
-6. lint/test/build status
+6. PHPUnit status
 ```
 
 ---

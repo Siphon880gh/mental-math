@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "div-by-5",
+    "title": "Divide by five: double, then shift",
+    "summary": "SAMPLE 1,322 ÷ 5: ×2 → 2,644, one place left → 264.4.",
+    "familyId": "div-by-5",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. ÷5 = ×2 then one place left.\n\nSAMPLE: 1,322÷5=264.4, 80÷5=16.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 1,322 ÷ 5. Dividing by 5 feels sticky.\n\nWhat is the foreign-school move?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "double",
+            "label": "Double, then move one place left",
+            "next": "apply"
+          },
+          {
+            "id": "half",
+            "label": "Halve it because 5 is near 4",
+            "next": "wrong_start_half"
+          },
+          {
+            "id": "times_5",
+            "label": "Multiply by 5 instead",
+            "next": "wrong_start_times_5"
+          }
+        ]
+      },
+      "wrong_start_half": {
+        "message": "Halving would be ÷2. ÷5 is ×2 then ÷10.\n\nReturn to the motion.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_times_5": {
+        "message": "That is the inverse. You were asked to divide.\n\nReturn to the motion.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "apply": {
+        "message": "1,322 × 2 = 2,644. One place left?\n\nQuotient?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "2644",
+            "label": "264.4",
+            "next": "check"
+          },
+          {
+            "id": "2644_raw",
+            "label": "2,644 — skipped the place shift",
+            "next": "wrong_apply_2644_raw"
+          },
+          {
+            "id": "26",
+            "label": "26.44 — two places left",
+            "next": "wrong_apply_26"
+          }
+        ]
+      },
+      "wrong_apply_2644_raw": {
+        "message": "Doubling without ÷10 is ×2, not ÷5.\n\nRevisit the shift.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "apply"
+      },
+      "wrong_apply_26": {
+        "message": "÷5 is one place after doubling, not two (that would be ÷50).\n\nRevisit the shift.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "apply"
+      },
+      "check": {
+        "message": "80 ÷ 5, same motion. 80 × 2 = 160, one place left?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "16",
+            "label": "16",
+            "next": "success"
+          },
+          {
+            "id": "160",
+            "label": "160",
+            "next": "wrong_check_160"
+          },
+          {
+            "id": "40",
+            "label": "40 — halved 80",
+            "next": "wrong_check_40"
+          }
+        ]
+      },
+      "wrong_check_160": {
+        "message": "160 is the double. One place left → 16.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_40": {
+        "message": "40 would be ÷2. ÷5 of 80 is 16.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

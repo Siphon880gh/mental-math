@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "regroup-factors",
+    "title": "Pair the easy factors first",
+    "summary": "SAMPLE 25×16×4: 25×4=100, then ×16=1,600. Do not multiply left to right out of habit.",
+    "familyId": "regroup-factors",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Associate so a pair makes 10 or 100, then dump the leftover.\n\nSAMPLE: 25×16×4=1,600, 8×37×125=37,000.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 25 × 16 × 4. Left-to-right 25×16 is ugly.\n\nFirst pair?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "hundred",
+            "label": "25×4=100, then 100×16=1,600",
+            "next": "scan"
+          },
+          {
+            "id": "left",
+            "label": "25×16=400, then ×4",
+            "next": "wrong_start_left"
+          },
+          {
+            "id": "add",
+            "label": "25+16+4=45",
+            "next": "wrong_start_add"
+          }
+        ]
+      },
+      "wrong_start_left": {
+        "message": "You get 1,600 if you finish, but the habit is to hunt 25×4 first.\n\nReturn to the pair.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_add": {
+        "message": "Product, not sum. Pair 25 with 4.\n\nReturn to the pair.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "scan": {
+        "message": "8 × 37 × 125. Scan the whole product.",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "37k",
+            "label": "8×125=1,000, then ×37 = 37,000",
+            "next": "check"
+          },
+          {
+            "id": "296",
+            "label": "8×37=296, then worry about 125",
+            "next": "wrong_scan_296"
+          },
+          {
+            "id": "1000_stop",
+            "label": "8×125=1,000 and stop",
+            "next": "wrong_scan_1000_stop"
+          }
+        ]
+      },
+      "wrong_scan_296": {
+        "message": "296×125 is the slow path. 8×125 is the thousand.\n\nRevisit the scan.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "scan"
+      },
+      "wrong_scan_1000_stop": {
+        "message": "You still have the 37. Dump it on the thousand.\n\nRevisit the scan.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "scan"
+      },
+      "check": {
+        "message": "25 × 48. Factor 48 if it helps.",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "1200",
+            "label": "25×4×12 = 100×12 = 1,200",
+            "next": "success"
+          },
+          {
+            "id": "1000",
+            "label": "25×40=1,000 and drop the 8",
+            "next": "wrong_check_1000"
+          },
+          {
+            "id": "73",
+            "label": "25+48=73",
+            "next": "wrong_check_73"
+          }
+        ]
+      },
+      "wrong_check_1000": {
+        "message": "48=40+8 or 4×12. Do not drop the 8.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_73": {
+        "message": "Product. Pair 25 with 4.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

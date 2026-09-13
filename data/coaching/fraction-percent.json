@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "fraction-percent",
+    "title": "Common fractions are percents",
+    "summary": "SAMPLE 1/8 of 800: 12.5% or ÷8 → 100. Keep 1/2, 1/3, 1/4, 1/5, 1/8, 1/10.",
+    "familyId": "fraction-percent",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Keep a tiny fraction↔percent table and scale.\n\nSAMPLE: 1/8 of 800=100, 1/3 of 3,000=1,000.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 1/8 of 800. Do you grind 0.125, or use a table?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "table",
+            "label": "1/8 is 12.5%, or just 800÷8",
+            "next": "apply"
+          },
+          {
+            "id": "ten",
+            "label": "Treat 1/8 like 10% because 8 is near 10",
+            "next": "wrong_start_ten"
+          },
+          {
+            "id": "half_half",
+            "label": "Half of 800 is 400, and 1/8 is close enough to half",
+            "next": "wrong_start_half_half"
+          }
+        ]
+      },
+      "wrong_start_ten": {
+        "message": "10% of 800 is 80. 1/8 is 12.5% → 100. Near is not same.\n\nReturn to the table.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_half_half": {
+        "message": "1/8 is half of 1/4, not half of the whole.\n\nReturn to the table.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "apply": {
+        "message": "800 ÷ 8, or 25% of 800 is 200, half of that is 1/8.\n\nValue?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "100",
+            "label": "100",
+            "next": "check"
+          },
+          {
+            "id": "200",
+            "label": "200 — that is 1/4",
+            "next": "wrong_apply_200"
+          },
+          {
+            "id": "80",
+            "label": "80 — 10%",
+            "next": "wrong_apply_80"
+          }
+        ]
+      },
+      "wrong_apply_200": {
+        "message": "1/4 of 800 is 200. 1/8 is half of that.\n\nRevisit 1/8.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "apply"
+      },
+      "wrong_apply_80": {
+        "message": "10% is 1/10. 1/8 is larger: 100.\n\nRevisit 1/8.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "apply"
+      },
+      "check": {
+        "message": "1/3 ≈ 33%. 1/3 of 3,000?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "1000",
+            "label": "1,000",
+            "next": "success"
+          },
+          {
+            "id": "300",
+            "label": "300 — 10%",
+            "next": "wrong_check_300"
+          },
+          {
+            "id": "33",
+            "label": "33 — copied the 33% digits",
+            "next": "wrong_check_33"
+          }
+        ]
+      },
+      "wrong_check_300": {
+        "message": "10% of 3,000 is 300. A third is 1,000.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_33": {
+        "message": "33% of 3,000 is 990–1,000, not 33.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

@@ -20,7 +20,7 @@ Prefer **no interval** so each wake continues the next story.
 
 **Before starting**
 1. Confirm `.agents/state.json` points at the story you want (`current_milestone_id`, `next_action`).
-2. Leave working `npm run dev` alone. Auto-verify is `npm run lint` && `npm run test` && `npm run build`.
+2. Leave working `composer serve` / `php -S` alone. Auto-verify is `./vendor/bin/phpunit`.
 3. Stop the loop yourself when you want. Hard-stop on the error budget or Done(global).
 
 **On each tick the agent should**
@@ -72,7 +72,7 @@ Work queues (strict order), from `.agents/state.json` → `milestones`:
 - Story + acceptance: `IMPLEMENTATION_STORIES.md`
 - Product map: `EPIC_MAP.md`, `RESOURCES.md`, spec under `docs/superpowers/specs/`
 - Execution: one milestone `in_progress` at a time; follow the active queue; do not invent milestones
-- Auto-verify: `npm run lint` && `npm run test` && `npm run build`
+- Auto-verify: `./vendor/bin/phpunit`
 - Optional skills: `.agents/skills/*`
 - familyId is the problem-type join key; resource type is separate; tracks A/B live on the Guides hub
 - Guide → Coach uses the same slug; do not restore Archive as a learner surface
@@ -87,13 +87,12 @@ Work queues (strict order), from `.agents/state.json` → `milestones`:
 2. **Implement the current story only**
    - Minimal changes that satisfy that story’s Acceptance column.
    - Prefer extending registries / existing patterns.
-   - Scaffold Vite/React only if `package.json` is missing (first P0 stories).
    - For E8: decision graphs only; no LLM.
    - For E7: skip families with no distinct mechanic.
    - For E9: do not replace Beginner Reflex Path unlocks.
 
 3. **Automatic verification (required before marking progress)**
-   - Run `npm run lint` then `npm run test` then `npm run build`.
+   - Run `./vendor/bin/phpunit`.
    - Check story Acceptance + global definition of done.
 
 4. **On PASS**
@@ -102,7 +101,7 @@ Work queues (strict order), from `.agents/state.json` → `milestones`:
    - Continue to the next story; when a queue finishes, enter the next automatically.
    - After `E6.M1`, mark `P0_MVP_FREEZE` only if the freeze checklist in IMPLEMENTATION_STORIES is green.
 
-5. **On FAIL (lint/test/build/acceptance)**
+5. **On FAIL (PHPUnit/acceptance)**
    - Error-fix mode; max **10** fix rounds; then Error Handoff Summary.
 
 6. **Skills**

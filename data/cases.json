@@ -1,0 +1,1248 @@
+{
+  "packs": [
+    {
+      "id": "stacked-founder",
+      "title": "Stacked founder",
+      "summary": "Track A shortcuts in one planning sentence."
+    },
+    {
+      "id": "cfo-feasibility",
+      "title": "CFO feasibility",
+      "summary": "Ceiling vs cost scale."
+    },
+    {
+      "id": "cfo-unit-econ",
+      "title": "CFO unit economics",
+      "summary": "LTV versus CAC."
+    },
+    {
+      "id": "cfo-runway",
+      "title": "CFO runway",
+      "summary": "Cash divided by burn."
+    },
+    {
+      "id": "cfo-growth",
+      "title": "CFO growth claims",
+      "summary": "20%/mo is not a 50× year."
+    },
+    {
+      "id": "startup-efficiency",
+      "title": "Startup efficiency",
+      "summary": "Rule of 40, burn, payback."
+    },
+    {
+      "id": "startup-marketplace",
+      "title": "Marketplace",
+      "summary": "Take rate and processing fees."
+    },
+    {
+      "id": "startup-people-capital",
+      "title": "People and capital",
+      "summary": "Loaded cost, dilution, TAM, NRR."
+    }
+  ],
+  "cases": [
+    {
+      "id": "sf-gpu-18",
+      "packId": "stacked-founder",
+      "familyId": "hour-month",
+      "thinkingMode": "infra_chain",
+      "prompt": "SAMPLE: cofounder says the GPU is $1/hr and we charge $40/mo. How many paying users cover one box?",
+      "expectedAnswer": 18,
+      "thoughtChain": [
+        "Hourly ×720 → $720/mo",
+        "720 ÷ 40 ≈ 18 users"
+      ],
+      "difficulty": "beginner",
+      "unit": "users"
+    },
+    {
+      "id": "sf-be-60",
+      "packId": "stacked-founder",
+      "familyId": "break-even",
+      "thinkingMode": "break_even",
+      "prompt": "SAMPLE: ads plus tools are $3,000 this month. Price is $50. Users to break even?",
+      "expectedAnswer": 60,
+      "thoughtChain": [
+        "Users = cost ÷ price",
+        "3,000÷50 → 300÷5 = 60"
+      ],
+      "difficulty": "beginner",
+      "unit": "users"
+    },
+    {
+      "id": "sf-funnel-500",
+      "packId": "stacked-founder",
+      "familyId": "percent-shift",
+      "thinkingMode": "conversion_funnel",
+      "prompt": "SAMPLE: 10,000 visitors, about 5% convert. Paying customers?",
+      "expectedAnswer": 500,
+      "thoughtChain": [
+        "1% of 10k = 100",
+        "5% = 500"
+      ],
+      "difficulty": "beginner",
+      "unit": "customers"
+    },
+    {
+      "id": "sf-markup-3",
+      "packId": "stacked-founder",
+      "familyId": "markup",
+      "thinkingMode": "markup_read",
+      "prompt": "SAMPLE: we buy at $20 and sell at $60. What multiple of cost is price?",
+      "expectedAnswer": 3,
+      "thoughtChain": [
+        "Markup is price ÷ cost",
+        "60÷20 = 3×"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "sf-day-30",
+      "packId": "stacked-founder",
+      "familyId": "month-day",
+      "thinkingMode": "infra_chain",
+      "prompt": "SAMPLE: the bill is $900/mo. What daily burn should we quote?",
+      "expectedAnswer": 30,
+      "thoughtChain": [
+        "Monthly ÷ 30 ≈ daily",
+        "900÷30 = $30"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "sf-year-360",
+      "packId": "stacked-founder",
+      "familyId": "month-year",
+      "thinkingMode": "infra_chain",
+      "prompt": "SAMPLE: $30/mo plan. Investor asks yearly revenue per seat.",
+      "expectedAnswer": 360,
+      "thoughtChain": [
+        "Monthly ×12",
+        "30×12 = $360"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "sf-be-20",
+      "packId": "stacked-founder",
+      "familyId": "break-even",
+      "thinkingMode": "break_even",
+      "prompt": "SAMPLE: studio rent $1,000, tickets $50. Heads to cover rent?",
+      "expectedAnswer": 20,
+      "thoughtChain": [
+        "1,000÷50 = 20"
+      ],
+      "difficulty": "beginner",
+      "unit": "users"
+    },
+    {
+      "id": "sf-tip-funnel",
+      "packId": "stacked-founder",
+      "familyId": "percent-chunks",
+      "thinkingMode": "conversion_funnel",
+      "prompt": "SAMPLE: 800 trial users, 15% pay. Customers?",
+      "expectedAnswer": 120,
+      "thoughtChain": [
+        "10% of 800 = 80",
+        "5% = 40",
+        "120"
+      ],
+      "difficulty": "beginner",
+      "unit": "customers"
+    },
+    {
+      "id": "sf-int-chain",
+      "packId": "stacked-founder",
+      "familyId": "stacked-founder",
+      "thinkingMode": "infra_chain",
+      "prompt": "SAMPLE: $2/hr GPU, $40/mo product. Users per server is 1,440÷40=36. Enter the yearly cost of that box.",
+      "expectedAnswer": 17280,
+      "thoughtChain": [
+        "$2×720 = $1,440/mo",
+        "1,440÷40 = 36 users (not the answer)",
+        "1,440×12 = $17,280/year"
+      ],
+      "difficulty": "intermediate",
+      "unit": "usd"
+    },
+    {
+      "id": "sf-int-be-markup",
+      "packId": "stacked-founder",
+      "familyId": "markup",
+      "thinkingMode": "markup_read",
+      "prompt": "SAMPLE: cost $20, we want 5× markup. Price, then users if fixed cost is $2,000?",
+      "expectedAnswer": 20,
+      "thoughtChain": [
+        "Price = 20×5 = $100",
+        "Users = 2,000÷100 = 20",
+        "5× is price÷cost"
+      ],
+      "difficulty": "intermediate",
+      "unit": "users"
+    },
+    {
+      "id": "sf-int-funnel-rev",
+      "packId": "stacked-founder",
+      "familyId": "percent-reversible",
+      "thinkingMode": "conversion_funnel",
+      "prompt": "SAMPLE: 8% of 25k visitors buy a $40 plan. Customers, then monthly revenue?",
+      "expectedAnswer": 80000,
+      "thoughtChain": [
+        "8% of 25k = 25% of 8k = 2,000 customers",
+        "2,000×$40 = $80,000",
+        "Swap percents first"
+      ],
+      "difficulty": "intermediate",
+      "unit": "usd"
+    },
+    {
+      "id": "sf-int-720-be",
+      "packId": "stacked-founder",
+      "familyId": "hour-month",
+      "thinkingMode": "break_even",
+      "prompt": "SAMPLE: $0.50/hr instance, price $20/mo. Users per instance?",
+      "expectedAnswer": 18,
+      "thoughtChain": [
+        "0.50×720 = $360/mo",
+        "360÷20 = 18",
+        "Same 18 shape as $1/hr at $40"
+      ],
+      "difficulty": "intermediate",
+      "unit": "users"
+    },
+    {
+      "id": "sf-booth-30",
+      "packId": "stacked-founder",
+      "familyId": "break-even",
+      "thinkingMode": "break_even",
+      "prompt": "SAMPLE: conference booth $2,400, tickets $80. Heads to cover the booth?",
+      "expectedAnswer": 30,
+      "thoughtChain": [
+        "2,400÷80 = 30"
+      ],
+      "difficulty": "beginner",
+      "unit": "users"
+    },
+    {
+      "id": "cf-200k",
+      "packId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "thinkingMode": "smell_test",
+      "prompt": "SAMPLE: $20/mo, 10k possible customers. Monthly ceiling?",
+      "expectedAnswer": 200000,
+      "thoughtChain": [
+        "Ceiling = price × reachable customers",
+        "20×10k = $200k"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "cf-50k",
+      "packId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "thinkingMode": "smell_test",
+      "prompt": "SAMPLE: $50 product, 1,000 buyers. Ceiling?",
+      "expectedAnswer": 50000,
+      "thoughtChain": [
+        "50×1,000 = $50k"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "cf-1m",
+      "packId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "thinkingMode": "smell_test",
+      "prompt": "SAMPLE: $100 × 10k users. Ceiling?",
+      "expectedAnswer": 1000000,
+      "thoughtChain": [
+        "100×10k = $1M"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "cf-30k",
+      "packId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "thinkingMode": "smell_test",
+      "prompt": "SAMPLE: niche of 2,000, $15/mo. Max monthly?",
+      "expectedAnswer": 30000,
+      "thoughtChain": [
+        "2,000×15 = $30k"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "cf-72k",
+      "packId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "thinkingMode": "smell_test",
+      "prompt": "SAMPLE: $9 × 8,000 seats.",
+      "expectedAnswer": 72000,
+      "thoughtChain": [
+        "9×8,000 = $72k"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "cf-20k",
+      "packId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "thinkingMode": "smell_test",
+      "prompt": "SAMPLE: $40 × 500 users.",
+      "expectedAnswer": 20000,
+      "thoughtChain": [
+        "40×500 = $20k"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "cf-int-tight",
+      "packId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "thinkingMode": "smell_test",
+      "prompt": "SAMPLE: $20×10k ceiling is $200k. Infra is already $150k. Leftover dollars before people?",
+      "expectedAnswer": 50000,
+      "thoughtChain": [
+        "200k − 150k = $50k",
+        "Tight vs the ceiling",
+        "Not a fat margin"
+      ],
+      "difficulty": "intermediate",
+      "unit": "usd"
+    },
+    {
+      "id": "cf-int-3m",
+      "packId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "thinkingMode": "smell_test",
+      "prompt": "SAMPLE: $30 × 100k. Ceiling?",
+      "expectedAnswer": 3000000,
+      "thoughtChain": [
+        "30×100k = $3M"
+      ],
+      "difficulty": "intermediate",
+      "unit": "usd"
+    },
+    {
+      "id": "cf-int-room",
+      "packId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "thinkingMode": "smell_test",
+      "prompt": "SAMPLE: same $200k ceiling, infra $5k. Infra as a percent of ceiling?",
+      "expectedAnswer": 2.5,
+      "thoughtChain": [
+        "5k / 200k = 2.5%",
+        "Room to operate"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "cf-12-5k",
+      "packId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "thinkingMode": "smell_test",
+      "prompt": "SAMPLE: $12/mo, 5,000 possible seats. Monthly ceiling?",
+      "expectedAnswer": 60000,
+      "thoughtChain": [
+        "12×5,000 = $60k"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "ue-ltv-60",
+      "packId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "thinkingMode": "ltv_cac",
+      "prompt": "SAMPLE: $20/mo, they stay 3 months. LTV?",
+      "expectedAnswer": 60,
+      "thoughtChain": [
+        "LTV ≈ price × months",
+        "20×3 = $60"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "ue-ratio-15",
+      "packId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "thinkingMode": "ltv_cac",
+      "prompt": "SAMPLE: LTV $60, CAC $40. Ratio?",
+      "expectedAnswer": 1.5,
+      "thoughtChain": [
+        "60÷40 = 1.5×",
+        "Thin vs ~3×"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "ue-ratio-3",
+      "packId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "thinkingMode": "ltv_cac",
+      "prompt": "SAMPLE: LTV $120, CAC $40.",
+      "expectedAnswer": 3,
+      "thoughtChain": [
+        "120÷40 = 3×"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "ue-ltv-100",
+      "packId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "thinkingMode": "ltv_cac",
+      "prompt": "SAMPLE: $25/mo, 4 months.",
+      "expectedAnswer": 100,
+      "thoughtChain": [
+        "25×4 = $100"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "ue-ltv-300",
+      "packId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "thinkingMode": "ltv_cac",
+      "prompt": "SAMPLE: $50/mo, 6 months.",
+      "expectedAnswer": 300,
+      "thoughtChain": [
+        "50×6 = $300"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "ue-ratio-25",
+      "packId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "thinkingMode": "ltv_cac",
+      "prompt": "SAMPLE: LTV $100, CAC $40.",
+      "expectedAnswer": 2.5,
+      "thoughtChain": [
+        "100÷40 = 2.5×"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "ue-int-need",
+      "packId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "thinkingMode": "ltv_cac",
+      "prompt": "SAMPLE: CAC $40. LTV needed for 3×?",
+      "expectedAnswer": 120,
+      "thoughtChain": [
+        "3×40 = $120"
+      ],
+      "difficulty": "intermediate",
+      "unit": "usd"
+    },
+    {
+      "id": "ue-int-life",
+      "packId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "thinkingMode": "ltv_cac",
+      "prompt": "SAMPLE: $20/mo, CAC $40, want 3×. Months of life needed?",
+      "expectedAnswer": 6,
+      "thoughtChain": [
+        "Need LTV $120",
+        "120÷20 = 6 months"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "ue-int-90",
+      "packId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "thinkingMode": "ltv_cac",
+      "prompt": "SAMPLE: LTV $90, CAC $30.",
+      "expectedAnswer": 3,
+      "thoughtChain": [
+        "90÷30 = 3×"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "ue-40x5",
+      "packId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "thinkingMode": "ltv_cac",
+      "prompt": "SAMPLE: $40/mo, they stay 5 months. LTV?",
+      "expectedAnswer": 200,
+      "thoughtChain": [
+        "40×5 = $200"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "rw-6",
+      "packId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "thinkingMode": "runway",
+      "prompt": "SAMPLE: $120k in the bank, $20k burn. Months?",
+      "expectedAnswer": 6,
+      "thoughtChain": [
+        "Runway = cash ÷ burn",
+        "120÷20 = 6"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "rw-2",
+      "packId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "thinkingMode": "runway",
+      "prompt": "SAMPLE: $50k cash, $25k burn.",
+      "expectedAnswer": 2,
+      "thoughtChain": [
+        "50÷25 = 2"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "rw-6b",
+      "packId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "thinkingMode": "runway",
+      "prompt": "SAMPLE: $90k cash, $15k burn.",
+      "expectedAnswer": 6,
+      "thoughtChain": [
+        "90÷15 = 6"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "rw-8",
+      "packId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "thinkingMode": "runway",
+      "prompt": "SAMPLE: $80k cash, $10k burn.",
+      "expectedAnswer": 8,
+      "thoughtChain": [
+        "80÷10 = 8"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "rw-3",
+      "packId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "thinkingMode": "runway",
+      "prompt": "SAMPLE: $36k cash, $12k burn.",
+      "expectedAnswer": 3,
+      "thoughtChain": [
+        "36÷12 = 3"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "rw-5",
+      "packId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "thinkingMode": "runway",
+      "prompt": "SAMPLE: $45k cash, $9k burn.",
+      "expectedAnswer": 5,
+      "thoughtChain": [
+        "45÷9 = 5"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "rw-int-hire",
+      "packId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "thinkingMode": "runway",
+      "prompt": "SAMPLE: $120k cash. Burn today $20k. A hire adds $5k. New runway months?",
+      "expectedAnswer": 4.8,
+      "thoughtChain": [
+        "New burn $25k",
+        "120÷25 = 4.8"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "rw-int-8",
+      "packId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "thinkingMode": "runway",
+      "prompt": "SAMPLE: $200k cash, $25k burn.",
+      "expectedAnswer": 8,
+      "thoughtChain": [
+        "200÷25 = 8"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "rw-int-cut",
+      "packId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "thinkingMode": "runway",
+      "prompt": "SAMPLE: $60k cash. Cut burn from $20k to $10k. Months after the cut?",
+      "expectedAnswer": 6,
+      "thoughtChain": [
+        "60÷10 = 6"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "rw-10",
+      "packId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "thinkingMode": "runway",
+      "prompt": "SAMPLE: $100k cash, $10k burn. Months?",
+      "expectedAnswer": 10,
+      "thoughtChain": [
+        "100÷10 = 10"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gr-900",
+      "packId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "thinkingMode": "growth_claim",
+      "prompt": "SAMPLE: 100 users at 20%/mo. About how many in 12 months?",
+      "expectedAnswer": 900,
+      "thoughtChain": [
+        "20%/mo ≈ 9× in 12 months",
+        "100×9 ≈ 900"
+      ],
+      "difficulty": "beginner",
+      "unit": "users"
+    },
+    {
+      "id": "gr-impossible",
+      "packId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "thinkingMode": "growth_claim",
+      "prompt": "SAMPLE: they claim 100 → 50,000 in 12 months at 20%/mo. What does the 20% table actually give?",
+      "expectedAnswer": 900,
+      "thoughtChain": [
+        "20% table: ~9× in a year",
+        "100×9 ≈ 900, not 50,000"
+      ],
+      "difficulty": "beginner",
+      "unit": "users"
+    },
+    {
+      "id": "gr-170",
+      "packId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "thinkingMode": "growth_claim",
+      "prompt": "SAMPLE: 100 users, 20%/mo, 3 months. About?",
+      "expectedAnswer": 170,
+      "thoughtChain": [
+        "3 months ≈ 1.7×",
+        "170"
+      ],
+      "difficulty": "beginner",
+      "unit": "users"
+    },
+    {
+      "id": "gr-300",
+      "packId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "thinkingMode": "growth_claim",
+      "prompt": "SAMPLE: 100 users, 20%/mo, 6 months.",
+      "expectedAnswer": 300,
+      "thoughtChain": [
+        "6 months ≈ 3×",
+        "300"
+      ],
+      "difficulty": "beginner",
+      "unit": "users"
+    },
+    {
+      "id": "gr-1800",
+      "packId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "thinkingMode": "growth_claim",
+      "prompt": "SAMPLE: 200 users × ~9 in a year.",
+      "expectedAnswer": 1800,
+      "thoughtChain": [
+        "200×9 = 1,800"
+      ],
+      "difficulty": "beginner",
+      "unit": "users"
+    },
+    {
+      "id": "gr-450",
+      "packId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "thinkingMode": "growth_claim",
+      "prompt": "SAMPLE: 50 users × ~9 in a year.",
+      "expectedAnswer": 450,
+      "thoughtChain": [
+        "50×9 = 450"
+      ],
+      "difficulty": "beginner",
+      "unit": "users"
+    },
+    {
+      "id": "gr-int-gap",
+      "packId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "thinkingMode": "growth_claim",
+      "prompt": "SAMPLE: claimed 50,000 vs table 900 from 100 users. How many times too high?",
+      "expectedAnswer": 56,
+      "thoughtChain": [
+        "50,000 ÷ 900 ≈ 55–56×",
+        "Order-of-magnitude miss"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "gr-int-start",
+      "packId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "thinkingMode": "growth_claim",
+      "prompt": "SAMPLE: want ~900 in a year at 20%/mo. Starting users?",
+      "expectedAnswer": 100,
+      "thoughtChain": [
+        "900 ÷ 9 ≈ 100"
+      ],
+      "difficulty": "intermediate",
+      "unit": "users"
+    },
+    {
+      "id": "gr-int-68",
+      "packId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "thinkingMode": "growth_claim",
+      "prompt": "SAMPLE: 40 users × 1.7 in 3 months.",
+      "expectedAnswer": 68,
+      "thoughtChain": [
+        "40×1.7 = 68"
+      ],
+      "difficulty": "intermediate",
+      "unit": "users"
+    },
+    {
+      "id": "gr-2250",
+      "packId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "thinkingMode": "growth_claim",
+      "prompt": "SAMPLE: 250 users × ~9 in a year at 20%/mo.",
+      "expectedAnswer": 2250,
+      "thoughtChain": [
+        "250×9 = 2,250"
+      ],
+      "difficulty": "beginner",
+      "unit": "users"
+    },
+    {
+      "id": "ef-45",
+      "packId": "startup-efficiency",
+      "familyId": "rule-of-40",
+      "thinkingMode": "rule_of_40",
+      "prompt": "SAMPLE: 30% growth, 15% margin. Rule of 40 sum?",
+      "expectedAnswer": 45,
+      "thoughtChain": [
+        "30+15=45",
+        "Passes ~40"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "ef-30",
+      "packId": "startup-efficiency",
+      "familyId": "rule-of-40",
+      "thinkingMode": "rule_of_40",
+      "prompt": "SAMPLE: 80% growth, −50% margin.",
+      "expectedAnswer": 30,
+      "thoughtChain": [
+        "80−50=30",
+        "Misses 40"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "ef-burn-2",
+      "packId": "startup-efficiency",
+      "familyId": "burn-multiple",
+      "thinkingMode": "burn_multiple",
+      "prompt": "SAMPLE: burn $2M, net new ARR $1M. Multiple?",
+      "expectedAnswer": 2,
+      "thoughtChain": [
+        "2÷1=2×"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "ef-burn-5",
+      "packId": "startup-efficiency",
+      "familyId": "burn-multiple",
+      "thinkingMode": "burn_multiple",
+      "prompt": "SAMPLE: burn $5M, new ARR $1M.",
+      "expectedAnswer": 5,
+      "thoughtChain": [
+        "5÷1=5×",
+        "Expensive growth"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "ef-pay-6",
+      "packId": "startup-efficiency",
+      "familyId": "cac-payback",
+      "thinkingMode": "payback",
+      "prompt": "SAMPLE: CAC $240, $40/mo gross profit. Months?",
+      "expectedAnswer": 6,
+      "thoughtChain": [
+        "240÷40=6",
+        "Inside ≤12"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "ef-pay-16",
+      "packId": "startup-efficiency",
+      "familyId": "cac-payback",
+      "thinkingMode": "payback",
+      "prompt": "SAMPLE: CAC $240, $15/mo GP.",
+      "expectedAnswer": 16,
+      "thoughtChain": [
+        "240÷15=16",
+        "Misses ≤12"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "ef-int-55",
+      "packId": "startup-efficiency",
+      "familyId": "rule-of-40",
+      "thinkingMode": "rule_of_40",
+      "prompt": "SAMPLE: 40% growth + 15% margin.",
+      "expectedAnswer": 55,
+      "thoughtChain": [
+        "40+15=55"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "ef-int-1",
+      "packId": "startup-efficiency",
+      "familyId": "burn-multiple",
+      "thinkingMode": "burn_multiple",
+      "prompt": "SAMPLE: burn $1.5M, new ARR $1.5M.",
+      "expectedAnswer": 1,
+      "thoughtChain": [
+        "1.5/1.5=1×"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "ef-int-12",
+      "packId": "startup-efficiency",
+      "familyId": "cac-payback",
+      "thinkingMode": "payback",
+      "prompt": "SAMPLE: CAC $120, GP $10/mo.",
+      "expectedAnswer": 12,
+      "thoughtChain": [
+        "120÷10=12",
+        "On the ≤12 line"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "ef-50",
+      "packId": "startup-efficiency",
+      "familyId": "rule-of-40",
+      "thinkingMode": "rule_of_40",
+      "prompt": "SAMPLE: 25% growth, 25% margin. Rule of 40 sum?",
+      "expectedAnswer": 50,
+      "thoughtChain": [
+        "25+25=50",
+        "Passes ~40"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mp-300k",
+      "packId": "startup-marketplace",
+      "familyId": "take-rate",
+      "thinkingMode": "take_rate",
+      "prompt": "SAMPLE: $2M GMV, 15% take. Revenue?",
+      "expectedAnswer": 300000,
+      "thoughtChain": [
+        "GMV × take, not GMV",
+        "10%=200k + 5%=100k → $300k"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "mp-100k",
+      "packId": "startup-marketplace",
+      "familyId": "take-rate",
+      "thinkingMode": "take_rate",
+      "prompt": "SAMPLE: $1M GMV, 10% take.",
+      "expectedAnswer": 100000,
+      "thoughtChain": [
+        "10% of 1M = $100k"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "mp-100k-20",
+      "packId": "startup-marketplace",
+      "familyId": "take-rate",
+      "thinkingMode": "take_rate",
+      "prompt": "SAMPLE: $500k GMV, 20% take.",
+      "expectedAnswer": 100000,
+      "thoughtChain": [
+        "20% of 500k = $100k"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "mp-fee-1500",
+      "packId": "startup-marketplace",
+      "familyId": "processing-fees",
+      "thinkingMode": "fees",
+      "prompt": "SAMPLE: $50k processed, ~3% smell.",
+      "expectedAnswer": 1500,
+      "thoughtChain": [
+        "3% of 50k = $1,500"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "mp-fee-059",
+      "packId": "startup-marketplace",
+      "familyId": "processing-fees",
+      "thinkingMode": "fees",
+      "prompt": "SAMPLE: $10 charge at 2.9% + $0.30. Fee?",
+      "expectedAnswer": 0.59,
+      "thoughtChain": [
+        "2.9% ≈ $0.29",
+        "plus $0.30 → $0.59"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "mp-fee-3k",
+      "packId": "startup-marketplace",
+      "familyId": "processing-fees",
+      "thinkingMode": "fees",
+      "prompt": "SAMPLE: $100k volume at ~3%.",
+      "expectedAnswer": 3000,
+      "thoughtChain": [
+        "3% of 100k = $3,000"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "mp-int-net",
+      "packId": "startup-marketplace",
+      "familyId": "take-rate",
+      "thinkingMode": "take_rate",
+      "prompt": "SAMPLE: $2M GMV, 15% take, then ~3% processing on GMV. Net after fees?",
+      "expectedAnswer": 240000,
+      "thoughtChain": [
+        "Take $300k",
+        "3% of 2M = $60k fees",
+        "300−60 = $240k"
+      ],
+      "difficulty": "intermediate",
+      "unit": "usd"
+    },
+    {
+      "id": "mp-int-8",
+      "packId": "startup-marketplace",
+      "familyId": "take-rate",
+      "thinkingMode": "take_rate",
+      "prompt": "SAMPLE: $4M GMV at 8% take.",
+      "expectedAnswer": 320000,
+      "thoughtChain": [
+        "8% of 4M = $320k"
+      ],
+      "difficulty": "intermediate",
+      "unit": "usd"
+    },
+    {
+      "id": "mp-int-small",
+      "packId": "startup-marketplace",
+      "familyId": "processing-fees",
+      "thinkingMode": "fees",
+      "prompt": "SAMPLE: $0.59 fee on $10 is what percent?",
+      "expectedAnswer": 5.9,
+      "thoughtChain": [
+        "0.59/10 = 5.9%",
+        "Small tickets hurt"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "mp-75k",
+      "packId": "startup-marketplace",
+      "familyId": "take-rate",
+      "thinkingMode": "take_rate",
+      "prompt": "SAMPLE: $1.5M GMV, 5% take. Revenue?",
+      "expectedAnswer": 75000,
+      "thoughtChain": [
+        "5% of 1.5M = $75k"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "pc-156",
+      "packId": "startup-people-capital",
+      "familyId": "fully-loaded",
+      "thinkingMode": "loaded_cost",
+      "prompt": "SAMPLE: $120k salary. Loaded at ×1.3?",
+      "expectedAnswer": 156000,
+      "thoughtChain": [
+        "120×1.3 = $156k"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "pc-130",
+      "packId": "startup-people-capital",
+      "familyId": "fully-loaded",
+      "thinkingMode": "loaded_cost",
+      "prompt": "SAMPLE: $100k salary ×1.3.",
+      "expectedAnswer": 130000,
+      "thoughtChain": [
+        "100×1.3 = $130k"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "pc-dil-20",
+      "packId": "startup-people-capital",
+      "familyId": "dilution",
+      "thinkingMode": "dilution",
+      "prompt": "SAMPLE: pre $8M, raise $2M. Percent sold?",
+      "expectedAnswer": 20,
+      "thoughtChain": [
+        "Post = 8+2 = $10M",
+        "2/10 = 20%"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pc-dil-25",
+      "packId": "startup-people-capital",
+      "familyId": "dilution",
+      "thinkingMode": "dilution",
+      "prompt": "SAMPLE: $3M into $12M post. Percent sold?",
+      "expectedAnswer": 25,
+      "thoughtChain": [
+        "3/12 = 25%"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pc-tam-120",
+      "packId": "startup-people-capital",
+      "familyId": "tam-fermi",
+      "thinkingMode": "tam_fermi",
+      "prompt": "SAMPLE: 200k dentists × $600/year. TAM in millions?",
+      "expectedAnswer": 120,
+      "thoughtChain": [
+        "200k×600 = $120M"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pc-nrr-130",
+      "packId": "startup-people-capital",
+      "familyId": "nrr",
+      "thinkingMode": "nrr_read",
+      "prompt": "SAMPLE: same customers $100k → $130k. NRR %?",
+      "expectedAnswer": 130,
+      "thoughtChain": [
+        "130/100 = 130%",
+        "New logos stay out"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pc-int-pool",
+      "packId": "startup-people-capital",
+      "familyId": "dilution",
+      "thinkingMode": "dilution",
+      "prompt": "SAMPLE: raise $1M at $10M post. Percent sold?",
+      "expectedAnswer": 10,
+      "thoughtChain": [
+        "1/10 = 10%"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "pc-int-slice",
+      "packId": "startup-people-capital",
+      "familyId": "tam-fermi",
+      "thinkingMode": "tam_fermi",
+      "prompt": "SAMPLE: 1,000 of those dentists at $600/year. ARR $k?",
+      "expectedAnswer": 600,
+      "thoughtChain": [
+        "1,000×600 = $600k",
+        "Not the $120M TAM"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "pc-int-nrr80",
+      "packId": "startup-people-capital",
+      "familyId": "nrr",
+      "thinkingMode": "nrr_read",
+      "prompt": "SAMPLE: cohort $100k → $80k. NRR %?",
+      "expectedAnswer": 80,
+      "thoughtChain": [
+        "80/100 = 80%"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "pc-195",
+      "packId": "startup-people-capital",
+      "familyId": "fully-loaded",
+      "thinkingMode": "loaded_cost",
+      "prompt": "SAMPLE: $150k salary ×1.3.",
+      "expectedAnswer": 195000,
+      "thoughtChain": [
+        "150×1.3 = $195k"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "sf-conc-20",
+      "packId": "stacked-founder",
+      "familyId": "concurrency",
+      "thinkingMode": "infra_chain",
+      "prompt": "SAMPLE: 100 logos, busy hour. How many concurrent at 20%?",
+      "expectedAnswer": 20,
+      "thoughtChain": [
+        "Not 100 simultaneous",
+        "20% of 100 = 20"
+      ],
+      "difficulty": "beginner",
+      "unit": "users"
+    },
+    {
+      "id": "sf-boxes-50",
+      "packId": "stacked-founder",
+      "familyId": "capacity-split",
+      "thinkingMode": "infra_chain",
+      "prompt": "SAMPLE: 1,000 simultaneous users, 20 per server. How many boxes?",
+      "expectedAnswer": 50,
+      "thoughtChain": [
+        "Users ÷ capacity",
+        "1,000/20 = 50"
+      ],
+      "difficulty": "beginner",
+      "unit": "servers"
+    },
+    {
+      "id": "sf-box-120",
+      "packId": "stacked-founder",
+      "familyId": "box-contribution",
+      "thinkingMode": "smell_test",
+      "prompt": "SAMPLE: $30 price, 20 users on a $720/mo GPU. How many dollars is the box short?",
+      "expectedAnswer": 120,
+      "thoughtChain": [
+        "30×20 = $600 revenue",
+        "Box costs $720/mo",
+        "720 − 600 = $120 short"
+      ],
+      "difficulty": "intermediate",
+      "unit": "usd"
+    },
+    {
+      "id": "sf-util-7",
+      "packId": "stacked-founder",
+      "familyId": "utilization",
+      "thinkingMode": "infra_chain",
+      "prompt": "SAMPLE: box claims 10 jobs/sec. What sustained load do you plan?",
+      "expectedAnswer": 7,
+      "thoughtChain": [
+        "~70% of max",
+        "0.7×10 = 7"
+      ],
+      "difficulty": "beginner",
+      "unit": "jobs/sec"
+    },
+    {
+      "id": "sf-pareto-200",
+      "packId": "stacked-founder",
+      "familyId": "pareto",
+      "thinkingMode": "smell_test",
+      "prompt": "SAMPLE: 1,000 users. How many in the heavy 20% slice?",
+      "expectedAnswer": 200,
+      "thoughtChain": [
+        "20% of 1,000 = 200",
+        "Treat them as most of the load"
+      ],
+      "difficulty": "beginner",
+      "unit": "users"
+    },
+    {
+      "id": "sf-pad-2600",
+      "packId": "stacked-founder",
+      "familyId": "estimate-pad",
+      "thinkingMode": "smell_test",
+      "prompt": "SAMPLE: infra guess $2,000. Padded cost at ×1.3?",
+      "expectedAnswer": 2600,
+      "thoughtChain": [
+        "Estimates run short",
+        "2,000×1.3 = $2,600"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "sf-tri-1000",
+      "packId": "stacked-founder",
+      "familyId": "revenue-triangle",
+      "thinkingMode": "break_even",
+      "prompt": "SAMPLE: $50 × 20 users. Monthly revenue?",
+      "expectedAnswer": 1000,
+      "thoughtChain": [
+        "R = P × U",
+        "50×20 = $1,000"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "sf-funnel-100",
+      "packId": "stacked-founder",
+      "familyId": "funnel-bands",
+      "thinkingMode": "conversion_funnel",
+      "prompt": "SAMPLE: 10,000 visits, no dashboard. Mid-band paid users (20% then 5%)?",
+      "expectedAnswer": 100,
+      "thoughtChain": [
+        "Visit→signup mid 20% → 2,000",
+        "Signup→paid mid 5%",
+        "5% of 2,000 = 100"
+      ],
+      "difficulty": "intermediate",
+      "unit": "customers"
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "complements",
+    "title": "What is missing to 10 or 100",
+    "summary": "SAMPLE 8+7: 8 needs 2, leftover 5 → 15. Pair lists; Gauss pairs the ends of a run.",
+    "familyId": "complements",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Missing-to-10/100, pair a list, Gauss n(n+1)/2.\n\nSAMPLE: 8+7=15, 68+47=115, 1…10=55.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 8+7. Make 10, do not count up.\n\nMove?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "two",
+            "label": "8 needs 2 from the 7, leftover 5 → 15",
+            "next": "hundred"
+          },
+          {
+            "id": "count",
+            "label": "Count 9, 10, 11, 12, 13, 14, 15",
+            "next": "wrong_start_count"
+          },
+          {
+            "id": "eight",
+            "label": "8+8=16 minus 1",
+            "next": "wrong_start_eight"
+          }
+        ]
+      },
+      "wrong_start_count": {
+        "message": "Slow. Complements: 8+2=10, then +5.\n\nReturn to make 10.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_eight": {
+        "message": "A compensation works; this family trains the missing-to-10 split.\n\nReturn to make 10.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "hundred": {
+        "message": "68+47. Make 100?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "115",
+            "label": "68 needs 32, leftover 15 → 115",
+            "next": "check"
+          },
+          {
+            "id": "115_add",
+            "label": "60+40=100, 8+7=15, total 115 — but as columns from the right",
+            "next": "wrong_hundred_115_add"
+          },
+          {
+            "id": "32",
+            "label": "68 needs 32, and stop at 32",
+            "next": "wrong_hundred_32"
+          }
+        ]
+      },
+      "wrong_hundred_115_add": {
+        "message": "Same numbers; the move is 68’s complement 32, not ones-first columns.\n\nRevisit make 100.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "hundred"
+      },
+      "wrong_hundred_32": {
+        "message": "32 is what you took from 47. Leftover 15 sits on 100.\n\nRevisit make 100.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "hundred"
+      },
+      "check": {
+        "message": "1+2+…+10. Gauss pairing?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "55",
+            "label": "5 pairs of 11 = 55",
+            "next": "success"
+          },
+          {
+            "id": "10",
+            "label": "10 pairs of 1",
+            "next": "wrong_check_10"
+          },
+          {
+            "id": "110",
+            "label": "10×11=110",
+            "next": "wrong_check_110"
+          }
+        ]
+      },
+      "wrong_check_10": {
+        "message": "Pair first with last: 1+10=11, and there are 5 such pairs.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_110": {
+        "message": "That skipped the ÷2. n(n+1)/2 = 55.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

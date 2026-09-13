@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "equal-adjust",
+    "title": "Add the same to both sides of a subtract",
+    "summary": "SAMPLE 502−198: add 2 to both → 504−200=304. Not the same as rounding one side.",
+    "familyId": "equal-adjust",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Add the same to both; the difference is unchanged.\n\nSAMPLE: 502−198=304, 725−397=328.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 502 − 198. Crossing zeros is ugly.\n\nMove?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "both",
+            "label": "Add 2 to both: 504 − 200 = 304",
+            "next": "why"
+          },
+          {
+            "id": "one",
+            "label": "Round 198 to 200, 502−200=302, and stop",
+            "next": "wrong_start_one"
+          },
+          {
+            "id": "borrow",
+            "label": "Borrow across the zeros in columns",
+            "next": "wrong_start_borrow"
+          }
+        ]
+      },
+      "wrong_start_one": {
+        "message": "That rounded one side and forgot the payback. Equal-adjust moves both, so there is no payback.\n\nReturn to both sides.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_borrow": {
+        "message": "Works on paper. In the head, push 198 to 200 and bring 502 along.\n\nReturn to both sides.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "why": {
+        "message": "Why is 504−200 still 502−198?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "same_c",
+            "label": "a−b = (a+c)−(b+c). The gap is unchanged",
+            "next": "check"
+          },
+          {
+            "id": "lucky",
+            "label": "It just happens to work for 2",
+            "next": "wrong_why_lucky"
+          },
+          {
+            "id": "add_ans",
+            "label": "You have to add the 2 back to 304",
+            "next": "wrong_why_add_ans"
+          }
+        ]
+      },
+      "wrong_why_lucky": {
+        "message": "Any c works. You pick c so the subtrahend becomes round.\n\nRevisit the identity.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "why"
+      },
+      "wrong_why_add_ans": {
+        "message": "No payback. Both sides already moved.\n\nRevisit the identity.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "why"
+      },
+      "check": {
+        "message": "725 − 397. Add 3 to both.",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "328",
+            "label": "728 − 400 = 328",
+            "next": "success"
+          },
+          {
+            "id": "325",
+            "label": "725 − 400 = 325",
+            "next": "wrong_check_325"
+          },
+          {
+            "id": "331",
+            "label": "328 + 3 = 331 as a payback",
+            "next": "wrong_check_331"
+          }
+        ]
+      },
+      "wrong_check_325": {
+        "message": "You moved only one side. Add 3 to 725 as well.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_331": {
+        "message": "No payback on this family.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

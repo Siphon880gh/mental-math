@@ -11,13 +11,15 @@ One valid decision graph per guide. Slug = `familyId` = guide slug. No runtime L
 
 ## Files
 
-- New: `src/lib/coaching/sessions/<slug>.ts`
-- Spec copy: `src/lib/coaching/sessions/specs.ts` (`SESSION_SPECS` + `specBySlug`)
-- Register default export in `src/lib/coaching/sessions/index.ts`
+- New: `data/coaching/<slug>.json` (source of truth; auto-loaded)
+- Optional builder: `Reflex\Coaching\BuildMethodTree::fromSpec` in `app/Coaching/BuildMethodTree.php` — dump JSON once, then keep the file
+- Validate: `Reflex\Coaching\Validate::session` in `app/Coaching/Validate.php`
+
+No register step. `Reflex\Coaching\Sessions` loads every `data/coaching/*.json`.
 
 ## Shape
 
-Use `buildMethodTree` from `src/lib/coaching/buildMethodTree.ts`.
+Use `BuildMethodTree::fromSpec` or write the JSON by hand to match an existing file such as `data/coaching/anchors.json`.
 
 Minimum: `start` + two more continue layers, ≥2 `wrong` nodes with `rewind_to`, ≥1 `success` with empty choices.
 
@@ -27,6 +29,16 @@ Wrong nodes: explanation + empty `choices` + `rewind_to` back to the continue la
 
 ## Verify
 
-`validateSession` must pass. Then `npm run lint` && `npm run test` && `npm run build`.
+`Validate::session` must pass. Then `./vendor/bin/phpunit`.
+
+Quick check:
+
+```bash
+php -r 'require "app/bootstrap.php";
+$s = json_decode(file_get_contents("data/coaching/<slug>.json"), true);
+$r = Reflex\Coaching\Validate::session($s);
+fwrite(STDERR, $r["ok"] ? "ok\n" : print_r($r["issues"], true));
+exit($r["ok"] ? 0 : 1);'
+```
 
 Guide CTA `/coach/<slug>` should play the tree, not show “not authored yet.”

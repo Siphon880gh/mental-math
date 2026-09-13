@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "pareto",
+    "title": "Twenty percent carries about eighty",
+    "summary": "SAMPLE 1,000 users: ~200 whales. Treat that slice as most of the load.",
+    "familyId": "pareto",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. 20% of the count is the heavy slice; treat it as ~80% of load.\n\nSAMPLE: 1,000 users → ~200 whales.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 1,000 users. Someone wants to size as if all 1,000 hit equally.\n\nFirst move?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "slice",
+            "label": "Take 20% as the heavy slice → about 200",
+            "next": "load"
+          },
+          {
+            "id": "flat",
+            "label": "Plan as 1,000 identical users",
+            "next": "wrong_start_flat"
+          },
+          {
+            "id": "half",
+            "label": "Assume half are heavy",
+            "next": "wrong_start_half"
+          }
+        ]
+      },
+      "wrong_start_flat": {
+        "message": "80/20 says a thin slice carries most of the load. Start with 20% of the count.\n\nReturn to the slice.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_half": {
+        "message": "The heuristic is 20%, not 50%. 1,000 → 200.\n\nReturn to the slice.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "load": {
+        "message": "Those ~200. How do you talk about load?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "eighty",
+            "label": "Treat them as ~80% of traffic or revenue",
+            "next": "check"
+          },
+          {
+            "id": "twenty_load",
+            "label": "They are 20% of load too",
+            "next": "wrong_load_twenty_load"
+          },
+          {
+            "id": "all",
+            "label": "Still 1,000 of load — whales are extra",
+            "next": "wrong_load_all"
+          }
+        ]
+      },
+      "wrong_load_twenty_load": {
+        "message": "20% of users, 80% of load. Do not copy the headcount percent onto the load.\n\nRevisit load.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "load"
+      },
+      "wrong_load_all": {
+        "message": "The point is concentration. Size the painful part for 200, not 1,000.\n\nRevisit load.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "load"
+      },
+      "check": {
+        "message": "500 customers. Heavy slice?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "hundred",
+            "label": "About 100 carry most of revenue",
+            "next": "success"
+          },
+          {
+            "id": "400",
+            "label": "400 — that is 80% of the count",
+            "next": "wrong_check_400"
+          },
+          {
+            "id": "500",
+            "label": "All 500 equally",
+            "next": "wrong_check_500"
+          }
+        ]
+      },
+      "wrong_check_400": {
+        "message": "You took 80% of customers. Take 20% of the count (100), then say those 100 ≈ 80% of revenue.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_500": {
+        "message": "That ignores 80/20.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

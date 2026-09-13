@@ -3,7 +3,7 @@
 By Weng (Weng Fei Fung) ![Last Commit](https://img.shields.io/github/last-commit/Siphon880gh/mental-math/main)
 <a target="_blank" href="https://github.com/Siphon880gh" rel="nofollow"><img src="https://img.shields.io/badge/GitHub--blue?style=social&logo=GitHub" alt="Github" data-canonical-src="https://img.shields.io/badge/GitHub--blue?style=social&logo=GitHub" style="max-width:8.5ch;"></a>
 <a target="_blank" href="https://www.linkedin.com/in/weng-fung/" rel="nofollow"><img src="https://img.shields.io/badge/LinkedIn-blue?style=flat&logo=linkedin&labelColor=blue" alt="Linked-In" data-canonical-src="https://img.shields.io/badge/LinkedIn-blue?style=flat&amp;logo=linkedin&amp;labelColor=blue" style="max-width:10ch;"></a>
-<a target="_blank" href="https://www.youtube.com/@WengTeachesCode/" rel="nofollow"><img src="https://img.shields.io/badge/Youtube-red?style=flat&logo=youtube&labelColor=red" alt="Youtube" data-canonical-src="https://img.shields.io/badge/Youtube-red?style=flat&amp;logo=youtube&amp;labelColor=red" style="max-width:10ch;"></a>
+<a target="_blank" href="https://www.youtube.com/@WengTeachesCode/" rel="nofollow"><img src="https://img.shields.io/badge/Youtube-red?style=flat&logo=youtube&labelColor=red" alt="Youtube" data-canonical-src="https://img.shields.io/badge/Youtube-red?style=flat&logo=youtube&labelColor=red" style="max-width:10ch;"></a>
 
 Learn mental math for everyday life and business meetings.
 
@@ -43,7 +43,7 @@ Mini-games teach one motion (decimal shift, percent swap, percent chips):
 
 Open a track, read the shortcut, walk the coach, then drill until the number is a reflex. Cases ask you to type a number in a conversation, then show the thought chain. Scenarios mix skills from the same track. Games isolate one mechanic.
 
-Progress and pass tags live in the browser (`localStorage`). Internal name: REFLEX_CORE.
+PHP server-renders every URL. Progress and pass tags live in the browser (`localStorage`). Internal name: REFLEX_CORE.
 
 ## What you get
 
@@ -61,16 +61,26 @@ Progress and pass tags live in the browser (`localStorage`). Internal name: REFL
 
 ## Run locally
 
-```bash
-npm install
-npm run dev
-```
-
-Then open the URL Vite prints (typically `http://localhost:5173`).
+PHP 8.2+ and [Composer](https://getcomposer.org/).
 
 ```bash
-npm run lint && npm run test && npm run build
+composer install
+composer serve
 ```
+
+Then open `http://localhost:8080`. Equivalent: `php -S localhost:8080 router.php`.
+
+The front controller is `index.php` at the project root, so Apache/nginx can point the document root at this folder (DirectoryIndex `index.php`). `/` and `/index.php` both load Home. CSS and JS stay under `public/assets/` and are exposed as `/assets/...`.
+
+If the document root is `public/` instead, `public/index.php` still works.
+
+**MAMP:** Apache here is still PHP 7.4 globally, but this folder runs through MAMP’s PHP 8.2 CGI (`php82.cgi`). Open `http://localhost:8888/weng/app/math/`. To use 8.2 for every MAMP site instead, set **Preferences → PHP → 8.2.0** and restart Apache.
+
+```bash
+./vendor/bin/phpunit
+```
+
+This is not a static site. Hosting needs PHP (built-in server, Apache, or nginx). `/archive` and `/guides` redirect to `/track-a`.
 
 ## Context libraries
 

@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "box-contribution",
+    "title": "Revenue per box versus cost per box",
+    "summary": "SAMPLE $30 × 20 users = $600 vs $720/mo box → losing $120 per server.",
+    "familyId": "box-contribution",
+    "tags": [
+      "intermediate"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Price × users-on-the-box, then compare to monthly box cost.\n\nSAMPLE: $30×20=$600 vs $720 → −$120.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: $30/mo price, 20 users on one GPU that costs $720/mo.\n\nFirst number?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "rev",
+            "label": "Revenue on the box = $30 × 20 = $600",
+            "next": "compare"
+          },
+          {
+            "id": "cost_only",
+            "label": "Just quote $720 — that is the cost",
+            "next": "wrong_start_cost_only"
+          },
+          {
+            "id": "720_div_30",
+            "label": "720 ÷ 30 = 24 users needed — stop there",
+            "next": "wrong_start_720_div_30"
+          }
+        ]
+      },
+      "wrong_start_cost_only": {
+        "message": "You need revenue on that box before you judge. Price × users-on-the-box.\n\nReturn to $600.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_720_div_30": {
+        "message": "That is break-even users. This prompt asks whether the current 20 cover the box.\n\nReturn to $600.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "compare": {
+        "message": "$600 revenue, $720 cost. Smell?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "lose",
+            "label": "Losing $120 per server",
+            "next": "check"
+          },
+          {
+            "id": "win",
+            "label": "Winning because $720 is a round infra number",
+            "next": "wrong_compare_win"
+          },
+          {
+            "id": "1200",
+            "label": "Gap is $1,200",
+            "next": "wrong_compare_1200"
+          }
+        ]
+      },
+      "wrong_compare_win": {
+        "message": "$600 < $720. The box loses money.\n\nRevisit the gap.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "compare"
+      },
+      "wrong_compare_1200": {
+        "message": "720 − 600 = 120, not 1,200.\n\nRevisit the gap.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "compare"
+      },
+      "check": {
+        "message": "$40 × 20 users vs $720 box. Contribution?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "eighty",
+            "label": "$800 − $720 = $80 positive",
+            "next": "success"
+          },
+          {
+            "id": "lose40",
+            "label": "Still losing — infra always loses",
+            "next": "wrong_check_lose40"
+          },
+          {
+            "id": "800_cost",
+            "label": "Cost is $800",
+            "next": "wrong_check_800_cost"
+          }
+        ]
+      },
+      "wrong_check_lose40": {
+        "message": "$800 covers $720. +$80.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_800_cost": {
+        "message": "Cost was $720. Revenue is $800.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "easy-division",
+    "title": "Turn division into an easier multiply",
+    "summary": "SAMPLE 675÷25: ×4 then two places left → 27. Or factor the divisor; or scale both.",
+    "familyId": "easy-division",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Rewrite ÷ as × and a shift; or factor; or scale both.\n\nSAMPLE: 675÷25=27, 936÷12=78, 4.8÷0.06=80.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 675 ÷ 25. Twenty-fives look messy.\n\nRewrite?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "times4",
+            "label": "×4, then ÷100 → 2,700 → 27",
+            "next": "factor"
+          },
+          {
+            "id": "times5",
+            "label": "×2 then ÷10, the ÷5 move",
+            "next": "wrong_start_times5"
+          },
+          {
+            "id": "long",
+            "label": "Long divide 25 into 675",
+            "next": "wrong_start_long"
+          }
+        ]
+      },
+      "wrong_start_times5": {
+        "message": "÷5 is ×2÷10. ÷25 is ×4÷100.\n\nReturn to the rewrite.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_long": {
+        "message": "Works, but the rewrite is the family. ×4 then two places.\n\nReturn to the rewrite.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "factor": {
+        "message": "936 ÷ 12. 12 is 3×4. Path?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "78",
+            "label": "936÷3=312, then ÷4=78",
+            "next": "check"
+          },
+          {
+            "id": "times12",
+            "label": "936 × 12",
+            "next": "wrong_factor_times12"
+          },
+          {
+            "id": "div2",
+            "label": "Halve 936 because 12 is even, stop at 468",
+            "next": "wrong_factor_div2"
+          }
+        ]
+      },
+      "wrong_factor_times12": {
+        "message": "That is the product, not the quotient.\n\nRevisit factoring.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "factor"
+      },
+      "wrong_factor_div2": {
+        "message": "One factor of 2 is not ÷12. Need ÷3 and ÷4 (or ÷2 and ÷6).\n\nRevisit factoring.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "factor"
+      },
+      "check": {
+        "message": "4.8 ÷ 0.06. Scale both?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "80",
+            "label": "×100 → 480 ÷ 6 = 80",
+            "next": "success"
+          },
+          {
+            "id": "8",
+            "label": "×10 → 48 ÷ 6 = 8",
+            "next": "wrong_check_8"
+          },
+          {
+            "id": "480",
+            "label": "480 — scaled the 4.8 and stopped",
+            "next": "wrong_check_480"
+          }
+        ]
+      },
+      "wrong_check_8": {
+        "message": "0.06 needs two places to become 6. Scale both ×100.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_480": {
+        "message": "You still have to divide by 6.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

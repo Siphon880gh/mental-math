@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "cfo-feasibility",
+    "title": "Ceiling is price × possible customers",
+    "summary": "SAMPLE $20/mo × 10k users = $200k/mo. A $150k cost base is tight vs $5k.",
+    "familyId": "cfo-feasibility",
+    "tags": [
+      "intermediate"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Ceiling = price × possible customers; compare cost scale to that ceiling.\n\nSAMPLE: $200k/mo vs $150k (tight) vs $5k (room).",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: $20/mo, maybe 10k customers. Instant feasibility?\n\nFirst number?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "ceiling",
+            "label": "Max revenue ≈ 20 × 10,000 = $200k/mo",
+            "next": "cost"
+          },
+          {
+            "id": "cost_first",
+            "label": "Start with server invoices and never size the ceiling",
+            "next": "wrong_start_cost_first"
+          },
+          {
+            "id": "yearly",
+            "label": "20 × 10k × 12 in the first breath and lose the monthly",
+            "next": "wrong_start_yearly"
+          }
+        ]
+      },
+      "wrong_start_cost_first": {
+        "message": "Smell test is ceiling vs cost scale. Price × reachable customers first.\n\nReturn to the ceiling.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_yearly": {
+        "message": "You can yearly later. Monthly ceiling vs monthly cost is the conversation unit.\n\nReturn to the ceiling.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "cost": {
+        "message": "Infra already $150k/mo against a $200k ceiling.\n\nRead?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "tight",
+            "label": "Tight — cost already rivals the ceiling",
+            "next": "check"
+          },
+          {
+            "id": "fine",
+            "label": "Fine — $50k leftover is a fat margin",
+            "next": "wrong_cost_fine"
+          },
+          {
+            "id": "impossible_math",
+            "label": "$150k cost means revenue must already be $150k",
+            "next": "wrong_cost_impossible_math"
+          }
+        ]
+      },
+      "wrong_cost_fine": {
+        "message": "25% leftover before people, ads, and support is not fat. The model is weak at this cost scale.\n\nRevisit the read.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "cost"
+      },
+      "wrong_cost_impossible_math": {
+        "message": "Cost is not revenue. The ceiling is $200k if you get all 10k.\n\nRevisit the read.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "cost"
+      },
+      "check": {
+        "message": "Same 10k users, $5k infra. Read?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "room",
+            "label": "Room to operate — cost is a small slice of $200k",
+            "next": "success"
+          },
+          {
+            "id": "same",
+            "label": "Still tight because 10k users is 10k users",
+            "next": "wrong_check_same"
+          },
+          {
+            "id": "zero",
+            "label": "Revenue is $5k because cost is $5k",
+            "next": "wrong_check_zero"
+          }
+        ]
+      },
+      "wrong_check_same": {
+        "message": "User count did not change; cost scale did. $5k vs $200k is a different story.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_zero": {
+        "message": "Do not equate cost and revenue.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

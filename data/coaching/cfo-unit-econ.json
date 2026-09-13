@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "cfo-unit-econ",
+    "title": "LTV should be about 3× CAC",
+    "summary": "SAMPLE CAC $40, $20/mo, 3 months → LTV $60 → 1.5×, weak vs 3×.",
+    "familyId": "cfo-unit-econ",
+    "tags": [
+      "intermediate"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. LTV ≈ price × months; smell LTV/CAC around 3×.\n\nSAMPLE: $60/$40=1.5× weak; $120/$40=3×.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: CAC $40, price $20/mo, they stay 3 months.\n\nLTV first?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "ltv",
+            "label": "20 × 3 = $60 LTV (revenue over life)",
+            "next": "ratio"
+          },
+          {
+            "id": "cac_only",
+            "label": "Judge CAC $40 in isolation",
+            "next": "wrong_start_cac_only"
+          },
+          {
+            "id": "year",
+            "label": "Assume 12 months because SaaS is annual",
+            "next": "wrong_start_year"
+          }
+        ]
+      },
+      "wrong_start_cac_only": {
+        "message": "CAC needs LTV. $40 might be cheap or fatal depending on life.\n\nReturn to LTV.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_year": {
+        "message": "The SAMPLE said 3 months. Do not upgrade the life.\n\nReturn to LTV.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "ratio": {
+        "message": "LTV $60 / CAC $40.\n\nRatio vs the 3× rule?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "thin",
+            "label": "1.5× — thin versus ~3×",
+            "next": "check"
+          },
+          {
+            "id": "three",
+            "label": "3× — close enough",
+            "next": "wrong_ratio_three"
+          },
+          {
+            "id": "invert",
+            "label": "40/60 ≈ 0.67×, so CAC is 67% of LTV and that is the 3×",
+            "next": "wrong_ratio_invert"
+          }
+        ]
+      },
+      "wrong_ratio_three": {
+        "message": "60/40=1.5. 3× would need $120 LTV.\n\nRevisit the ratio.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "ratio"
+      },
+      "wrong_ratio_invert": {
+        "message": "The taught ratio is LTV/CAC, target ~3.\n\nRevisit the ratio.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "ratio"
+      },
+      "check": {
+        "message": "Same CAC $40, LTV $120. Ratio?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "ok",
+            "label": "3× — the default healthy smell",
+            "next": "success"
+          },
+          {
+            "id": "still_thin",
+            "label": "Still thin because CAC is $40",
+            "next": "wrong_check_still_thin"
+          },
+          {
+            "id": "twelve",
+            "label": "12× — mix in the $20 price",
+            "next": "wrong_check_twelve"
+          }
+        ]
+      },
+      "wrong_check_still_thin": {
+        "message": "CAC did not change; LTV did. 120/40=3.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_twelve": {
+        "message": "Do not shove price into the ratio twice. LTV already used it.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

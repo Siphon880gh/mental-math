@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "divisibility",
+    "title": "Last digits and digit sums",
+    "summary": "SAMPLE 4,731: digit sum 15, so yes for 3. Last two / alternating sum for 4 and 11.",
+    "familyId": "divisibility",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. 3/9 digit sum; 4 last two; 11 alternating.\n\nSAMPLE: 4,731 yes for 3; 7,316 yes for 4; 2,728 yes for 11.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: is 4,731 divisible by 3? You do not want long division.\n\nFirst move?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "sum",
+            "label": "Add the digits: 4+7+3+1=15, and 15÷3 works",
+            "next": "four"
+          },
+          {
+            "id": "last",
+            "label": "Look at the last digit 1 — odd, so no",
+            "next": "wrong_start_last"
+          },
+          {
+            "id": "divide",
+            "label": "Divide 4,731 by 3 in columns",
+            "next": "wrong_start_divide"
+          }
+        ]
+      },
+      "wrong_start_last": {
+        "message": "Last digit is the ×2 / ×5 test. Three is a digit-sum test.\n\nReturn to the sum.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_divide": {
+        "message": "Works, but slow. Digit sum 15 already tells you yes.\n\nReturn to the sum.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "four": {
+        "message": "Now ÷4: 7,316. Which digits matter?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "two",
+            "label": "Last two: 16, and 16÷4, so yes",
+            "next": "check"
+          },
+          {
+            "id": "all_sum",
+            "label": "Digit sum 7+3+1+6=17",
+            "next": "wrong_four_all_sum"
+          },
+          {
+            "id": "last_6",
+            "label": "Last digit 6 is even, so yes for 4",
+            "next": "wrong_four_last_6"
+          }
+        ]
+      },
+      "wrong_four_all_sum": {
+        "message": "Digit sum is 3 and 9. Four only looks at the last two digits.\n\nRevisit ÷4.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "four"
+      },
+      "wrong_four_last_6": {
+        "message": "Even is the ×2 test. 14 is even and not divisible by 4. Need the last two.\n\nRevisit ÷4.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "four"
+      },
+      "check": {
+        "message": "2,728 for 11. Alternating sum?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "neg11",
+            "label": "2−7+2−8=−11, a multiple of 11, so yes",
+            "next": "success"
+          },
+          {
+            "id": "sum11",
+            "label": "2+7+2+8=19",
+            "next": "wrong_check_sum11"
+          },
+          {
+            "id": "last_two",
+            "label": "28÷11 is not whole, so no",
+            "next": "wrong_check_last_two"
+          }
+        ]
+      },
+      "wrong_check_sum11": {
+        "message": "That is a plain sum. Eleven alternates signs.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_last_two": {
+        "message": "Last two is not the 11 test. Use 2−7+2−8.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

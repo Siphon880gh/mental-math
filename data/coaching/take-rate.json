@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "take-rate",
+    "title": "Marketplace revenue is GMV times take",
+    "summary": "SAMPLE $2M GMV at 15% take → $300k. Volume is not revenue.",
+    "familyId": "take-rate",
+    "tags": [
+      "intermediate"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Marketplace revenue = GMV × take. Never quote GMV as if it were yours.\n\nSAMPLE: $2M at 15%=$300k.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: $2M GMV, 15% take rate. Company revenue?\n\nMove?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "times",
+            "label": "GMV × take → 2M × 0.15",
+            "next": "apply"
+          },
+          {
+            "id": "gmv",
+            "label": "Revenue is $2M — they touched the volume",
+            "next": "wrong_start_gmv"
+          },
+          {
+            "id": "minus",
+            "label": "$2M − 15%",
+            "next": "wrong_start_minus"
+          }
+        ]
+      },
+      "wrong_start_gmv": {
+        "message": "Marketplaces do not keep GMV. They keep the cut.\n\nReturn to take × GMV.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_minus": {
+        "message": "Subtracting a percent without a base is not a take. Multiply.\n\nReturn to take × GMV.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "apply": {
+        "message": "10% of $2M is $200k. 5% more is $100k.\n\n15%?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "300",
+            "label": "$300k",
+            "next": "check"
+          },
+          {
+            "id": "200",
+            "label": "$200k — 10% only",
+            "next": "wrong_apply_200"
+          },
+          {
+            "id": "2m",
+            "label": "$2M",
+            "next": "wrong_apply_2m"
+          }
+        ]
+      },
+      "wrong_apply_200": {
+        "message": "15% still needs the extra 5%.\n\nRevisit the chunks.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "apply"
+      },
+      "wrong_apply_2m": {
+        "message": "That is GMV again.\n\nRevisit the chunks.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "apply"
+      },
+      "check": {
+        "message": "$1M GMV, 10% take.",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "100k",
+            "label": "$100k revenue",
+            "next": "success"
+          },
+          {
+            "id": "1m",
+            "label": "$1M",
+            "next": "wrong_check_1m"
+          },
+          {
+            "id": "10k",
+            "label": "$10k",
+            "next": "wrong_check_10k"
+          }
+        ]
+      },
+      "wrong_check_1m": {
+        "message": "10% of 1M is 100k, not the GMV.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_10k": {
+        "message": "1% of $1M is $10k. 10% is $100k.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

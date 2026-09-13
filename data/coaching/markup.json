@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "markup",
+    "title": "Markup is price ÷ cost",
+    "summary": "SAMPLE $2 on $0.33 cost ≈ 6×, so about 500% markup on cost — hear the extra as a multiple.",
+    "familyId": "markup",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Hear markup as a multiple of cost, then the extra above 1×.\n\nSAMPLE: $2 on $0.33≈6×; 20→60 is 3×.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: cost $0.33, price $2. How rich is the markup?\n\nWhich ratio?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "p_over_c",
+            "label": "Price ÷ cost (how many times cost is the price)",
+            "next": "times"
+          },
+          {
+            "id": "c_over_p",
+            "label": "Cost ÷ price (that is a margin-ish invert)",
+            "next": "wrong_start_c_over_p"
+          },
+          {
+            "id": "minus",
+            "label": "Price − cost = $1.67 and stop",
+            "next": "wrong_start_minus"
+          }
+        ]
+      },
+      "wrong_start_c_over_p": {
+        "message": "Cost/price is a cost share, not markup multiple. Markup on cost is price/cost.\n\nReturn to the ratio.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_minus": {
+        "message": "Dollar spread is fine later. First hear the multiple: ~6×.\n\nReturn to the ratio.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "times": {
+        "message": "2 ÷ 0.33 is about 6. Subtract the original 1×.\n\nExtra on cost?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "five",
+            "label": "~5× extra → about 500% markup on cost",
+            "next": "check"
+          },
+          {
+            "id": "six_pct",
+            "label": "6% because the multiple is 6",
+            "next": "wrong_times_six_pct"
+          },
+          {
+            "id": "keep_six",
+            "label": "Call it 600% extra without subtracting 1×",
+            "next": "wrong_times_keep_six"
+          }
+        ]
+      },
+      "wrong_times_six_pct": {
+        "message": "6× is 600% of cost, and the extra above cost is ~500%, not 6%.\n\nRevisit the extra.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "times"
+      },
+      "wrong_times_keep_six": {
+        "message": "Price is ~6× cost, so you collected 5× extra on top of getting cost back.\n\nRevisit the extra.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "times"
+      },
+      "check": {
+        "message": "Cost 20, price 60. Multiple?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "three",
+            "label": "3× (100% extra on cost is 2× price)",
+            "next": "success"
+          },
+          {
+            "id": "40",
+            "label": "40× — mix the 20 and 60 as 20× something",
+            "next": "wrong_check_40"
+          },
+          {
+            "id": "two",
+            "label": "2× because the extra dollars are 40",
+            "next": "wrong_check_two"
+          }
+        ]
+      },
+      "wrong_check_40": {
+        "message": "60/20=3. Keep the ratio.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_two": {
+        "message": "Extra dollars 40 on cost 20 is +2×, so price is 3× cost.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

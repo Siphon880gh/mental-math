@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "churn",
+    "title": "Lifetime months ≈ 1 / monthly churn",
+    "summary": "SAMPLE 5% monthly churn → ~20 months. Do not mix monthly with annual churn.",
+    "familyId": "churn",
+    "tags": [
+      "intermediate"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Lifetime months ≈ 1 / monthly churn. Name the period.\n\nSAMPLE: 5%→~20 months, 2%→~50.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 5% monthly churn. How long do they stay, roughly?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "inv",
+            "label": "1 / 0.05 ≈ 20 months",
+            "next": "mix"
+          },
+          {
+            "id": "times",
+            "label": "5 × 12 = 60 months",
+            "next": "wrong_start_times"
+          },
+          {
+            "id": "five",
+            "label": "5 months because the number is 5",
+            "next": "wrong_start_five"
+          }
+        ]
+      },
+      "wrong_start_times": {
+        "message": "You annualized the percent as if it were years of life. Inverse the monthly rate.\n\nReturn to 1/churn.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_five": {
+        "message": "The 5 is a percent, not a month count. 1/0.05=20.\n\nReturn to 1/churn.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "mix": {
+        "message": "Someone quotes 5% churn without saying monthly vs yearly.\n\nWhat do you do?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "ask",
+            "label": "Ask the period before inverting — 5% yearly is ~20 years, not 20 months",
+            "next": "check"
+          },
+          {
+            "id": "assume_m",
+            "label": "Always assume monthly",
+            "next": "wrong_mix_assume_m"
+          },
+          {
+            "id": "assume_y",
+            "label": "Always assume yearly",
+            "next": "wrong_mix_assume_y"
+          }
+        ]
+      },
+      "wrong_mix_assume_m": {
+        "message": "Founders mix periods. 5% yearly inverted is decades. Ask.\n\nRevisit the period.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "mix"
+      },
+      "wrong_mix_assume_y": {
+        "message": "SaaS often means monthly. The skill is to notice the missing unit.\n\nRevisit the period.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "mix"
+      },
+      "check": {
+        "message": "2% monthly. Lifetime months?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "fifty",
+            "label": "About 50",
+            "next": "success"
+          },
+          {
+            "id": "2",
+            "label": "2 months",
+            "next": "wrong_check_2"
+          },
+          {
+            "id": "24",
+            "label": "24 months — 2%×12",
+            "next": "wrong_check_24"
+          }
+        ]
+      },
+      "wrong_check_2": {
+        "message": "1/0.02=50.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_24": {
+        "message": "That mixes percent and months. Inverse the rate.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

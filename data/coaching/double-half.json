@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "double-half",
+    "title": "Times five is times ten, then half",
+    "summary": "SAMPLE 86×5: 860/2=430. ×4 and ×8 are repeated doubles.",
+    "familyId": "double-half",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. ×5 = ×10 then half; ×4 and ×8 are repeated doubles.\n\nSAMPLE: 86×5=430, 15×4=60.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 86 × 5. Fives look messy.\n\nWhich identity?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "ten_half",
+            "label": "×10 then half (because 5 = 10/2)",
+            "next": "apply"
+          },
+          {
+            "id": "five_add",
+            "label": "Add 86 five times",
+            "next": "wrong_start_five_add"
+          },
+          {
+            "id": "double_only",
+            "label": "Double 86 and stop at 172",
+            "next": "wrong_start_double_only"
+          }
+        ]
+      },
+      "wrong_start_five_add": {
+        "message": "Slow. ×5 is the ×10-then-half identity.\n\nReturn to the identity.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_double_only": {
+        "message": "Doubling is ×2. ×5 still needs ×10 then half.\n\nReturn to the identity.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "apply": {
+        "message": "86 × 10 = 860. Half of 860?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "430",
+            "label": "430",
+            "next": "check"
+          },
+          {
+            "id": "860",
+            "label": "860 — skipped the half",
+            "next": "wrong_apply_860"
+          },
+          {
+            "id": "86",
+            "label": "86 — halved first and forgot ×10",
+            "next": "wrong_apply_86"
+          }
+        ]
+      },
+      "wrong_apply_860": {
+        "message": "That is ×10, not ×5.\n\nRevisit the half.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "apply"
+      },
+      "wrong_apply_86": {
+        "message": "Half of 86 is 43, then ×10 would still be 430 — same answer if you finish. Stopping at 86 is ×1.\n\nRevisit the half.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "apply"
+      },
+      "check": {
+        "message": "×4 is double-double. 15 × 4?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "60",
+            "label": "30, then 60",
+            "next": "success"
+          },
+          {
+            "id": "30",
+            "label": "30 — only one double",
+            "next": "wrong_check_30"
+          },
+          {
+            "id": "120",
+            "label": "120 — three doubles (that is ×8)",
+            "next": "wrong_check_120"
+          }
+        ]
+      },
+      "wrong_check_30": {
+        "message": "One double is ×2. ×4 needs a second double.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_120": {
+        "message": "×8 is double-double-double. ×4 is two doubles.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

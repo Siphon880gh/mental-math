@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "fully-loaded",
+    "title": "Fully loaded is salary times 1.3",
+    "summary": "SAMPLE $120k salary → about $156k loaded. Benefits and tax are not free.",
+    "familyId": "fully-loaded",
+    "tags": [
+      "intermediate"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Default loaded headcount ≈ salary × 1.3.\n\nSAMPLE: $120k→$156k, $100k→$130k.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: $120k salary. Planning cost for the seat?\n\nDefault load?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "thirteen",
+            "label": "×1.3 for benefits and tax",
+            "next": "apply"
+          },
+          {
+            "id": "salary",
+            "label": "Use $120k — offer letter is the cost",
+            "next": "wrong_start_salary"
+          },
+          {
+            "id": "double",
+            "label": "×2 because fully loaded sounds like double",
+            "next": "wrong_start_double"
+          }
+        ]
+      },
+      "wrong_start_salary": {
+        "message": "Loaded cost is why finance multiplies. Default ×1.3.\n\nReturn to 1.3.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_double": {
+        "message": "2× is a heavy contractor/overhead story, not the default salary load.\n\nReturn to 1.3.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "apply": {
+        "message": "120 × 1.3 = 120 + 36.\n\nLoaded?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "156",
+            "label": "About $156k",
+            "next": "check"
+          },
+          {
+            "id": "123",
+            "label": "$123k — added 3%",
+            "next": "wrong_apply_123"
+          },
+          {
+            "id": "1200",
+            "label": "$1.2M — extra zero",
+            "next": "wrong_apply_1200"
+          }
+        ]
+      },
+      "wrong_apply_123": {
+        "message": "1.3 is +30%, not +3%.\n\nRevisit 1.3.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "apply"
+      },
+      "wrong_apply_1200": {
+        "message": "120×1.3=156, in thousands: $156k.\n\nRevisit 1.3.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "apply"
+      },
+      "check": {
+        "message": "$100k salary, same 1.3.",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "130",
+            "label": "$130k loaded",
+            "next": "success"
+          },
+          {
+            "id": "100",
+            "label": "$100k",
+            "next": "wrong_check_100"
+          },
+          {
+            "id": "103",
+            "label": "$103k",
+            "next": "wrong_check_103"
+          }
+        ]
+      },
+      "wrong_check_100": {
+        "message": "You skipped the load.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_103": {
+        "message": "+3% is not +30%.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

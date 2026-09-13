@@ -2,7 +2,7 @@
 
 Deepen `/drills` groups. Drill engine, timer, and writeback already exist.
 
-Companions: [`src/lib/drillData.ts`](../src/lib/drillData.ts) · [`src/lib/grading.ts`](../src/lib/grading.ts)
+Companions: [`data/drills.json`](../data/drills.json) · [`app/Grading.php`](../app/Grading.php)
 
 ---
 
@@ -13,13 +13,13 @@ Companions: [`src/lib/drillData.ts`](../src/lib/drillData.ts) · [`src/lib/gradi
 ```
 
 **Before starting**
-1. Leave working `npm run dev` alone; verify with `npm run lint` && `npm run test` && `npm run build`.
+1. Leave working `composer serve` / `php -S` alone; verify with `./vendor/bin/phpunit`.
 2. Stop yourself anytime; hard-stop on 10-round error budget or Done(drills).
 
 **On each tick**
 - Re-count items per group.
 - Add **exactly one** new drill item (or one new group + first item in Phase D).
-- Include `thoughtChain` and `familyId`; lint + test + build.
+- Include `thoughtChain` and `familyId`; run PHPUnit.
 
 ---
 
@@ -66,9 +66,9 @@ Make drill banks exhaustive per Coverage queue.
 **Done (per tick):** Exactly one new item (or one new group + first item).
 
 # CONTEXT
-- `src/lib/drillData.ts`
+- `data/drills.json`
 - Grade with existing `gradeAnswer` — expected values must match that function
-- Auto-verify: `npm run lint` && `npm run test` && `npm run build`
+- Auto-verify: `./vendor/bin/phpunit`
 
 # STEP-BY-STEP CADENCE
 1. **Orient** — first group below floor.
@@ -82,7 +82,7 @@ Make drill banks exhaustive per Coverage queue.
 - [ ] Closes next gap
 - [ ] thoughtChain uses the family shortcut
 - [ ] Unlock order / gate thresholds unchanged
-- [ ] lint + test + build 0
+- [ ] PHPUnit 0
 
 # STOP CONDITIONS
 - Done(drills) → STOP with per-group counts.
@@ -93,5 +93,5 @@ Make drill banks exhaustive per Coverage queue.
 1. group id + item id + familyId
 2. PASS | FIXING (n/10) | STOP
 3. Next gap
-4. lint/test/build status
+4. PHPUnit status
 ```

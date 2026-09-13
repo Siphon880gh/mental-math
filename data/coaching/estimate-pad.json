@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "estimate-pad",
+    "title": "Always add 30% to a cost guess",
+    "summary": "SAMPLE $2,000 guess → ×1.3 → $2,600. Undercount pad, not salary benefits.",
+    "familyId": "estimate-pad",
+    "tags": [
+      "intermediate"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Cost guess ×1.3. Not the salary-benefits sentence.\n\nSAMPLE: $2,000 → $2,600; $5,000 → $6,500.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: someone quotes a $2,000 infra guess.\n\nWhat do you do?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "pad",
+            "label": "×1.3 → about $2,600",
+            "next": "not_salary"
+          },
+          {
+            "id": "face",
+            "label": "Keep $2,000 — they already estimated",
+            "next": "wrong_start_face"
+          },
+          {
+            "id": "double",
+            "label": "Double it to $4,000",
+            "next": "wrong_start_double"
+          }
+        ]
+      },
+      "wrong_start_face": {
+        "message": "Estimates run short. Pad ×1.3.\n\nReturn to the pad.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_double": {
+        "message": "That is a different panic. The operator pad is 30%.\n\nReturn to the pad.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "not_salary": {
+        "message": "Is this the same as salary ×1.3?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "story",
+            "label": "Same multiple, different story — this is undercount, not benefits",
+            "next": "check"
+          },
+          {
+            "id": "same",
+            "label": "Yes — always ×1.3 means benefits",
+            "next": "wrong_not_salary_same"
+          },
+          {
+            "id": "13pct",
+            "label": "Add 13%, not 30%",
+            "next": "wrong_not_salary_13pct"
+          }
+        ]
+      },
+      "wrong_not_salary_same": {
+        "message": "Fully loaded headcount is benefits. This pad is 'the estimate was low.'\n\nRevisit the story.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "not_salary"
+      },
+      "wrong_not_salary_13pct": {
+        "message": "1.3 is thirty percent, not thirteen.\n\nRevisit the story.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "not_salary"
+      },
+      "check": {
+        "message": "$5,000 guess padded?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "65",
+            "label": "$6,500",
+            "next": "success"
+          },
+          {
+            "id": "5300",
+            "label": "$5,300 — added 300",
+            "next": "wrong_check_5300"
+          },
+          {
+            "id": "15000",
+            "label": "$15,000 — ×3",
+            "next": "wrong_check_15000"
+          }
+        ]
+      },
+      "wrong_check_5300": {
+        "message": "×1.3 is 30% of 5,000 = 1,500 → 6,500.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_15000": {
+        "message": "×1.3, not ×3.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

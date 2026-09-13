@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "hour-month",
+    "title": "Hourly to monthly is ×720",
+    "summary": "SAMPLE $1/hr: 24×30≈720, so $720/mo. Do not invent a 365-hour month.",
+    "familyId": "hour-month",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Hourly × 720 ≈ monthly (24×30).\n\nSAMPLE: $1/hr→$720/mo, $2/hr→$1,440/mo.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: a GPU is $1 per hour. You need a monthly smell test.\n\nWhich constant?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "720",
+            "label": "×720 because 24 × 30 ≈ 720",
+            "next": "apply"
+          },
+          {
+            "id": "24",
+            "label": "×24 only — that is a day, not a month",
+            "next": "wrong_start_24"
+          },
+          {
+            "id": "365",
+            "label": "×365 — hours in a year accidentally",
+            "next": "wrong_start_365"
+          }
+        ]
+      },
+      "wrong_start_24": {
+        "message": "×24 is daily. Monthly still needs ~30 days → 720.\n\nReturn to the constant.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_365": {
+        "message": "365 is days in a year, not hours in a month. 24×30≈720.\n\nReturn to the constant.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "apply": {
+        "message": "$1/hr × 720.\n\nMonthly?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "720b",
+            "label": "$720/mo",
+            "next": "check"
+          },
+          {
+            "id": "72",
+            "label": "$72/mo — dropped a zero",
+            "next": "wrong_apply_72"
+          },
+          {
+            "id": "24",
+            "label": "$24/mo — used hours in a day",
+            "next": "wrong_apply_24"
+          }
+        ]
+      },
+      "wrong_apply_72": {
+        "message": "1×720 is 720, not 72.\n\nRevisit the multiply.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "apply"
+      },
+      "wrong_apply_24": {
+        "message": "$24 would be one day at $1/hr. Monthly is 720.\n\nRevisit the multiply.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "apply"
+      },
+      "check": {
+        "message": "$2/hr, same constant.\n\nMonthly?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "1440",
+            "label": "$1,440/mo",
+            "next": "success"
+          },
+          {
+            "id": "144",
+            "label": "$144/mo",
+            "next": "wrong_check_144"
+          },
+          {
+            "id": "48",
+            "label": "$48/mo — two days",
+            "next": "wrong_check_48"
+          }
+        ]
+      },
+      "wrong_check_144": {
+        "message": "2×720=1,440. You dropped a zero.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_48": {
+        "message": "Two days at $1/hr is $48. This is $2/hr for a month.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "cast-nines",
+    "title": "Digit root and last-digit checks",
+    "summary": "SAMPLE: a product that does not end in the right ones digit is already false. Digit roots matching does not prove the answer.",
+    "familyId": "cast-nines",
+    "tags": [
+      "intermediate"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Last digit is a hard fail. Digit root match is only a maybe.\n\nSAMPLE: 327×648 cannot end in 5; 87,946 roots to 7.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: someone claims 327 × 648 = 211,895.\n\nCheapest kill?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "ones",
+            "label": "7×8=56, so the product must end in 6, not 5",
+            "next": "nines"
+          },
+          {
+            "id": "recompute",
+            "label": "Re-multiply all six digits to argue",
+            "next": "wrong_start_recompute"
+          },
+          {
+            "id": "size",
+            "label": "211,895 looks about the right size, so it is fine",
+            "next": "wrong_start_size"
+          }
+        ]
+      },
+      "wrong_start_recompute": {
+        "message": "You do not owe them a full recompute. Last digit already kills it.\n\nReturn to ones.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_size": {
+        "message": "Magnitude can still be wrong in the ones place. Check the last digit.\n\nReturn to ones.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "nines": {
+        "message": "Digit root of 347 is 5, of 26 is 8. 5×8 → 4. A claim of 9,022 roots to 4. What did you prove?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "survive",
+            "label": "It survives the check — not that it is correct",
+            "next": "check"
+          },
+          {
+            "id": "proved",
+            "label": "The product is definitely 9,022",
+            "next": "wrong_nines_proved"
+          },
+          {
+            "id": "fail",
+            "label": "4 vs 4 means it failed",
+            "next": "wrong_nines_fail"
+          }
+        ]
+      },
+      "wrong_nines_proved": {
+        "message": "A matching root can still hide a 9-off error. Only a mismatch is decisive.\n\nRevisit what the check proves.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "nines"
+      },
+      "wrong_nines_fail": {
+        "message": "Match = survives. Mismatch = definitely wrong.\n\nRevisit what the check proves.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "nines"
+      },
+      "check": {
+        "message": "Digit root of 87,946?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "seven",
+            "label": "8+7+9+4+6=34 → 7",
+            "next": "success"
+          },
+          {
+            "id": "34",
+            "label": "34 — stop after one pass",
+            "next": "wrong_check_34"
+          },
+          {
+            "id": "nine",
+            "label": "9 because there is a 9 in the number",
+            "next": "wrong_check_nine"
+          }
+        ]
+      },
+      "wrong_check_34": {
+        "message": "Keep going until one digit: 3+4=7.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_nine": {
+        "message": "You sum all digits, including the 9.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # Resource types
 
-A **resource** is a teaching unit the learner can open. Guides, timed drills, mini-games, step-by-step sessions, and cases are resources. A **shortcut** (rule + example from `src/lib/tricks.ts`) is not its own nav surface — it lives on the matching guide.
+A **resource** is a teaching unit the learner can open. Guides, timed drills, mini-games, step-by-step sessions, and cases are resources. A **shortcut** (rule + example from `data/tricks.json`) is not its own nav surface — it lives on the matching guide.
 
 **Not resources:** the Beginner Reflex Path, Dashboard chrome, and nav. Those find or sequence resources.
 
@@ -21,7 +21,7 @@ One **Guides** hub. Two tracks. Every guide has a step-by-step coach on the **sa
 
 Track A fluency still gates Track B **graded** cases (Beginner Reflex Path unlock order is unchanged).
 
-**Track A families:** `P0_FAMILY_IDS` plus `EXTRA_MENTAL_FAMILY_IDS` (`src/lib/tracks.ts`) including 80/20, the revenue triangle, and the more-tricks arithmetic families (divisibility, complements, difference of squares, …).
+**Track A families:** `P0_FAMILY_IDS` plus `EXTRA_MENTAL_FAMILY_IDS` (`app/Catalog/Tracks.php`) including 80/20, the revenue triangle, and the more-tricks arithmetic families (divisibility, complements, difference of squares, …).
 
 **Track B families:** `stacked-founder`, `cfo-*`, `EXTRA_STARTUP_FAMILY_IDS`, plus `EXTRA_OPERATOR_FAMILY_IDS` (concurrency, capacity, box contribution, 70% utilization, estimate pad, funnel bands).
 
@@ -31,23 +31,23 @@ Track A fluency still gates Track B **graded** cases (Beginner Reflex Path unloc
 
 | Type | What the learner does | Route | Registry |
 |------|------------------------|-------|----------|
-| **Guide** | Read the shortcut + why it works; open the coach | `/guides`, `/guides/:slug` | `src/lib/guides.ts` |
-| **Step-by-step** | Walk a method tree: wrong → explain → rewind → success | `/coach/:slug` (same slug as the guide) | `src/lib/coaching/` |
-| **Drill** | Answer a timed bank (type or MCQ) | `/drills/:groupId` | `src/lib/drillData.ts` |
-| **Mini-game** | Play one mechanic | `/games/:slug` | `src/lib/games.ts` |
-| **Case** | Hear a conversation prompt, commit a number, reveal the chain | `/cases/:caseId` | `src/lib/cases.ts` |
+| **Guide** | Read the shortcut + why it works; open the coach | `/guides`, `/guides/:slug` | `app/Catalog/Guides.php` + `data/inline-guides.json` + `data/guide-specs.json` |
+| **Step-by-step** | Walk a method tree: wrong → explain → rewind → success | `/coach/:slug` (same slug as the guide) | `data/coaching/` |
+| **Drill** | Answer a timed bank (type or MCQ) | `/drills/:groupId` | `data/drills.json` |
+| **Mini-game** | Play one mechanic | `/games/:slug` | `data/games.json` + `public/assets/js/games.js` |
+| **Case** | Hear a conversation prompt, commit a number, reveal the chain | `/cases/:caseId` | `data/cases.json` |
 
-`/archive` redirects to `/guides`. Do not restore Archive as a second literacy list.
+`/archive` redirects to `/track-a`. Do not restore Archive as a second literacy list.
 
-Path milestones point at resources with `contentRefs` such as `guide:percent-reversible`, `drill:percents`, `game:decimal-shift`, `coach:percent-shift`, `cases:stacked-founder` (`src/lib/learningPaths.ts`). Prefer `guide:` over a separate `trick:` ref.
+Path milestones point at resources with `contentRefs` such as `guide:percent-reversible`, `drill:percents`, `game:decimal-shift`, `coach:percent-shift`, `cases:stacked-founder` (`app/Catalog/LearningPaths.php`). Prefer `guide:` over a separate `trick:` ref.
 
 ---
 
 ## Guide (hub)
 
-A **guide** is the literacy page: `slug` (= `familyId`), `track`, shortcut (from `tricks.ts`), principle `body`, and a coach CTA (`relatedCoachSlug` = same slug).
+A **guide** is the literacy page: `slug` (= `familyId`), `track`, shortcut (from `data/tricks.json`), principle `body`, and a coach CTA (`relatedCoachSlug` = same slug).
 
-Extra families load `body` from `context/docs-more/`. P0 and CFO families use original inline lessons in `src/lib/ladderGuides.ts`.
+Extra families load `body` from `context/docs-more/`. P0 and CFO families use original inline lessons in `data/inline-guides.json`.
 
 If the coach tree is not authored yet, the CTA still opens `/coach/:slug` with a “not authored yet” state. Do not 404.
 
@@ -57,7 +57,7 @@ Chrome may also link `relatedDrillGroup` / `relatedCaseId` / `relatedGameSlug` w
 
 ## Shortcut (on the guide)
 
-A **shortcut** is a lookup row: name, `familyId`, one-line rule, worked example. Stored in `src/lib/tricks.ts`. Rendered on `/guides/:slug`. Extra rows for the same family deepen the same page — they are not a second nav.
+A **shortcut** is a lookup row: name, `familyId`, one-line rule, worked example. Stored in `data/tricks.json`. Rendered on `/guides/:slug`. Extra rows for the same family deepen the same page — they are not a second nav.
 
 ---
 
@@ -93,7 +93,7 @@ A **mini-game** teaches **one** interactive mechanic. Skip a family if the mecha
 
 Examples: decimal-place shifter; swap percent ↔ base (reversible); chunk adder (10% + 10% + 5%).
 
-Authoring: `.agents/skills/add-mini-game` when that skill exists. Register in `src/lib/games.ts`.
+Authoring: `.agents/skills/add-mini-game` when that skill exists. Register in `data/games.json` and `public/assets/js/games.js`.
 
 ---
 

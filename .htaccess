@@ -1,0 +1,29 @@
+DirectoryIndex index.php
+
+# MAMP Apache is PHP 7.4; this app needs 8.2. Turn off mod_php here and
+# send .php through php82.cgi (MAMP's php-cgi 8.2).
+<IfModule mod_php7.c>
+    php_flag engine off
+</IfModule>
+<IfModule php7_module>
+    php_flag engine off
+</IfModule>
+Options +ExecCGI
+AddHandler cgi-script .cgi
+Action application/x-httpd-php82 /weng/app/math/php82.cgi
+<FilesMatch "\.php$">
+    SetHandler application/x-httpd-php82
+</FilesMatch>
+
+RewriteEngine On
+
+# Keep catalogs, PHP, and Composer off the public web.
+RewriteRule ^(?:app|data|vendor|tests|context|docs|LOOPS|\.agents|\.git)(?:/|$) - [F,L]
+RewriteRule ^(?:composer\.(json|lock)|phpunit\.xml|router\.php)$ - [F,L]
+
+# CSS/JS still live under public/assets
+RewriteRule ^assets/(.*)$ public/assets/$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L]

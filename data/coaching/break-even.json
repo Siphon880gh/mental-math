@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "break-even",
+    "title": "Users needed is cost ÷ price",
+    "summary": "SAMPLE cost $3,000, price $50: reduce both sides → 60 users.",
+    "familyId": "break-even",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Break-even users = cost ÷ price; reduce both sides first.\n\nSAMPLE: 3,000/50=60, 1,000/50=20.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: $3,000 fixed cost, $50 price. Users to break even?\n\nWhich shape?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "divide",
+            "label": "Cost ÷ price, after canceling tens",
+            "next": "reduce"
+          },
+          {
+            "id": "multiply",
+            "label": "Cost × price",
+            "next": "wrong_start_multiply"
+          },
+          {
+            "id": "minus",
+            "label": "Price − cost",
+            "next": "wrong_start_minus"
+          }
+        ]
+      },
+      "wrong_start_multiply": {
+        "message": "That is a revenue fantasy, not users. Users = cost ÷ price.\n\nReturn to the shape.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_minus": {
+        "message": "Subtraction mixes units (dollars vs dollars) and does not yield users.\n\nReturn to the shape.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "reduce": {
+        "message": "3,000 ÷ 50. Cancel a zero: 300 ÷ 5.\n\nUsers?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "60",
+            "label": "60",
+            "next": "check"
+          },
+          {
+            "id": "6",
+            "label": "6 — extra zero canceled",
+            "next": "wrong_reduce_6"
+          },
+          {
+            "id": "150",
+            "label": "150 — 3,000 ÷ 20",
+            "next": "wrong_reduce_150"
+          }
+        ]
+      },
+      "wrong_reduce_6": {
+        "message": "300÷5=60, not 6. You canceled one too many zeros.\n\nRevisit the reduce.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "reduce"
+      },
+      "wrong_reduce_150": {
+        "message": "The price is 50, not 20. 300÷5=60.\n\nRevisit the reduce.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "reduce"
+      },
+      "check": {
+        "message": "Cost 1,000, price 50.\n\nUsers?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "20",
+            "label": "20",
+            "next": "success"
+          },
+          {
+            "id": "50",
+            "label": "50",
+            "next": "wrong_check_50"
+          },
+          {
+            "id": "2",
+            "label": "2",
+            "next": "wrong_check_2"
+          }
+        ]
+      },
+      "wrong_check_50": {
+        "message": "1,000÷50=20. 50 would be if cost were 2,500.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_2": {
+        "message": "You over-canceled zeros. 100÷5=20.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

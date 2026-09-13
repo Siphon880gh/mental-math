@@ -2,7 +2,7 @@
 
 Deepen `/games`. Host runtime already exists (E7 complete). **No runtime LLM.**
 
-Companions: [`src/lib/games.ts`](../src/lib/games.ts)
+Companions: [`data/games.json`](../data/games.json) · [`public/assets/js/games.js`](../public/assets/js/games.js)
 
 ---
 
@@ -13,7 +13,7 @@ Companions: [`src/lib/games.ts`](../src/lib/games.ts)
 ```
 
 **Before starting**
-1. Leave working `npm run dev` alone; verify with `npm run lint` && `npm run test` && `npm run build`.
+1. Leave working `composer serve` / `php -S` alone; verify with `./vendor/bin/phpunit`.
 2. If E7 is not done, STOP and run milestones instead.
 3. Hard-stop on 10-round error budget or Done(games).
 
@@ -53,12 +53,12 @@ Ship or skip each mechanic family once.
 **Done (per tick):** One game **or** one documented skip.
 
 # CONTEXT
-- `src/lib/games.ts` + page component under `src/pages/games/` or `src/games/`
-- Auto-verify: `npm run lint` && `npm run test` && `npm run build`
+- `data/games.json` + widget in `public/assets/js/games.js` and `app/views/pages/game-*.php`
+- Auto-verify: `./vendor/bin/phpunit`
 
 # STEP-BY-STEP CADENCE
 1. **Orient** — next mechanic row without a game or skip.
-2. **Author or skip** — if skip, comment in games.ts: familyId + reason `no_mechanic`.
+2. **Author or skip** — if skip, record in `data/games.json`: familyId + reason `no_mechanic`.
 3. **If authoring** — unique slug; familyId; win condition; SAMPLE copy; link related guide if present.
 4. **Verify**.
 5. **On FAIL** — ≤10 rounds.
@@ -66,7 +66,7 @@ Ship or skip each mechanic family once.
 # VERIFICATION RUBRIC
 - [ ] One unit (game or skip)
 - [ ] Game ≠ numeric drill clone
-- [ ] lint + test + build 0
+- [ ] PHPUnit 0
 
 # STOP CONDITIONS
 - Done(games) → STOP with shipped/skipped list.
@@ -77,5 +77,5 @@ Ship or skip each mechanic family once.
 1. slug or skip familyId
 2. PASS | FIXING (n/10) | STOP
 3. Next row
-4. lint/test/build status
+4. PHPUnit status
 ```

@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "stacked-founder",
+    "title": "Chain Track A shortcuts in one planning sentence",
+    "summary": "SAMPLE $1/hr and $40/mo: ×720 then ÷ price → ~18 users per server.",
+    "familyId": "stacked-founder",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Track B sentence, Track A links: ×720, ÷price, percent chunks.\n\nSAMPLE: ~18 users/server; 10k×5%=500 customers.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE planning sentence: GPU $1/hr, product $40/mo. Users per box?\n\nFirst link?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "hour",
+            "label": "Hourly ×720 → $720/mo cost, then ÷ $40 price",
+            "next": "users"
+          },
+          {
+            "id": "price_only",
+            "label": "Ignore the hourly and just guess from $40",
+            "next": "wrong_start_price_only"
+          },
+          {
+            "id": "times_40",
+            "label": "$1 × $40 = 40 users",
+            "next": "wrong_start_times_40"
+          }
+        ]
+      },
+      "wrong_start_price_only": {
+        "message": "Stacked founder math is a chain. Convert time first.\n\nReturn to the chain.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_times_40": {
+        "message": "You multiplied unlike units. Cost and price must share a time base.\n\nReturn to the chain.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "users": {
+        "message": "720 ÷ 40. Reduce: 72 ÷ 4.\n\nUsers per server?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "18",
+            "label": "About 18",
+            "next": "funnel"
+          },
+          {
+            "id": "180",
+            "label": "180 — extra zero",
+            "next": "wrong_users_180"
+          },
+          {
+            "id": "40",
+            "label": "40 — copied the price",
+            "next": "wrong_users_40"
+          }
+        ]
+      },
+      "wrong_users_180": {
+        "message": "720÷40=18.\n\nRevisit the divide.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "users"
+      },
+      "wrong_users_40": {
+        "message": "Users = monthly cost ÷ price, not the price itself.\n\nRevisit the divide.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "users"
+      },
+      "funnel": {
+        "message": "Second SAMPLE chain: 10k visitors, 5% conversion. Customers?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "500",
+            "label": "500 — 1% of 10k is 100, five of those",
+            "next": "success"
+          },
+          {
+            "id": "50",
+            "label": "50 — 0.5%",
+            "next": "wrong_funnel_50"
+          },
+          {
+            "id": "10000",
+            "label": "10,000 — ignore conversion",
+            "next": "wrong_funnel_10000"
+          }
+        ]
+      },
+      "wrong_funnel_50": {
+        "message": "5% is five times 1%. 100×5=500.\n\nTry the funnel again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "funnel"
+      },
+      "wrong_funnel_10000": {
+        "message": "Visitors are not customers until the percent lands.\n\nTry the funnel again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "funnel"
+      }
+    }
+  }
+}

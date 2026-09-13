@@ -1,0 +1,2652 @@
+{
+  "groups": [
+    {
+      "id": "anchors",
+      "title": "Number anchors",
+      "summary": "Hear the chord, then scale zeros.",
+      "pathGroup": true
+    },
+    {
+      "id": "magnitude",
+      "title": "Magnitude",
+      "summary": "Move zeros. Do not recompute.",
+      "pathGroup": true
+    },
+    {
+      "id": "percents",
+      "title": "Percents",
+      "summary": "Shift, swap, tens, chunks, 20% tip.",
+      "pathGroup": true
+    },
+    {
+      "id": "conversions",
+      "title": "Time-money and ÷5",
+      "summary": "×720, ÷30, ×12, double-then-shift.",
+      "pathGroup": true
+    },
+    {
+      "id": "break-even",
+      "title": "Break-even and markup",
+      "summary": "Cost ÷ price, price ÷ cost.",
+      "pathGroup": true
+    },
+    {
+      "id": "cfo-feasibility",
+      "title": "CFO feasibility",
+      "summary": "Ceiling vs cost scale.",
+      "pathGroup": false
+    },
+    {
+      "id": "cfo-unit-econ",
+      "title": "CFO unit economics",
+      "summary": "LTV vs 3× CAC.",
+      "pathGroup": false
+    },
+    {
+      "id": "cfo-runway",
+      "title": "CFO runway",
+      "summary": "Cash ÷ burn.",
+      "pathGroup": false
+    },
+    {
+      "id": "cfo-growth",
+      "title": "CFO growth claims",
+      "summary": "20%/mo table, not a 50× year.",
+      "pathGroup": false
+    },
+    {
+      "id": "foundations",
+      "title": "Foundations",
+      "summary": "Left-to-right, complements, doubles, checks.",
+      "pathGroup": false
+    },
+    {
+      "id": "startup",
+      "title": "Startup metrics",
+      "summary": "MRR, churn, NRR, take, dilution.",
+      "pathGroup": false
+    },
+    {
+      "id": "stacked-founder",
+      "title": "Stacked founder chains",
+      "summary": "×720 then ÷ price in one breath.",
+      "pathGroup": false
+    },
+    {
+      "id": "operator",
+      "title": "Operator heuristics",
+      "summary": "Concurrency, capacity, 70% load, cost pad, funnel bands.",
+      "pathGroup": false
+    }
+  ],
+  "items": [
+    {
+      "id": "anc-50x40",
+      "groupId": "anchors",
+      "familyId": "anchors",
+      "prompt": "SAMPLE: 50 × 40. Chord then zeros.",
+      "expectedAnswer": 2000,
+      "thoughtChain": [
+        "5×4=20",
+        "two extra zeros → 2,000"
+      ]
+    },
+    {
+      "id": "anc-25x8",
+      "groupId": "anchors",
+      "familyId": "anchors",
+      "prompt": "SAMPLE: 25 × 8.",
+      "expectedAnswer": 200,
+      "thoughtChain": [
+        "25×4=100",
+        "double → 200"
+      ]
+    },
+    {
+      "id": "anc-75x12",
+      "groupId": "anchors",
+      "familyId": "anchors",
+      "prompt": "SAMPLE: 75 × 12.",
+      "expectedAnswer": 900,
+      "thoughtChain": [
+        "75×4=300",
+        "×3 → 900"
+      ]
+    },
+    {
+      "id": "anc-5x4",
+      "groupId": "anchors",
+      "familyId": "anchors",
+      "prompt": "SAMPLE: 5 × 4.",
+      "expectedAnswer": 20,
+      "thoughtChain": [
+        "chord 5×4=20"
+      ]
+    },
+    {
+      "id": "anc-25x4",
+      "groupId": "anchors",
+      "familyId": "anchors",
+      "prompt": "SAMPLE: 25 × 4.",
+      "expectedAnswer": 100,
+      "thoughtChain": [
+        "25×4=100"
+      ]
+    },
+    {
+      "id": "anc-75x4",
+      "groupId": "anchors",
+      "familyId": "anchors",
+      "prompt": "SAMPLE: 75 × 4.",
+      "expectedAnswer": 300,
+      "thoughtChain": [
+        "75×4=300"
+      ]
+    },
+    {
+      "id": "anc-8x8",
+      "groupId": "anchors",
+      "familyId": "anchors",
+      "prompt": "SAMPLE: 8 × 8.",
+      "expectedAnswer": 64,
+      "thoughtChain": [
+        "8×8=64"
+      ]
+    },
+    {
+      "id": "anc-9x9",
+      "groupId": "anchors",
+      "familyId": "anchors",
+      "prompt": "SAMPLE: 9 × 9.",
+      "expectedAnswer": 81,
+      "thoughtChain": [
+        "9×9=81"
+      ]
+    },
+    {
+      "id": "anc-6x7",
+      "groupId": "anchors",
+      "familyId": "anchors",
+      "prompt": "SAMPLE: 6 × 7.",
+      "expectedAnswer": 42,
+      "thoughtChain": [
+        "6×7=42"
+      ]
+    },
+    {
+      "id": "anc-50x20",
+      "groupId": "anchors",
+      "familyId": "anchors",
+      "prompt": "SAMPLE: 50 × 20.",
+      "expectedAnswer": 1000,
+      "thoughtChain": [
+        "5×2=10",
+        "two zeros → 1,000"
+      ]
+    },
+    {
+      "id": "anc-25x40",
+      "groupId": "anchors",
+      "familyId": "anchors",
+      "prompt": "SAMPLE: 25 × 40.",
+      "expectedAnswer": 1000,
+      "thoughtChain": [
+        "25×4=100",
+        "one zero → 1,000"
+      ]
+    },
+    {
+      "id": "anc-75x8",
+      "groupId": "anchors",
+      "familyId": "anchors",
+      "prompt": "SAMPLE: 75 × 8.",
+      "expectedAnswer": 600,
+      "thoughtChain": [
+        "75×4=300",
+        "double → 600"
+      ]
+    },
+    {
+      "id": "anc-50x8",
+      "groupId": "anchors",
+      "familyId": "anchors",
+      "prompt": "SAMPLE: 50 × 8.",
+      "expectedAnswer": 400,
+      "thoughtChain": [
+        "5×8=40",
+        "one zero → 400"
+      ]
+    },
+    {
+      "id": "anc-25x12",
+      "groupId": "anchors",
+      "familyId": "anchors",
+      "prompt": "SAMPLE: 25 × 12.",
+      "expectedAnswer": 300,
+      "thoughtChain": [
+        "25×4=100",
+        "×3 → 300"
+      ]
+    },
+    {
+      "id": "anc-8x4",
+      "groupId": "anchors",
+      "familyId": "anchors",
+      "prompt": "SAMPLE: 8 × 4.",
+      "expectedAnswer": 32,
+      "thoughtChain": [
+        "8×4=32"
+      ]
+    },
+    {
+      "id": "anc-9x8",
+      "groupId": "anchors",
+      "familyId": "anchors",
+      "prompt": "SAMPLE: 9 × 8.",
+      "expectedAnswer": 72,
+      "thoughtChain": [
+        "9×8=72"
+      ]
+    },
+    {
+      "id": "mag-70x8",
+      "groupId": "magnitude",
+      "familyId": "magnitude",
+      "prompt": "SAMPLE: 70 × 8. Keep 7×8.",
+      "expectedAnswer": 560,
+      "thoughtChain": [
+        "7×8=56",
+        "one zero → 560"
+      ]
+    },
+    {
+      "id": "mag-90x6",
+      "groupId": "magnitude",
+      "familyId": "magnitude",
+      "prompt": "SAMPLE: 90 × 6.",
+      "expectedAnswer": 540,
+      "thoughtChain": [
+        "9×6=54",
+        "one zero → 540"
+      ]
+    },
+    {
+      "id": "mag-120x3",
+      "groupId": "magnitude",
+      "familyId": "magnitude",
+      "prompt": "SAMPLE: 120 × 3.",
+      "expectedAnswer": 360,
+      "thoughtChain": [
+        "12×3=36",
+        "one zero → 360"
+      ]
+    },
+    {
+      "id": "mag-700x8",
+      "groupId": "magnitude",
+      "familyId": "magnitude",
+      "prompt": "SAMPLE: 700 × 8.",
+      "expectedAnswer": 5600,
+      "thoughtChain": [
+        "7×8=56",
+        "two zeros → 5,600"
+      ]
+    },
+    {
+      "id": "mag-12x30",
+      "groupId": "magnitude",
+      "familyId": "magnitude",
+      "prompt": "SAMPLE: 12 × 30.",
+      "expectedAnswer": 360,
+      "thoughtChain": [
+        "12×3=36",
+        "one zero → 360"
+      ]
+    },
+    {
+      "id": "mag-80x7",
+      "groupId": "magnitude",
+      "familyId": "magnitude",
+      "prompt": "SAMPLE: 80 × 7.",
+      "expectedAnswer": 560,
+      "thoughtChain": [
+        "8×7=56",
+        "one zero → 560"
+      ]
+    },
+    {
+      "id": "mag-9x60",
+      "groupId": "magnitude",
+      "familyId": "magnitude",
+      "prompt": "SAMPLE: 9 × 60.",
+      "expectedAnswer": 540,
+      "thoughtChain": [
+        "9×6=54",
+        "one zero → 540"
+      ]
+    },
+    {
+      "id": "mag-11x20",
+      "groupId": "magnitude",
+      "familyId": "magnitude",
+      "prompt": "SAMPLE: 11 × 20.",
+      "expectedAnswer": 220,
+      "thoughtChain": [
+        "11×2=22",
+        "one zero → 220"
+      ]
+    },
+    {
+      "id": "mag-15x40",
+      "groupId": "magnitude",
+      "familyId": "magnitude",
+      "prompt": "SAMPLE: 15 × 40.",
+      "expectedAnswer": 600,
+      "thoughtChain": [
+        "15×4=60",
+        "one zero → 600"
+      ]
+    },
+    {
+      "id": "mag-200x6",
+      "groupId": "magnitude",
+      "familyId": "magnitude",
+      "prompt": "SAMPLE: 200 × 6.",
+      "expectedAnswer": 1200,
+      "thoughtChain": [
+        "2×6=12",
+        "two zeros → 1,200"
+      ]
+    },
+    {
+      "id": "mag-40x30",
+      "groupId": "magnitude",
+      "familyId": "magnitude",
+      "prompt": "SAMPLE: 40 × 30.",
+      "expectedAnswer": 1200,
+      "thoughtChain": [
+        "4×3=12",
+        "two zeros → 1,200"
+      ]
+    },
+    {
+      "id": "mag-8x90",
+      "groupId": "magnitude",
+      "familyId": "magnitude",
+      "prompt": "SAMPLE: 8 × 90.",
+      "expectedAnswer": 720,
+      "thoughtChain": [
+        "8×9=72",
+        "one zero → 720"
+      ]
+    },
+    {
+      "id": "mag-7x800",
+      "groupId": "magnitude",
+      "familyId": "magnitude",
+      "prompt": "SAMPLE: 7 × 800.",
+      "expectedAnswer": 5600,
+      "thoughtChain": [
+        "7×8=56",
+        "two zeros → 5,600"
+      ]
+    },
+    {
+      "id": "mag-50x60",
+      "groupId": "magnitude",
+      "familyId": "magnitude",
+      "prompt": "SAMPLE: 50 × 60.",
+      "expectedAnswer": 3000,
+      "thoughtChain": [
+        "5×6=30",
+        "two zeros → 3,000"
+      ]
+    },
+    {
+      "id": "mag-16x20",
+      "groupId": "magnitude",
+      "familyId": "magnitude",
+      "prompt": "SAMPLE: 16 × 20.",
+      "expectedAnswer": 320,
+      "thoughtChain": [
+        "16×2=32",
+        "one zero → 320"
+      ]
+    },
+    {
+      "id": "mag-25x20",
+      "groupId": "magnitude",
+      "familyId": "magnitude",
+      "prompt": "SAMPLE: 25 × 20.",
+      "expectedAnswer": 500,
+      "thoughtChain": [
+        "25×2=50",
+        "one zero → 500"
+      ]
+    },
+    {
+      "id": "pct-1-8500",
+      "groupId": "percents",
+      "familyId": "percent-shift",
+      "prompt": "SAMPLE: 1% of 8,500.",
+      "expectedAnswer": 85,
+      "thoughtChain": [
+        "two places left → 85"
+      ]
+    },
+    {
+      "id": "pct-10-470",
+      "groupId": "percents",
+      "familyId": "percent-shift",
+      "prompt": "SAMPLE: 10% of 470.",
+      "expectedAnswer": 47,
+      "thoughtChain": [
+        "one place left → 47"
+      ]
+    },
+    {
+      "id": "pct-1-2000",
+      "groupId": "percents",
+      "familyId": "percent-shift",
+      "prompt": "SAMPLE: 1% of 2,000.",
+      "expectedAnswer": 20,
+      "thoughtChain": [
+        "two places left → 20"
+      ]
+    },
+    {
+      "id": "pct-10-2500",
+      "groupId": "percents",
+      "familyId": "percent-shift",
+      "prompt": "SAMPLE: 10% of 2,500.",
+      "expectedAnswer": 250,
+      "thoughtChain": [
+        "one place left → 250"
+      ]
+    },
+    {
+      "id": "pct-14-50",
+      "groupId": "percents",
+      "familyId": "percent-reversible",
+      "prompt": "SAMPLE: 14% of 50.",
+      "expectedAnswer": 7,
+      "thoughtChain": [
+        "swap → 50% of 14",
+        "half of 14 = 7"
+      ]
+    },
+    {
+      "id": "pct-8-25",
+      "groupId": "percents",
+      "familyId": "percent-reversible",
+      "prompt": "SAMPLE: 8% of 25.",
+      "expectedAnswer": 2,
+      "thoughtChain": [
+        "swap → 25% of 8",
+        "quarter of 8 = 2"
+      ]
+    },
+    {
+      "id": "pct-16-50",
+      "groupId": "percents",
+      "familyId": "percent-reversible",
+      "prompt": "SAMPLE: 16% of 50.",
+      "expectedAnswer": 8,
+      "thoughtChain": [
+        "swap → 50% of 16 = 8"
+      ]
+    },
+    {
+      "id": "pct-30-40",
+      "groupId": "percents",
+      "familyId": "percent-tens",
+      "prompt": "SAMPLE: 30% of 40.",
+      "expectedAnswer": 12,
+      "thoughtChain": [
+        "drop zeros → 3×4=12"
+      ]
+    },
+    {
+      "id": "pct-80-70",
+      "groupId": "percents",
+      "familyId": "percent-tens",
+      "prompt": "SAMPLE: 80% of 70.",
+      "expectedAnswer": 56,
+      "thoughtChain": [
+        "drop zeros → 8×7=56"
+      ]
+    },
+    {
+      "id": "pct-20-90",
+      "groupId": "percents",
+      "familyId": "percent-tens",
+      "prompt": "SAMPLE: 20% of 90.",
+      "expectedAnswer": 18,
+      "thoughtChain": [
+        "drop zeros → 2×9=18"
+      ]
+    },
+    {
+      "id": "pct-35-2000",
+      "groupId": "percents",
+      "familyId": "percent-chunks",
+      "prompt": "SAMPLE: 35% of 2,000.",
+      "expectedAnswer": 700,
+      "thoughtChain": [
+        "10%=200 three times = 600",
+        "5%=100",
+        "700"
+      ]
+    },
+    {
+      "id": "pct-15-800",
+      "groupId": "percents",
+      "familyId": "percent-chunks",
+      "prompt": "SAMPLE: 15% of 800.",
+      "expectedAnswer": 120,
+      "thoughtChain": [
+        "10%=80",
+        "5%=40",
+        "120"
+      ]
+    },
+    {
+      "id": "pct-75-400",
+      "groupId": "percents",
+      "familyId": "percent-chunks",
+      "prompt": "SAMPLE: 75% of 400.",
+      "expectedAnswer": 300,
+      "thoughtChain": [
+        "50%=200",
+        "25%=100",
+        "300"
+      ]
+    },
+    {
+      "id": "pct-tip-80",
+      "groupId": "percents",
+      "familyId": "percent-tip",
+      "prompt": "SAMPLE: 20% of 80.",
+      "expectedAnswer": 16,
+      "thoughtChain": [
+        "×2=160",
+        "one place left → 16"
+      ]
+    },
+    {
+      "id": "pct-tip-15",
+      "groupId": "percents",
+      "familyId": "percent-tip",
+      "prompt": "SAMPLE: 20% of 15.",
+      "expectedAnswer": 3,
+      "thoughtChain": [
+        "×2=30",
+        "one place left → 3"
+      ]
+    },
+    {
+      "id": "pct-tip-42",
+      "groupId": "percents",
+      "familyId": "percent-tip",
+      "prompt": "SAMPLE: 20% of $42.30.",
+      "expectedAnswer": 8.46,
+      "thoughtChain": [
+        "×2=84.60",
+        "one place left → 8.46"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "pct-1-12000",
+      "groupId": "percents",
+      "familyId": "percent-shift",
+      "prompt": "SAMPLE: 1% of 12,000.",
+      "expectedAnswer": 120,
+      "thoughtChain": [
+        "two places left → 120"
+      ]
+    },
+    {
+      "id": "pct-10-360",
+      "groupId": "percents",
+      "familyId": "percent-shift",
+      "prompt": "SAMPLE: 10% of 360.",
+      "expectedAnswer": 36,
+      "thoughtChain": [
+        "one place left → 36"
+      ]
+    },
+    {
+      "id": "pct-12-25",
+      "groupId": "percents",
+      "familyId": "percent-reversible",
+      "prompt": "SAMPLE: 12% of 25.",
+      "expectedAnswer": 3,
+      "thoughtChain": [
+        "swap → 25% of 12",
+        "quarter of 12 = 3"
+      ]
+    },
+    {
+      "id": "pct-40-60",
+      "groupId": "percents",
+      "familyId": "percent-tens",
+      "prompt": "SAMPLE: 40% of 60.",
+      "expectedAnswer": 24,
+      "thoughtChain": [
+        "drop zeros → 4×6=24"
+      ]
+    },
+    {
+      "id": "pct-20-2000",
+      "groupId": "percents",
+      "familyId": "percent-chunks",
+      "prompt": "SAMPLE: 20% of 2,000.",
+      "expectedAnswer": 400,
+      "thoughtChain": [
+        "10%=200 twice",
+        "400"
+      ]
+    },
+    {
+      "id": "pct-tip-60",
+      "groupId": "percents",
+      "familyId": "percent-tip",
+      "prompt": "SAMPLE: 20% of 60.",
+      "expectedAnswer": 12,
+      "thoughtChain": [
+        "×2=120",
+        "one place left → 12"
+      ]
+    },
+    {
+      "id": "cv-80-5",
+      "groupId": "conversions",
+      "familyId": "div-by-5",
+      "prompt": "SAMPLE: 80 ÷ 5.",
+      "expectedAnswer": 16,
+      "thoughtChain": [
+        "×2=160",
+        "one place left → 16"
+      ]
+    },
+    {
+      "id": "cv-45-5",
+      "groupId": "conversions",
+      "familyId": "div-by-5",
+      "prompt": "SAMPLE: 45 ÷ 5.",
+      "expectedAnswer": 9,
+      "thoughtChain": [
+        "×2=90",
+        "one place left → 9"
+      ]
+    },
+    {
+      "id": "cv-100-5",
+      "groupId": "conversions",
+      "familyId": "div-by-5",
+      "prompt": "SAMPLE: 100 ÷ 5.",
+      "expectedAnswer": 20,
+      "thoughtChain": [
+        "×2=200",
+        "one place left → 20"
+      ]
+    },
+    {
+      "id": "cv-200-5",
+      "groupId": "conversions",
+      "familyId": "div-by-5",
+      "prompt": "SAMPLE: 200 ÷ 5.",
+      "expectedAnswer": 40,
+      "thoughtChain": [
+        "×2=400",
+        "one place left → 40"
+      ]
+    },
+    {
+      "id": "cv-1hr",
+      "groupId": "conversions",
+      "familyId": "hour-month",
+      "prompt": "SAMPLE: $1/hr as monthly. ×720.",
+      "expectedAnswer": 720,
+      "thoughtChain": [
+        "24×30≈720",
+        "$720/mo"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cv-2hr",
+      "groupId": "conversions",
+      "familyId": "hour-month",
+      "prompt": "SAMPLE: $2/hr as monthly.",
+      "expectedAnswer": 1440,
+      "thoughtChain": [
+        "2×720=1,440"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cv-halfhr",
+      "groupId": "conversions",
+      "familyId": "hour-month",
+      "prompt": "SAMPLE: $0.50/hr as monthly.",
+      "expectedAnswer": 360,
+      "thoughtChain": [
+        "0.5×720=360"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cv-3hr",
+      "groupId": "conversions",
+      "familyId": "hour-month",
+      "prompt": "SAMPLE: $3/hr as monthly.",
+      "expectedAnswer": 2160,
+      "thoughtChain": [
+        "3×720=2,160"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cv-900d",
+      "groupId": "conversions",
+      "familyId": "month-day",
+      "prompt": "SAMPLE: $900/mo as daily. ÷30.",
+      "expectedAnswer": 30,
+      "thoughtChain": [
+        "900÷30=30"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cv-300d",
+      "groupId": "conversions",
+      "familyId": "month-day",
+      "prompt": "SAMPLE: $300/mo as daily.",
+      "expectedAnswer": 10,
+      "thoughtChain": [
+        "300÷30=10"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cv-720d",
+      "groupId": "conversions",
+      "familyId": "month-day",
+      "prompt": "SAMPLE: $720/mo as daily.",
+      "expectedAnswer": 24,
+      "thoughtChain": [
+        "720÷30=24"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cv-24m",
+      "groupId": "conversions",
+      "familyId": "month-day",
+      "prompt": "SAMPLE: $24/day as monthly. ×30.",
+      "expectedAnswer": 720,
+      "thoughtChain": [
+        "24×30=720"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cv-30y",
+      "groupId": "conversions",
+      "familyId": "month-year",
+      "prompt": "SAMPLE: $30/mo as yearly. ×12.",
+      "expectedAnswer": 360,
+      "thoughtChain": [
+        "30×12=360"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cv-100y",
+      "groupId": "conversions",
+      "familyId": "month-year",
+      "prompt": "SAMPLE: $100/mo as yearly.",
+      "expectedAnswer": 1200,
+      "thoughtChain": [
+        "100×12=1,200"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cv-720y",
+      "groupId": "conversions",
+      "familyId": "month-year",
+      "prompt": "SAMPLE: $720/mo as yearly.",
+      "expectedAnswer": 8640,
+      "thoughtChain": [
+        "720×12=8,640"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cv-80y",
+      "groupId": "conversions",
+      "familyId": "month-year",
+      "prompt": "SAMPLE: $80/mo as yearly.",
+      "expectedAnswer": 960,
+      "thoughtChain": [
+        "80×12=960"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cv-250-5",
+      "groupId": "conversions",
+      "familyId": "div-by-5",
+      "prompt": "SAMPLE: 250 ÷ 5.",
+      "expectedAnswer": 50,
+      "thoughtChain": [
+        "×2=500",
+        "one place left → 50"
+      ]
+    },
+    {
+      "id": "cv-4hr",
+      "groupId": "conversions",
+      "familyId": "hour-month",
+      "prompt": "SAMPLE: $4/hr as monthly.",
+      "expectedAnswer": 2880,
+      "thoughtChain": [
+        "4×720=2,880"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cv-1500d",
+      "groupId": "conversions",
+      "familyId": "month-day",
+      "prompt": "SAMPLE: $1,500/mo as daily.",
+      "expectedAnswer": 50,
+      "thoughtChain": [
+        "1,500÷30=50"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cv-50y",
+      "groupId": "conversions",
+      "familyId": "month-year",
+      "prompt": "SAMPLE: $50/mo as yearly.",
+      "expectedAnswer": 600,
+      "thoughtChain": [
+        "50×12=600"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "be-3000-50",
+      "groupId": "break-even",
+      "familyId": "break-even",
+      "prompt": "SAMPLE: cost $3,000, price $50. Users?",
+      "expectedAnswer": 60,
+      "thoughtChain": [
+        "3,000÷50",
+        "cancel zero → 300÷5=60"
+      ]
+    },
+    {
+      "id": "be-1000-50",
+      "groupId": "break-even",
+      "familyId": "break-even",
+      "prompt": "SAMPLE: cost $1,000, price $50.",
+      "expectedAnswer": 20,
+      "thoughtChain": [
+        "1,000÷50=20"
+      ]
+    },
+    {
+      "id": "be-2000-25",
+      "groupId": "break-even",
+      "familyId": "break-even",
+      "prompt": "SAMPLE: cost $2,000, price $25.",
+      "expectedAnswer": 80,
+      "thoughtChain": [
+        "2,000÷25=80"
+      ]
+    },
+    {
+      "id": "be-1000-25",
+      "groupId": "break-even",
+      "familyId": "break-even",
+      "prompt": "SAMPLE: cost $1,000, price $25.",
+      "expectedAnswer": 40,
+      "thoughtChain": [
+        "1,000÷25=40"
+      ]
+    },
+    {
+      "id": "be-720-20",
+      "groupId": "break-even",
+      "familyId": "break-even",
+      "prompt": "SAMPLE: cost $720, price $20.",
+      "expectedAnswer": 36,
+      "thoughtChain": [
+        "720÷20=36"
+      ]
+    },
+    {
+      "id": "be-2000-50",
+      "groupId": "break-even",
+      "familyId": "break-even",
+      "prompt": "SAMPLE: cost $2,000, price $50.",
+      "expectedAnswer": 40,
+      "thoughtChain": [
+        "2,000÷50=40"
+      ]
+    },
+    {
+      "id": "be-1500-50",
+      "groupId": "break-even",
+      "familyId": "break-even",
+      "prompt": "SAMPLE: cost $1,500, price $50.",
+      "expectedAnswer": 30,
+      "thoughtChain": [
+        "1,500÷50=30"
+      ]
+    },
+    {
+      "id": "be-500-25",
+      "groupId": "break-even",
+      "familyId": "break-even",
+      "prompt": "SAMPLE: cost $500, price $25.",
+      "expectedAnswer": 20,
+      "thoughtChain": [
+        "500÷25=20"
+      ]
+    },
+    {
+      "id": "mk-60-20",
+      "groupId": "break-even",
+      "familyId": "markup",
+      "prompt": "SAMPLE: cost 20, price 60. Multiple?",
+      "expectedAnswer": 3,
+      "thoughtChain": [
+        "60÷20=3×"
+      ]
+    },
+    {
+      "id": "mk-100-20",
+      "groupId": "break-even",
+      "familyId": "markup",
+      "prompt": "SAMPLE: cost 20, price 100. Multiple?",
+      "expectedAnswer": 5,
+      "thoughtChain": [
+        "100÷20=5×"
+      ]
+    },
+    {
+      "id": "mk-80-20",
+      "groupId": "break-even",
+      "familyId": "markup",
+      "prompt": "SAMPLE: cost 20, price 80. Multiple?",
+      "expectedAnswer": 4,
+      "thoughtChain": [
+        "80÷20=4×"
+      ]
+    },
+    {
+      "id": "mk-45-15",
+      "groupId": "break-even",
+      "familyId": "markup",
+      "prompt": "SAMPLE: cost 15, price 45. Multiple?",
+      "expectedAnswer": 3,
+      "thoughtChain": [
+        "45÷15=3×"
+      ]
+    },
+    {
+      "id": "mk-90-30",
+      "groupId": "break-even",
+      "familyId": "markup",
+      "prompt": "SAMPLE: cost 30, price 90. Multiple?",
+      "expectedAnswer": 3,
+      "thoughtChain": [
+        "90÷30=3×"
+      ]
+    },
+    {
+      "id": "mk-200-40",
+      "groupId": "break-even",
+      "familyId": "markup",
+      "prompt": "SAMPLE: cost 40, price 200. Multiple?",
+      "expectedAnswer": 5,
+      "thoughtChain": [
+        "200÷40=5×"
+      ]
+    },
+    {
+      "id": "mk-12-4",
+      "groupId": "break-even",
+      "familyId": "markup",
+      "prompt": "SAMPLE: cost 4, price 12. Multiple?",
+      "expectedAnswer": 3,
+      "thoughtChain": [
+        "12÷4=3×"
+      ]
+    },
+    {
+      "id": "mk-50-10",
+      "groupId": "break-even",
+      "familyId": "markup",
+      "prompt": "SAMPLE: cost 10, price 50. Multiple?",
+      "expectedAnswer": 5,
+      "thoughtChain": [
+        "50÷10=5×"
+      ]
+    },
+    {
+      "id": "cfo-f-20-10k",
+      "groupId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "prompt": "SAMPLE: $20/mo × 10k users. Monthly ceiling?",
+      "expectedAnswer": 200000,
+      "thoughtChain": [
+        "20×10,000=200,000"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cfo-f-50-1k",
+      "groupId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "prompt": "SAMPLE: $50 × 1,000 users.",
+      "expectedAnswer": 50000,
+      "thoughtChain": [
+        "50×1,000=50,000"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cfo-f-100-10k",
+      "groupId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "prompt": "SAMPLE: $100 × 10k users.",
+      "expectedAnswer": 1000000,
+      "thoughtChain": [
+        "100×10,000=1,000,000"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cfo-f-30-100k",
+      "groupId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "prompt": "SAMPLE: $30 × 100k users.",
+      "expectedAnswer": 3000000,
+      "thoughtChain": [
+        "30×100,000=3,000,000"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cfo-f-15-2k",
+      "groupId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "prompt": "SAMPLE: $15 × 2,000 users.",
+      "expectedAnswer": 30000,
+      "thoughtChain": [
+        "15×2,000=30,000"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cfo-f-9-8k",
+      "groupId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "prompt": "SAMPLE: $9 × 8,000 users.",
+      "expectedAnswer": 72000,
+      "thoughtChain": [
+        "9×8,000=72,000"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cfo-f-40-500",
+      "groupId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "prompt": "SAMPLE: $40 × 500 users.",
+      "expectedAnswer": 20000,
+      "thoughtChain": [
+        "40×500=20,000"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cfo-f-25-4k",
+      "groupId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "prompt": "SAMPLE: $25 × 4,000 users.",
+      "expectedAnswer": 100000,
+      "thoughtChain": [
+        "25×4,000=100,000"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cfo-u-20x3",
+      "groupId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "prompt": "SAMPLE: $20/mo, 3 months. LTV?",
+      "expectedAnswer": 60,
+      "thoughtChain": [
+        "20×3=60"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cfo-u-ratio-thin",
+      "groupId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "prompt": "SAMPLE: LTV $60, CAC $40. LTV/CAC?",
+      "expectedAnswer": 1.5,
+      "thoughtChain": [
+        "60÷40=1.5"
+      ]
+    },
+    {
+      "id": "cfo-u-ratio-3",
+      "groupId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "prompt": "SAMPLE: LTV $120, CAC $40. Ratio?",
+      "expectedAnswer": 3,
+      "thoughtChain": [
+        "120÷40=3"
+      ]
+    },
+    {
+      "id": "cfo-u-25x4",
+      "groupId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "prompt": "SAMPLE: $25/mo, 4 months. LTV?",
+      "expectedAnswer": 100,
+      "thoughtChain": [
+        "25×4=100"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cfo-u-50x6",
+      "groupId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "prompt": "SAMPLE: $50/mo, 6 months. LTV?",
+      "expectedAnswer": 300,
+      "thoughtChain": [
+        "50×6=300"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cfo-u-100-40",
+      "groupId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "prompt": "SAMPLE: LTV $100, CAC $40. Ratio?",
+      "expectedAnswer": 2.5,
+      "thoughtChain": [
+        "100÷40=2.5"
+      ]
+    },
+    {
+      "id": "cfo-u-90-30",
+      "groupId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "prompt": "SAMPLE: LTV $90, CAC $30. Ratio?",
+      "expectedAnswer": 3,
+      "thoughtChain": [
+        "90÷30=3"
+      ]
+    },
+    {
+      "id": "cfo-u-15x8",
+      "groupId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "prompt": "SAMPLE: $15/mo, 8 months. LTV?",
+      "expectedAnswer": 120,
+      "thoughtChain": [
+        "15×8=120"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cfo-r-120-20",
+      "groupId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "prompt": "SAMPLE: $120k cash, $20k burn. Months?",
+      "expectedAnswer": 6,
+      "thoughtChain": [
+        "120÷20=6"
+      ]
+    },
+    {
+      "id": "cfo-r-50-25",
+      "groupId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "prompt": "SAMPLE: $50k cash, $25k burn.",
+      "expectedAnswer": 2,
+      "thoughtChain": [
+        "50÷25=2"
+      ]
+    },
+    {
+      "id": "cfo-r-90-15",
+      "groupId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "prompt": "SAMPLE: $90k cash, $15k burn.",
+      "expectedAnswer": 6,
+      "thoughtChain": [
+        "90÷15=6"
+      ]
+    },
+    {
+      "id": "cfo-r-80-10",
+      "groupId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "prompt": "SAMPLE: $80k cash, $10k burn.",
+      "expectedAnswer": 8,
+      "thoughtChain": [
+        "80÷10=8"
+      ]
+    },
+    {
+      "id": "cfo-r-200-25",
+      "groupId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "prompt": "SAMPLE: $200k cash, $25k burn.",
+      "expectedAnswer": 8,
+      "thoughtChain": [
+        "200÷25=8"
+      ]
+    },
+    {
+      "id": "cfo-r-36-12",
+      "groupId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "prompt": "SAMPLE: $36k cash, $12k burn.",
+      "expectedAnswer": 3,
+      "thoughtChain": [
+        "36÷12=3"
+      ]
+    },
+    {
+      "id": "cfo-r-45-9",
+      "groupId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "prompt": "SAMPLE: $45k cash, $9k burn.",
+      "expectedAnswer": 5,
+      "thoughtChain": [
+        "45÷9=5"
+      ]
+    },
+    {
+      "id": "cfo-r-18-6",
+      "groupId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "prompt": "SAMPLE: $18k cash, $6k burn.",
+      "expectedAnswer": 3,
+      "thoughtChain": [
+        "18÷6=3"
+      ]
+    },
+    {
+      "id": "cfo-g-9x",
+      "groupId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "prompt": "SAMPLE: 100 users, ~9× in 12 months at 20%/mo.",
+      "expectedAnswer": 900,
+      "thoughtChain": [
+        "20%/mo ≈ 9× in a year",
+        "100×9=900"
+      ]
+    },
+    {
+      "id": "cfo-g-1-7x",
+      "groupId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "prompt": "SAMPLE: 100 users × ~1.7 after 3 months at 20%/mo.",
+      "expectedAnswer": 170,
+      "thoughtChain": [
+        "3 months ≈ 1.7×",
+        "170"
+      ]
+    },
+    {
+      "id": "cfo-g-3x6",
+      "groupId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "prompt": "SAMPLE: 100 users × ~3 after 6 months at 20%/mo.",
+      "expectedAnswer": 300,
+      "thoughtChain": [
+        "6 months ≈ 3×",
+        "300"
+      ]
+    },
+    {
+      "id": "cfo-g-200-9",
+      "groupId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "prompt": "SAMPLE: 200 users at ~9× in a year.",
+      "expectedAnswer": 1800,
+      "thoughtChain": [
+        "200×9=1,800"
+      ]
+    },
+    {
+      "id": "cfo-g-50-9",
+      "groupId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "prompt": "SAMPLE: 50 users at ~9× in a year.",
+      "expectedAnswer": 450,
+      "thoughtChain": [
+        "50×9=450"
+      ]
+    },
+    {
+      "id": "cfo-g-10-3",
+      "groupId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "prompt": "SAMPLE: 10 users × ~3 in 6 months.",
+      "expectedAnswer": 30,
+      "thoughtChain": [
+        "10×3=30"
+      ]
+    },
+    {
+      "id": "cfo-g-40-1-7",
+      "groupId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "prompt": "SAMPLE: 40 users × 1.7 in 3 months.",
+      "expectedAnswer": 68,
+      "thoughtChain": [
+        "40×1.7=68"
+      ]
+    },
+    {
+      "id": "cfo-g-25-9",
+      "groupId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "prompt": "SAMPLE: 25 users × ~9 in a year.",
+      "expectedAnswer": 225,
+      "thoughtChain": [
+        "25×9=225"
+      ]
+    },
+    {
+      "id": "fd-47-36",
+      "groupId": "foundations",
+      "familyId": "left-to-right",
+      "prompt": "SAMPLE: 47 + 36, left to right.",
+      "expectedAnswer": 83,
+      "thoughtChain": [
+        "40+30=70",
+        "7+6=13",
+        "83"
+      ]
+    },
+    {
+      "id": "fd-58-23",
+      "groupId": "foundations",
+      "familyId": "left-to-right",
+      "prompt": "SAMPLE: 58 − 23.",
+      "expectedAnswer": 35,
+      "thoughtChain": [
+        "50−20=30",
+        "8−3=5",
+        "35"
+      ]
+    },
+    {
+      "id": "fd-82-47",
+      "groupId": "foundations",
+      "familyId": "left-to-right",
+      "prompt": "SAMPLE: 82 − 47.",
+      "expectedAnswer": 35,
+      "thoughtChain": [
+        "80−40=40",
+        "2−7=−5",
+        "35"
+      ]
+    },
+    {
+      "id": "fd-49x6",
+      "groupId": "foundations",
+      "familyId": "round-compensate",
+      "prompt": "SAMPLE: 49 × 6.",
+      "expectedAnswer": 294,
+      "thoughtChain": [
+        "50×6=300",
+        "minus 6 → 294"
+      ]
+    },
+    {
+      "id": "fd-38x5",
+      "groupId": "foundations",
+      "familyId": "round-compensate",
+      "prompt": "SAMPLE: 38 × 5.",
+      "expectedAnswer": 190,
+      "thoughtChain": [
+        "40×5=200",
+        "minus 10 → 190"
+      ]
+    },
+    {
+      "id": "fd-86x5",
+      "groupId": "foundations",
+      "familyId": "double-half",
+      "prompt": "SAMPLE: 86 × 5.",
+      "expectedAnswer": 430,
+      "thoughtChain": [
+        "×10=860",
+        "half → 430"
+      ]
+    },
+    {
+      "id": "fd-15x4",
+      "groupId": "foundations",
+      "familyId": "double-half",
+      "prompt": "SAMPLE: 15 × 4.",
+      "expectedAnswer": 60,
+      "thoughtChain": [
+        "double 30",
+        "double 60"
+      ]
+    },
+    {
+      "id": "fd-35sq",
+      "groupId": "foundations",
+      "familyId": "multiply-near",
+      "prompt": "SAMPLE: 35².",
+      "expectedAnswer": 1225,
+      "thoughtChain": [
+        "3×4=12",
+        "glue 25 → 1,225"
+      ]
+    },
+    {
+      "id": "fd-27x9",
+      "groupId": "foundations",
+      "familyId": "multiply-near",
+      "prompt": "SAMPLE: 27 × 9.",
+      "expectedAnswer": 243,
+      "thoughtChain": [
+        "270 − 27 = 243"
+      ]
+    },
+    {
+      "id": "fd-35x11",
+      "groupId": "foundations",
+      "familyId": "multiply-near",
+      "prompt": "SAMPLE: 35 × 11.",
+      "expectedAnswer": 385,
+      "thoughtChain": [
+        "park 3+5=8 → 385"
+      ]
+    },
+    {
+      "id": "fd-eighth",
+      "groupId": "foundations",
+      "familyId": "fraction-percent",
+      "prompt": "SAMPLE: 1/8 of 800.",
+      "expectedAnswer": 100,
+      "thoughtChain": [
+        "800÷8=100"
+      ]
+    },
+    {
+      "id": "fd-third",
+      "groupId": "foundations",
+      "familyId": "fraction-percent",
+      "prompt": "SAMPLE: 1/3 of 3,000.",
+      "expectedAnswer": 1000,
+      "thoughtChain": [
+        "1/3 ≈ 33%",
+        "1,000"
+      ]
+    },
+    {
+      "id": "fd-quarter",
+      "groupId": "foundations",
+      "familyId": "fraction-percent",
+      "prompt": "SAMPLE: 1/4 of 800.",
+      "expectedAnswer": 200,
+      "thoughtChain": [
+        "25% of 800 = 200"
+      ]
+    },
+    {
+      "id": "fd-72-6",
+      "groupId": "foundations",
+      "familyId": "rule-of-72",
+      "prompt": "SAMPLE: years to double at 6%.",
+      "expectedAnswer": 12,
+      "thoughtChain": [
+        "72÷6=12"
+      ]
+    },
+    {
+      "id": "fd-72-9",
+      "groupId": "foundations",
+      "familyId": "rule-of-72",
+      "prompt": "SAMPLE: years to double at 9%.",
+      "expectedAnswer": 8,
+      "thoughtChain": [
+        "72÷9=8"
+      ]
+    },
+    {
+      "id": "fd-72-10",
+      "groupId": "foundations",
+      "familyId": "rule-of-72",
+      "prompt": "SAMPLE: years to double at 10% (round).",
+      "expectedAnswer": 7,
+      "thoughtChain": [
+        "72÷10≈7"
+      ]
+    },
+    {
+      "id": "fd-61-28",
+      "groupId": "foundations",
+      "familyId": "left-to-right",
+      "prompt": "SAMPLE: 61 + 28.",
+      "expectedAnswer": 89,
+      "thoughtChain": [
+        "60+20=80",
+        "1+8=9",
+        "89"
+      ]
+    },
+    {
+      "id": "fd-199x3",
+      "groupId": "foundations",
+      "familyId": "round-compensate",
+      "prompt": "SAMPLE: 199 × 3.",
+      "expectedAnswer": 597,
+      "thoughtChain": [
+        "200×3=600",
+        "minus 3 → 597"
+      ]
+    },
+    {
+      "id": "fd-24x5",
+      "groupId": "foundations",
+      "familyId": "double-half",
+      "prompt": "SAMPLE: 24 × 5.",
+      "expectedAnswer": 120,
+      "thoughtChain": [
+        "×10=240",
+        "half → 120"
+      ]
+    },
+    {
+      "id": "fd-72-8",
+      "groupId": "foundations",
+      "familyId": "rule-of-72",
+      "prompt": "SAMPLE: years to double at 8%.",
+      "expectedAnswer": 9,
+      "thoughtChain": [
+        "72÷8=9"
+      ]
+    },
+    {
+      "id": "fd-19x6",
+      "groupId": "foundations",
+      "familyId": "round-compensate",
+      "prompt": "SAMPLE: 19 × 6.",
+      "expectedAnswer": 114,
+      "thoughtChain": [
+        "20×6=120",
+        "minus 6 → 114"
+      ]
+    },
+    {
+      "id": "st-mrr-80",
+      "groupId": "startup",
+      "familyId": "mrr-arr",
+      "prompt": "SAMPLE: $80k MRR as ARR (×12, smell ~$1M).",
+      "expectedAnswer": 960000,
+      "thoughtChain": [
+        "80,000×12=960,000"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "st-mrr-100",
+      "groupId": "startup",
+      "familyId": "mrr-arr",
+      "prompt": "SAMPLE: $100k MRR as ARR.",
+      "expectedAnswer": 1200000,
+      "thoughtChain": [
+        "100,000×12=1,200,000"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "st-mrr-50",
+      "groupId": "startup",
+      "familyId": "mrr-arr",
+      "prompt": "SAMPLE: $50k MRR as ARR.",
+      "expectedAnswer": 600000,
+      "thoughtChain": [
+        "50,000×12=600,000"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "st-churn-5",
+      "groupId": "startup",
+      "familyId": "churn",
+      "prompt": "SAMPLE: 5% monthly churn. Lifetime months?",
+      "expectedAnswer": 20,
+      "thoughtChain": [
+        "1/0.05=20"
+      ]
+    },
+    {
+      "id": "st-churn-2",
+      "groupId": "startup",
+      "familyId": "churn",
+      "prompt": "SAMPLE: 2% monthly churn. Lifetime months?",
+      "expectedAnswer": 50,
+      "thoughtChain": [
+        "1/0.02=50"
+      ]
+    },
+    {
+      "id": "st-churn-10",
+      "groupId": "startup",
+      "familyId": "churn",
+      "prompt": "SAMPLE: 10% monthly churn. Lifetime months?",
+      "expectedAnswer": 10,
+      "thoughtChain": [
+        "1/0.10=10"
+      ]
+    },
+    {
+      "id": "st-nrr-130",
+      "groupId": "startup",
+      "familyId": "nrr",
+      "prompt": "SAMPLE: cohort $100k → $130k. NRR percent?",
+      "expectedAnswer": 130,
+      "thoughtChain": [
+        "130/100=130%"
+      ]
+    },
+    {
+      "id": "st-nrr-80",
+      "groupId": "startup",
+      "familyId": "nrr",
+      "prompt": "SAMPLE: cohort $100k → $80k. NRR percent?",
+      "expectedAnswer": 80,
+      "thoughtChain": [
+        "80/100=80%"
+      ]
+    },
+    {
+      "id": "st-nrr-110",
+      "groupId": "startup",
+      "familyId": "nrr",
+      "prompt": "SAMPLE: cohort $200k → $220k. NRR percent?",
+      "expectedAnswer": 110,
+      "thoughtChain": [
+        "220/200=110%"
+      ]
+    },
+    {
+      "id": "st-r40-45",
+      "groupId": "startup",
+      "familyId": "rule-of-40",
+      "prompt": "SAMPLE: 30% growth + 15% margin.",
+      "expectedAnswer": 45,
+      "thoughtChain": [
+        "30+15=45"
+      ]
+    },
+    {
+      "id": "st-r40-30",
+      "groupId": "startup",
+      "familyId": "rule-of-40",
+      "prompt": "SAMPLE: 80% growth + (−50%) margin.",
+      "expectedAnswer": 30,
+      "thoughtChain": [
+        "80−50=30"
+      ]
+    },
+    {
+      "id": "st-r40-55",
+      "groupId": "startup",
+      "familyId": "rule-of-40",
+      "prompt": "SAMPLE: 40% growth + 15% margin.",
+      "expectedAnswer": 55,
+      "thoughtChain": [
+        "40+15=55"
+      ]
+    },
+    {
+      "id": "st-burn-2",
+      "groupId": "startup",
+      "familyId": "burn-multiple",
+      "prompt": "SAMPLE: burn $2M, new ARR $1M. Multiple?",
+      "expectedAnswer": 2,
+      "thoughtChain": [
+        "2/1=2"
+      ]
+    },
+    {
+      "id": "st-burn-5",
+      "groupId": "startup",
+      "familyId": "burn-multiple",
+      "prompt": "SAMPLE: burn $5M, new ARR $1M.",
+      "expectedAnswer": 5,
+      "thoughtChain": [
+        "5/1=5"
+      ]
+    },
+    {
+      "id": "st-burn-1",
+      "groupId": "startup",
+      "familyId": "burn-multiple",
+      "prompt": "SAMPLE: burn $1.5M, new ARR $1.5M.",
+      "expectedAnswer": 1,
+      "thoughtChain": [
+        "1.5/1.5=1"
+      ]
+    },
+    {
+      "id": "st-pay-6",
+      "groupId": "startup",
+      "familyId": "cac-payback",
+      "prompt": "SAMPLE: CAC $240, GP $40/mo. Months?",
+      "expectedAnswer": 6,
+      "thoughtChain": [
+        "240÷40=6"
+      ]
+    },
+    {
+      "id": "st-pay-16",
+      "groupId": "startup",
+      "familyId": "cac-payback",
+      "prompt": "SAMPLE: CAC $240, GP $15/mo.",
+      "expectedAnswer": 16,
+      "thoughtChain": [
+        "240÷15=16"
+      ]
+    },
+    {
+      "id": "st-pay-12",
+      "groupId": "startup",
+      "familyId": "cac-payback",
+      "prompt": "SAMPLE: CAC $120, GP $10/mo.",
+      "expectedAnswer": 12,
+      "thoughtChain": [
+        "120÷10=12"
+      ]
+    },
+    {
+      "id": "st-take-15",
+      "groupId": "startup",
+      "familyId": "take-rate",
+      "prompt": "SAMPLE: $2M GMV at 15% take.",
+      "expectedAnswer": 300000,
+      "thoughtChain": [
+        "10%=200k",
+        "5%=100k",
+        "300k"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "st-take-10",
+      "groupId": "startup",
+      "familyId": "take-rate",
+      "prompt": "SAMPLE: $1M GMV at 10% take.",
+      "expectedAnswer": 100000,
+      "thoughtChain": [
+        "10% of 1M=100k"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "st-take-20",
+      "groupId": "startup",
+      "familyId": "take-rate",
+      "prompt": "SAMPLE: $500k GMV at 20% take.",
+      "expectedAnswer": 100000,
+      "thoughtChain": [
+        "20% of 500k=100k"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "st-fee-3",
+      "groupId": "startup",
+      "familyId": "processing-fees",
+      "prompt": "SAMPLE: $50k processed at ~3%.",
+      "expectedAnswer": 1500,
+      "thoughtChain": [
+        "3% of 50k=1,500"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "st-fee-10",
+      "groupId": "startup",
+      "familyId": "processing-fees",
+      "prompt": "SAMPLE: 2.9%+$0.30 on a $10 charge, cents as 0.59 dollars.",
+      "expectedAnswer": 0.59,
+      "thoughtChain": [
+        "0.29+0.30=0.59"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "st-fee-100",
+      "groupId": "startup",
+      "familyId": "processing-fees",
+      "prompt": "SAMPLE: ~3% of $100k volume.",
+      "expectedAnswer": 3000,
+      "thoughtChain": [
+        "3% of 100k=3,000"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "st-load-120",
+      "groupId": "startup",
+      "familyId": "fully-loaded",
+      "prompt": "SAMPLE: $120k salary × 1.3.",
+      "expectedAnswer": 156000,
+      "thoughtChain": [
+        "120×1.3=156k"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "st-load-100",
+      "groupId": "startup",
+      "familyId": "fully-loaded",
+      "prompt": "SAMPLE: $100k salary × 1.3.",
+      "expectedAnswer": 130000,
+      "thoughtChain": [
+        "100×1.3=130k"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "st-load-80",
+      "groupId": "startup",
+      "familyId": "fully-loaded",
+      "prompt": "SAMPLE: $80k salary × 1.3.",
+      "expectedAnswer": 104000,
+      "thoughtChain": [
+        "80×1.3=104k"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "st-dil-20",
+      "groupId": "startup",
+      "familyId": "dilution",
+      "prompt": "SAMPLE: pre $8M, raise $2M. Percent sold?",
+      "expectedAnswer": 20,
+      "thoughtChain": [
+        "post=10",
+        "2/10=20%"
+      ]
+    },
+    {
+      "id": "st-dil-25",
+      "groupId": "startup",
+      "familyId": "dilution",
+      "prompt": "SAMPLE: raise $3M at $12M post. Percent sold?",
+      "expectedAnswer": 25,
+      "thoughtChain": [
+        "3/12=25%"
+      ]
+    },
+    {
+      "id": "st-dil-10",
+      "groupId": "startup",
+      "familyId": "dilution",
+      "prompt": "SAMPLE: raise $1M at $10M post.",
+      "expectedAnswer": 10,
+      "thoughtChain": [
+        "1/10=10%"
+      ]
+    },
+    {
+      "id": "st-tam-120",
+      "groupId": "startup",
+      "familyId": "tam-fermi",
+      "prompt": "SAMPLE: 200k buyers × $600/year. TAM $M?",
+      "expectedAnswer": 120,
+      "thoughtChain": [
+        "200,000×600=120,000,000",
+        "$120M"
+      ]
+    },
+    {
+      "id": "st-tam-slice",
+      "groupId": "startup",
+      "familyId": "tam-fermi",
+      "prompt": "SAMPLE: 1,000 buyers × $600/year. ARR $k?",
+      "expectedAnswer": 600,
+      "thoughtChain": [
+        "1,000×600=600,000",
+        "$600k"
+      ]
+    },
+    {
+      "id": "st-tam-50-12",
+      "groupId": "startup",
+      "familyId": "tam-fermi",
+      "prompt": "SAMPLE: 50k buyers × $12/year. TAM $k?",
+      "expectedAnswer": 600,
+      "thoughtChain": [
+        "50,000×12=600,000",
+        "$600k"
+      ]
+    },
+    {
+      "id": "st-mrr-25",
+      "groupId": "startup",
+      "familyId": "mrr-arr",
+      "prompt": "SAMPLE: $25k MRR as ARR.",
+      "expectedAnswer": 300000,
+      "thoughtChain": [
+        "25,000×12=300,000"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "st-churn-4",
+      "groupId": "startup",
+      "familyId": "churn",
+      "prompt": "SAMPLE: 4% monthly churn. Lifetime months?",
+      "expectedAnswer": 25,
+      "thoughtChain": [
+        "1/0.04=25"
+      ]
+    },
+    {
+      "id": "stf-1-40",
+      "groupId": "stacked-founder",
+      "familyId": "stacked-founder",
+      "prompt": "SAMPLE: $1/hr, $40/mo. Users per server?",
+      "expectedAnswer": 18,
+      "thoughtChain": [
+        "×720 → 720",
+        "720÷40=18"
+      ]
+    },
+    {
+      "id": "stf-2-40",
+      "groupId": "stacked-founder",
+      "familyId": "stacked-founder",
+      "prompt": "SAMPLE: $2/hr, $40/mo. Users per server?",
+      "expectedAnswer": 36,
+      "thoughtChain": [
+        "×720 → 1,440",
+        "1,440÷40=36"
+      ]
+    },
+    {
+      "id": "stf-10k-5",
+      "groupId": "stacked-founder",
+      "familyId": "stacked-founder",
+      "prompt": "SAMPLE: 10k visitors, 5% conversion. Customers?",
+      "expectedAnswer": 500,
+      "thoughtChain": [
+        "1%=100",
+        "×5 → 500"
+      ]
+    },
+    {
+      "id": "stf-05-20",
+      "groupId": "stacked-founder",
+      "familyId": "hour-month",
+      "prompt": "SAMPLE: $0.50/hr, $20/mo. Users per instance?",
+      "expectedAnswer": 18,
+      "thoughtChain": [
+        "0.50×720=360",
+        "360÷20=18"
+      ]
+    },
+    {
+      "id": "stf-3-60",
+      "groupId": "stacked-founder",
+      "familyId": "hour-month",
+      "prompt": "SAMPLE: $3/hr, $60/mo. Users per box?",
+      "expectedAnswer": 36,
+      "thoughtChain": [
+        "3×720=2,160",
+        "2,160÷60=36"
+      ]
+    },
+    {
+      "id": "stf-8k-10",
+      "groupId": "stacked-founder",
+      "familyId": "percent-shift",
+      "prompt": "SAMPLE: 8,000 visitors, 10% convert. Customers?",
+      "expectedAnswer": 800,
+      "thoughtChain": [
+        "10% is one place left",
+        "800"
+      ]
+    },
+    {
+      "id": "stf-900-y",
+      "groupId": "stacked-founder",
+      "familyId": "month-year",
+      "prompt": "SAMPLE: $900/mo box. Yearly cost?",
+      "expectedAnswer": 10800,
+      "thoughtChain": [
+        "900×12=10,800"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "stf-1hr-y",
+      "groupId": "stacked-founder",
+      "familyId": "hour-month",
+      "prompt": "SAMPLE: $1/hr GPU. Yearly cost of the box?",
+      "expectedAnswer": 8640,
+      "thoughtChain": [
+        "×720 → $720/mo",
+        "720×12=8,640"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "fd-p20-1000",
+      "groupId": "foundations",
+      "familyId": "pareto",
+      "prompt": "SAMPLE: 1,000 users. 20% heavy slice?",
+      "expectedAnswer": 200,
+      "thoughtChain": [
+        "20% of 1,000 = 200"
+      ]
+    },
+    {
+      "id": "fd-p80-1000",
+      "groupId": "foundations",
+      "familyId": "pareto",
+      "prompt": "SAMPLE: 1,000 users. 80% of load as a count?",
+      "expectedAnswer": 800,
+      "thoughtChain": [
+        "80% of 1,000 = 800"
+      ]
+    },
+    {
+      "id": "fd-p20-500",
+      "groupId": "foundations",
+      "familyId": "pareto",
+      "prompt": "SAMPLE: 500 customers. Heavy slice?",
+      "expectedAnswer": 100,
+      "thoughtChain": [
+        "20% of 500 = 100"
+      ]
+    },
+    {
+      "id": "fd-rt-50-20",
+      "groupId": "foundations",
+      "familyId": "revenue-triangle",
+      "prompt": "SAMPLE: $50 × 20 users. Revenue?",
+      "expectedAnswer": 1000,
+      "thoughtChain": [
+        "50×20=1,000"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "fd-rt-100-100",
+      "groupId": "foundations",
+      "familyId": "revenue-triangle",
+      "prompt": "SAMPLE: $100 × 100 users.",
+      "expectedAnswer": 10000,
+      "thoughtChain": [
+        "100×100=10,000"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "fd-rt-5k-50",
+      "groupId": "foundations",
+      "familyId": "revenue-triangle",
+      "prompt": "SAMPLE: $5,000 revenue at $50. Users?",
+      "expectedAnswer": 100,
+      "thoughtChain": [
+        "5,000÷50=100"
+      ]
+    },
+    {
+      "id": "fd-div-4731",
+      "groupId": "foundations",
+      "familyId": "divisibility",
+      "prompt": "SAMPLE: digit sum of 4,731 (the ÷3 test).",
+      "expectedAnswer": 15,
+      "thoughtChain": [
+        "4+7+3+1=15"
+      ]
+    },
+    {
+      "id": "fd-div-7316",
+      "groupId": "foundations",
+      "familyId": "divisibility",
+      "prompt": "SAMPLE: last two digits of 7,316 (the ÷4 test).",
+      "expectedAnswer": 16,
+      "thoughtChain": [
+        "last two → 16"
+      ]
+    },
+    {
+      "id": "fd-div-2728",
+      "groupId": "foundations",
+      "familyId": "divisibility",
+      "prompt": "SAMPLE: |alternating sum| of 2,728 (the ÷11 test).",
+      "expectedAnswer": 11,
+      "thoughtChain": [
+        "2−7+2−8=−11",
+        "|−11|=11"
+      ]
+    },
+    {
+      "id": "fd-cc-23x21",
+      "groupId": "foundations",
+      "familyId": "criss-cross",
+      "prompt": "SAMPLE: 23 × 21, vertical and crosswise.",
+      "expectedAnswer": 483,
+      "thoughtChain": [
+        "ones 3",
+        "cross 8",
+        "tens 4 → 483"
+      ]
+    },
+    {
+      "id": "fd-cc-12x13",
+      "groupId": "foundations",
+      "familyId": "criss-cross",
+      "prompt": "SAMPLE: 12 × 13.",
+      "expectedAnswer": 156,
+      "thoughtChain": [
+        "ones 6",
+        "cross 5",
+        "tens 1 → 156"
+      ]
+    },
+    {
+      "id": "fd-cc-31x12",
+      "groupId": "foundations",
+      "familyId": "criss-cross",
+      "prompt": "SAMPLE: 31 × 12.",
+      "expectedAnswer": 372,
+      "thoughtChain": [
+        "ones 2",
+        "cross 7",
+        "tens 3 → 372"
+      ]
+    },
+    {
+      "id": "fd-ds-48x52",
+      "groupId": "foundations",
+      "familyId": "difference-squares",
+      "prompt": "SAMPLE: 48 × 52. Center 50.",
+      "expectedAnswer": 2496,
+      "thoughtChain": [
+        "50²=2,500",
+        "2²=4",
+        "2,496"
+      ]
+    },
+    {
+      "id": "fd-ds-47x53",
+      "groupId": "foundations",
+      "familyId": "difference-squares",
+      "prompt": "SAMPLE: 47 × 53.",
+      "expectedAnswer": 2491,
+      "thoughtChain": [
+        "50²=2,500",
+        "3²=9",
+        "2,491"
+      ]
+    },
+    {
+      "id": "fd-ds-43x47",
+      "groupId": "foundations",
+      "familyId": "difference-squares",
+      "prompt": "SAMPLE: 43 × 47. Same tens, ones to 10.",
+      "expectedAnswer": 2021,
+      "thoughtChain": [
+        "4×5=20",
+        "3×7=21",
+        "2,021"
+      ]
+    },
+    {
+      "id": "fd-ed-675",
+      "groupId": "foundations",
+      "familyId": "easy-division",
+      "prompt": "SAMPLE: 675 ÷ 25.",
+      "expectedAnswer": 27,
+      "thoughtChain": [
+        "×4=2,700",
+        "÷100=27"
+      ]
+    },
+    {
+      "id": "fd-ed-936",
+      "groupId": "foundations",
+      "familyId": "easy-division",
+      "prompt": "SAMPLE: 936 ÷ 12. Factor 3 then 4.",
+      "expectedAnswer": 78,
+      "thoughtChain": [
+        "936÷3=312",
+        "312÷4=78"
+      ]
+    },
+    {
+      "id": "fd-ed-48",
+      "groupId": "foundations",
+      "familyId": "easy-division",
+      "prompt": "SAMPLE: 4.8 ÷ 0.06. Scale both.",
+      "expectedAnswer": 80,
+      "thoughtChain": [
+        "×100 → 480÷6=80"
+      ]
+    },
+    {
+      "id": "fd-cm-8-7",
+      "groupId": "foundations",
+      "familyId": "complements",
+      "prompt": "SAMPLE: 8 + 7. Make 10.",
+      "expectedAnswer": 15,
+      "thoughtChain": [
+        "8 needs 2",
+        "leftover 5 → 15"
+      ]
+    },
+    {
+      "id": "fd-cm-68-47",
+      "groupId": "foundations",
+      "familyId": "complements",
+      "prompt": "SAMPLE: 68 + 47. Make 100.",
+      "expectedAnswer": 115,
+      "thoughtChain": [
+        "68 needs 32",
+        "leftover 15 → 115"
+      ]
+    },
+    {
+      "id": "fd-cm-gauss-10",
+      "groupId": "foundations",
+      "familyId": "complements",
+      "prompt": "SAMPLE: 1+2+…+10. Gauss pairs.",
+      "expectedAnswer": 55,
+      "thoughtChain": [
+        "5 pairs of 11",
+        "55"
+      ]
+    },
+    {
+      "id": "fd-ea-502",
+      "groupId": "foundations",
+      "familyId": "equal-adjust",
+      "prompt": "SAMPLE: 502 − 198. Add 2 to both.",
+      "expectedAnswer": 304,
+      "thoughtChain": [
+        "504 − 200 = 304"
+      ]
+    },
+    {
+      "id": "fd-ea-725",
+      "groupId": "foundations",
+      "familyId": "equal-adjust",
+      "prompt": "SAMPLE: 725 − 397. Add 3 to both.",
+      "expectedAnswer": 328,
+      "thoughtChain": [
+        "728 − 400 = 328"
+      ]
+    },
+    {
+      "id": "fd-ea-1003",
+      "groupId": "foundations",
+      "familyId": "equal-adjust",
+      "prompt": "SAMPLE: 1,003 − 198. Add 2 to both.",
+      "expectedAnswer": 805,
+      "thoughtChain": [
+        "1,005 − 200 = 805"
+      ]
+    },
+    {
+      "id": "fd-xc-1",
+      "groupId": "foundations",
+      "familyId": "cross-cancel",
+      "prompt": "SAMPLE: 6/8 × 4/3 after cancel.",
+      "expectedAnswer": 1,
+      "thoughtChain": [
+        "cancel to 1"
+      ]
+    },
+    {
+      "id": "fd-xc-3",
+      "groupId": "foundations",
+      "familyId": "cross-cancel",
+      "prompt": "SAMPLE: 8/12 × 9/2 after cancel.",
+      "expectedAnswer": 3,
+      "thoughtChain": [
+        "2/3 × 9/2 = 3"
+      ]
+    },
+    {
+      "id": "fd-xc-91",
+      "groupId": "foundations",
+      "familyId": "cross-cancel",
+      "prompt": "SAMPLE: cross product 7×13 (vs 8×11=88).",
+      "expectedAnswer": 91,
+      "thoughtChain": [
+        "7×13=91",
+        "91>88 so 7/11 is larger"
+      ]
+    },
+    {
+      "id": "fd-cn-7",
+      "groupId": "foundations",
+      "familyId": "cast-nines",
+      "prompt": "SAMPLE: digit root of 87,946.",
+      "expectedAnswer": 7,
+      "thoughtChain": [
+        "8+7+9+4+6=34",
+        "3+4=7"
+      ]
+    },
+    {
+      "id": "fd-cn-6",
+      "groupId": "foundations",
+      "familyId": "cast-nines",
+      "prompt": "SAMPLE: last digit of 7×8 (must-end-in test).",
+      "expectedAnswer": 6,
+      "thoughtChain": [
+        "56 ends in 6"
+      ]
+    },
+    {
+      "id": "fd-cn-5",
+      "groupId": "foundations",
+      "familyId": "cast-nines",
+      "prompt": "SAMPLE: digit root of 347.",
+      "expectedAnswer": 5,
+      "thoughtChain": [
+        "3+4+7=14",
+        "1+4=5"
+      ]
+    },
+    {
+      "id": "fd-sq-104",
+      "groupId": "foundations",
+      "familyId": "approx-sqrt",
+      "prompt": "SAMPLE: √104 bump off 10². What is the estimate?",
+      "expectedAnswer": 10.2,
+      "thoughtChain": [
+        "d=4",
+        "4/20=0.2",
+        "10.2"
+      ]
+    },
+    {
+      "id": "fd-sq-16",
+      "groupId": "foundations",
+      "familyId": "approx-sqrt",
+      "prompt": "SAMPLE: √16, guess 5. One Babylonian step?",
+      "expectedAnswer": 4.1,
+      "thoughtChain": [
+        "16/5=3.2",
+        "(5+3.2)/2=4.1"
+      ]
+    },
+    {
+      "id": "fd-sq-103",
+      "groupId": "foundations",
+      "familyId": "approx-sqrt",
+      "prompt": "SAMPLE: √103 bump off 10².",
+      "expectedAnswer": 10.15,
+      "thoughtChain": [
+        "d=3",
+        "3/20=0.15",
+        "10.15"
+      ]
+    },
+    {
+      "id": "fd-rg-1600",
+      "groupId": "foundations",
+      "familyId": "regroup-factors",
+      "prompt": "SAMPLE: 25 × 16 × 4. Pair 25×4 first.",
+      "expectedAnswer": 1600,
+      "thoughtChain": [
+        "25×4=100",
+        "100×16=1,600"
+      ]
+    },
+    {
+      "id": "fd-rg-37000",
+      "groupId": "foundations",
+      "familyId": "regroup-factors",
+      "prompt": "SAMPLE: 8 × 37 × 125.",
+      "expectedAnswer": 37000,
+      "thoughtChain": [
+        "8×125=1,000",
+        "×37=37,000"
+      ]
+    },
+    {
+      "id": "fd-rg-1200",
+      "groupId": "foundations",
+      "familyId": "regroup-factors",
+      "prompt": "SAMPLE: 25 × 48.",
+      "expectedAnswer": 1200,
+      "thoughtChain": [
+        "25×4×12",
+        "100×12=1,200"
+      ]
+    },
+    {
+      "id": "op-cc-100",
+      "groupId": "operator",
+      "familyId": "concurrency",
+      "prompt": "SAMPLE: 100 logos, busy hour. Concurrent at 20%?",
+      "expectedAnswer": 20,
+      "thoughtChain": [
+        "20% of 100 = 20"
+      ]
+    },
+    {
+      "id": "op-cc-1000",
+      "groupId": "operator",
+      "familyId": "concurrency",
+      "prompt": "SAMPLE: 1,000 logos, quiet. Concurrent at 10%?",
+      "expectedAnswer": 100,
+      "thoughtChain": [
+        "10% of 1,000 = 100"
+      ]
+    },
+    {
+      "id": "op-cc-50",
+      "groupId": "operator",
+      "familyId": "concurrency",
+      "prompt": "SAMPLE: 50 logos, busy. Concurrent at 20%?",
+      "expectedAnswer": 10,
+      "thoughtChain": [
+        "20% of 50 = 10"
+      ]
+    },
+    {
+      "id": "op-cs-1000",
+      "groupId": "operator",
+      "familyId": "capacity-split",
+      "prompt": "SAMPLE: 1,000 users, 20 per server. Boxes?",
+      "expectedAnswer": 50,
+      "thoughtChain": [
+        "1,000÷20=50"
+      ]
+    },
+    {
+      "id": "op-cs-400",
+      "groupId": "operator",
+      "familyId": "capacity-split",
+      "prompt": "SAMPLE: 400 users, 20 per box.",
+      "expectedAnswer": 20,
+      "thoughtChain": [
+        "400÷20=20"
+      ]
+    },
+    {
+      "id": "op-cs-900",
+      "groupId": "operator",
+      "familyId": "capacity-split",
+      "prompt": "SAMPLE: 900 users, 30 per box.",
+      "expectedAnswer": 30,
+      "thoughtChain": [
+        "900÷30=30"
+      ]
+    },
+    {
+      "id": "op-bx-600",
+      "groupId": "operator",
+      "familyId": "box-contribution",
+      "prompt": "SAMPLE: $30 × 20 users on one box. Revenue?",
+      "expectedAnswer": 600,
+      "thoughtChain": [
+        "30×20=600"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "op-bx-120",
+      "groupId": "operator",
+      "familyId": "box-contribution",
+      "prompt": "SAMPLE: $600 revenue vs $720 cost. Shortfall?",
+      "expectedAnswer": 120,
+      "thoughtChain": [
+        "720−600=120"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "op-bx-800",
+      "groupId": "operator",
+      "familyId": "box-contribution",
+      "prompt": "SAMPLE: $40 × 20 users. Revenue?",
+      "expectedAnswer": 800,
+      "thoughtChain": [
+        "40×20=800"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "op-ut-10",
+      "groupId": "operator",
+      "familyId": "utilization",
+      "prompt": "SAMPLE: 10 jobs/sec max. 70% safe?",
+      "expectedAnswer": 7,
+      "thoughtChain": [
+        "0.7×10=7"
+      ]
+    },
+    {
+      "id": "op-ut-100",
+      "groupId": "operator",
+      "familyId": "utilization",
+      "prompt": "SAMPLE: 100 seats. 70% filled?",
+      "expectedAnswer": 70,
+      "thoughtChain": [
+        "0.7×100=70"
+      ]
+    },
+    {
+      "id": "op-ut-50",
+      "groupId": "operator",
+      "familyId": "utilization",
+      "prompt": "SAMPLE: 50 req/sec max. Safe load?",
+      "expectedAnswer": 35,
+      "thoughtChain": [
+        "0.7×50=35"
+      ]
+    },
+    {
+      "id": "op-pd-2000",
+      "groupId": "operator",
+      "familyId": "estimate-pad",
+      "prompt": "SAMPLE: $2,000 guess ×1.3.",
+      "expectedAnswer": 2600,
+      "thoughtChain": [
+        "2,000×1.3=2,600"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "op-pd-1000",
+      "groupId": "operator",
+      "familyId": "estimate-pad",
+      "prompt": "SAMPLE: $1,000 guess ×1.3.",
+      "expectedAnswer": 1300,
+      "thoughtChain": [
+        "1,000×1.3=1,300"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "op-pd-5000",
+      "groupId": "operator",
+      "familyId": "estimate-pad",
+      "prompt": "SAMPLE: $5,000 guess ×1.3.",
+      "expectedAnswer": 6500,
+      "thoughtChain": [
+        "5,000×1.3=6,500"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "op-fn-100",
+      "groupId": "operator",
+      "familyId": "funnel-bands",
+      "prompt": "SAMPLE: 10,000 visits, 20% then 5% paid.",
+      "expectedAnswer": 100,
+      "thoughtChain": [
+        "20%=2,000 signups",
+        "5% of 2,000=100"
+      ]
+    },
+    {
+      "id": "op-fn-80",
+      "groupId": "operator",
+      "familyId": "funnel-bands",
+      "prompt": "SAMPLE: 8,000 visits, 10% then 10% paid.",
+      "expectedAnswer": 80,
+      "thoughtChain": [
+        "10%=800",
+        "10% of 800=80"
+      ]
+    },
+    {
+      "id": "op-fn-200",
+      "groupId": "operator",
+      "familyId": "funnel-bands",
+      "prompt": "SAMPLE: 20,000 visits, 20% then 5% paid.",
+      "expectedAnswer": 200,
+      "thoughtChain": [
+        "20%=4,000",
+        "5% of 4,000=200"
+      ]
+    }
+  ],
+  "pathGroupIds": [
+    "anchors",
+    "magnitude",
+    "percents",
+    "conversions",
+    "break-even"
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "round-compensate",
+    "title": "Round to easy, then pay it back",
+    "summary": "SAMPLE 49×6: 50×6=300, minus the extra 6 → 294.",
+    "familyId": "round-compensate",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Round to an easy number, compute, compensate with the opposite sign.\n\nSAMPLE: 49×6=294, 38×5=190.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 49 × 6. 49 is almost 50.\n\nWhat is the move?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "round",
+            "label": "Round to 50×6, then subtract the extra 1×6",
+            "next": "pay"
+          },
+          {
+            "id": "forty",
+            "label": "Round down to 40×6=240 and stop",
+            "next": "wrong_start_forty"
+          },
+          {
+            "id": "table",
+            "label": "Recite a 49-times table if you had one",
+            "next": "wrong_start_table"
+          }
+        ]
+      },
+      "wrong_start_forty": {
+        "message": "You under-rounded by 9 and did not compensate. 49 wants 50, then pay back.\n\nReturn to the round.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_table": {
+        "message": "You will not. Near numbers exist so you can use 50.\n\nReturn to the round.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "pay": {
+        "message": "50 × 6 = 300. You used one extra 6.\n\nCompensate?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "294",
+            "label": "300 − 6 = 294",
+            "next": "check"
+          },
+          {
+            "id": "add",
+            "label": "300 + 6 = 306",
+            "next": "wrong_pay_add"
+          },
+          {
+            "id": "minus_50",
+            "label": "300 − 50 = 250",
+            "next": "wrong_pay_minus_50"
+          }
+        ]
+      },
+      "wrong_pay_add": {
+        "message": "You rounded up, so you owe a subtraction. Sign follows the round.\n\nRevisit the payback.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "pay"
+      },
+      "wrong_pay_minus_50": {
+        "message": "You compensate the extra factor (the +1 on 49), times 6 — not the 50 itself.\n\nRevisit the payback.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "pay"
+      },
+      "check": {
+        "message": "38 × 5. Round 38 to 40, 40×5=200. Extra 2×5=10.\n\nResult?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "190",
+            "label": "190",
+            "next": "success"
+          },
+          {
+            "id": "210",
+            "label": "210 — added the compensation",
+            "next": "wrong_check_210"
+          },
+          {
+            "id": "200",
+            "label": "200 — forgot to pay back",
+            "next": "wrong_check_200"
+          }
+        ]
+      },
+      "wrong_check_210": {
+        "message": "Rounded up → subtract 10.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_200": {
+        "message": "200 is the rounded product, not 38×5.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

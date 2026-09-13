@@ -2,7 +2,7 @@
 
 Deepen `/cases`. CasePlayer runtime already exists.
 
-Companions: [`src/lib/cases.ts`](../src/lib/cases.ts)
+Companions: [`data/cases.json`](../data/cases.json)
 
 ---
 
@@ -13,7 +13,7 @@ Companions: [`src/lib/cases.ts`](../src/lib/cases.ts)
 ```
 
 **Before starting**
-1. Leave working `npm run dev` alone; verify with `npm run lint` && `npm run test` && `npm run build`.
+1. Leave working `composer serve` / `php -S` alone; verify with `./vendor/bin/phpunit`.
 2. Stop yourself anytime; hard-stop on 10-round error budget or Done(cases).
 
 **On each tick**
@@ -65,10 +65,10 @@ Exhaust case packs per Coverage queue.
 **Done (per tick):** Exactly one new CaseStudy.
 
 # CONTEXT
-- `src/lib/cases.ts`
+- `data/cases.json`
 - Grade via `gradeAnswer`; expectedAnswer must match
 - Ideas: ladder L5 + CEO/CFO drills in `context/docs/_Biz Math/` — rewrite
-- Auto-verify: `npm run lint` && `npm run test` && `npm run build`
+- Auto-verify: `./vendor/bin/phpunit`
 
 # STEP-BY-STEP CADENCE
 1. **Orient** — first thin pack; first missing mode/difficulty.
@@ -82,7 +82,7 @@ Exhaust case packs per Coverage queue.
 - [ ] Closes next pack gap
 - [ ] thoughtChain is the taught method
 - [ ] Gate / unlocks unchanged
-- [ ] lint + test + build 0
+- [ ] PHPUnit 0
 
 # STOP CONDITIONS
 - Done(cases) → STOP with pack counts.
@@ -93,5 +93,5 @@ Exhaust case packs per Coverage queue.
 1. case id + pack + thinkingMode + difficulty
 2. PASS | FIXING (n/10) | STOP
 3. Next gap
-4. lint/test/build status
+4. PHPUnit status
 ```

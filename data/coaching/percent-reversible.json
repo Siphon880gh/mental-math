@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "percent-reversible",
+    "title": "A% of B is B% of A",
+    "summary": "SAMPLE 14% of 50: swap to 50% of 14 instead of grinding 0.14.",
+    "familyId": "percent-reversible",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Pick the percent that is a nice chunk (50, 25, 10).\n\nSAMPLE: 14% of 50=7, 8% of 25=2.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 14% of 50. Both numbers are awkward if you pick the wrong side.\n\nWhat is the move?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "swap",
+            "label": "Swap: 50% of 14 is the same product",
+            "next": "half"
+          },
+          {
+            "id": "point",
+            "label": "Compute 0.14 × 50 with a calculator habit",
+            "next": "wrong_start_point"
+          },
+          {
+            "id": "onepct",
+            "label": "Take 1% of 14 and multiply by 50",
+            "next": "wrong_start_onepct"
+          }
+        ]
+      },
+      "wrong_start_point": {
+        "message": "You can, but the swap is the taught shortcut. 50% of 14 is a half.\n\nReturn to the swap.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_onepct": {
+        "message": "That works slowly and ignores the easy half. Swap first when one side is 50, 25, or 10.\n\nReturn to the swap.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "half": {
+        "message": "50% of 14.\n\nWhat is it?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "seven",
+            "label": "7 — half of 14",
+            "next": "check"
+          },
+          {
+            "id": "fourteen",
+            "label": "14 — 50% means leave it",
+            "next": "wrong_half_fourteen"
+          },
+          {
+            "id": "70",
+            "label": "70 — treat 50% like ×5",
+            "next": "wrong_half_70"
+          }
+        ]
+      },
+      "wrong_half_fourteen": {
+        "message": "50% is half, not identity. Half of 14 is 7.\n\nRevisit the half.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "half"
+      },
+      "wrong_half_70": {
+        "message": "×5 would be 500%. Half of 14 is 7.\n\nRevisit the half.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "half"
+      },
+      "check": {
+        "message": "Same swap: 8% of 25.\n\nWhich side is easier?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "quarter",
+            "label": "25% of 8 = 2",
+            "next": "success"
+          },
+          {
+            "id": "eight_of_25",
+            "label": "Stay on 8% of 25 and grind it",
+            "next": "wrong_check_eight_of_25"
+          },
+          {
+            "id": "swap_wrong",
+            "label": "8% of 25 = 25% of 25",
+            "next": "wrong_check_swap_wrong"
+          }
+        ]
+      },
+      "wrong_check_eight_of_25": {
+        "message": "25% of 8 is a quarter of 8. That is the easier half.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_swap_wrong": {
+        "message": "You swapped only one number. A% of B = B% of A, so 8% of 25 = 25% of 8.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

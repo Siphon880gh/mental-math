@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "difference-squares",
+    "title": "Equally far from a center is a² − b²",
+    "summary": "SAMPLE 48×52: 50² − 2² = 2,496. Same-tens ones-to-10 glues the same identity.",
+    "familyId": "difference-squares",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Equally far from c is c²−d². Same-tens ones-to-10 glues tens×(tens+1) | ones product.\n\nSAMPLE: 48×52=2,496, 43×47=2,021.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 48 × 52. Both hug 50.\n\nWhich identity?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "mid",
+            "label": "50² minus 2² → 2,500 − 4 = 2,496",
+            "next": "tens"
+          },
+          {
+            "id": "fifty_sq",
+            "label": "50×50=2,500 and stop",
+            "next": "wrong_start_fifty_sq"
+          },
+          {
+            "id": "add",
+            "label": "48+52=100, times something",
+            "next": "wrong_start_add"
+          }
+        ]
+      },
+      "wrong_start_fifty_sq": {
+        "message": "That skipped the gap. Each side is 2 away, so subtract 4.\n\nReturn to the center.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_add": {
+        "message": "The sum is 100, but the product is the difference of squares, not a sum trick.\n\nReturn to the center.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "tens": {
+        "message": "43 × 47. Same tens, ones add to 10. Glue?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "2021",
+            "label": "4×5=20, 3×7=21 → 2,021",
+            "next": "check"
+          },
+          {
+            "id": "12",
+            "label": "4×3=12 and glue 47",
+            "next": "wrong_tens_12"
+          },
+          {
+            "id": "2500",
+            "label": "Call it 2,500 because they look near 50",
+            "next": "wrong_tens_2500"
+          }
+        ]
+      },
+      "wrong_tens_12": {
+        "message": "Left is tens×(tens+1), right is the ones product.\n\nRevisit the glue.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "tens"
+      },
+      "wrong_tens_2500": {
+        "message": "The center is 45, not 50. Use the same-tens glue.\n\nRevisit the glue.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "tens"
+      },
+      "check": {
+        "message": "47 × 53. Center 50, gap 3.",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "2491",
+            "label": "2,500 − 9 = 2,491",
+            "next": "success"
+          },
+          {
+            "id": "2509",
+            "label": "2,500 + 9",
+            "next": "wrong_check_2509"
+          },
+          {
+            "id": "2496",
+            "label": "2,496 — used gap 2 from the 48×52 sample",
+            "next": "wrong_check_2496"
+          }
+        ]
+      },
+      "wrong_check_2509": {
+        "message": "You add the squares? Subtract the gap squared.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_2496": {
+        "message": "This gap is 3. 3²=9.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

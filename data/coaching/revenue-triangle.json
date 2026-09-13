@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "revenue-triangle",
+    "title": "Revenue is price times users",
+    "summary": "SAMPLE $50 × 20 = $1,000. Invert: users = revenue ÷ price.",
+    "familyId": "revenue-triangle",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. R = P × U. Invert any side.\n\nSAMPLE: $50×20=$1,000; $5,000 at $50 → 100 users.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: $50 price, 20 users. Monthly revenue?\n\nWhich identity?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "times",
+            "label": "Revenue = price × users → $1,000",
+            "next": "invert"
+          },
+          {
+            "id": "divide",
+            "label": "Users = price ÷ 20",
+            "next": "wrong_start_divide"
+          },
+          {
+            "id": "be",
+            "label": "Users needed = cost ÷ price",
+            "next": "wrong_start_be"
+          }
+        ]
+      },
+      "wrong_start_divide": {
+        "message": "That mixed the triangle. R = P × U. 50×20=1,000.\n\nReturn to multiply.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_be": {
+        "message": "That is break-even. This prompt was revenue, not users-to-cover-cost.\n\nReturn to multiply.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "invert": {
+        "message": "Someone wants $5,000 at $50. Users?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "hundred",
+            "label": "Users = revenue ÷ price → 100",
+            "next": "check"
+          },
+          {
+            "id": "times_again",
+            "label": "50 × 5,000 = 250,000 users",
+            "next": "wrong_invert_times_again"
+          },
+          {
+            "id": "fifty",
+            "label": "50 users because the price is 50",
+            "next": "wrong_invert_fifty"
+          }
+        ]
+      },
+      "wrong_invert_times_again": {
+        "message": "You multiplied when you needed to divide. $5,000 ÷ $50 = 100.\n\nRevisit invert.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "invert"
+      },
+      "wrong_invert_fifty": {
+        "message": "Price copied as headcount. Divide revenue by price.\n\nRevisit invert.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "invert"
+      },
+      "check": {
+        "message": "$100 × 100 users. Revenue?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "10k",
+            "label": "$10,000",
+            "next": "success"
+          },
+          {
+            "id": "1k",
+            "label": "$1,000 — dropped a zero",
+            "next": "wrong_check_1k"
+          },
+          {
+            "id": "200",
+            "label": "$200 — added instead of multiplied",
+            "next": "wrong_check_200"
+          }
+        ]
+      },
+      "wrong_check_1k": {
+        "message": "100×100=10,000.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_200": {
+        "message": "The triangle multiplies.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

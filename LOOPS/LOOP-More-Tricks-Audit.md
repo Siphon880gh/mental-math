@@ -2,7 +2,7 @@
 
 Second pass after [`LOOP-More-Tricks.md`](./LOOP-More-Tricks.md). Do **not** invent families here. Check that every numbered section and every master technique in [`context/docs-more-more/more-tricks.md`](../context/docs-more-more/more-tricks.md) is either taught in the app or an explicit skip.
 
-Companion: [`src/lib/moreTricksCoverage.ts`](../src/lib/moreTricksCoverage.ts)
+Companion: [`data/more-tricks.json`](../data/more-tricks.json)
 
 ---
 
@@ -15,7 +15,7 @@ Companion: [`src/lib/moreTricksCoverage.ts`](../src/lib/moreTricksCoverage.ts)
 Run only after Done(more-tricks), or when you suspect drift. Do not start the incorporate loop in the same session.
 
 **Before starting**
-1. Leave working `npm run dev` alone; verify with `npm run lint` && `npm run test` && `npm run build`.
+1. Leave working `composer serve` / `php -S` alone; verify with `./vendor/bin/phpunit`.
 2. Hard-stop on 10-round error budget or Done(audit).
 
 **On each tick**
@@ -39,7 +39,7 @@ The incorporate loop can miss a subsection (three-digit ×11, Gauss pairing, las
 
 For each row, open the mapped guide(s) and confirm the **move** is named (shortcut row or lesson body), not just a related family sitting nearby.
 
-**Done(audit):** Every row PASSes; `src/lib/moreTricksCoverage.test.ts` is green; no `gap` status remains.
+**Done(audit):** Every row PASSes; `tests/MoreTricksTest.php` is green; no `gap` status remains.
 
 ---
 
@@ -55,9 +55,9 @@ Prove more-tricks.md is fully mapped onto the live curriculum.
 
 # CONTEXT
 - Document: `context/docs-more-more/more-tricks.md`
-- Map: `src/lib/moreTricksCoverage.ts`
-- Live: `tricks.ts`, `guides.ts`, coaching sessions, `drillData.ts`
-- Auto-verify: `npm run lint` && `npm run test` && `npm run build`
+- Map: `data/more-tricks.json`
+- Live: `data/tricks.json`, guides catalog, `data/coaching/`, `data/drills.json`
+- Auto-verify: `./vendor/bin/phpunit`
 
 # STEP-BY-STEP CADENCE
 1. **Orient** — next row in queue.
@@ -71,7 +71,7 @@ Prove more-tricks.md is fully mapped onto the live curriculum.
 - [ ] familyIds are real curriculum ids
 - [ ] shipped rows have a visible shortcut or lesson sentence for the move
 - [ ] skip rows name why (visual / historical / duplicate)
-- [ ] lint + test + build 0
+- [ ] PHPUnit 0
 
 # STOP CONDITIONS
 - Done(audit) → STOP with PASS count vs 54 rows (42+12).
@@ -83,5 +83,5 @@ Prove more-tricks.md is fully mapped onto the live curriculum.
 1. row id + status
 2. PASS | FIXING (n/10) | GAP | STOP
 3. Next row
-4. lint/test/build status
+4. PHPUnit status
 ```

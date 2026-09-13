@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "percent-tens",
+    "title": "Drop a zero from each side",
+    "summary": "SAMPLE 30% of 40: 3×4=12. The two dropped zeros already moved two decimal places.",
+    "familyId": "percent-tens",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Tens of percent of tens: drop a zero each, multiply, stop.\n\nSAMPLE: 30% of 40=12, 80% of 70=56.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 30% of 40. Both are tens.\n\nWhat is the tens-of-tens move?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "drop",
+            "label": "Drop a zero from each side, then multiply 3 × 4",
+            "next": "product"
+          },
+          {
+            "id": "shift_only",
+            "label": "Take 1% of 40 and multiply by 30",
+            "next": "wrong_start_shift_only"
+          },
+          {
+            "id": "add",
+            "label": "Add 30 and 40",
+            "next": "wrong_start_add"
+          }
+        ]
+      },
+      "wrong_start_shift_only": {
+        "message": "Legal but slower. When both sides are tens, drop a zero each and multiply.\n\nReturn to the drop.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_add": {
+        "message": "Percent-of is a product, not a sum.\n\nReturn to the drop.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "product": {
+        "message": "3 × 4 = 12. Why is that already 30% of 40?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "places",
+            "label": "Dropping two zeros is the same as two decimal places (a percent)",
+            "next": "check"
+          },
+          {
+            "id": "luck",
+            "label": "It is 12 by coincidence; I still need to divide by 100",
+            "next": "wrong_product_luck"
+          },
+          {
+            "id": "times_100",
+            "label": "Multiply 12 by 100 to put the zeros back",
+            "next": "wrong_product_times_100"
+          }
+        ]
+      },
+      "wrong_product_luck": {
+        "message": "You already divided by 100 when you dropped both zeros. Stop.\n\nRevisit why 12 is finished.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "product"
+      },
+      "wrong_product_times_100": {
+        "message": "That would be 1,200 — 30 times 40, not 30% of 40.\n\nRevisit why 12 is finished.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "product"
+      },
+      "check": {
+        "message": "80% of 70. Drop zeros: 8 × 7.\n\nWhat is it?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "56",
+            "label": "56",
+            "next": "success"
+          },
+          {
+            "id": "560",
+            "label": "560 — put one zero back",
+            "next": "wrong_check_560"
+          },
+          {
+            "id": "15",
+            "label": "15 — add 8 and 7",
+            "next": "wrong_check_15"
+          }
+        ]
+      },
+      "wrong_check_560": {
+        "message": "Do not put zeros back. 8×7 is already 80% of 70.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      },
+      "wrong_check_15": {
+        "message": "Multiply the stripped tens: 8×7=56.\n\nTry the check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "check"
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "weng/mental-math-trainer",
+  "description": "Mental Math Trainer — PHP server-rendered pages, local browser progress",
+  "type": "project",
+  "require": {
+    "php": ">=8.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^11.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Reflex\\": "app/"
+    },
+    "files": [
+      "app/helpers.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Reflex\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit",
+    "serve": "php -S localhost:8080 router.php"
+  }
+}
