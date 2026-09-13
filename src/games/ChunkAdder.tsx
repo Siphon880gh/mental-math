@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { LessonLink } from "../components/LessonLink";
+import { ResourcePageTagger } from "../components/PassTags";
 
 const CHIPS = [50, 25, 10, 5];
 const TARGET = 35;
@@ -28,6 +29,7 @@ export default function ChunkAdder() {
         </button>
       </p>
       {win ? <p className="coach-success coach-panel">35% of 2,000 = 700. Three tenths plus 5%.</p> : null}
+      <ResourcePageTagger resourceKey="game:percent-chips" section="games" />
       <p>
         <LessonLink familyId="percent-chunks">Related guide</LessonLink>
         {" · "}

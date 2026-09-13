@@ -20,7 +20,7 @@ Blended take ≈ 0.2×10% + 0.8×20% = 2% + 16% = **18%**.
 
 “We’ll do $10M in volume” is not $10M revenue. Ask the take. At 12% that is **$1.2M**.
 
-## Check
+## Same idea, new numbers
 
 - GMV 500k, take 8% → 40k
 - GMV 1M, take 25% → 250k

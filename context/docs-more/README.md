@@ -33,5 +33,17 @@ Do not duplicate the original ladder (anchors, magnitude, percent shortcuts, ÷5
 | Fully loaded headcount | `fully-loaded` | B — stakeholder planning |
 | Dilution / post-money | `dilution` | B — stakeholder planning |
 | Fermi TAM | `tam-fermi` | B — stakeholder planning |
+| Divisibility | `divisibility` | A — quick math |
+| Criss-cross | `criss-cross` | A — quick math |
+| Difference of squares | `difference-squares` | A — quick math |
+| Easy division | `easy-division` | A — quick math |
+| Complements | `complements` | A — quick math |
+| Equal adjustment | `equal-adjust` | A — quick math |
+| Cross-cancel | `cross-cancel` | A — quick math |
+| Casting nines | `cast-nines` | A — quick math |
+| Approximate square roots | `approx-sqrt` | A — quick math |
+| Regroup factors | `regroup-factors` | A — quick math |
 
 These families are **not** on the Beginner Reflex Path. They live on the Guides hub under the matching track, then drills/cases via `LOOPS/` and E9.
+
+A later arithmetic catalog (`context/docs-more-more/more-tricks.md`) is mapped in `src/lib/moreTricksCoverage.ts` and drained with `LOOPS/LOOP-More-Tricks.md`.

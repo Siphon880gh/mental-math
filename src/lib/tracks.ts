@@ -1,6 +1,7 @@
 import type { FamilyId } from "./tricks";
 import {
   EXTRA_MENTAL_FAMILY_IDS,
+  EXTRA_OPERATOR_FAMILY_IDS,
   EXTRA_STARTUP_FAMILY_IDS,
   P0_FAMILY_IDS,
 } from "./tricks";
@@ -16,9 +17,9 @@ export const TRACK_LABEL: Record<TrackId, string> = {
 
 export const TRACK_BLURB: Record<TrackId, string> = {
   quick:
-    "Shortcuts you run in your head: percents, zeros, time-money, break-even arithmetic.",
+    "Shortcuts you run in your head: percents, zeros, complements, divisibility, 80/20, invert revenue.",
   stakeholder:
-    "Numbers you use in a planning discussion: runway, NRR, dilution, TAM, stacked infra.",
+    "Numbers you use in a planning discussion: runway, NRR, dilution, TAM, stacked infra, concurrency, capacity.",
 };
 
 export const TRACK_NAV: Record<TrackId, { href: string; label: string }> = {
@@ -37,6 +38,7 @@ const STAKEHOLDER: FamilyId[] = [
   "cfo-runway",
   "cfo-growth",
   ...EXTRA_STARTUP_FAMILY_IDS,
+  ...EXTRA_OPERATOR_FAMILY_IDS,
 ];
 
 export const TRACK_A_FAMILY_IDS: FamilyId[] = [

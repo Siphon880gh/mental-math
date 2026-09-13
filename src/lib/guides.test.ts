@@ -36,5 +36,12 @@ describe("guides catalog", () => {
     expect(guide?.body).toMatch(/72 ÷/i);
     expect(getGuide("missing")).toBeUndefined();
     expect(getGuide("month-year")?.body).toMatch(/Multiply by 10 for \$300\/year/);
+    expect(getGuide("month-year")?.body).toMatch(/\$100\/mo → \$1,200\/year/);
+    expect(getGuide("month-year")?.body).toMatch(/\$2,400\/year → \$200\/mo/);
+    expect(getGuide("month-year")?.body).toMatch(/## Same idea, new numbers/);
+    expect(getGuide("month-year")?.body).not.toMatch(/\$1\/hr/);
+    for (const guide of GUIDES) {
+      expect(guide.body, guide.slug).toMatch(/## Same idea, new numbers/);
+    }
   });
 });

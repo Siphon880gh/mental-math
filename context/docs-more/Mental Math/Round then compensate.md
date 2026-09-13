@@ -30,11 +30,15 @@ The compensation has the **opposite sign** of the rounding.
 
 If you need 1,000 ÷ 48, treat 48 as 50: 1,000 ÷ 50 = 20. True answer is a bit over 20 (because the divisor was smaller). Good enough to smell-test “about twenty,” then refine if needed.
 
+## Lock magnitude first
+
+598 × 21 looks ugly. Compatible estimate: 600 × 20 = **12,000**. Then the exact: 598×20 + 598 = 11,960 + 598 = **12,558**. The estimate told you it could not be 1,200 or 120,000.
+
 ## Conversation use
 
 “Almost $200 plus fifty” is not $250 — it is $200 minus the dollar you invented, plus fifty.
 
-## Check
+## Same idea, new numbers
 
 - 398 + 27 → 400 + 27 − 2 = 425
 - 15 × 19 → 15 × 20 − 15 = 285

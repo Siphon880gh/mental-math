@@ -26,7 +26,7 @@ To double in 5 years you need about 72/5 ≈ **14% per year** compounded.
 
 Someone says cash in a 4% account doubles in five years. 72/4 = 18 years, not five. Smell test failed.
 
-## Check
+## Same idea, new numbers
 
 - 8% → 9 years
 - Double in 10 years → about 7.2%/year

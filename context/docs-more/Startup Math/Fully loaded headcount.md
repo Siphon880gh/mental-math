@@ -21,7 +21,7 @@ A $150/hr contractor × 160 hours ≈ $24k/month ≈ $288k/year **without** the 
 
 “We hired ten people at 100k” is not a $1M cost line. It is about **$1.3M**.
 
-## Check
+## Same idea, new numbers
 
 - $80k × 1.3 = $104k
 - $200k × 1.3 = $260k

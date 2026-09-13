@@ -47,7 +47,7 @@ Path groups stay accurate and varied. Extra CFO groups only after path floors.
 
 ### Phase D — new groups (only after A–C): `cfo-feasibility` `cfo-unit-econ` `cfo-runway` `cfo-growth` floor **≥8** each
 
-### Phase E — docs-more groups (only after D): `foundations` covering EXTRA_MENTAL_FAMILY_IDS; `startup` covering EXTRA_STARTUP_FAMILY_IDS; floor **≥8** each group, every extra familyId represented ≥1 time
+### Phase E — docs-more groups (only after D): `foundations` covering EXTRA_MENTAL_FAMILY_IDS; `startup` covering EXTRA_STARTUP_FAMILY_IDS; `operator` covering EXTRA_OPERATOR_FAMILY_IDS; floor **≥8** each group, every extra familyId represented ≥1 time
 
 Do **not** put Phase D or E groups on the Beginner spine.
 

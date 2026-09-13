@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { SkillLinks } from "../components/LessonLink";
+import { ResourcePageTagger } from "../components/PassTags";
 import { getScenario } from "../lib/scenarios";
 import { hrefForTrack, TRACK_LABEL } from "../lib/tracks";
 
@@ -76,6 +77,7 @@ export default function ScenarioPlayer() {
           {choice.correct ? "Correct. SAMPLE only." : "Not that one. Hint, cheat, or pick again."}
         </p>
       ) : null}
+      <ResourcePageTagger resourceKey={`scenario:${study.id}`} section="scenarios" />
       <p>
         <Link to="/scenarios">All scenarios</Link>
         {" · "}

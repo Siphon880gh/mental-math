@@ -832,6 +832,15 @@ input:focus-visible {
   margin: var(--space-2) 0 0;
 }
 
+.tags-row--page {
+  margin: var(--space-3) 0;
+}
+
+.pop--tags-start .pop__panel--tags {
+  left: 0;
+  right: auto;
+}
+
 .tag-chip {
   --tag: var(--ink-muted);
   appearance: none;

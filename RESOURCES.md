@@ -21,9 +21,9 @@ One **Guides** hub. Two tracks. Every guide has a step-by-step coach on the **sa
 
 Track A fluency still gates Track B **graded** cases (Beginner Reflex Path unlock order is unchanged).
 
-**Track A families:** `P0_FAMILY_IDS` plus `EXTRA_MENTAL_FAMILY_IDS` (`src/lib/tracks.ts`).
+**Track A families:** `P0_FAMILY_IDS` plus `EXTRA_MENTAL_FAMILY_IDS` (`src/lib/tracks.ts`) including 80/20, the revenue triangle, and the more-tricks arithmetic families (divisibility, complements, difference of squares, …).
 
-**Track B families:** `stacked-founder`, `cfo-*`, plus `EXTRA_STARTUP_FAMILY_IDS`.
+**Track B families:** `stacked-founder`, `cfo-*`, `EXTRA_STARTUP_FAMILY_IDS`, plus `EXTRA_OPERATOR_FAMILY_IDS` (concurrency, capacity, box contribution, 70% utilization, estimate pad, funnel bands).
 
 ---
 
@@ -83,7 +83,7 @@ A **drill group** is a timed bank. Finishing path groups writes progress. Extra 
 | `conversions` | `div-by-5`, `hour-month`, `month-day`, `month-year` |
 | `break-even` | `break-even`, `markup` |
 
-Post-P0 extra: Track B drill groups `cfo-feasibility`, `cfo-unit-econ`, `cfo-runway`, `cfo-growth`, then `foundations` (left-to-right … rule-of-72) and `startup` (mrr-arr … tam-fermi).
+Post-P0 extra: Track B drill groups `cfo-feasibility`, `cfo-unit-econ`, `cfo-runway`, `cfo-growth`, then `foundations` (left-to-right … regroup-factors), `startup` (mrr-arr … tam-fermi), and `operator` (concurrency … funnel-bands).
 
 ---
 

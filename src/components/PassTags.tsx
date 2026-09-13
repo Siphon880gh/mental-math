@@ -12,6 +12,7 @@ import {
   tagsInGroup,
   type PassGroupId,
 } from "../lib/passTags";
+import { usePassTags } from "./usePassTags";
 
 const GROUP_ICON: Record<PassGroupId, string> = {
   "first-pass": "①",
@@ -168,14 +169,16 @@ export function ResourceTagger({
   resourceKey,
   appliedIds,
   onToggle,
+  page = false,
 }: {
   resourceKey: string;
   appliedIds: string[];
   onToggle: (key: string, tagId: string) => void;
+  page?: boolean;
 }) {
   const { open, setOpen, ref } = usePopover();
   return (
-    <div className="tags-row" ref={ref}>
+    <div className={page ? "tags-row tags-row--page" : "tags-row"} ref={ref}>
       {appliedIds.map((id) => {
         const tag = getPassTag(id);
         if (!tag) return null;
@@ -197,7 +200,7 @@ export function ResourceTagger({
           </button>
         );
       })}
-      <div className="pop pop--tags">
+      <div className={page ? "pop pop--tags pop--tags-start" : "pop pop--tags"}>
         <button
           type="button"
           className={appliedIds.length > 0 ? "tag-add is-attached" : "tag-add"}
@@ -220,5 +223,24 @@ export function ResourceTagger({
         </div>
       </div>
     </div>
+  );
+}
+
+/** Same applied tags as the list cards, for use on a resource's own page. */
+export function ResourcePageTagger({
+  resourceKey,
+  section,
+}: {
+  resourceKey: string;
+  section: string;
+}) {
+  const tags = usePassTags(section);
+  return (
+    <ResourceTagger
+      resourceKey={resourceKey}
+      appliedIds={tags.tagsFor(resourceKey)}
+      onToggle={tags.toggleTag}
+      page
+    />
   );
 }

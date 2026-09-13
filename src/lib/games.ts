@@ -6,7 +6,7 @@
  * stacked-founder (case), all cfo-* and extra startup families, percent-tens,
  * hour-month / month-day / month-year, markup, extra mental families,
  * percent-tip (shares ×2-then-shift with div-by-5 — only one widget, used on
- * percent-shift shifter instead).
+ * percent-shift shifter instead). Operator heuristics are skip-only.
  */
 import type { FamilyId } from "./tricks";
 
@@ -75,6 +75,24 @@ export const GAME_SKIPS: { familyId: FamilyId; reason: "no_mechanic" }[] = [
   { familyId: "fully-loaded", reason: "no_mechanic" },
   { familyId: "dilution", reason: "no_mechanic" },
   { familyId: "tam-fermi", reason: "no_mechanic" },
+  { familyId: "pareto", reason: "no_mechanic" },
+  { familyId: "revenue-triangle", reason: "no_mechanic" },
+  { familyId: "divisibility", reason: "no_mechanic" },
+  { familyId: "criss-cross", reason: "no_mechanic" },
+  { familyId: "difference-squares", reason: "no_mechanic" },
+  { familyId: "easy-division", reason: "no_mechanic" },
+  { familyId: "complements", reason: "no_mechanic" },
+  { familyId: "equal-adjust", reason: "no_mechanic" },
+  { familyId: "cross-cancel", reason: "no_mechanic" },
+  { familyId: "cast-nines", reason: "no_mechanic" },
+  { familyId: "approx-sqrt", reason: "no_mechanic" },
+  { familyId: "regroup-factors", reason: "no_mechanic" },
+  { familyId: "concurrency", reason: "no_mechanic" },
+  { familyId: "capacity-split", reason: "no_mechanic" },
+  { familyId: "box-contribution", reason: "no_mechanic" },
+  { familyId: "utilization", reason: "no_mechanic" },
+  { familyId: "estimate-pad", reason: "no_mechanic" },
+  { familyId: "funnel-bands", reason: "no_mechanic" },
 ];
 
 export function getGame(slug: string): GameMeta | undefined {

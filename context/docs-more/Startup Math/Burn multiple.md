@@ -22,7 +22,7 @@ If ARR fell, the multiple is meaningless or infinite. Fix retention first.
 
 “We only burned 800k and added 200k ARR” → **4×**. Not a badge.
 
-## Check
+## Same idea, new numbers
 
 - Burn 1.2M, new ARR 600k → 2×
 - Burn 500k, new ARR 500k → 1×

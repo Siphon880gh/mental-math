@@ -1,5 +1,6 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { ResourcePageTagger } from "../components/PassTags";
 import {
   buildPathTrail,
   canStepBack,
@@ -82,6 +83,12 @@ export default function CoachView() {
           Step-by-step coach for this guide is not authored yet. The page stays
           so every guide already has a coach slot.
         </p>
+        {guide ? (
+          <ResourcePageTagger
+            resourceKey={`guide:${guide.slug}`}
+            section={guide.track === "quick" ? "track-a" : "track-b"}
+          />
+        ) : null}
         <p>
           {guide ? (
             <>
@@ -198,6 +205,13 @@ export default function CoachView() {
           ))}
         </ol>
       </details>
+
+      {guide ? (
+        <ResourcePageTagger
+          resourceKey={`guide:${guide.slug}`}
+          section={guide.track === "quick" ? "track-a" : "track-b"}
+        />
+      ) : null}
 
       <p>
         {guide ? (

@@ -11,8 +11,12 @@ Memorize a **small fraction table**. Most “what percent” questions are one o
 | 3/4 | 75% | three quarters |
 | 1/5 | 20% | fifth |
 | 1/8 | 12.5% | half of 25% |
+| 3/8 | 37.5% | three eighths |
+| 5/8 | 62.5% | five eighths |
+| 7/8 | 87.5% | seven eighths |
 | 1/10 | 10% | tenth |
 | 1/20 | 5% | half of 10% |
+| 1/25 | 4% | 25 in 100 |
 
 ## Use
 
@@ -28,8 +32,9 @@ If monthly churn is 5% = 1/20, a rough lifetime is 20 months (see Startup Math �
 
 “We’ll take a 25% cut” is a quarter. “They want 2/3 of the upside” is twice a third, not “about half.”
 
-## Check
+## Same idea, new numbers
 
 - 1/5 of 350 = 70
 - 3/4 of 200 = 150
 - 1/8 of 2,400 = 300
+- 3/8 of 80 = 30

@@ -20,7 +20,7 @@ Not a law. Early seed companies fail it on purpose. It is a **later-stage** conv
 
 “We’re a Rule of 40 company” should mean you can add the two percents in your head in two seconds. If they quote 90% growth and −80% margin, that is 10, not 40.
 
-## Check
+## Same idea, new numbers
 
 - 25% growth, 10% margin → 35 (shy)
 - 5% growth, 40% margin → 45

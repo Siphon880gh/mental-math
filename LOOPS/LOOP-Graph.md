@@ -125,6 +125,24 @@ Walk **Track A first**, then Track B:
 | 33 | `fully-loaded` | B | … → Cases(`startup-people-capital`) |
 | 34 | `dilution` | B | … → Cases(`startup-people-capital`) |
 | 35 | `tam-fermi` | B | … → Cases(`startup-people-capital`) |
+| 36 | `pareto` | A | Guide → Coach → Drill(`foundations`) → Home |
+| 37 | `revenue-triangle` | A | Guide → Coach → Drill(`foundations`) → Home |
+| 38 | `divisibility` | A | Guide → Coach → Drill(`foundations`) → Home |
+| 39 | `criss-cross` | A | same |
+| 40 | `difference-squares` | A | same |
+| 41 | `easy-division` | A | same |
+| 42 | `complements` | A | same |
+| 43 | `equal-adjust` | A | same |
+| 44 | `cross-cancel` | A | same |
+| 45 | `cast-nines` | A | same |
+| 46 | `approx-sqrt` | A | same |
+| 47 | `regroup-factors` | A | same |
+| 48 | `concurrency` | B | Guide → Coach → Drill(`operator`) → Cases(`stacked-founder`) → Home |
+| 49 | `capacity-split` | B | same |
+| 50 | `box-contribution` | B | same |
+| 51 | `utilization` | B | same |
+| 52 | `estimate-pad` | B | same |
+| 53 | `funnel-bands` | B | Guide → Coach → Drill(`operator`) → Cases(`stacked-founder` funnel) → Home |
 
 **Echo edge rules**
 
@@ -143,7 +161,7 @@ Walk **Track A first**, then Track B:
 Stage 0  DRAIN Guides until Done(guides) — Track A families first, then Track B
 Stage 1  PAIR Coach: exclusive coach ticks until every guide slug has a session
          (Track A then Track B). Skip families that already have a tree.
-Stage 2  ECHO families 1 → 35 (remaining hops: drill / game / case / home)
+Stage 2  ECHO families 1 → 53 (remaining hops: drill / game / case / home)
 Stage 3  DRAIN leftover section floors in drain order
          (Drills → Games → Cases → Home)
 Done(graph) when every section file’s Done(section) is true

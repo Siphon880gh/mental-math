@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { LessonLink } from "../components/LessonLink";
+import { ResourcePageTagger } from "../components/PassTags";
 import SessionPeekBanner from "../components/SessionPeekBanner";
 import { useSessionPeek } from "../components/useSessionPeek";
 import { getCase } from "../lib/cases";
@@ -40,6 +41,7 @@ export default function CasePlayer() {
           onDisable={disable}
           showGateLinks
         />
+        <ResourcePageTagger resourceKey={`case:${study.id}`} section="cases" />
       </section>
     );
   }
@@ -102,6 +104,7 @@ export default function CasePlayer() {
           </div>
         )}
       </form>
+      <ResourcePageTagger resourceKey={`case:${study.id}`} section="cases" />
       <p>
         <Link to="/cases">All cases</Link>
       </p>

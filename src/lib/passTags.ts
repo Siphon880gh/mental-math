@@ -33,6 +33,12 @@ export const PASS_TAGS: PassTag[] = [
     color: "#57534e",
   },
   {
+    id: "first-ready",
+    group: "first-pass",
+    label: "Ready to transition",
+    color: "#0f766e",
+  },
+  {
     id: "extreme",
     group: "second-pass",
     label: "Need extreme review",

@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+import { ResourcePageTagger } from "../components/PassTags";
 import { hasCoachSession } from "../lib/coaching/catalog";
 import { getGuide } from "../lib/guides";
 import { Markdown } from "../lib/Markdown";
@@ -16,20 +17,20 @@ export default function GuideView() {
       </section>
     );
   }
-  const trick = tricksForFamily(guide.familyId)[0];
+  const shortcuts = tricksForFamily(guide.familyId);
   const coachReady = hasCoachSession(guide.relatedCoachSlug);
   return (
     <article>
       <p className="eyebrow">{TRACK_LABEL[guide.track]}</p>
-      {trick ? (
-        <div className="shortcut">
-          <p className="shortcut-label">Shortcut</p>
+      {shortcuts.map((trick, index) => (
+        <div className="shortcut" key={trick.id}>
+          <p className="shortcut-label">{index === 0 ? "Shortcut" : "Also"}</p>
           <p>
             <strong>{trick.title}.</strong> {trick.rule}
           </p>
           <p className="example">{trick.example}</p>
         </div>
-      ) : null}
+      ))}
       <Markdown source={guide.body} />
       <aside className="coach-cta">
         <h3>Step-by-step coach</h3>
@@ -53,6 +54,10 @@ export default function GuideView() {
           </p>
         )}
       </aside>
+      <ResourcePageTagger
+        resourceKey={`guide:${guide.slug}`}
+        section={guide.track === "quick" ? "track-a" : "track-b"}
+      />
       <p>
         <Link to={hrefForTrack(guide.track)}>
           {guide.track === "quick" ? "Track A" : "Track B"}

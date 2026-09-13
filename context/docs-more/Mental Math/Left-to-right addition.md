@@ -27,7 +27,7 @@ If a place would go negative, borrow in the running total (42 cannot minus 7? It
 
 A price of $1,240 plus a $380 add-on is “1,200 + 300 = 1,500, then 40 + 80 = 120, total **1,620**.” You never need the ones column first.
 
-## Check
+## Same idea, new numbers
 
 - 19 + 28 → 30 + 17 = 47
 - 250 + 180 → 400 + 30 = 430

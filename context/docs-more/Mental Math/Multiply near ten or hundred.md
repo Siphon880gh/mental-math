@@ -32,12 +32,30 @@ n5²: take n × (n+1), then glue 25.
 35² → 3 × 4 = 12, glue 25 → **1,225**  
 75² → 7 × 8 = 56, glue 25 → **5,625**
 
+## Three-digit ×11
+
+347 × 11: first digit, each adjacent sum, last digit. Carry when a sum is 10+.
+
+3 | 3+4 | 4+7 | 7 → 3 | 7 | 11 | 7 → **3,817**
+
+## ×99 and ×101
+
+63 × 99 = 6,300 − 63 = **6,237**  
+47 × 101 = 4,700 + 47 = **4,747**
+
+## Square near 100
+
+97² = (100−3)² = 10,000 − 600 + 9 = **9,409**  
+104² = 10,000 + 800 + 16 = **10,816**
+
 ## Conversation use
 
 A 9% discount is “ten percent minus one percent.” A 2-year-old “eleven times” joke in a pricing grid is the middle-digit trick. $35 seat × 11 months (promo year) is 385.
 
-## Check
+## Same idea, new numbers
 
 - 26 × 9 = 234
 - 27 × 11 = 297
 - 65² = 4,225
+- 347 × 11 = 3,817
+- 63 × 99 = 6,237

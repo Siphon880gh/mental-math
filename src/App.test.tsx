@@ -90,6 +90,7 @@ test("guides hub splits tracks and redirects archive to Track A", () => {
   fireEvent.click(filterBtn);
   expect(screen.getAllByText(/first-pass tag/i).length).toBeGreaterThan(0);
   expect(screen.getAllByText(/second-pass tag/i).length).toBeGreaterThan(0);
+  expect(screen.getAllByRole("button", { name: /ready to transition/i }).length).toBeGreaterThan(0);
 });
 
 test("guide page renders lesson body from docs-more", () => {
@@ -221,6 +222,100 @@ test("unknown game slug 404s", () => {
     </MemoryRouter>,
   );
   expect(screen.getByRole("heading", { name: /game not found/i })).toBeInTheDocument();
+});
+
+test("drills, cases, and games lists have pass tags", () => {
+  const { unmount: unmountDrills } = render(
+    <MemoryRouter initialEntries={["/drills"]}>
+      <App />
+    </MemoryRouter>,
+  );
+  expect(screen.getByRole("button", { name: /^filter$/i })).toBeInTheDocument();
+  expect(screen.getAllByRole("button", { name: /^\+ tag$/i }).length).toBeGreaterThan(0);
+  fireEvent.click(screen.getAllByRole("button", { name: /^\+ tag$/i })[0]);
+  fireEvent.click(screen.getByRole("button", { name: /confident pass/i }));
+  expect(screen.getByRole("button", { name: /remove tag: confident pass/i })).toBeInTheDocument();
+  unmountDrills();
+
+  const { unmount: unmountGames } = render(
+    <MemoryRouter initialEntries={["/games"]}>
+      <App />
+    </MemoryRouter>,
+  );
+  expect(screen.getByRole("button", { name: /^filter$/i })).toBeInTheDocument();
+  expect(screen.getAllByRole("button", { name: /^\+ tag$/i }).length).toBeGreaterThan(0);
+  unmountGames();
+
+  render(
+    <MemoryRouter initialEntries={["/cases"]}>
+      <App />
+    </MemoryRouter>,
+  );
+  fireEvent.click(screen.getByRole("button", { name: /browse this session/i }));
+  expect(screen.getByRole("button", { name: /^filter$/i })).toBeInTheDocument();
+  expect(screen.getAllByRole("button", { name: /^\+ tag$/i }).length).toBeGreaterThan(0);
+});
+
+test("resource pages can apply pass tags, including Ready to transition", () => {
+  const { unmount: unmountGuide } = render(
+    <MemoryRouter initialEntries={["/guides/anchors"]}>
+      <App />
+    </MemoryRouter>,
+  );
+  fireEvent.click(screen.getByRole("button", { name: /^\+ tag$/i }));
+  fireEvent.click(screen.getByRole("button", { name: /ready to transition/i }));
+  expect(screen.getByRole("button", { name: /remove tag: ready to transition/i })).toBeInTheDocument();
+  unmountGuide();
+
+  const { unmount: unmountTrack } = render(
+    <MemoryRouter initialEntries={["/track-a"]}>
+      <App />
+    </MemoryRouter>,
+  );
+  expect(screen.getByRole("button", { name: /remove tag: ready to transition/i })).toBeInTheDocument();
+  unmountTrack();
+
+  const { unmount: unmountCoach } = render(
+    <MemoryRouter initialEntries={["/coach/anchors"]}>
+      <App />
+    </MemoryRouter>,
+  );
+  expect(screen.getByRole("button", { name: /remove tag: ready to transition/i })).toBeInTheDocument();
+  unmountCoach();
+
+  const { unmount: unmountDrill } = render(
+    <MemoryRouter initialEntries={["/drills/anchors"]}>
+      <App />
+    </MemoryRouter>,
+  );
+  expect(screen.getByRole("button", { name: /^\+ tag$/i })).toBeInTheDocument();
+  unmountDrill();
+
+  const { unmount: unmountScenario } = render(
+    <MemoryRouter initialEntries={["/scenarios/percent-then-year"]}>
+      <App />
+    </MemoryRouter>,
+  );
+  expect(screen.getByRole("button", { name: /^\+ tag$/i })).toBeInTheDocument();
+  unmountScenario();
+
+  const { unmount: unmountGame } = render(
+    <MemoryRouter initialEntries={["/games/decimal-shift"]}>
+      <App />
+    </MemoryRouter>,
+  );
+  expect(screen.getByRole("button", { name: /^\+ tag$/i })).toBeInTheDocument();
+  unmountGame();
+
+  const state = defaultProgress();
+  state.milestones["E4.M0"] = "complete";
+  saveProgress(state);
+  render(
+    <MemoryRouter initialEntries={["/cases/sf-gpu-18"]}>
+      <App />
+    </MemoryRouter>,
+  );
+  expect(screen.getByRole("button", { name: /^\+ tag$/i })).toBeInTheDocument();
 });
 
 test("scenarios split by track and hide cheat until asked", () => {

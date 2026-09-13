@@ -523,7 +523,7 @@ export const SESSION_SPECS: MethodTreeSpec[] = [
               id: "ten_twice",
               label: "Take 10% twice in your head, but skip the double-shift name",
               explain:
-                "10% twice is the same number, but this family trains the ×2 then one-place motion so it matches ÷5 later.\n\nReturn to the motion.",
+                "10% twice is the same number. This family trains ×2, then one place left.\n\nReturn to the motion.",
             },
             {
               id: "twenty_bucks",
@@ -583,7 +583,7 @@ export const SESSION_SPECS: MethodTreeSpec[] = [
   spec(
     "div-by-5",
     "Divide by five: double, then shift",
-    "SAMPLE 1,322 ÷ 5: ×2 → 2,644, one place left → 264.4. Same motion as a 20% tip, different story.",
+    "SAMPLE 1,322 ÷ 5: ×2 → 2,644, one place left → 264.4.",
     B,
     {
       layers: [
@@ -655,7 +655,7 @@ export const SESSION_SPECS: MethodTreeSpec[] = [
         },
       ],
       success:
-        "Session complete. ÷5 = ×2 then one place left — same hands as a 20% tip.\n\nSAMPLE: 1,322÷5=264.4, 80÷5=16.",
+        "Session complete. ÷5 = ×2 then one place left.\n\nSAMPLE: 1,322÷5=264.4, 80÷5=16.",
     },
   ),
   spec(
@@ -790,34 +790,34 @@ export const SESSION_SPECS: MethodTreeSpec[] = [
         },
         {
           id: "check",
-          message: "Reverse: $24/day back to monthly.\n\n×30?",
+          message: "Reverse: $20/day back to monthly.\n\n×30?",
           correct: {
-            id: "720",
-            label: "$720/mo",
+            id: "600",
+            label: "$600/mo",
             next: "success",
           },
           wrongs: [
             {
-              id: "240",
-              label: "$240/mo — ×10",
-              explain: "×10 is not a month. 24×30=720.\n\nTry the reverse again.",
+              id: "200",
+              label: "$200/mo — ×10",
+              explain: "×10 is not a month. 20×30=600.\n\nTry the reverse again.",
             },
             {
-              id: "24",
-              label: "$24/mo — forgot to scale",
+              id: "20",
+              label: "$20/mo — forgot to scale",
               explain: "Daily and monthly cannot be the same number here.\n\nTry the reverse again.",
             },
           ],
         },
       ],
       success:
-        "Session complete. Monthly ÷ 30 ≈ daily; daily × 30 ≈ monthly.\n\nSAMPLE: $900/mo→$30/day, $24/day→$720/mo.",
+        "Session complete. Monthly ÷ 30 ≈ daily; daily × 30 ≈ monthly.\n\nSAMPLE: $900/mo→$30/day, $20/day→$600/mo.",
     },
   ),
   spec(
     "month-year",
     "Monthly to yearly is ×12",
-    "SAMPLE $30/mo → $360/year as ×10 plus ×2. Chain: $2/hr → $720/mo → $8,640/year.",
+    "SAMPLE $30/mo → $360/year as ×10 plus ×2. $100/mo is the same move: $1,000 + $200 = $1,200/year.",
     B,
     {
       layers: [
@@ -872,30 +872,30 @@ export const SESSION_SPECS: MethodTreeSpec[] = [
         {
           id: "check",
           message:
-            "Chain: $2/hr already became $720/mo. 720×10=7,200. 720×2=1,440. Yearly?",
+            "$100/mo. Same ×12: ×10 plus ×2.\n\n100×10 is $1,000. 100×2 is $200. Yearly?",
           correct: {
-            id: "8640",
-            label: "$8,640/year (7,200+1,440)",
+            id: "1200",
+            label: "$1,200/year (1,000+200)",
             next: "success",
           },
           wrongs: [
             {
-              id: "7200",
-              label: "$7,200 — stopped at ×10",
+              id: "1000",
+              label: "$1,000/year — stopped at ×10",
               explain:
-                "720×10=7,200. Still add ×2: 1,440 → 8,640.\n\nTry the chain again.",
+                "×10 is $1,000. The extra two months are $200. Sum $1,200.\n\nTry the idea again.",
             },
             {
-              id: "1440",
-              label: "$1,440 — monthly, or only the ×2",
+              id: "200",
+              label: "$200/year — only the ×2",
               explain:
-                "$1,440 is $2×720 monthly, or 720×2. Yearly is 7,200+1,440=8,640.\n\nTry the chain again.",
+                "×2 is the two extra months ($200). Add the ×10 chunk ($1,000) → $1,200.\n\nTry the idea again.",
             },
           ],
         },
       ],
       success:
-        "Session complete. Monthly × 12 = yearly. Do ×12 as ×10 plus ×2.\n\nSAMPLE: $30/mo→$300+$60=$360/year; $2/hr→$8,640/year.",
+        "Session complete. Monthly × 12 = yearly. Do ×12 as ×10 plus ×2.\n\nSAMPLE: $30/mo→$300+$60=$360/year. $100/mo→$1,000+$200=$1,200/year.",
     },
   ),
   spec(
@@ -1529,6 +1529,958 @@ export const SESSION_SPECS: MethodTreeSpec[] = [
       ],
       success:
         "Session complete. Years to double ≈ 72 ÷ annual percent (compounding).\n\nSAMPLE: 6%→12 years, 9%→8, 10%→~7.",
+    },
+  ),
+  spec(
+    "pareto",
+    "Twenty percent carries about eighty",
+    "SAMPLE 1,000 users: ~200 whales. Treat that slice as most of the load.",
+    B,
+    {
+      layers: [
+        {
+          id: "start",
+          message:
+            "SAMPLE: 1,000 users. Someone wants to size as if all 1,000 hit equally.\n\nFirst move?",
+          correct: {
+            id: "slice",
+            label: "Take 20% as the heavy slice → about 200",
+            next: "load",
+          },
+          wrongs: [
+            {
+              id: "flat",
+              label: "Plan as 1,000 identical users",
+              explain:
+                "80/20 says a thin slice carries most of the load. Start with 20% of the count.\n\nReturn to the slice.",
+            },
+            {
+              id: "half",
+              label: "Assume half are heavy",
+              explain:
+                "The heuristic is 20%, not 50%. 1,000 → 200.\n\nReturn to the slice.",
+            },
+          ],
+        },
+        {
+          id: "load",
+          message: "Those ~200. How do you talk about load?",
+          correct: {
+            id: "eighty",
+            label: "Treat them as ~80% of traffic or revenue",
+            next: "check",
+          },
+          wrongs: [
+            {
+              id: "twenty_load",
+              label: "They are 20% of load too",
+              explain:
+                "20% of users, 80% of load. Do not copy the headcount percent onto the load.\n\nRevisit load.",
+            },
+            {
+              id: "all",
+              label: "Still 1,000 of load — whales are extra",
+              explain:
+                "The point is concentration. Size the painful part for 200, not 1,000.\n\nRevisit load.",
+            },
+          ],
+        },
+        {
+          id: "check",
+          message: "500 customers. Heavy slice?",
+          correct: {
+            id: "hundred",
+            label: "About 100 carry most of revenue",
+            next: "success",
+          },
+          wrongs: [
+            {
+              id: "400",
+              label: "400 — that is 80% of the count",
+              explain:
+                "You took 80% of customers. Take 20% of the count (100), then say those 100 ≈ 80% of revenue.\n\nTry the check again.",
+            },
+            {
+              id: "500",
+              label: "All 500 equally",
+              explain:
+                "That ignores 80/20.\n\nTry the check again.",
+            },
+          ],
+        },
+      ],
+      success:
+        "Session complete. 20% of the count is the heavy slice; treat it as ~80% of load.\n\nSAMPLE: 1,000 users → ~200 whales.",
+    },
+  ),
+  spec(
+    "revenue-triangle",
+    "Revenue is price times users",
+    "SAMPLE $50 × 20 = $1,000. Invert: users = revenue ÷ price.",
+    B,
+    {
+      layers: [
+        {
+          id: "start",
+          message:
+            "SAMPLE: $50 price, 20 users. Monthly revenue?\n\nWhich identity?",
+          correct: {
+            id: "times",
+            label: "Revenue = price × users → $1,000",
+            next: "invert",
+          },
+          wrongs: [
+            {
+              id: "divide",
+              label: "Users = price ÷ 20",
+              explain:
+                "That mixed the triangle. R = P × U. 50×20=1,000.\n\nReturn to multiply.",
+            },
+            {
+              id: "be",
+              label: "Users needed = cost ÷ price",
+              explain:
+                "That is break-even. This prompt was revenue, not users-to-cover-cost.\n\nReturn to multiply.",
+            },
+          ],
+        },
+        {
+          id: "invert",
+          message: "Someone wants $5,000 at $50. Users?",
+          correct: {
+            id: "hundred",
+            label: "Users = revenue ÷ price → 100",
+            next: "check",
+          },
+          wrongs: [
+            {
+              id: "times_again",
+              label: "50 × 5,000 = 250,000 users",
+              explain:
+                "You multiplied when you needed to divide. $5,000 ÷ $50 = 100.\n\nRevisit invert.",
+            },
+            {
+              id: "fifty",
+              label: "50 users because the price is 50",
+              explain:
+                "Price copied as headcount. Divide revenue by price.\n\nRevisit invert.",
+            },
+          ],
+        },
+        {
+          id: "check",
+          message: "$100 × 100 users. Revenue?",
+          correct: {
+            id: "10k",
+            label: "$10,000",
+            next: "success",
+          },
+          wrongs: [
+            {
+              id: "1k",
+              label: "$1,000 — dropped a zero",
+              explain: "100×100=10,000.\n\nTry the check again.",
+            },
+            {
+              id: "200",
+              label: "$200 — added instead of multiplied",
+              explain: "The triangle multiplies.\n\nTry the check again.",
+            },
+          ],
+        },
+      ],
+      success:
+        "Session complete. R = P × U. Invert any side.\n\nSAMPLE: $50×20=$1,000; $5,000 at $50 → 100 users.",
+    },
+  ),
+  spec(
+    "divisibility",
+    "Last digits and digit sums",
+    "SAMPLE 4,731: digit sum 15, so yes for 3. Last two / alternating sum for 4 and 11.",
+    B,
+    {
+      layers: [
+        {
+          id: "start",
+          message:
+            "SAMPLE: is 4,731 divisible by 3? You do not want long division.\n\nFirst move?",
+          correct: {
+            id: "sum",
+            label: "Add the digits: 4+7+3+1=15, and 15÷3 works",
+            next: "four",
+          },
+          wrongs: [
+            {
+              id: "last",
+              label: "Look at the last digit 1 — odd, so no",
+              explain:
+                "Last digit is the ×2 / ×5 test. Three is a digit-sum test.\n\nReturn to the sum.",
+            },
+            {
+              id: "divide",
+              label: "Divide 4,731 by 3 in columns",
+              explain:
+                "Works, but slow. Digit sum 15 already tells you yes.\n\nReturn to the sum.",
+            },
+          ],
+        },
+        {
+          id: "four",
+          message: "Now ÷4: 7,316. Which digits matter?",
+          correct: {
+            id: "two",
+            label: "Last two: 16, and 16÷4, so yes",
+            next: "check",
+          },
+          wrongs: [
+            {
+              id: "all_sum",
+              label: "Digit sum 7+3+1+6=17",
+              explain:
+                "Digit sum is 3 and 9. Four only looks at the last two digits.\n\nRevisit ÷4.",
+            },
+            {
+              id: "last_6",
+              label: "Last digit 6 is even, so yes for 4",
+              explain:
+                "Even is the ×2 test. 14 is even and not divisible by 4. Need the last two.\n\nRevisit ÷4.",
+            },
+          ],
+        },
+        {
+          id: "check",
+          message: "2,728 for 11. Alternating sum?",
+          correct: {
+            id: "neg11",
+            label: "2−7+2−8=−11, a multiple of 11, so yes",
+            next: "success",
+          },
+          wrongs: [
+            {
+              id: "sum11",
+              label: "2+7+2+8=19",
+              explain: "That is a plain sum. Eleven alternates signs.\n\nTry the check again.",
+            },
+            {
+              id: "last_two",
+              label: "28÷11 is not whole, so no",
+              explain: "Last two is not the 11 test. Use 2−7+2−8.\n\nTry the check again.",
+            },
+          ],
+        },
+      ],
+      success:
+        "Session complete. 3/9 digit sum; 4 last two; 11 alternating.\n\nSAMPLE: 4,731 yes for 3; 7,316 yes for 4; 2,728 yes for 11.",
+    },
+  ),
+  spec(
+    "criss-cross",
+    "Vertical, then crosswise, then vertical",
+    "SAMPLE 23×21: ones 3, cross 8, tens 4 → 483.",
+    B,
+    {
+      layers: [
+        {
+          id: "start",
+          message:
+            "SAMPLE: 23 × 21 in a seating grid. You want three slots, not long multiply.\n\nOrder?",
+          correct: {
+            id: "slots",
+            label: "Ones product, then the two crosses added, then tens product",
+            next: "apply",
+          },
+          wrongs: [
+            {
+              id: "add",
+              label: "23+21=44 and stop",
+              explain: "That is addition. Need the three multiply slots.\n\nReturn to the slots.",
+            },
+            {
+              id: "only_ones",
+              label: "3×1=3 and call it 3",
+              explain: "That is only the ones slot. Cross and tens still count.\n\nReturn to the slots.",
+            },
+          ],
+        },
+        {
+          id: "apply",
+          message: "23 × 21. Ones 3×1=3. Cross?",
+          correct: {
+            id: "eight",
+            label: "2×1 + 3×2 = 8, tens 2×2=4 → 483",
+            next: "check",
+          },
+          wrongs: [
+            {
+              id: "five",
+              label: "2+1+3+2=8 as an add of the digits, tens leftover",
+              explain:
+                "The 8 happens to match but you must multiply crosses, not add digits.\n\nRevisit the cross.",
+            },
+            {
+              id: "six",
+              label: "2×3=6 for the cross",
+              explain: "Cross is 2×1 plus 3×2, not the two tens digits.\n\nRevisit the cross.",
+            },
+          ],
+        },
+        {
+          id: "check",
+          message: "12 × 13. Same three slots?",
+          correct: {
+            id: "156",
+            label: "2×3=6, 1×3+2×1=5, 1×1=1 → 156",
+            next: "success",
+          },
+          wrongs: [
+            {
+              id: "36",
+              label: "12+13+11=36",
+              explain: "Not the slots. Ones 6, cross 5, tens 1.\n\nTry the check again.",
+            },
+            {
+              id: "169",
+              label: "13²=169",
+              explain: "That is 13×13, not 12×13.\n\nTry the check again.",
+            },
+          ],
+        },
+      ],
+      success:
+        "Session complete. Ones, cross, tens — carry when a slot hits 10.\n\nSAMPLE: 23×21=483, 12×13=156.",
+    },
+  ),
+  spec(
+    "difference-squares",
+    "Equally far from a center is a² − b²",
+    "SAMPLE 48×52: 50² − 2² = 2,496. Same-tens ones-to-10 glues the same identity.",
+    B,
+    {
+      layers: [
+        {
+          id: "start",
+          message:
+            "SAMPLE: 48 × 52. Both hug 50.\n\nWhich identity?",
+          correct: {
+            id: "mid",
+            label: "50² minus 2² → 2,500 − 4 = 2,496",
+            next: "tens",
+          },
+          wrongs: [
+            {
+              id: "fifty_sq",
+              label: "50×50=2,500 and stop",
+              explain:
+                "That skipped the gap. Each side is 2 away, so subtract 4.\n\nReturn to the center.",
+            },
+            {
+              id: "add",
+              label: "48+52=100, times something",
+              explain:
+                "The sum is 100, but the product is the difference of squares, not a sum trick.\n\nReturn to the center.",
+            },
+          ],
+        },
+        {
+          id: "tens",
+          message: "43 × 47. Same tens, ones add to 10. Glue?",
+          correct: {
+            id: "2021",
+            label: "4×5=20, 3×7=21 → 2,021",
+            next: "check",
+          },
+          wrongs: [
+            {
+              id: "12",
+              label: "4×3=12 and glue 47",
+              explain:
+                "Left is tens×(tens+1), right is the ones product.\n\nRevisit the glue.",
+            },
+            {
+              id: "2500",
+              label: "Call it 2,500 because they look near 50",
+              explain:
+                "The center is 45, not 50. Use the same-tens glue.\n\nRevisit the glue.",
+            },
+          ],
+        },
+        {
+          id: "check",
+          message: "47 × 53. Center 50, gap 3.",
+          correct: {
+            id: "2491",
+            label: "2,500 − 9 = 2,491",
+            next: "success",
+          },
+          wrongs: [
+            {
+              id: "2509",
+              label: "2,500 + 9",
+              explain: "You add the squares? Subtract the gap squared.\n\nTry the check again.",
+            },
+            {
+              id: "2496",
+              label: "2,496 — used gap 2 from the 48×52 sample",
+              explain: "This gap is 3. 3²=9.\n\nTry the check again.",
+            },
+          ],
+        },
+      ],
+      success:
+        "Session complete. Equally far from c is c²−d². Same-tens ones-to-10 glues tens×(tens+1) | ones product.\n\nSAMPLE: 48×52=2,496, 43×47=2,021.",
+    },
+  ),
+  spec(
+    "easy-division",
+    "Turn division into an easier multiply",
+    "SAMPLE 675÷25: ×4 then two places left → 27. Or factor the divisor; or scale both.",
+    B,
+    {
+      layers: [
+        {
+          id: "start",
+          message:
+            "SAMPLE: 675 ÷ 25. Twenty-fives look messy.\n\nRewrite?",
+          correct: {
+            id: "times4",
+            label: "×4, then ÷100 → 2,700 → 27",
+            next: "factor",
+          },
+          wrongs: [
+            {
+              id: "times5",
+              label: "×2 then ÷10, the ÷5 move",
+              explain:
+                "÷5 is ×2÷10. ÷25 is ×4÷100.\n\nReturn to the rewrite.",
+            },
+            {
+              id: "long",
+              label: "Long divide 25 into 675",
+              explain:
+                "Works, but the rewrite is the family. ×4 then two places.\n\nReturn to the rewrite.",
+            },
+          ],
+        },
+        {
+          id: "factor",
+          message: "936 ÷ 12. 12 is 3×4. Path?",
+          correct: {
+            id: "78",
+            label: "936÷3=312, then ÷4=78",
+            next: "check",
+          },
+          wrongs: [
+            {
+              id: "times12",
+              label: "936 × 12",
+              explain: "That is the product, not the quotient.\n\nRevisit factoring.",
+            },
+            {
+              id: "div2",
+              label: "Halve 936 because 12 is even, stop at 468",
+              explain:
+                "One factor of 2 is not ÷12. Need ÷3 and ÷4 (or ÷2 and ÷6).\n\nRevisit factoring.",
+            },
+          ],
+        },
+        {
+          id: "check",
+          message: "4.8 ÷ 0.06. Scale both?",
+          correct: {
+            id: "80",
+            label: "×100 → 480 ÷ 6 = 80",
+            next: "success",
+          },
+          wrongs: [
+            {
+              id: "8",
+              label: "×10 → 48 ÷ 6 = 8",
+              explain:
+                "0.06 needs two places to become 6. Scale both ×100.\n\nTry the check again.",
+            },
+            {
+              id: "480",
+              label: "480 — scaled the 4.8 and stopped",
+              explain: "You still have to divide by 6.\n\nTry the check again.",
+            },
+          ],
+        },
+      ],
+      success:
+        "Session complete. Rewrite ÷ as × and a shift; or factor; or scale both.\n\nSAMPLE: 675÷25=27, 936÷12=78, 4.8÷0.06=80.",
+    },
+  ),
+  spec(
+    "complements",
+    "What is missing to 10 or 100",
+    "SAMPLE 8+7: 8 needs 2, leftover 5 → 15. Pair lists; Gauss pairs the ends of a run.",
+    B,
+    {
+      layers: [
+        {
+          id: "start",
+          message:
+            "SAMPLE: 8+7. Make 10, do not count up.\n\nMove?",
+          correct: {
+            id: "two",
+            label: "8 needs 2 from the 7, leftover 5 → 15",
+            next: "hundred",
+          },
+          wrongs: [
+            {
+              id: "count",
+              label: "Count 9, 10, 11, 12, 13, 14, 15",
+              explain:
+                "Slow. Complements: 8+2=10, then +5.\n\nReturn to make 10.",
+            },
+            {
+              id: "eight",
+              label: "8+8=16 minus 1",
+              explain:
+                "A compensation works; this family trains the missing-to-10 split.\n\nReturn to make 10.",
+            },
+          ],
+        },
+        {
+          id: "hundred",
+          message: "68+47. Make 100?",
+          correct: {
+            id: "115",
+            label: "68 needs 32, leftover 15 → 115",
+            next: "check",
+          },
+          wrongs: [
+            {
+              id: "115_add",
+              label: "60+40=100, 8+7=15, total 115 — but as columns from the right",
+              explain:
+                "Same numbers; the move is 68’s complement 32, not ones-first columns.\n\nRevisit make 100.",
+            },
+            {
+              id: "32",
+              label: "68 needs 32, and stop at 32",
+              explain: "32 is what you took from 47. Leftover 15 sits on 100.\n\nRevisit make 100.",
+            },
+          ],
+        },
+        {
+          id: "check",
+          message: "1+2+…+10. Gauss pairing?",
+          correct: {
+            id: "55",
+            label: "5 pairs of 11 = 55",
+            next: "success",
+          },
+          wrongs: [
+            {
+              id: "10",
+              label: "10 pairs of 1",
+              explain: "Pair first with last: 1+10=11, and there are 5 such pairs.\n\nTry the check again.",
+            },
+            {
+              id: "110",
+              label: "10×11=110",
+              explain: "That skipped the ÷2. n(n+1)/2 = 55.\n\nTry the check again.",
+            },
+          ],
+        },
+      ],
+      success:
+        "Session complete. Missing-to-10/100, pair a list, Gauss n(n+1)/2.\n\nSAMPLE: 8+7=15, 68+47=115, 1…10=55.",
+    },
+  ),
+  spec(
+    "equal-adjust",
+    "Add the same to both sides of a subtract",
+    "SAMPLE 502−198: add 2 to both → 504−200=304. Not the same as rounding one side.",
+    B,
+    {
+      layers: [
+        {
+          id: "start",
+          message:
+            "SAMPLE: 502 − 198. Crossing zeros is ugly.\n\nMove?",
+          correct: {
+            id: "both",
+            label: "Add 2 to both: 504 − 200 = 304",
+            next: "why",
+          },
+          wrongs: [
+            {
+              id: "one",
+              label: "Round 198 to 200, 502−200=302, and stop",
+              explain:
+                "That rounded one side and forgot the payback. Equal-adjust moves both, so there is no payback.\n\nReturn to both sides.",
+            },
+            {
+              id: "borrow",
+              label: "Borrow across the zeros in columns",
+              explain:
+                "Works on paper. In the head, push 198 to 200 and bring 502 along.\n\nReturn to both sides.",
+            },
+          ],
+        },
+        {
+          id: "why",
+          message: "Why is 504−200 still 502−198?",
+          correct: {
+            id: "same_c",
+            label: "a−b = (a+c)−(b+c). The gap is unchanged",
+            next: "check",
+          },
+          wrongs: [
+            {
+              id: "lucky",
+              label: "It just happens to work for 2",
+              explain:
+                "Any c works. You pick c so the subtrahend becomes round.\n\nRevisit the identity.",
+            },
+            {
+              id: "add_ans",
+              label: "You have to add the 2 back to 304",
+              explain:
+                "No payback. Both sides already moved.\n\nRevisit the identity.",
+            },
+          ],
+        },
+        {
+          id: "check",
+          message: "725 − 397. Add 3 to both.",
+          correct: {
+            id: "328",
+            label: "728 − 400 = 328",
+            next: "success",
+          },
+          wrongs: [
+            {
+              id: "325",
+              label: "725 − 400 = 325",
+              explain: "You moved only one side. Add 3 to 725 as well.\n\nTry the check again.",
+            },
+            {
+              id: "331",
+              label: "328 + 3 = 331 as a payback",
+              explain: "No payback on this family.\n\nTry the check again.",
+            },
+          ],
+        },
+      ],
+      success:
+        "Session complete. Add the same to both; the difference is unchanged.\n\nSAMPLE: 502−198=304, 725−397=328.",
+    },
+  ),
+  spec(
+    "cross-cancel",
+    "Cancel factors before you multiply",
+    "SAMPLE 6/8 × 4/3 cancels to 1. Compare fractions with a×d vs b×c.",
+    B,
+    {
+      layers: [
+        {
+          id: "start",
+          message:
+            "SAMPLE: 6/8 × 4/3. Do not multiply 24/24 first.\n\nMove?",
+          correct: {
+            id: "cancel",
+            label: "Cancel 6 with 3, 4 with 8 → 1",
+            next: "compare",
+          },
+          wrongs: [
+            {
+              id: "twentyfour",
+              label: "6×4=24, 8×3=24, then reduce 24/24",
+              explain:
+                "Same answer, extra work. Cancel on sight before the product.\n\nReturn to cancel.",
+            },
+            {
+              id: "add",
+              label: "Add 6/8 + 4/3",
+              explain: "The prompt was a product, not a sum.\n\nReturn to cancel.",
+            },
+          ],
+        },
+        {
+          id: "compare",
+          message: "7/11 vs 8/13. Which is larger, without decimals?",
+          correct: {
+            id: "seven",
+            label: "7×13=91, 8×11=88, so 7/11",
+            next: "check",
+          },
+          wrongs: [
+            {
+              id: "eights",
+              label: "8/13 because 8>7 and 13>11",
+              explain:
+                "Larger pieces on both sides is not a comparison. Cross multiply.\n\nRevisit the cross.",
+            },
+            {
+              id: "eleven",
+              label: "7×11 vs 8×13",
+              explain:
+                "That is a×b vs c×d, not a×d vs b×c.\n\nRevisit the cross.",
+            },
+          ],
+        },
+        {
+          id: "check",
+          message: "8/12 × 9/2 after cancel?",
+          correct: {
+            id: "three",
+            label: "3",
+            next: "success",
+          },
+          wrongs: [
+            {
+              id: "one",
+              label: "1 — cancelled everything",
+              explain: "8/12 is 2/3, times 9/2 = 3.\n\nTry the check again.",
+            },
+            {
+              id: "36",
+              label: "8×9 / 12×2 = 72/24 wait, 3… no, 36",
+              explain: "72/24 is 3. Do not stop at 36.\n\nTry the check again.",
+            },
+          ],
+        },
+      ],
+      success:
+        "Session complete. Cancel across the fraction product. Compare with cross products.\n\nSAMPLE: 6/8×4/3=1; 7/11 > 8/13; 8/12×9/2=3.",
+    },
+  ),
+  spec(
+    "cast-nines",
+    "Digit root and last-digit checks",
+    "SAMPLE: a product that does not end in the right ones digit is already false. Digit roots matching does not prove the answer.",
+    I,
+    {
+      layers: [
+        {
+          id: "start",
+          message:
+            "SAMPLE: someone claims 327 × 648 = 211,895.\n\nCheapest kill?",
+          correct: {
+            id: "ones",
+            label: "7×8=56, so the product must end in 6, not 5",
+            next: "nines",
+          },
+          wrongs: [
+            {
+              id: "recompute",
+              label: "Re-multiply all six digits to argue",
+              explain:
+                "You do not owe them a full recompute. Last digit already kills it.\n\nReturn to ones.",
+            },
+            {
+              id: "size",
+              label: "211,895 looks about the right size, so it is fine",
+              explain:
+                "Magnitude can still be wrong in the ones place. Check the last digit.\n\nReturn to ones.",
+            },
+          ],
+        },
+        {
+          id: "nines",
+          message:
+            "Digit root of 347 is 5, of 26 is 8. 5×8 → 4. A claim of 9,022 roots to 4. What did you prove?",
+          correct: {
+            id: "survive",
+            label: "It survives the check — not that it is correct",
+            next: "check",
+          },
+          wrongs: [
+            {
+              id: "proved",
+              label: "The product is definitely 9,022",
+              explain:
+                "A matching root can still hide a 9-off error. Only a mismatch is decisive.\n\nRevisit what the check proves.",
+            },
+            {
+              id: "fail",
+              label: "4 vs 4 means it failed",
+              explain: "Match = survives. Mismatch = definitely wrong.\n\nRevisit what the check proves.",
+            },
+          ],
+        },
+        {
+          id: "check",
+          message: "Digit root of 87,946?",
+          correct: {
+            id: "seven",
+            label: "8+7+9+4+6=34 → 7",
+            next: "success",
+          },
+          wrongs: [
+            {
+              id: "34",
+              label: "34 — stop after one pass",
+              explain: "Keep going until one digit: 3+4=7.\n\nTry the check again.",
+            },
+            {
+              id: "nine",
+              label: "9 because there is a 9 in the number",
+              explain: "You sum all digits, including the 9.\n\nTry the check again.",
+            },
+          ],
+        },
+      ],
+      success:
+        "Session complete. Last digit is a hard fail. Digit root match is only a maybe.\n\nSAMPLE: 327×648 cannot end in 5; 87,946 roots to 7.",
+    },
+  ),
+  spec(
+    "approx-sqrt",
+    "Nearby square, then bump d / 2a",
+    "SAMPLE √104: 10²=100, leftover 4, 4/20=0.2 → 10.2. Or one Babylonian average.",
+    I,
+    {
+      layers: [
+        {
+          id: "start",
+          message:
+            "SAMPLE: √104 in a “how long is the side” aside. 10²=100.\n\nBump?",
+          correct: {
+            id: "point2",
+            label: "d=4, 2a=20, 4/20=0.2 → 10.2",
+            next: "babylon",
+          },
+          wrongs: [
+            {
+              id: "eleven",
+              label: "11, because 11²=121 is closer than 9²",
+              explain:
+                "104 is just above 100, not near 121. Use 10 + 4/20.\n\nReturn to the bump.",
+            },
+            {
+              id: "four",
+              label: "10+4=14",
+              explain: "You add d, not d/(2a). The bump is 0.2.\n\nReturn to the bump.",
+            },
+          ],
+        },
+        {
+          id: "babylon",
+          message: "√16, sloppy guess 5. One Babylonian step?",
+          correct: {
+            id: "41",
+            label: "(5 + 16/5)/2 = 4.1",
+            next: "check",
+          },
+          wrongs: [
+            {
+              id: "five",
+              label: "Stay at 5",
+              explain: "The step averages 5 with 3.2.\n\nRevisit the average.",
+            },
+            {
+              id: "21",
+              label: "5 + 16/5 = 8.2, and stop (forgot the /2)",
+              explain: "That is the sum, not the average. Divide by 2.\n\nRevisit the average.",
+            },
+          ],
+        },
+        {
+          id: "check",
+          message: "√103. 10²=100, d=3. Bump?",
+          correct: {
+            id: "1015",
+            label: "3/20=0.15 → 10.15",
+            next: "success",
+          },
+          wrongs: [
+            {
+              id: "103",
+              label: "10.3 — added 3 as tenths",
+              explain: "d/2a is 3/20, not 3/10.\n\nTry the check again.",
+            },
+            {
+              id: "13",
+              label: "10+3=13",
+              explain: "Again, divide d by 2a.\n\nTry the check again.",
+            },
+          ],
+        },
+      ],
+      success:
+        "Session complete. √(a²+d) ≈ a + d/(2a). One Babylonian average if you have a guess.\n\nSAMPLE: √104≈10.2, √16 from 5 → 4.1.",
+    },
+  ),
+  spec(
+    "regroup-factors",
+    "Pair the easy factors first",
+    "SAMPLE 25×16×4: 25×4=100, then ×16=1,600. Do not multiply left to right out of habit.",
+    B,
+    {
+      layers: [
+        {
+          id: "start",
+          message:
+            "SAMPLE: 25 × 16 × 4. Left-to-right 25×16 is ugly.\n\nFirst pair?",
+          correct: {
+            id: "hundred",
+            label: "25×4=100, then 100×16=1,600",
+            next: "scan",
+          },
+          wrongs: [
+            {
+              id: "left",
+              label: "25×16=400, then ×4",
+              explain:
+                "You get 1,600 if you finish, but the habit is to hunt 25×4 first.\n\nReturn to the pair.",
+            },
+            {
+              id: "add",
+              label: "25+16+4=45",
+              explain: "Product, not sum. Pair 25 with 4.\n\nReturn to the pair.",
+            },
+          ],
+        },
+        {
+          id: "scan",
+          message: "8 × 37 × 125. Scan the whole product.",
+          correct: {
+            id: "37k",
+            label: "8×125=1,000, then ×37 = 37,000",
+            next: "check",
+          },
+          wrongs: [
+            {
+              id: "296",
+              label: "8×37=296, then worry about 125",
+              explain:
+                "296×125 is the slow path. 8×125 is the thousand.\n\nRevisit the scan.",
+            },
+            {
+              id: "1000_stop",
+              label: "8×125=1,000 and stop",
+              explain: "You still have the 37. Dump it on the thousand.\n\nRevisit the scan.",
+            },
+          ],
+        },
+        {
+          id: "check",
+          message: "25 × 48. Factor 48 if it helps.",
+          correct: {
+            id: "1200",
+            label: "25×4×12 = 100×12 = 1,200",
+            next: "success",
+          },
+          wrongs: [
+            {
+              id: "1000",
+              label: "25×40=1,000 and drop the 8",
+              explain: "48=40+8 or 4×12. Do not drop the 8.\n\nTry the check again.",
+            },
+            {
+              id: "73",
+              label: "25+48=73",
+              explain: "Product. Pair 25 with 4.\n\nTry the check again.",
+            },
+          ],
+        },
+      ],
+      success:
+        "Session complete. Associate so a pair makes 10 or 100, then dump the leftover.\n\nSAMPLE: 25×16×4=1,600, 8×37×125=37,000.",
     },
   ),
   spec(
@@ -2825,6 +3777,483 @@ export const SESSION_SPECS: MethodTreeSpec[] = [
       ],
       success:
         "Session complete. Stack customers × yearly price, then take a believable slice. Watch 10× zeros.\n\nSAMPLE: 200k×$600=$120M TAM; 1,000 customers=$600k ARR.",
+    },
+  ),
+  spec(
+    "concurrency",
+    "Only 10–20% are on at once",
+    "SAMPLE 100 logos → about 10–20 concurrent. Size infra for the slice, not the roster.",
+    I,
+    {
+      layers: [
+        {
+          id: "start",
+          message:
+            "SAMPLE: 100 paying logos. Someone sizes GPUs as if all 100 run now.\n\nFirst?",
+          correct: {
+            id: "slice",
+            label: "Concurrent ≈ 10–20% → about 10–20 jobs, not 100",
+            next: "busy",
+          },
+          wrongs: [
+            {
+              id: "all",
+              label: "100 logos = 100 simultaneous jobs",
+              explain:
+                "That is how you overbuy. Most logos are idle. Use 10–20%.\n\nReturn to concurrency.",
+            },
+            {
+              id: "one",
+              label: "Assume 1% — one person on",
+              explain:
+                "1% is too quiet for this heuristic. Band is 10–20%.\n\nReturn to concurrency.",
+            },
+          ],
+        },
+        {
+          id: "busy",
+          message: "They say it will be a busy hour. Which end of the band?",
+          correct: {
+            id: "twenty",
+            label: "20% of 100 → 20 concurrent",
+            next: "check",
+          },
+          wrongs: [
+            {
+              id: "ten",
+              label: "Still 10 — the band does not move",
+              explain:
+                "Quiet ≈ 10%, busy ≈ 20%. Busy hour uses the top of the band.\n\nRevisit the band.",
+            },
+            {
+              id: "fifty",
+              label: "50% because busy means half",
+              explain:
+                "Busy in this shortcut is 20%, not 50%.\n\nRevisit the band.",
+            },
+          ],
+        },
+        {
+          id: "check",
+          message: "1,000 logos, quiet day. Concurrent smell?",
+          correct: {
+            id: "hundred",
+            label: "About 100 (10%)",
+            next: "success",
+          },
+          wrongs: [
+            {
+              id: "thousand",
+              label: "1,000 — every logo is on",
+              explain: "Quiet day is the low end: 10%.\n\nTry the check again.",
+            },
+            {
+              id: "200",
+              label: "200 — always use 20%",
+              explain:
+                "20% is the busy end. Quiet is 10% → 100.\n\nTry the check again.",
+            },
+          ],
+        },
+      ],
+      success:
+        "Session complete. Concurrent ≈ 10–20% of logos. Size for the slice.\n\nSAMPLE: 100 logos → 10 quiet / 20 busy.",
+    },
+  ),
+  spec(
+    "capacity-split",
+    "Boxes is users divided by per-box capacity",
+    "SAMPLE 1,000 users / 20 per server = 50 servers. Cancel zeros first.",
+    I,
+    {
+      layers: [
+        {
+          id: "start",
+          message:
+            "SAMPLE: 1,000 simultaneous users, 20 per server. How many boxes?\n\nMove?",
+          correct: {
+            id: "div",
+            label: "Users ÷ capacity → 1,000 / 20 = 50",
+            next: "zeros",
+          },
+          wrongs: [
+            {
+              id: "times",
+              label: "1,000 × 20 = 20,000 servers",
+              explain:
+                "That explodes the fleet. Divide users by how many each box holds.\n\nReturn to divide.",
+            },
+            {
+              id: "twenty",
+              label: "20 servers because capacity is 20",
+              explain:
+                "You copied capacity as the fleet size. 1,000/20=50.\n\nReturn to divide.",
+            },
+          ],
+        },
+        {
+          id: "zeros",
+          message: "1,000 / 20. Fast cancel?",
+          correct: {
+            id: "cancel",
+            label: "1,000 / 20 = 50",
+            next: "check",
+          },
+          wrongs: [
+            {
+              id: "10",
+              label: "10 — cancelled too far",
+              explain: "1,000/20 is 50, not 10.\n\nRevisit the cancel.",
+            },
+            {
+              id: "2000",
+              label: "2,000 — multiplied after cancelling",
+              explain: "Stay on divide.\n\nRevisit the cancel.",
+            },
+          ],
+        },
+        {
+          id: "check",
+          message: "400 users, 20 per box. Fleet?",
+          correct: {
+            id: "twenty_boxes",
+            label: "20 servers",
+            next: "success",
+          },
+          wrongs: [
+            {
+              id: "400",
+              label: "400 servers",
+              explain: "400/20=20.\n\nTry the check again.",
+            },
+            {
+              id: "8",
+              label: "8 servers",
+              explain: "That would be 400/50. Capacity was 20.\n\nTry the check again.",
+            },
+          ],
+        },
+      ],
+      success:
+        "Session complete. Boxes = users ÷ per-box capacity. Cancel zeros.\n\nSAMPLE: 1,000/20=50.",
+    },
+  ),
+  spec(
+    "box-contribution",
+    "Revenue per box versus cost per box",
+    "SAMPLE $30 × 20 users = $600 vs $720/mo box → losing $120 per server.",
+    I,
+    {
+      layers: [
+        {
+          id: "start",
+          message:
+            "SAMPLE: $30/mo price, 20 users on one GPU that costs $720/mo.\n\nFirst number?",
+          correct: {
+            id: "rev",
+            label: "Revenue on the box = $30 × 20 = $600",
+            next: "compare",
+          },
+          wrongs: [
+            {
+              id: "cost_only",
+              label: "Just quote $720 — that is the cost",
+              explain:
+                "You need revenue on that box before you judge. Price × users-on-the-box.\n\nReturn to $600.",
+            },
+            {
+              id: "720_div_30",
+              label: "720 ÷ 30 = 24 users needed — stop there",
+              explain:
+                "That is break-even users. This prompt asks whether the current 20 cover the box.\n\nReturn to $600.",
+            },
+          ],
+        },
+        {
+          id: "compare",
+          message: "$600 revenue, $720 cost. Smell?",
+          correct: {
+            id: "lose",
+            label: "Losing $120 per server",
+            next: "check",
+          },
+          wrongs: [
+            {
+              id: "win",
+              label: "Winning because $720 is a round infra number",
+              explain:
+                "$600 < $720. The box loses money.\n\nRevisit the gap.",
+            },
+            {
+              id: "1200",
+              label: "Gap is $1,200",
+              explain: "720 − 600 = 120, not 1,200.\n\nRevisit the gap.",
+            },
+          ],
+        },
+        {
+          id: "check",
+          message: "$40 × 20 users vs $720 box. Contribution?",
+          correct: {
+            id: "eighty",
+            label: "$800 − $720 = $80 positive",
+            next: "success",
+          },
+          wrongs: [
+            {
+              id: "lose40",
+              label: "Still losing — infra always loses",
+              explain: "$800 covers $720. +$80.\n\nTry the check again.",
+            },
+            {
+              id: "800_cost",
+              label: "Cost is $800",
+              explain: "Cost was $720. Revenue is $800.\n\nTry the check again.",
+            },
+          ],
+        },
+      ],
+      success:
+        "Session complete. Price × users-on-the-box, then compare to monthly box cost.\n\nSAMPLE: $30×20=$600 vs $720 → −$120.",
+    },
+  ),
+  spec(
+    "utilization",
+    "Plan at about 70% of max",
+    "SAMPLE 10 jobs/sec advertised → plan on 7. Do not size as if you run at 100%.",
+    I,
+    {
+      layers: [
+        {
+          id: "start",
+          message:
+            "SAMPLE: a box claims 10 jobs/sec. What do you plan for?\n\nShortcut?",
+          correct: {
+            id: "seventy",
+            label: "About 70% → 7 jobs/sec safe",
+            next: "why",
+          },
+          wrongs: [
+            {
+              id: "ten",
+              label: "10 — they published 10",
+              explain:
+                "Published max is a ceiling. Sustained load uses ~70%.\n\nReturn to 70%.",
+            },
+            {
+              id: "half",
+              label: "5 — always half",
+              explain: "The rule is ~70%, not 50%. 0.7×10=7.\n\nReturn to 70%.",
+            },
+          ],
+        },
+        {
+          id: "why",
+          message: "Why not plan at 100%?",
+          correct: {
+            id: "headroom",
+            label: "Spikes and degradation — 100% is not a plan",
+            next: "check",
+          },
+          wrongs: [
+            {
+              id: "vendor",
+              label: "Vendors lie by 30%",
+              explain:
+                "Maybe, but the move is operational: leave headroom.\n\nRevisit why.",
+            },
+            {
+              id: "always70",
+              label: "Because 70 is a lucky number",
+              explain:
+                "It is a load-planning heuristic, not superstition.\n\nRevisit why.",
+            },
+          ],
+        },
+        {
+          id: "check",
+          message: "100 seats advertised. Filled plan?",
+          correct: {
+            id: "70seats",
+            label: "70 filled",
+            next: "success",
+          },
+          wrongs: [
+            {
+              id: "100seats",
+              label: "100 filled — sold out",
+              explain: "0.7×100=70.\n\nTry the check again.",
+            },
+            {
+              id: "30seats",
+              label: "30 — that is the 30% pad",
+              explain:
+                "You reserved 30% empty, so filled is 70, not 30.\n\nTry the check again.",
+            },
+          ],
+        },
+      ],
+      success:
+        "Session complete. Safe load ≈ 0.7 × advertised max.\n\nSAMPLE: 10/sec → 7; 100 seats → 70.",
+    },
+  ),
+  spec(
+    "estimate-pad",
+    "Always add 30% to a cost guess",
+    "SAMPLE $2,000 guess → ×1.3 → $2,600. Undercount pad, not salary benefits.",
+    I,
+    {
+      layers: [
+        {
+          id: "start",
+          message:
+            "SAMPLE: someone quotes a $2,000 infra guess.\n\nWhat do you do?",
+          correct: {
+            id: "pad",
+            label: "×1.3 → about $2,600",
+            next: "not_salary",
+          },
+          wrongs: [
+            {
+              id: "face",
+              label: "Keep $2,000 — they already estimated",
+              explain:
+                "Estimates run short. Pad ×1.3.\n\nReturn to the pad.",
+            },
+            {
+              id: "double",
+              label: "Double it to $4,000",
+              explain:
+                "That is a different panic. The operator pad is 30%.\n\nReturn to the pad.",
+            },
+          ],
+        },
+        {
+          id: "not_salary",
+          message: "Is this the same as salary ×1.3?",
+          correct: {
+            id: "story",
+            label: "Same multiple, different story — this is undercount, not benefits",
+            next: "check",
+          },
+          wrongs: [
+            {
+              id: "same",
+              label: "Yes — always ×1.3 means benefits",
+              explain:
+                "Fully loaded headcount is benefits. This pad is 'the estimate was low.'\n\nRevisit the story.",
+            },
+            {
+              id: "13pct",
+              label: "Add 13%, not 30%",
+              explain: "1.3 is thirty percent, not thirteen.\n\nRevisit the story.",
+            },
+          ],
+        },
+        {
+          id: "check",
+          message: "$5,000 guess padded?",
+          correct: {
+            id: "65",
+            label: "$6,500",
+            next: "success",
+          },
+          wrongs: [
+            {
+              id: "5300",
+              label: "$5,300 — added 300",
+              explain: "×1.3 is 30% of 5,000 = 1,500 → 6,500.\n\nTry the check again.",
+            },
+            {
+              id: "15000",
+              label: "$15,000 — ×3",
+              explain: "×1.3, not ×3.\n\nTry the check again.",
+            },
+          ],
+        },
+      ],
+      success:
+        "Session complete. Cost guess ×1.3. Not the salary-benefits sentence.\n\nSAMPLE: $2,000 → $2,600; $5,000 → $6,500.",
+    },
+  ),
+  spec(
+    "funnel-bands",
+    "SaaS funnel bands, then compress",
+    "SAMPLE 10,000 visits: ~20% signup then ~5% paid → about 100 paying.",
+    I,
+    {
+      layers: [
+        {
+          id: "start",
+          message:
+            "SAMPLE: 10,000 visits, no analytics. Paying users in the ballpark?\n\nFirst band?",
+          correct: {
+            id: "signup",
+            label: "Visit→signup ~10–30%, mid 20% → ~2,000 signups",
+            next: "paid",
+          },
+          wrongs: [
+            {
+              id: "all_pay",
+              label: "10,000 paying — traffic is customers",
+              explain:
+                "Funnels compress. Most visits never pay.\n\nReturn to signup band.",
+            },
+            {
+              id: "one_pct",
+              label: "1% signup because 1% is a round percent",
+              explain:
+                "Visit→signup typically 10–30%, not 1%.\n\nReturn to signup band.",
+            },
+          ],
+        },
+        {
+          id: "paid",
+          message: "~2,000 signups. Signup→paid band, mid smell?",
+          correct: {
+            id: "five",
+            label: "~5% of 2,000 → about 100 paid",
+            next: "check",
+          },
+          wrongs: [
+            {
+              id: "twenty_again",
+              label: "Another 20% → 400 paid",
+              explain:
+                "Paid conversion is tighter: about 2–10%, mid 5%.\n\nRevisit paid.",
+            },
+            {
+              id: "2000_paid",
+              label: "2,000 paid — signups all convert",
+              explain: "Signup is not paid.\n\nRevisit paid.",
+            },
+          ],
+        },
+        {
+          id: "check",
+          message: "8,000 visits, conservative 10% then 10%. Paid?",
+          correct: {
+            id: "eighty",
+            label: "80 paying",
+            next: "success",
+          },
+          wrongs: [
+            {
+              id: "800",
+              label: "800 — only the first 10%",
+              explain:
+                "You stopped at signups. 800 signups × 10% paid = 80.\n\nTry the check again.",
+            },
+            {
+              id: "8",
+              label: "8 — two extra zeros dropped",
+              explain: "8,000×0.1×0.1=80.\n\nTry the check again.",
+            },
+          ],
+        },
+      ],
+      success:
+        "Session complete. Visit→signup 10–30%, signup→paid 2–10%. Mid: 20% then 5%.\n\nSAMPLE: 10k visits → ~100 paid.",
     },
   ),
 ];

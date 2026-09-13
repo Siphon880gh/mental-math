@@ -22,7 +22,7 @@ High NRR means you can grow while buying fewer new customers. It is the “do we
 
 “We grow 10% month but NRR is 70%” — new logos are hiding a melting base. Do not celebrate the top-line alone.
 
-## Check
+## Same idea, new numbers
 
 - Start 50, end (same logos) 60 → 120%
 - Start 50, end 40, no expansion → GRR 80%, NRR 80%

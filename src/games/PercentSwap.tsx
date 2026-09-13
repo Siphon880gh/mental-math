@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { LessonLink } from "../components/LessonLink";
+import { ResourcePageTagger } from "../components/PassTags";
 
 export default function PercentSwap() {
   const [swapped, setSwapped] = useState(false);
@@ -33,6 +34,7 @@ export default function PercentSwap() {
       {halved ? (
         <p className="coach-success coach-panel">14% of 50 is 50% of 14 → 7.</p>
       ) : null}
+      <ResourcePageTagger resourceKey="game:percent-swap" section="games" />
       <p>
         <LessonLink familyId="percent-reversible">Related guide</LessonLink>
         {" · "}

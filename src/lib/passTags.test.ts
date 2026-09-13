@@ -17,7 +17,10 @@ afterEach(() => {
 
 describe("pass tags", () => {
   it("has first-pass and second-pass presets", () => {
-    expect(PASS_TAGS.filter((t) => t.group === "first-pass").length).toBe(3);
+    expect(PASS_TAGS.filter((t) => t.group === "first-pass").length).toBe(4);
+    expect(PASS_TAGS.filter((t) => t.group === "first-pass").at(-1)?.label).toBe(
+      "Ready to transition",
+    );
     expect(PASS_TAGS.filter((t) => t.group === "second-pass").length).toBe(4);
   });
 

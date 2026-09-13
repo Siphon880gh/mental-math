@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { LessonLink } from "../components/LessonLink";
+import { ResourcePageTagger } from "../components/PassTags";
 import SessionPeekBanner from "../components/SessionPeekBanner";
 import { useSessionPeek } from "../components/useSessionPeek";
 import { getDrillGroup, itemsForGroup } from "../lib/drillData";
@@ -63,6 +64,7 @@ export default function DrillPlayer() {
           onEnable={enable}
           onDisable={disable}
         />
+        <ResourcePageTagger resourceKey={`drill:${groupId}`} section="drills" />
         <p>
           <Link to="/">Home</Link>
           {" · "}
@@ -127,6 +129,7 @@ export default function DrillPlayer() {
           {score?.correct}/{score?.total} with median {Math.round((score?.medianLatencyMs ?? 0) / 100) / 10}s.
           SAMPLE only.
         </p>
+        <ResourcePageTagger resourceKey={`drill:${groupId}`} section="drills" />
         <Link to="/drills">All drills</Link>
         {" · "}
         <Link to="/">Home</Link>
@@ -187,6 +190,7 @@ export default function DrillPlayer() {
           </div>
         )}
       </form>
+      <ResourcePageTagger resourceKey={`drill:${groupId}`} section="drills" />
       <p>
         <Link to="/drills">All drills</Link>
       </p>

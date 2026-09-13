@@ -25,7 +25,7 @@ If there is no price yet, you cannot finish this trick. Ask for a cap or a price
 
 “We raised 3 on 12 pre” → post 15, sold **20%**. “We raised 3 at 12 post” is sold 3/12 = **25%**. Listen for pre vs post.
 
-## Check
+## Same idea, new numbers
 
 - Pre 20, raise 5 → post 25, sold 20%
 - Raise 1, post 5 → sold 20%

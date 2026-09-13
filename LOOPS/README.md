@@ -10,6 +10,13 @@ Reusable `/loop` prompts that deepen **content** per app section. Runtime and mi
 
 To pin a policy: `policy=DRAIN` or `policy=ECHO`. Default is `FOUNDATION_THEN_ECHO`.
 
+Catalog import from [`context/docs-more-more/more-tricks.md`](../context/docs-more-more/more-tricks.md) is a **separate** pair of loops. Drain incorporate to Done, then audit. Do not run them in the same session as the graph or a section loop.
+
+```text
+/loop exhaustive more-tricks incorporate using LOOPS/LOOP-More-Tricks.md
+/loop exhaustive more-tricks audit using LOOPS/LOOP-More-Tricks-Audit.md
+```
+
 To run a **single** section instead, use that file only. Do not start the graph and a section loop in the same session.
 
 ## How to run (one section)
@@ -29,6 +36,8 @@ Preferred (dynamic — agent self-paces after each tick):
 | Games `/games` | [`LOOP-Games.md`](./LOOP-Games.md) | `/loop exhaustive Games content using LOOPS/LOOP-Games.md` |
 | Cases `/cases` | [`LOOP-Cases.md`](./LOOP-Cases.md) | `/loop exhaustive Cases content using LOOPS/LOOP-Cases.md` |
 | Home `/` | [`LOOP-Home.md`](./LOOP-Home.md) | `/loop exhaustive Home content using LOOPS/LOOP-Home.md` |
+| **more-tricks incorporate** | [`LOOP-More-Tricks.md`](./LOOP-More-Tricks.md) | `/loop exhaustive more-tricks incorporate using LOOPS/LOOP-More-Tricks.md` |
+| **more-tricks audit** | [`LOOP-More-Tricks-Audit.md`](./LOOP-More-Tricks-Audit.md) | `/loop exhaustive more-tricks audit using LOOPS/LOOP-More-Tricks-Audit.md` |
 
 Archive is retired. See [`LOOP-Archive.md`](./LOOP-Archive.md). Do not restore it as a second literacy list.
 

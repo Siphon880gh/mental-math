@@ -21,7 +21,7 @@ $50k processed ≈ **$1.5k** fees at 3%.
 
 A $5 digital good: 2.9% is 15¢ + 30¢ = 45¢ → **9%** gone before your COGS. Price or batch accordingly.
 
-## Check
+## Same idea, new numbers
 
 - $20 → 0.58 + 0.30 = $0.88
 - $1,000 → $29 + $0.30 = $29.30

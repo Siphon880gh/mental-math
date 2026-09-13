@@ -33,7 +33,25 @@ export type FamilyId =
   | "processing-fees"
   | "fully-loaded"
   | "dilution"
-  | "tam-fermi";
+  | "tam-fermi"
+  | "pareto"
+  | "revenue-triangle"
+  | "divisibility"
+  | "criss-cross"
+  | "difference-squares"
+  | "easy-division"
+  | "complements"
+  | "equal-adjust"
+  | "cross-cancel"
+  | "cast-nines"
+  | "approx-sqrt"
+  | "regroup-factors"
+  | "concurrency"
+  | "capacity-split"
+  | "box-contribution"
+  | "utilization"
+  | "estimate-pad"
+  | "funnel-bands";
 
 export type TrickCategory =
   | "Anchors"
@@ -78,6 +96,18 @@ export const EXTRA_MENTAL_FAMILY_IDS: FamilyId[] = [
   "multiply-near",
   "fraction-percent",
   "rule-of-72",
+  "pareto",
+  "revenue-triangle",
+  "divisibility",
+  "criss-cross",
+  "difference-squares",
+  "easy-division",
+  "complements",
+  "equal-adjust",
+  "cross-cancel",
+  "cast-nines",
+  "approx-sqrt",
+  "regroup-factors",
 ];
 
 /** Extra startup metrics — not on the Beginner Reflex Path. Source: context/docs-more/Startup Math. */
@@ -95,9 +125,20 @@ export const EXTRA_STARTUP_FAMILY_IDS: FamilyId[] = [
   "tam-fermi",
 ];
 
+/** Operator heuristics from `_Biz Math Patterns` — not on the Beginner spine. */
+export const EXTRA_OPERATOR_FAMILY_IDS: FamilyId[] = [
+  "concurrency",
+  "capacity-split",
+  "box-contribution",
+  "utilization",
+  "estimate-pad",
+  "funnel-bands",
+];
+
 export const EXTRA_FAMILY_IDS: FamilyId[] = [
   ...EXTRA_MENTAL_FAMILY_IDS,
   ...EXTRA_STARTUP_FAMILY_IDS,
+  ...EXTRA_OPERATOR_FAMILY_IDS,
 ];
 
 export const TRICKS: Trick[] = [
@@ -110,11 +151,35 @@ export const TRICKS: Trick[] = [
     category: "Anchors",
   },
   {
+    id: "anchors-relate-facts",
+    familyId: "anchors",
+    title: "Build a hard fact from an easy one",
+    rule: "Do not memorize 7×8 as a unique island. 7×4=28, double → 56. Or 7×10−7×2.",
+    example: "6×7 = 5×7+7 = 35+7 = 42.",
+    category: "Anchors",
+  },
+  {
+    id: "anchors-squares-powers",
+    familyId: "anchors",
+    title: "Keep squares and powers of two",
+    rule: "Squares through 25 and 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024 pull other tricks.",
+    example: "15²=225, 25²=625. 2¹⁰=1,024.",
+    category: "Anchors",
+  },
+  {
     id: "magnitude-append-zeros",
     familyId: "magnitude",
     title: "Scale by tens by moving zeros",
     rule: "×10 appends a zero; ×100 appends two. Do not recompute the base fact.",
     example: "7 × 8 = 56, so 70 × 8 = 560 and 700 × 8 = 5,600.",
+    category: "Anchors",
+  },
+  {
+    id: "magnitude-decimal-mult",
+    familyId: "magnitude",
+    title: "Ignore decimal points, then put them back",
+    rule: "Multiply the digits as whole numbers. Count total places to the right of the points and park them at the end.",
+    example: "1.7 × 2.4 → 17×24=408, two places → 4.08.",
     category: "Anchors",
   },
   {
@@ -150,6 +215,14 @@ export const TRICKS: Trick[] = [
     category: "Percents",
   },
   {
+    id: "percent-chunks-12-5",
+    familyId: "percent-chunks",
+    title: "Twelve and a half percent is divide by eight",
+    rule: "12.5% = 1/8. 33⅓% is ÷3. Build 17% as 10%+5%+2%.",
+    example: "12.5% of 80 → 80÷8=10.",
+    category: "Percents",
+  },
+  {
     id: "percent-tip-20",
     familyId: "percent-tip",
     title: "Twenty percent is double then one place left",
@@ -161,7 +234,7 @@ export const TRICKS: Trick[] = [
     id: "div-by-5-double-shift",
     familyId: "div-by-5",
     title: "Divide by five: double, then shift",
-    rule: "×2, then move one place left. Same motion as a 20% tip, different story.",
+    rule: "×2, then move one place left.",
     example: "1,322 ÷ 5 → 2,644 → 264.4.",
     category: "Conversions",
   },
@@ -178,7 +251,7 @@ export const TRICKS: Trick[] = [
     familyId: "month-day",
     title: "Monthly to daily is ÷30",
     rule: "A month is about 30 days. Reverse: daily × 30 ≈ monthly.",
-    example: "$900/mo → $30/day. $24/day → $720/mo.",
+    example: "$900/mo → $30/day. $20/day → $600/mo.",
     category: "Conversions",
   },
   {
@@ -186,7 +259,7 @@ export const TRICKS: Trick[] = [
     familyId: "month-year",
     title: "Monthly to yearly is ×12",
     rule: "Twelve months. Yearly to monthly is ÷12. ×12 is ×10 plus ×2.",
-    example: "$30/mo → $300 + $60 = $360/year. $2/hr already became $720/mo → ×12 = $8,640/year.",
+    example: "$30/mo → $300 + $60 = $360/year. $100/mo → $1,000 + $200 = $1,200/year.",
     category: "Conversions",
   },
   {
@@ -262,11 +335,43 @@ export const TRICKS: Trick[] = [
     category: "Foundations",
   },
   {
+    id: "round-compensate-compatible",
+    familyId: "round-compensate",
+    title: "Estimate with compatible numbers first",
+    rule: "Before the exact payback, round both factors to something you can do instantly so the magnitude is locked.",
+    example: "598 × 21 → first 600×20=12,000, then 598×20+598=12,558.",
+    category: "Foundations",
+  },
+  {
     id: "double-half-x5",
     familyId: "double-half",
     title: "Times five is times ten, then half",
     rule: "×4 and ×8 are repeated doubles. ×25 is ×100 then ÷4.",
     example: "86 × 5 → 860 / 2 = 430.",
+    category: "Foundations",
+  },
+  {
+    id: "double-half-x50",
+    familyId: "double-half",
+    title: "Times fifty is times 100, then half",
+    rule: "×50 = ×100 ÷ 2. ×75 is three-quarters of ×100.",
+    example: "34 × 50 → 3,400 / 2 = 1,700.",
+    category: "Foundations",
+  },
+  {
+    id: "double-half-x125",
+    familyId: "double-half",
+    title: "Times 125 is times 1000, then ÷8",
+    rule: "125 = 1000/8. Add three zeros, then halve three times.",
+    example: "48 × 125 → 48,000 / 8 = 6,000.",
+    category: "Foundations",
+  },
+  {
+    id: "double-half-peasant",
+    familyId: "double-half",
+    title: "Halve one side, double the other, drop even rows",
+    rule: "Russian peasant / Egyptian: keep doubling. Add the rows where the halved side was odd (binary bits).",
+    example: "27 × 18 → keep 18+36+144+288 = 486.",
     category: "Foundations",
   },
   {
@@ -278,11 +383,51 @@ export const TRICKS: Trick[] = [
     category: "Foundations",
   },
   {
+    id: "multiply-near-x11-three",
+    familyId: "multiply-near",
+    title: "Three-digit times eleven is neighbor sums",
+    rule: "Write the first digit, then each adjacent pair, then the last digit. Carry when a pair is 10 or more.",
+    example: "347 × 11 → 3 | 3+4 | 4+7 | 7 → 3,817.",
+    category: "Foundations",
+  },
+  {
+    id: "multiply-near-x99",
+    familyId: "multiply-near",
+    title: "Times 99 is times 100 minus the number",
+    rule: "×99 = ×100 − n. ×101 = ×100 + n. Same shape as ×9 / ×11 one place larger.",
+    example: "63 × 99 → 6,300 − 63 = 6,237.",
+    category: "Foundations",
+  },
+  {
+    id: "multiply-near-x101",
+    familyId: "multiply-near",
+    title: "Times 101 parks the number beside itself",
+    rule: "×101 = ×100 + n. For two digits that is ab0 + ab.",
+    example: "47 × 101 → 4,700 + 47 = 4,747.",
+    category: "Foundations",
+  },
+  {
+    id: "multiply-near-square-100",
+    familyId: "multiply-near",
+    title: "Square near 100 with (100±d)²",
+    rule: "10000 ± 200d + d². Two middle digits from 2d, last two from d².",
+    example: "97² → 10,000 − 600 + 9 = 9,409.",
+    category: "Foundations",
+  },
+  {
     id: "fraction-percent-eighth",
     familyId: "fraction-percent",
     title: "Common fractions are percents",
     rule: "Memorize 1/2, 1/3, 1/4, 1/5, 1/8, 1/10. Scale from there.",
     example: "1/8 of 800 is 100 (half of 25% of 800, or 800÷8).",
+    category: "Foundations",
+  },
+  {
+    id: "fraction-percent-eighths",
+    familyId: "fraction-percent",
+    title: "Eighths and twenty-fifths",
+    rule: "3/8=37.5%, 5/8=62.5%, 7/8=87.5%. 1/25=4%.",
+    example: "3/8 of 80 is three × 10 = 30.",
     category: "Foundations",
   },
   {
@@ -380,6 +525,246 @@ export const TRICKS: Trick[] = [
     rule: "Stack round numbers, then take a believable slice. Watch for a 10× error in one factor.",
     example: "200k dentists × $600/year → $120M TAM; 1,000 customers is $600k ARR.",
     category: "Startup",
+  },
+  {
+    id: "pareto-80-20",
+    familyId: "pareto",
+    title: "Twenty percent carries about eighty",
+    rule: "Take 20% of the count as the heavy slice; treat that slice as ~80% of load or revenue.",
+    example: "1,000 users → ~200 whales. Those 200 ≈ 80% of load.",
+    category: "Foundations",
+  },
+  {
+    id: "revenue-triangle-invert",
+    familyId: "revenue-triangle",
+    title: "Revenue is price times users",
+    rule: "R = P × U. Any side from the other two: users = revenue ÷ price.",
+    example: "$50 × 20 users = $1,000. $5,000 at $50 → 100 users.",
+    category: "Foundations",
+  },
+  {
+    id: "divisibility-digit-sum",
+    familyId: "divisibility",
+    title: "Three and nine are digit sums",
+    rule: "A number is divisible by 3 (or 9) when the digit sum is. Keep summing to a single digit for 9.",
+    example: "4,731 → 4+7+3+1=15, and 15÷3 works, so yes for 3.",
+    category: "Foundations",
+  },
+  {
+    id: "divisibility-last-two",
+    familyId: "divisibility",
+    title: "Four looks at the last two digits",
+    rule: "÷4: last two. ÷8: last three. ÷2 last digit even. ÷5 ends 0 or 5. ÷25 ends 00, 25, 50, 75.",
+    example: "7,316 → 16÷4, so yes for 4.",
+    category: "Foundations",
+  },
+  {
+    id: "divisibility-alt-11",
+    familyId: "divisibility",
+    title: "Eleven is the alternating sum",
+    rule: "Add / subtract digits in turn. 0 or a multiple of 11 (including negatives) means yes.",
+    example: "2,728 → 2−7+2−8=−11 → yes.",
+    category: "Foundations",
+  },
+  {
+    id: "criss-cross-two-digit",
+    familyId: "criss-cross",
+    title: "Vertical, then crosswise, then vertical",
+    rule: "Ones product, then the two cross products added, then tens product. Carry as you go.",
+    example: "23 × 21 → 3×1=3, 2×1+3×2=8, 2×2=4 → 483.",
+    category: "Foundations",
+  },
+  {
+    id: "difference-squares-center",
+    familyId: "difference-squares",
+    title: "Equally far from a center is a² − b²",
+    rule: "(c−d)(c+d)=c²−d². Find the midpoint, square it, subtract the gap squared.",
+    example: "48 × 52 = 50² − 2² = 2,500 − 4 = 2,496.",
+    category: "Foundations",
+  },
+  {
+    id: "difference-squares-same-tens",
+    familyId: "difference-squares",
+    title: "Same tens digit, ones add to ten",
+    rule: "Left: tens × (tens+1). Right: ones product. Glue them.",
+    example: "43 × 47 → 4×5=20, 3×7=21 → 2,021.",
+    category: "Foundations",
+  },
+  {
+    id: "difference-squares-near",
+    familyId: "difference-squares",
+    title: "Near-square pair around a known square",
+    rule: "73 × 77 sits on 75: 75² − 2². Need a nearby square you already know.",
+    example: "73 × 77 → 5,625 − 4 = 5,621.",
+    category: "Foundations",
+  },
+  {
+    id: "easy-division-rewrite",
+    familyId: "easy-division",
+    title: "Turn division into an easier multiply",
+    rule: "÷5 is ×2 then ÷10. ÷25 is ×4 then ÷100. ÷4 / ÷8 are repeated halves. ÷0.5 is ×2.",
+    example: "675 ÷ 25 → ×4 = 2,700, ÷100 = 27.",
+    category: "Foundations",
+  },
+  {
+    id: "easy-division-factor",
+    familyId: "easy-division",
+    title: "Factor the divisor, or ask × what",
+    rule: "÷12 = ÷3 then ÷4 (or the reverse). Or hear 12 × ? = 168.",
+    example: "936 ÷ 12 → 936÷3=312, 312÷4=78.",
+    category: "Foundations",
+  },
+  {
+    id: "easy-division-scale",
+    familyId: "easy-division",
+    title: "Scale both until the divisor is whole",
+    rule: "Multiply dividend and divisor by the same 10s. Division does not change.",
+    example: "4.8 ÷ 0.06 → ×100 → 480 ÷ 6 = 80.",
+    category: "Foundations",
+  },
+  {
+    id: "complements-make-ten",
+    familyId: "complements",
+    title: "Know what is missing to 10, 100, 1000",
+    rule: "1+9, 2+8, 3+7, 4+6, 5+5. Then 37 needs 63 to make 100.",
+    example: "8+7 → 8+2+5=15. 68+47 → 68 needs 32, 100+15=115.",
+    category: "Foundations",
+  },
+  {
+    id: "complements-pair",
+    familyId: "complements",
+    title: "Pair a long sum to tens",
+    rule: "In a list, grab pairs that make 10, 100, or 1,000, then count the pairs.",
+    example: "18+82, 72+28, 35+65 → three hundreds = 300.",
+    category: "Foundations",
+  },
+  {
+    id: "complements-gauss",
+    familyId: "complements",
+    title: "Pair the ends of a run",
+    rule: "1+2+…+n = n(n+1)/2. Pair first with last; there are n/2 copies of (n+1).",
+    example: "1 through 10 → 5 pairs of 11 = 55.",
+    category: "Foundations",
+  },
+  {
+    id: "equal-adjust-both",
+    familyId: "equal-adjust",
+    title: "Add the same to both sides of a subtract",
+    rule: "a−b = (a+c)−(b+c). Push the subtrahend to a round 10 or 100.",
+    example: "502 − 198 → add 2 to both → 504 − 200 = 304.",
+    category: "Foundations",
+  },
+  {
+    id: "cross-cancel-factors",
+    familyId: "cross-cancel",
+    title: "Cancel factors before you multiply fractions",
+    rule: "Any numerator may cancel with any denominator. Multiply the thin leftovers.",
+    example: "6/8 × 4/3 → cancel to 1.",
+    category: "Foundations",
+  },
+  {
+    id: "cross-cancel-compare",
+    familyId: "cross-cancel",
+    title: "Compare fractions by cross products",
+    rule: "a/b vs c/d: compare a×d and b×c. Larger product is the larger fraction.",
+    example: "7/11 vs 8/13 → 7×13=91, 8×11=88, so 7/11 is larger.",
+    category: "Foundations",
+  },
+  {
+    id: "cast-nines-root",
+    familyId: "cast-nines",
+    title: "Digit root checks a product modulo 9",
+    rule: "Sum digits until one remains. Factors’ roots times each other must match the answer’s root. A mismatch is definitely wrong.",
+    example: "347×26 claimed 9,022: 5×8=40→4, and 9+0+2+2=13→4, so it survives.",
+    category: "Foundations",
+  },
+  {
+    id: "cast-nines-last-digit",
+    familyId: "cast-nines",
+    title: "Last digit of a product is last digits multiplied",
+    rule: "Only ones digits matter. If the claim ends in the wrong digit, stop.",
+    example: "327×648 cannot end in 5 because 7×8=56 ends in 6.",
+    category: "Foundations",
+  },
+  {
+    id: "approx-sqrt-bump",
+    familyId: "approx-sqrt",
+    title: "Nearby square, then bump d / 2a",
+    rule: "If N = a² + d, then √N ≈ a + d/(2a).",
+    example: "√104: 10²=100, d=4, 4/20=0.2 → 10.2.",
+    category: "Foundations",
+  },
+  {
+    id: "approx-sqrt-babylon",
+    familyId: "approx-sqrt",
+    title: "One Babylonian step: average the guess and N/guess",
+    rule: "x_new = (x + N/x) / 2. One pass is usually enough to smell-test.",
+    example: "√16, guess 5: (5+16/5)/2 = 4.1.",
+    category: "Foundations",
+  },
+  {
+    id: "regroup-factors-associate",
+    familyId: "regroup-factors",
+    title: "Regroup a product so a pair becomes 10 or 100",
+    rule: "(a×b)×c = a×(b×c). Pair 25 with 4, 125 with 8, 5 with 2.",
+    example: "25 × 16 × 4 → 25×4=100, then 100×16=1,600.",
+    category: "Foundations",
+  },
+  {
+    id: "regroup-factors-order",
+    familyId: "regroup-factors",
+    title: "Do not multiply left to right out of habit",
+    rule: "Scan for a pair that makes a power of 10, then dump the leftover onto that.",
+    example: "8 × 37 × 125 → 8×125=1,000, then ×37 = 37,000.",
+    category: "Foundations",
+  },
+  {
+    id: "concurrency-10-20",
+    familyId: "concurrency",
+    title: "Only 10–20% are on at once",
+    rule: "Concurrent ≈ 10% (low) to 20% (busy) of logos. 100 users is not 100 simultaneous jobs.",
+    example: "100 logos → about 10–20 active. Size infra for 20, not 100.",
+    category: "Advanced",
+  },
+  {
+    id: "capacity-users-per-box",
+    familyId: "capacity-split",
+    title: "Boxes is users divided by per-box capacity",
+    rule: "Server count ≈ users ÷ users each box can hold. Cancel zeros first.",
+    example: "1,000 users / 20 per server = 50 servers.",
+    category: "Advanced",
+  },
+  {
+    id: "box-contrib-rev-vs-cost",
+    familyId: "box-contribution",
+    title: "Revenue per box versus cost per box",
+    rule: "Price × users-on-that-box, then compare to the monthly box cost.",
+    example: "$30 × 20 users = $600 vs $720/mo box → losing $120 per server.",
+    category: "Advanced",
+  },
+  {
+    id: "utilization-70",
+    familyId: "utilization",
+    title: "Plan at about 70% of max",
+    rule: "Safe load ≈ 0.7 × advertised capacity. Do not size as if you run at 100%.",
+    example: "10 jobs/sec max → plan on 7. 100 seats → 70 filled.",
+    category: "Advanced",
+  },
+  {
+    id: "estimate-pad-13",
+    familyId: "estimate-pad",
+    title: "Always add 30% to a cost guess",
+    rule: "Estimated cost × 1.3. Different story from salary ×1.3 (benefits): this is undercount pad.",
+    example: "$2,000 guess → about $2,600. $5,000 guess → $6,500.",
+    category: "Advanced",
+  },
+  {
+    id: "funnel-bands-saas",
+    familyId: "funnel-bands",
+    title: "SaaS funnel bands, then compress",
+    rule: "Visit→signup ~10–30%, signup→paid ~2–10%. Mid smell: 20% then 5%.",
+    example: "10,000 visits → ~2,000 signups → ~100 paid (20% then 5%).",
+    category: "Advanced",
   },
 ];
 

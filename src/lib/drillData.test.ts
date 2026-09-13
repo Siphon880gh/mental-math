@@ -5,7 +5,7 @@ import {
   PATH_DRILL_GROUP_IDS,
   itemsForGroup,
 } from "./drillData";
-import { EXTRA_MENTAL_FAMILY_IDS, EXTRA_STARTUP_FAMILY_IDS } from "./tricks";
+import { EXTRA_MENTAL_FAMILY_IDS, EXTRA_OPERATOR_FAMILY_IDS, EXTRA_STARTUP_FAMILY_IDS } from "./tricks";
 import { allCurriculumFamilyIds } from "./tracks";
 
 describe("drill banks", () => {
@@ -18,7 +18,7 @@ describe("drill banks", () => {
     for (const id of PATH_DRILL_GROUP_IDS) {
       expect(itemsForGroup(id).length).toBeGreaterThanOrEqual(16);
     }
-    for (const id of ["cfo-feasibility", "cfo-unit-econ", "cfo-runway", "cfo-growth", "foundations", "startup", "stacked-founder"]) {
+    for (const id of ["cfo-feasibility", "cfo-unit-econ", "cfo-runway", "cfo-growth", "foundations", "startup", "stacked-founder", "operator"]) {
       expect(itemsForGroup(id).length).toBeGreaterThanOrEqual(8);
     }
     expect(DRILL_GROUPS.filter((g) => g.pathGroup).map((g) => g.id)).toEqual([...PATH_DRILL_GROUP_IDS]);
@@ -43,6 +43,9 @@ describe("drill banks", () => {
       expect(DRILL_ITEMS.some((item) => item.familyId === familyId)).toBe(true);
     }
     for (const familyId of EXTRA_STARTUP_FAMILY_IDS) {
+      expect(DRILL_ITEMS.some((item) => item.familyId === familyId)).toBe(true);
+    }
+    for (const familyId of EXTRA_OPERATOR_FAMILY_IDS) {
       expect(DRILL_ITEMS.some((item) => item.familyId === familyId)).toBe(true);
     }
     for (const familyId of allCurriculumFamilyIds()) {

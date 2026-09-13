@@ -17,6 +17,18 @@ import doubleHalfSession from "./double-half";
 import multiplyNearSession from "./multiply-near";
 import fractionPercentSession from "./fraction-percent";
 import ruleOf72Session from "./rule-of-72";
+import paretoSession from "./pareto";
+import revenueTriangleSession from "./revenue-triangle";
+import divisibilitySession from "./divisibility";
+import crissCrossSession from "./criss-cross";
+import differenceSquaresSession from "./difference-squares";
+import easyDivisionSession from "./easy-division";
+import complementsSession from "./complements";
+import equalAdjustSession from "./equal-adjust";
+import crossCancelSession from "./cross-cancel";
+import castNinesSession from "./cast-nines";
+import approxSqrtSession from "./approx-sqrt";
+import regroupFactorsSession from "./regroup-factors";
 import stackedFounderSession from "./stacked-founder";
 import cfoFeasibilitySession from "./cfo-feasibility";
 import cfoUnitEconSession from "./cfo-unit-econ";
@@ -33,6 +45,12 @@ import processingFeesSession from "./processing-fees";
 import fullyLoadedSession from "./fully-loaded";
 import dilutionSession from "./dilution";
 import tamFermiSession from "./tam-fermi";
+import concurrencySession from "./concurrency";
+import capacitySplitSession from "./capacity-split";
+import boxContributionSession from "./box-contribution";
+import utilizationSession from "./utilization";
+import estimatePadSession from "./estimate-pad";
+import funnelBandsSession from "./funnel-bands";
 import type { CoachingSession } from "../types";
 
 export const COACHING_SESSION_MODULES: CoachingSession[] = [
@@ -55,6 +73,18 @@ export const COACHING_SESSION_MODULES: CoachingSession[] = [
   multiplyNearSession,
   fractionPercentSession,
   ruleOf72Session,
+  paretoSession,
+  revenueTriangleSession,
+  divisibilitySession,
+  crissCrossSession,
+  differenceSquaresSession,
+  easyDivisionSession,
+  complementsSession,
+  equalAdjustSession,
+  crossCancelSession,
+  castNinesSession,
+  approxSqrtSession,
+  regroupFactorsSession,
   stackedFounderSession,
   cfoFeasibilitySession,
   cfoUnitEconSession,
@@ -71,4 +101,10 @@ export const COACHING_SESSION_MODULES: CoachingSession[] = [
   fullyLoadedSession,
   dilutionSession,
   tamFermiSession,
+  concurrencySession,
+  capacitySplitSession,
+  boxContributionSession,
+  utilizationSession,
+  estimatePadSession,
+  funnelBandsSession,
 ];

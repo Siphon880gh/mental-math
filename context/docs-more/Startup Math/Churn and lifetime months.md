@@ -26,7 +26,7 @@ Quick annualization: monthly × 12 **overstates** true compounded loss but is fi
 
 “We churn 2% a month” → lifetime ~ **50 months**. LTV ≈ ARPU × 50 before you get fancy with gross margin.
 
-## Check
+## Same idea, new numbers
 
 - 10% monthly → ~10 months
 - 2.5% monthly → ~40 months

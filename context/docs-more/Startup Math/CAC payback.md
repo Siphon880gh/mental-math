@@ -21,7 +21,7 @@ If you ignore COGS you understate payback (looks better than it is).
 
 CAC $120, price $20/mo, ignore COGS → 6 months. If COGS is $5, profit $15 → **8 months**. Still under 12.
 
-## Check
+## Same idea, new numbers
 
 - CAC 300, profit 25/mo → 12 months
 - CAC 90, profit 30/mo → 3 months

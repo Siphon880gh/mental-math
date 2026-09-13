@@ -24,7 +24,7 @@ If you will realistically get 1,000 of them: 1,000 × 600 = **$600k ARR** ceilin
 
 “There are 10k agencies, $200/mo” → 10k × 2,400 = **$24M TAM**. A $2M ARR goal is about 8% of TAM — possible, not a rounding error.
 
-## Check
+## Same idea, new numbers
 
 - 5,000 shops × $30/mo × 12 = $1.8M TAM
 - 1M users × $10/year = $10M TAM

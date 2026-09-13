@@ -5,7 +5,7 @@
 > ARR ≈ MRR × 12  
 > MRR ≈ ARR ÷ 12
 
-This is the same ×12 / ÷12 as the time-money ladder, with SaaS names.
+Twelve months. SaaS just names the yearly figure ARR.
 
 ## Examples
 
@@ -22,7 +22,7 @@ Annual prepay of $480 for a $40/mo plan is still $40 MRR (the cash arrived early
 
 “We’re at 80k MRR” → ARR is about **$1M**. “We did $1M last year” is **not** ARR if $400k was services.
 
-## Check
+## Same idea, new numbers
 
 - $25 × 200 customers = $5k MRR = $60k ARR
 - $360k ARR = $30k MRR

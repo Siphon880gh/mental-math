@@ -127,6 +127,66 @@ const SPECS: { slug: string; familyId: FamilyId; file: string; summary: string }
     file: "Fermi TAM.md",
     summary: "Customers × yearly price, then a believable slice.",
   },
+  {
+    slug: "divisibility",
+    familyId: "divisibility",
+    file: "Divisibility.md",
+    summary: "Last digits, digit sums, and the alternating-11 test.",
+  },
+  {
+    slug: "criss-cross",
+    familyId: "criss-cross",
+    file: "Criss-cross.md",
+    summary: "Two-digit multiply: ones, cross, tens. Carry as you go.",
+  },
+  {
+    slug: "difference-squares",
+    familyId: "difference-squares",
+    file: "Difference of squares.md",
+    summary: "Equally far from a center is a² − b².",
+  },
+  {
+    slug: "easy-division",
+    familyId: "easy-division",
+    file: "Easy division.md",
+    summary: "Rewrite ÷ as ×, factor the divisor, or scale both sides.",
+  },
+  {
+    slug: "complements",
+    familyId: "complements",
+    file: "Complements.md",
+    summary: "What is missing to 10 or 100. Pair long sums. Gauss.",
+  },
+  {
+    slug: "equal-adjust",
+    familyId: "equal-adjust",
+    file: "Equal adjustment.md",
+    summary: "Add the same to both sides of a subtract.",
+  },
+  {
+    slug: "cross-cancel",
+    familyId: "cross-cancel",
+    file: "Cross-cancel.md",
+    summary: "Cancel factors first. Compare fractions by cross products.",
+  },
+  {
+    slug: "cast-nines",
+    familyId: "cast-nines",
+    file: "Casting nines.md",
+    summary: "Digit root and last-digit checks. A fail proves wrong.",
+  },
+  {
+    slug: "approx-sqrt",
+    familyId: "approx-sqrt",
+    file: "Approximate square roots.md",
+    summary: "Nearby square plus d/2a, or one Babylonian average.",
+  },
+  {
+    slug: "regroup-factors",
+    familyId: "regroup-factors",
+    file: "Regroup factors.md",
+    summary: "Pair factors that make 10 or 100 before you grind.",
+  },
 ];
 
 function bodyFor(file: string): string {

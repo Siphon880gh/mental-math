@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { LessonLink } from "../components/LessonLink";
+import { ResourcePageTagger } from "../components/PassTags";
 
 const START = 8500;
 
@@ -27,6 +28,7 @@ export default function DecimalShift() {
       </p>
       {win10 ? <p className="coach-success coach-panel">10% of 8,500 is 850. One more left for 1%.</p> : null}
       {win1 ? <p className="coach-success coach-panel">1% of 8,500 is 85. Two places left.</p> : null}
+      <ResourcePageTagger resourceKey="game:decimal-shift" section="games" />
       <p>
         <LessonLink familyId="percent-shift">Related guide</LessonLink>
         {" · "}
