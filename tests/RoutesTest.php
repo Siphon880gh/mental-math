@@ -20,9 +20,9 @@ final class RoutesTest extends TestCase
         $html = $this->html('/');
         $this->assertMatchesRegularExpression('/<h1>Mental Math Trainer<\/h1>/', $html);
         $this->assertStringContainsString('five minutes of reflex training, no calculator', $html);
-        $this->assertStringContainsString('href="/drills/anchors">Continue', $html);
-        $this->assertStringContainsString('href="/track-a"', $html);
-        $this->assertStringContainsString('href="/track-b"', $html);
+        $this->assertStringContainsString('href="/index.php?route=%2Fdrills%2Fanchors">Continue', $html);
+        $this->assertStringContainsString('href="/index.php?route=%2Ftrack-a"', $html);
+        $this->assertStringContainsString('href="/index.php?route=%2Ftrack-b"', $html);
         $this->assertStringNotContainsString('>Home<', $html);
         $this->assertStringNotContainsString('>Archive<', $html);
         $this->assertStringNotContainsString('>Guides<', $html);
@@ -38,7 +38,7 @@ final class RoutesTest extends TestCase
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $req = Request::fromGlobals();
         $this->assertSame('/track-a', $req->path);
-        $this->assertSame('/weng/app/math/track-a', url('/track-a'));
+        $this->assertSame('/weng/app/math/index.php?route=%2Ftrack-a', url('/track-a'));
         if ($prevScript === null) {
             unset($_SERVER['SCRIPT_NAME']);
         } else {
@@ -54,7 +54,7 @@ final class RoutesTest extends TestCase
         } else {
             $_SERVER['REQUEST_METHOD'] = $prevMethod;
         }
-        $this->assertSame('/track-a', url('/track-a'));
+        $this->assertSame('/index.php?route=%2Ftrack-a', url('/track-a'));
     }
 
     public function testAssetUrlsUseTheFilesAvailableFromEitherDocumentRoot(): void
@@ -73,6 +73,46 @@ final class RoutesTest extends TestCase
         }
     }
 
+    public function testNginxUsesQueryRoutesInsteadOfRequiringRewrites(): void
+    {
+        $previousSoftware = $_SERVER['SERVER_SOFTWARE'] ?? null;
+        $previousScript = $_SERVER['SCRIPT_NAME'] ?? null;
+        $previousUri = $_SERVER['REQUEST_URI'] ?? null;
+        $previousMethod = $_SERVER['REQUEST_METHOD'] ?? null;
+        $_SERVER['SERVER_SOFTWARE'] = 'nginx/1.26';
+        $_SERVER['SCRIPT_NAME'] = '/mental-math/index.php';
+
+        $this->assertSame('/mental-math/index.php?route=%2Fscenarios', url('/scenarios'));
+        $this->assertSame('/mental-math/index.php', url('/'));
+        $this->assertSame('/mental-math/public/assets/css/app.css', asset_url('/css/app.css'));
+        $this->assertSame('/mental-math/index.php', route_base());
+
+        $_SERVER['REQUEST_URI'] = '/mental-math/index.php?route=%2Fscenarios';
+        $_SERVER['REQUEST_METHOD'] = 'GET';
+        $this->assertSame('/scenarios', Request::fromGlobals()->path);
+
+        if ($previousSoftware === null) {
+            unset($_SERVER['SERVER_SOFTWARE']);
+        } else {
+            $_SERVER['SERVER_SOFTWARE'] = $previousSoftware;
+        }
+        if ($previousScript === null) {
+            unset($_SERVER['SCRIPT_NAME']);
+        } else {
+            $_SERVER['SCRIPT_NAME'] = $previousScript;
+        }
+        if ($previousUri === null) {
+            unset($_SERVER['REQUEST_URI']);
+        } else {
+            $_SERVER['REQUEST_URI'] = $previousUri;
+        }
+        if ($previousMethod === null) {
+            unset($_SERVER['REQUEST_METHOD']);
+        } else {
+            $_SERVER['REQUEST_METHOD'] = $previousMethod;
+        }
+    }
+
     public function testIndexPhpIsHome(): void
     {
         $html = $this->html('/index.php');
@@ -85,10 +125,10 @@ final class RoutesTest extends TestCase
     {
         $res = App::handle(Request::get('/archive'));
         $this->assertSame(302, $res->status);
-        $this->assertSame('/track-a', $res->headers['Location']);
+        $this->assertSame('/index.php?route=%2Ftrack-a', $res->headers['Location']);
         $guides = App::handle(Request::get('/guides'));
         $this->assertSame(302, $guides->status);
-        $this->assertSame('/track-a', $guides->headers['Location']);
+        $this->assertSame('/index.php?route=%2Ftrack-a', $guides->headers['Location']);
     }
 
     public function testTrackAAndB(): void
@@ -159,7 +199,7 @@ final class RoutesTest extends TestCase
     public function testNavActiveOnGuide(): void
     {
         $html = $this->html('/guides/anchors');
-        $this->assertMatchesRegularExpression('/href="\/track-a"[^>]*class="is-current"/', $html);
+        $this->assertMatchesRegularExpression('/href="\/index\.php\?route=%2Ftrack-a"[^>]*class="is-current"/', $html);
         $this->assertStringContainsString('A. Quick math for business and everyday life', $html);
     }
 }

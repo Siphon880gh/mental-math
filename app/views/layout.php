@@ -44,10 +44,12 @@ $caption = $activeTrack ? Tracks::LABEL[$activeTrack] : "\u{00A0}";
             }
           });
           window.__reflexBoot = { peek: peek, milestones: milestones, parsed: parsed };
-          window.__reflexBase = <?= json_encode(app_base(), JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES) ?>;
+          window.__reflexBase = <?= json_encode(route_base(), JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES) ?>;
+          window.__reflexUsesQueryRoutes = true;
         } catch (err) {
           window.__reflexBoot = { peek: false, milestones: { "E4.M1": "active" }, parsed: null };
-          window.__reflexBase = <?= json_encode(app_base(), JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES) ?>;
+          window.__reflexBase = <?= json_encode(route_base(), JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES) ?>;
+          window.__reflexUsesQueryRoutes = true;
           document.documentElement.classList.add("ms-E4-M1-open");
         }
       })();

@@ -25,10 +25,12 @@ final class Request
         $query = [];
         parse_str($parts['query'] ?? '', $query);
         $query = array_map(static fn ($v) => is_array($v) ? '' : (string) $v, $query);
+        $path = $query['route'] ?? ($parts['path'] ?? '/');
+        unset($query['route']);
 
         return new self(
             strtoupper($_SERVER['REQUEST_METHOD'] ?? 'GET'),
-            self::normalizePath(self::stripAppBase($parts['path'] ?? '/')),
+            self::normalizePath(self::stripAppBase($path)),
             $query,
         );
     }

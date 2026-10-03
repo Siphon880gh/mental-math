@@ -66,11 +66,13 @@ PHP 7.4+ (including MAMP’s PHP 7.4) and [Composer](https://getcomposer.org/) f
 For a quick local server, run `php -S localhost:8080 router.php`, then open
 `http://localhost:8080`. `composer serve` is an equivalent shortcut.
 
-The front controller is `index.php` at the project root, so Apache/nginx can point the document root at this folder (DirectoryIndex `index.php`). `/` and `/index.php` both load Home. CSS and JS stay under `public/assets/`; the app links directly to that directory when the project root is the document root, so it does not depend on an Apache rewrite for assets.
+The front controller is `index.php` at the project root, so Apache/nginx can point the document root at this folder (DirectoryIndex `index.php`). The application uses ordinary `index.php?route=...` links rather than clean URLs, so it does not require a web-server rewrite. CSS and JS stay under `public/assets/`; the app links directly to that directory when the project root is the document root.
 
 If the document root is `public/` instead, `public/index.php` still works.
 
-**MAMP/Apache:** Set MAMP to PHP 7.4+ and restart Apache. Point its document root (or a virtual-host alias) at this folder, then open that site’s URL. The included `.htaccess` sends friendly routes such as `/track-a` to `index.php`; no Composer install or PHP built-in server is required to run the app.
+**MAMP/Apache:** Set MAMP to PHP 7.4+ and restart Apache. Point its document root (or a virtual-host alias) at this folder, then open that site’s URL. No Composer install, web-server rewrite, or PHP built-in server is required to run the app.
+
+**nginx:** Links use the normal PHP-file form, for example `/mental-math/index.php?route=%2Fscenarios`, so nginx location or virtual-host changes are not needed. Bare clean URLs such as `/mental-math/scenarios` are intentionally not used.
 
 ```bash
 ./vendor/bin/phpunit

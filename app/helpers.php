@@ -30,13 +30,22 @@ function app_base(): string
     return $base === '/' ? '' : $base;
 }
 
+function route_base(): string
+{
+    return app_base() . '/index.php';
+}
+
 function url(string $path): string
 {
     if ($path === '' || $path[0] !== '/') {
         $path = '/' . ltrim($path, '/');
     }
 
-    return app_base() . $path;
+    if ($path === '/') {
+        return route_base();
+    }
+
+    return route_base() . '?route=' . rawurlencode($path);
 }
 
 /**
@@ -55,7 +64,8 @@ function asset_url(string $path): string
         ? '/assets'
         : '/public/assets';
 
-    return url($assetBase . $path);
+    // Assets are actual files, never front-controller routes.
+    return app_base() . $assetBase . $path;
 }
 
 function json_script(string $id, $data): string

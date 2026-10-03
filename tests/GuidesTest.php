@@ -26,8 +26,8 @@ final class GuidesTest extends TestCase
         $this->assertSame('quick', Guides::get('anchors')['track']);
         $this->assertSame('stakeholder', Guides::get('dilution')['track']);
         $this->assertSame('anchors', Guides::get('anchors')['relatedCoachSlug']);
-        $this->assertSame('/guides/percent-chunks', Guides::hrefForFamilyGuide('percent-chunks'));
-        $this->assertSame('/guides/month-year', Guides::hrefForFamilyGuide('month-year'));
+        $this->assertSame('/index.php?route=%2Fguides%2Fpercent-chunks', Guides::hrefForFamilyGuide('percent-chunks'));
+        $this->assertSame('/index.php?route=%2Fguides%2Fmonth-year', Guides::hrefForFamilyGuide('month-year'));
     }
 
     public function testBodies(): void

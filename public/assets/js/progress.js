@@ -199,6 +199,9 @@ export function areCasesLocked(state = loadProgress()) {
 }
 
 export function appUrl(path) {
+  if (window.__reflexUsesQueryRoutes) {
+    return `${window.__reflexBase || "index.php"}?route=${encodeURIComponent(path)}`;
+  }
   return (window.__reflexBase || "") + path;
 }
 

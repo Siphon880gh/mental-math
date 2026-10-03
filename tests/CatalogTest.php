@@ -26,8 +26,8 @@ final class CatalogTest extends TestCase
         foreach (Tracks::trackBFamilyIds() as $id) {
             $this->assertSame('stakeholder', Tracks::trackForFamily($id));
         }
-        $this->assertSame('/track-a', Tracks::hrefForTrack('quick'));
-        $this->assertSame('/track-b', Tracks::hrefForTrack('stakeholder'));
+        $this->assertSame('/index.php?route=%2Ftrack-a', Tracks::hrefForTrack('quick'));
+        $this->assertSame('/index.php?route=%2Ftrack-b', Tracks::hrefForTrack('stakeholder'));
     }
 
     public function testTricks(): void
