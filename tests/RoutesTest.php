@@ -57,6 +57,22 @@ final class RoutesTest extends TestCase
         $this->assertSame('/track-a', url('/track-a'));
     }
 
+    public function testAssetUrlsUseTheFilesAvailableFromEitherDocumentRoot(): void
+    {
+        $previousDocumentRoot = $_SERVER['DOCUMENT_ROOT'] ?? null;
+        $_SERVER['DOCUMENT_ROOT'] = dirname(__DIR__);
+        $this->assertSame('/public/assets/css/app.css', asset_url('/css/app.css'));
+
+        $_SERVER['DOCUMENT_ROOT'] = dirname(__DIR__) . '/public';
+        $this->assertSame('/assets/css/app.css', asset_url('/css/app.css'));
+
+        if ($previousDocumentRoot === null) {
+            unset($_SERVER['DOCUMENT_ROOT']);
+        } else {
+            $_SERVER['DOCUMENT_ROOT'] = $previousDocumentRoot;
+        }
+    }
+
     public function testIndexPhpIsHome(): void
     {
         $html = $this->html('/index.php');

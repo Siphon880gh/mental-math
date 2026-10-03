@@ -39,6 +39,25 @@ function url(string $path): string
     return app_base() . $path;
 }
 
+/**
+ * Return a URL for a browser asset regardless of which supported directory is
+ * the web server's document root.  Static files live in public/assets.  Some
+ * shared hosts serve the project root and do not honor the root .htaccess
+ * alias for /assets, so linking through that alias makes the application load
+ * without its CSS or JavaScript.
+ */
+function asset_url(string $path): string
+{
+    $path = '/' . ltrim($path, '/');
+    $publicRoot = realpath(__DIR__ . '/../public');
+    $documentRoot = realpath((string) ($_SERVER['DOCUMENT_ROOT'] ?? ''));
+    $assetBase = $publicRoot !== false && $documentRoot === $publicRoot
+        ? '/assets'
+        : '/public/assets';
+
+    return url($assetBase . $path);
+}
+
 function json_script(string $id, $data): string
 {
     $json = json_encode($data, JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);

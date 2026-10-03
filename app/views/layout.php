@@ -16,7 +16,7 @@ $caption = $activeTrack ? Tracks::LABEL[$activeTrack] : "\u{00A0}";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mental Math Trainer</title>
-    <link rel="stylesheet" href="<?= e(url('/assets/css/app.css')) ?>" />
+    <link rel="stylesheet" href="<?= e(asset_url('/css/app.css')) ?>" />
     <script>
       (function () {
         try {
@@ -98,6 +98,6 @@ $caption = $activeTrack ? Tracks::LABEL[$activeTrack] : "\u{00A0}";
     </div>
     <?= json_script('pass-tags-catalog', PassTags::TAGS) ?>
     <?= json_script('track-labels', Tracks::LABEL) ?>
-    <script type="module" src="<?= e(url('/assets/js/main.js')) ?>"></script>
+    <script type="module" src="<?= e(asset_url('/js/main.js')) ?>"></script>
   </body>
 </html>

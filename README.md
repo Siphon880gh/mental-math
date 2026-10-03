@@ -66,7 +66,7 @@ PHP 7.4+ (including MAMP’s PHP 7.4) and [Composer](https://getcomposer.org/) f
 For a quick local server, run `php -S localhost:8080 router.php`, then open
 `http://localhost:8080`. `composer serve` is an equivalent shortcut.
 
-The front controller is `index.php` at the project root, so Apache/nginx can point the document root at this folder (DirectoryIndex `index.php`). `/` and `/index.php` both load Home. CSS and JS stay under `public/assets/` and are exposed as `/assets/...`.
+The front controller is `index.php` at the project root, so Apache/nginx can point the document root at this folder (DirectoryIndex `index.php`). `/` and `/index.php` both load Home. CSS and JS stay under `public/assets/`; the app links directly to that directory when the project root is the document root, so it does not depend on an Apache rewrite for assets.
 
 If the document root is `public/` instead, `public/index.php` still works.
 
