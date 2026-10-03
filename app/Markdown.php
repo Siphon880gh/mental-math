@@ -35,12 +35,15 @@ final class Markdown
         foreach ($blocks as $block) {
             [$type, $level, $text] = $block;
             $inner = self::inline((string) $text);
-            $html .= match ($type) {
-                'h' => $level === 1 ? "<h1>{$inner}</h1>" : ($level === 2 ? "<h2>{$inner}</h2>" : "<h3>{$inner}</h3>"),
-                'quote' => "<blockquote>{$inner}</blockquote>",
-                'li' => "<li>{$inner}</li>",
-                default => "<p>{$inner}</p>",
-            };
+            if ($type === 'h') {
+                $html .= $level === 1 ? "<h1>{$inner}</h1>" : ($level === 2 ? "<h2>{$inner}</h2>" : "<h3>{$inner}</h3>");
+            } elseif ($type === 'quote') {
+                $html .= "<blockquote>{$inner}</blockquote>";
+            } elseif ($type === 'li') {
+                $html .= "<li>{$inner}</li>";
+            } else {
+                $html .= "<p>{$inner}</p>";
+            }
         }
 
         return $html . '</div>';

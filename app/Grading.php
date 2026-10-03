@@ -13,7 +13,7 @@ final class Grading
 
     private const MONEY_UNITS = ['usd', 'dollar', 'dollars', '$'];
 
-    public static function gradeAnswer(float|int $expected, float|int $given, ?string $unit = null): string
+    public static function gradeAnswer($expected, $given, ?string $unit = null): string
     {
         if (!is_finite((float) $given) || !is_finite((float) $expected)) {
             return 'incorrect';
@@ -49,7 +49,7 @@ final class Grading
         float $accuracy,
         float $medianLatencyMs,
         float $maxMedianMs,
-        float $minAccuracy,
+        float $minAccuracy
     ): bool {
         return $accuracy >= $minAccuracy && $medianLatencyMs <= $maxMedianMs;
     }

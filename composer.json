@@ -3,7 +3,7 @@
   "description": "Mental Math Trainer — PHP server-rendered pages, local browser progress",
   "type": "project",
   "require": {
-    "php": ">=8.2"
+    "php": "^7.4 || ^8.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^11.5"

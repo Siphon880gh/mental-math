@@ -7,11 +7,15 @@ namespace Reflex\Http;
 final class Response
 {
     /** @param array<string, string> $headers */
-    public function __construct(
-        public readonly string $body,
-        public readonly int $status = 200,
-        public readonly array $headers = ['Content-Type' => 'text/html; charset=UTF-8'],
-    ) {
+    public $body;
+    public $status;
+    public $headers;
+
+    public function __construct(string $body, int $status = 200, array $headers = ['Content-Type' => 'text/html; charset=UTF-8'])
+    {
+        $this->body = $body;
+        $this->status = $status;
+        $this->headers = $headers;
     }
 
     public static function html(string $body, int $status = 200): self

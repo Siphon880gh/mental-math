@@ -11,7 +11,7 @@ final class Json
     /** @var array<string, mixed> */
     private static array $cache = [];
 
-    public static function load(string $relative): mixed
+    public static function load(string $relative)
     {
         if (!array_key_exists($relative, self::$cache)) {
             $path = ROOT . '/data/' . $relative;

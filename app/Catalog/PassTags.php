@@ -51,7 +51,7 @@ final class PassTags
         string $key,
         string $section,
         array $applied = [],
-        array $filters = [],
+        array $filters = []
     ): bool {
         $selected = $filters[$section] ?? [];
         if ($selected === []) {

@@ -96,14 +96,15 @@ final class LearningPaths
     public static function hrefForRef(string $ref): string
     {
         [$kind, $slug] = array_pad(explode(':', $ref, 2), 2, '');
-        return url(match ($kind) {
+        $paths = [
             'drill' => '/drills/' . $slug,
             'guide' => '/guides/' . $slug,
             'coach' => '/coach/' . $slug,
             'cases' => '/cases?pack=' . $slug,
             'game' => '/games/' . $slug,
-            default => '/track-a',
-        });
+        ];
+
+        return url($paths[$kind] ?? '/track-a');
     }
 
     /**

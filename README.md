@@ -61,20 +61,16 @@ PHP server-renders every URL. Progress and pass tags live in the browser (`local
 
 ## Run locally
 
-PHP 8.2+ and [Composer](https://getcomposer.org/).
+PHP 7.4+ (including MAMP’s PHP 7.4) and [Composer](https://getcomposer.org/) for tests.
 
-```bash
-composer install
-composer serve
-```
-
-Then open `http://localhost:8080`. Equivalent: `php -S localhost:8080 router.php`.
+For a quick local server, run `php -S localhost:8080 router.php`, then open
+`http://localhost:8080`. `composer serve` is an equivalent shortcut.
 
 The front controller is `index.php` at the project root, so Apache/nginx can point the document root at this folder (DirectoryIndex `index.php`). `/` and `/index.php` both load Home. CSS and JS stay under `public/assets/` and are exposed as `/assets/...`.
 
 If the document root is `public/` instead, `public/index.php` still works.
 
-**MAMP:** Apache here is still PHP 7.4 globally, but this folder runs through MAMP’s PHP 8.2 CGI (`php82.cgi`). Open `http://localhost:8888/weng/app/math/`. To use 8.2 for every MAMP site instead, set **Preferences → PHP → 8.2.0** and restart Apache.
+**MAMP/Apache:** Set MAMP to PHP 7.4+ and restart Apache. Point its document root (or a virtual-host alias) at this folder, then open that site’s URL. The included `.htaccess` sends friendly routes such as `/track-a` to `index.php`; no Composer install or PHP built-in server is required to run the app.
 
 ```bash
 ./vendor/bin/phpunit

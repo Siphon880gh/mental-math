@@ -21,22 +21,34 @@ final class App
             return Response::redirect(url('/track-a'));
         }
 
-        $html = match (true) {
-            $path === '/' => Pages::home($request),
-            $path === '/track-a' => Pages::track($request, 'quick'),
-            $path === '/track-b' => Pages::track($request, 'stakeholder'),
-            (bool) preg_match('#^/guides/([^/]+)$#', $path, $m) => Pages::guide($request, $m[1]),
-            (bool) preg_match('#^/coach/([^/]+)$#', $path, $m) => Pages::coach($request, $m[1]),
-            $path === '/drills' => Pages::drills($request),
-            (bool) preg_match('#^/drills/([^/]+)$#', $path, $m) => Pages::drill($request, $m[1]),
-            $path === '/cases' => Pages::cases($request),
-            (bool) preg_match('#^/cases/([^/]+)$#', $path, $m) => Pages::caseStudy($request, $m[1]),
-            $path === '/scenarios' => Pages::scenarios($request),
-            (bool) preg_match('#^/scenarios/([^/]+)$#', $path, $m) => Pages::scenario($request, $m[1]),
-            $path === '/games' => Pages::games($request),
-            (bool) preg_match('#^/games/([^/]+)$#', $path, $m) => Pages::game($request, $m[1]),
-            default => null,
-        };
+        $html = null;
+        if ($path === '/') {
+            $html = Pages::home($request);
+        } elseif ($path === '/track-a') {
+            $html = Pages::track($request, 'quick');
+        } elseif ($path === '/track-b') {
+            $html = Pages::track($request, 'stakeholder');
+        } elseif (preg_match('#^/guides/([^/]+)$#', $path, $m)) {
+            $html = Pages::guide($request, $m[1]);
+        } elseif (preg_match('#^/coach/([^/]+)$#', $path, $m)) {
+            $html = Pages::coach($request, $m[1]);
+        } elseif ($path === '/drills') {
+            $html = Pages::drills($request);
+        } elseif (preg_match('#^/drills/([^/]+)$#', $path, $m)) {
+            $html = Pages::drill($request, $m[1]);
+        } elseif ($path === '/cases') {
+            $html = Pages::cases($request);
+        } elseif (preg_match('#^/cases/([^/]+)$#', $path, $m)) {
+            $html = Pages::caseStudy($request, $m[1]);
+        } elseif ($path === '/scenarios') {
+            $html = Pages::scenarios($request);
+        } elseif (preg_match('#^/scenarios/([^/]+)$#', $path, $m)) {
+            $html = Pages::scenario($request, $m[1]);
+        } elseif ($path === '/games') {
+            $html = Pages::games($request);
+        } elseif (preg_match('#^/games/([^/]+)$#', $path, $m)) {
+            $html = Pages::game($request, $m[1]);
+        }
 
         if ($html === null) {
             return Response::html(Pages::notFound($request), 404);

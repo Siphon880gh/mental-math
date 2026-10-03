@@ -10,6 +10,15 @@ function e(?string $value): string
     return htmlspecialchars($value ?? '', ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
 
+// PHP 8 added str_starts_with(). This small polyfill lets the app run on
+// MAMP's PHP 7.4 without changing every call site.
+if (!function_exists('str_starts_with')) {
+    function str_starts_with(string $haystack, string $needle): bool
+    {
+        return $needle === '' || strpos($haystack, $needle) === 0;
+    }
+}
+
 function app_base(): string
 {
     $script = str_replace('\\', '/', (string) ($_SERVER['SCRIPT_NAME'] ?? ''));
@@ -30,7 +39,7 @@ function url(string $path): string
     return app_base() . $path;
 }
 
-function json_script(string $id, mixed $data): string
+function json_script(string $id, $data): string
 {
     $json = json_encode($data, JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
     $json = str_replace('</', '<\\/', $json);

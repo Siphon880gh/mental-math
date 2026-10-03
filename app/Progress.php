@@ -149,7 +149,7 @@ final class Progress
         }
         try {
             $parsed = json_decode($raw, true, 512, JSON_THROW_ON_ERROR);
-        } catch (\JsonException) {
+        } catch (\JsonException $exception) {
             return ['state' => self::defaultProgress(), 'recovered' => true];
         }
         if (!is_array($parsed) || ($parsed['version'] ?? null) !== 1 || !self::knownPath((string) ($parsed['pathId'] ?? ''))) {

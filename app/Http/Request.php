@@ -7,11 +7,15 @@ namespace Reflex\Http;
 final class Request
 {
     /** @param array<string, string> $query */
-    public function __construct(
-        public readonly string $method,
-        public readonly string $path,
-        public readonly array $query = [],
-    ) {
+    public $method;
+    public $path;
+    public $query;
+
+    public function __construct(string $method, string $path, array $query = [])
+    {
+        $this->method = $method;
+        $this->path = $path;
+        $this->query = $query;
     }
 
     public static function fromGlobals(): self
