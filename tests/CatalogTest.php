@@ -111,6 +111,17 @@ final class CatalogTest extends TestCase
             $this->assertCount(1, array_filter($row['choices'], static fn (array $c) => !empty($c['correct'])));
             $this->assertGreaterThan(20, strlen((string) $row['cheat']));
         }
+        $families = array_fill_keys(Tracks::allCurriculumFamilyIds(), true);
+        $skills = [];
+        foreach (Scenarios::all() as $row) {
+            foreach ($row['skillIds'] as $id) {
+                $this->assertArrayHasKey($id, $families, $row['id'] . ' ' . $id);
+                $skills[$id] = true;
+            }
+        }
+        foreach (['fixed-multipliers', 'near-base', 'square-identities', 'divisibility', 'area-grid', 'number-facts', 'mental-abacus', 'cast-nines', 'easy-division'] as $id) {
+            $this->assertArrayHasKey($id, $skills, $id);
+        }
         $this->assertSame('quick', Scenarios::get('box-cover')['track']);
         $this->assertNull(Scenarios::get('missing'));
     }
