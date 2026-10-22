@@ -148,6 +148,10 @@ final class RoutesTest extends TestCase
             $this->assertStringContainsString('<html', $res->body, $path);
         }
         $this->assertStringContainsString('Unknown case.', App::handle(Request::get('/cases/ar-nope'))->body);
+        $pack = App::handle(Request::get('/cases', ['pack' => 'not-a-pack']));
+        $this->assertSame(404, $pack->status);
+        $this->assertStringContainsString('Unknown case pack: not-a-pack.', $pack->body);
+        $this->assertSame(200, App::handle(Request::get('/cases', ['pack' => 'arithmetic-in-the-room']))->status);
     }
 
     public function testKnownSlugsReturn200AfterA404(): void

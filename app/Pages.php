@@ -163,6 +163,9 @@ final class Pages
         $packs = Cases::packs();
         if ($packFilter) {
             $packs = array_values(array_filter($packs, static fn (array $p) => $p['id'] === $packFilter));
+            if ($packs === []) {
+                return self::missing($request, 'missing-pack', ['page' => 'cases', 'section' => 'cases', 'packId' => (string) $packFilter]);
+            }
         }
 
         return View::page('cases', self::layout($request, [
