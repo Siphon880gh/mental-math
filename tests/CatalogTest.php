@@ -96,7 +96,11 @@ final class CatalogTest extends TestCase
         $this->assertTrue((bool) array_filter(Cases::forPack('cfo-growth'), static fn (array $c) => $c['id'] === 'gr-impossible'));
         $room = Cases::forPack('arithmetic-in-the-room');
         $this->assertGreaterThanOrEqual(8, count(array_filter($room, static fn (array $c) => $c['difficulty'] === 'beginner')));
-        $this->assertGreaterThanOrEqual(4, count(array_filter($room, static fn (array $c) => $c['difficulty'] === 'intermediate')));
+        $this->assertGreaterThanOrEqual(6, count(array_filter($room, static fn (array $c) => $c['difficulty'] === 'intermediate')));
+        $this->assertGreaterThanOrEqual(4, count(array_filter($room, static fn (array $c) => $c['difficulty'] === 'advanced')));
+        foreach (Cases::all() as $row) {
+            $this->assertContains($row['difficulty'], ['beginner', 'intermediate', 'advanced'], $row['id']);
+        }
         $families = array_fill_keys(Tracks::allCurriculumFamilyIds(), true);
         foreach (Cases::all() as $row) {
             $this->assertArrayHasKey($row['familyId'], $families, $row['id']);

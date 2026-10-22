@@ -1454,6 +1454,96 @@
       ],
       "difficulty": "intermediate",
       "unit": null
+    },
+    {
+      "id": "ar-units-per-25",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "fixed-multipliers",
+      "thinkingMode": "fixed_multiplier",
+      "prompt": "SAMPLE: $1,850 of stock at $25 a unit. Units?",
+      "expectedAnswer": 74,
+      "thoughtChain": [
+        "÷25 = ×4 ÷ 100",
+        "1,850 × 4 = 7,400",
+        "÷ 100 → 74"
+      ],
+      "difficulty": "intermediate",
+      "unit": null
+    },
+    {
+      "id": "ar-lot-52",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "square-identities",
+      "thinkingMode": "square_shape",
+      "prompt": "SAMPLE: a 52 × 52 parking lot grid. Spaces?",
+      "expectedAnswer": 2704,
+      "thoughtChain": [
+        "Fifties: 25 + 2 = 27",
+        "2² = 04",
+        "27 | 04 → 2,704"
+      ],
+      "difficulty": "intermediate",
+      "unit": null
+    },
+    {
+      "id": "ar-quote-97x98-markup",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "near-base",
+      "thinkingMode": "near_base",
+      "prompt": "SAMPLE: 97 units at a $98 cost, quoted with a 12% markup. Quote?",
+      "expectedAnswer": 10646.72,
+      "thoughtChain": [
+        "Distances −3, −2: 97 − 2 = 95, 3 × 2 = 06 → $9,506",
+        "10% = 950.60, 2% = 190.12",
+        "9,506 + 1,140.72 = 10,646.72"
+      ],
+      "difficulty": "advanced",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-plots-65-35",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "difference-squares",
+      "thinkingMode": "square_shape",
+      "prompt": "SAMPLE: two square plots, 65 ft and 35 ft on a side. How many more square feet in the larger?",
+      "expectedAnswer": 3000,
+      "thoughtChain": [
+        "a² − b² = (a − b)(a + b)",
+        "65 − 35 = 30, 65 + 35 = 100",
+        "30 × 100 = 3,000"
+      ],
+      "difficulty": "advanced",
+      "unit": null
+    },
+    {
+      "id": "ar-pool-7007",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "divisibility",
+      "thinkingMode": "divisibility_split",
+      "prompt": "SAMPLE: a $7,007 bonus pool split evenly across 91 staff. Each?",
+      "expectedAnswer": 77,
+      "thoughtChain": [
+        "7,007 = 7 × 1,001 = 7 × 7 × 11 × 13",
+        "91 = 7 × 13",
+        "what is left: 7 × 11 = 77"
+      ],
+      "difficulty": "advanced",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-sheet-487x36",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "cast-nines",
+      "thinkingMode": "digit_check",
+      "prompt": "SAMPLE: a sheet says 487 × 36 = 17,432. Check it with digit roots, then give the true product.",
+      "expectedAnswer": 17532,
+      "thoughtChain": [
+        "487 → 1, 36 → 9, product root 9",
+        "17,432 → 17 → 8 ✗",
+        "500 × 36 = 18,000, minus 13 × 36 = 468 → 17,532 (root 9 ✓)"
+      ],
+      "difficulty": "advanced",
+      "unit": null
     }
   ]
 }
