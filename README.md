@@ -85,6 +85,8 @@ If the document root is `public/` instead, `public/index.php` still works.
 ./vendor/bin/phpunit
 ```
 
+`tests/ContentQualityTest.php` guards the content itself: every prompt says SAMPLE, no drill repeats another in its family, no case reuses a drill's numbers, every family has at least two drills beyond its guide's worked examples plus a case and a scenario, and every case pack has an advanced case.
+
 ### JS and browser tests (optional, Node 18+)
 
 PHPUnit does not need Node. The game logic and a browser click-through have their own runners:
