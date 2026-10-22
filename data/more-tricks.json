@@ -338,7 +338,9 @@
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "game",
+      "scenario"
     ]
   },
   {
@@ -355,7 +357,8 @@
       "guide",
       "trick",
       "coach",
-      "game"
+      "game",
+      "case"
     ]
   },
   {
@@ -636,7 +639,8 @@
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "case"
     ]
   },
   {
@@ -838,7 +842,9 @@
     "surfaces": [
       "toolbox",
       "guide",
-      "trick"
+      "trick",
+      "game",
+      "scenario"
     ]
   },
   {
@@ -856,7 +862,9 @@
     "surfaces": [
       "toolbox",
       "guide",
-      "trick"
+      "trick",
+      "scenario",
+      "case"
     ]
   },
   {
@@ -874,7 +882,9 @@
     "surfaces": [
       "toolbox",
       "guide",
-      "trick"
+      "trick",
+      "scenario",
+      "case"
     ]
   },
   {
@@ -943,7 +953,8 @@
     "surfaces": [
       "toolbox",
       "guide",
-      "trick"
+      "trick",
+      "case"
     ]
   },
   {
@@ -960,7 +971,10 @@
     "surfaces": [
       "toolbox",
       "guide",
-      "trick"
+      "trick",
+      "game",
+      "scenario",
+      "case"
     ]
   },
   {
@@ -976,7 +990,9 @@
     "surfaces": [
       "toolbox",
       "guide",
-      "trick"
+      "trick",
+      "scenario",
+      "case"
     ]
   },
   {
@@ -1011,7 +1027,8 @@
     "surfaces": [
       "toolbox",
       "guide",
-      "trick"
+      "trick",
+      "scenario"
     ]
   },
   {
@@ -1029,7 +1046,9 @@
     "surfaces": [
       "toolbox",
       "guide",
-      "trick"
+      "trick",
+      "scenario",
+      "case"
     ]
   },
   {
