@@ -31,7 +31,7 @@
     {
       "slug": "eleven-neighbors",
       "title": "Eleven neighbors",
-      "summary": "Build 347 × 11 from neighbor sums, then carry.",
+      "summary": "New 2- and 3-digit numbers × 11 each round: neighbor sums, then carry.",
       "familyId": "fixed-multipliers",
       "relatedGuide": "fixed-multipliers"
     },

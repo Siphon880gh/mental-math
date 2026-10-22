@@ -1,3 +1,5 @@
+import { elevenRound } from "./eleven.js";
+
 export function initGames() {
   const shift = document.querySelector(".js-game-decimal");
   if (shift) {
@@ -130,38 +132,83 @@ export function initGames() {
 
   const eleven = document.querySelector(".js-game-eleven");
   if (eleven) {
+    const prompt = eleven.querySelector(".js-eleven-prompt");
     const slotsEl = eleven.querySelector(".js-eleven-slots");
-    const carry = eleven.querySelector(".js-eleven-carry");
+    const stepEl = eleven.querySelector(".js-eleven-step");
+    const choices = eleven.querySelector(".js-eleven-choices");
+    const miss = eleven.querySelector(".js-eleven-miss");
     const win = eleven.querySelector(".js-eleven-win");
-    const buttons = [...eleven.querySelectorAll("[data-slot]")];
-    let slots = [null, null, null, null];
-    let carried = false;
-    const paint = () => {
-      slotsEl.textContent = slots.map((v) => (v === null ? "_" : String(v))).join(" | ");
-      const full = slots.every((v) => v !== null);
-      carry.disabled = !full || carried;
-      win.hidden = !carried;
+    const next = eleven.querySelector(".js-eleven-next");
+    const tally = eleven.querySelector(".js-eleven-tally");
+    let index = 0;
+    let solved = 0;
+    let round = null;
+    let filled = [];
+    let missed = false;
+
+    const paintSlots = () => {
+      slotsEl.textContent = round.slots.map((_, i) => (i < filled.length ? String(filled[i]) : "_")).join(" | ");
     };
-    buttons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        slots[Number(btn.dataset.slot)] = Number(btn.dataset.value);
-        btn.disabled = true;
-        paint();
+    const showChoices = (label, opts, onOk) => {
+      stepEl.textContent = label;
+      choices.replaceChildren(
+        ...opts.map((o) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.textContent = o.text;
+          btn.dataset.value = String(o.value);
+          if (o.ok) btn.dataset.ok = "1";
+          btn.addEventListener("click", () => {
+            if (o.ok) {
+              miss.hidden = true;
+              onOk();
+            } else {
+              missed = true;
+              miss.textContent = o.why;
+              miss.hidden = false;
+            }
+          });
+          return btn;
+        }),
+      );
+    };
+    const askStep = () => {
+      paintSlots();
+      if (filled.length < round.steps.length) {
+        const step = round.steps[filled.length];
+        showChoices(step.label, step.options, () => {
+          filled.push(step.answer);
+          askStep();
+        });
+        return;
+      }
+      showChoices(round.finalLabel, round.finals, () => {
+        solved += 1;
+        stepEl.textContent = "";
+        choices.replaceChildren();
+        win.textContent = `${round.slots.join(" | ")} → ${round.answer.toLocaleString("en-US")}.` +
+          (missed ? " Worth another pass on this shape." : "");
+        win.hidden = false;
+        next.hidden = false;
+        tally.textContent = `Rounds solved: ${solved}`;
       });
+    };
+    const start = () => {
+      round = elevenRound(index);
+      filled = [];
+      missed = false;
+      prompt.textContent = `${round.n} × 11`;
+      win.hidden = true;
+      next.hidden = true;
+      miss.hidden = true;
+      askStep();
+    };
+    next.addEventListener("click", () => {
+      index += 1;
+      start();
     });
-    carry.addEventListener("click", () => {
-      slots = [3, 8, 1, 7];
-      carried = true;
-      paint();
-    });
-    eleven.querySelector(".js-eleven-reset").addEventListener("click", () => {
-      slots = [null, null, null, null];
-      carried = false;
-      buttons.forEach((btn) => {
-        btn.disabled = false;
-      });
-      paint();
-    });
+    eleven.querySelector(".js-eleven-reset").addEventListener("click", start);
+    start();
   }
 
   const nearBase = document.querySelector(".js-game-nearbase");
