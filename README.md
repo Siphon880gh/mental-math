@@ -35,13 +35,19 @@ Scenarios are multi-skill multiple choice with Hint and Cheat. They are not behi
 
 ![Scenario — one GPU, one price](docs/screenshots/scenario.png)
 
-Mini-games teach one motion (decimal shift, percent swap, percent chips):
+Mini-games teach one motion: decimal shift, percent swap, percent chips, pair to 100, eleven neighbors (a new 2- or 3-digit number each round), near-base gaps, and a soroban rod.
 
 ![Mini-game — Decimal shifter](docs/screenshots/game.png)
 
+The soroban rod draws the beads for each add and asks which move does it: push beads on, the five-complement, or the ten-complement. The Soroban guide uses the same bead diagrams.
+
+![Mini-game — Soroban rod](docs/screenshots/soroban.png)
+
+The Toolbox lists the twelve master techniques, a suggested progression, and history notes (Vedic Mathematics, “Japanese” line multiplication, Trachtenberg).
+
 ## How it works
 
-Open a track, read the shortcut, walk the coach, then drill until the number is a reflex. Cases ask you to type a number in a conversation, then show the thought chain. Scenarios mix skills from the same track. Games isolate one mechanic.
+Open a track, read the shortcut, walk the coach, then drill until the number is a reflex. Cases ask you to type a number in a conversation, then show the thought chain. Scenarios mix skills from the same track. Games isolate one mechanic. The Toolbox ties the arithmetic families together and says where each idea really comes from.
 
 PHP server-renders every URL. Progress and pass tags live in the browser (`localStorage`). Internal name: REFLEX_CORE.
 
@@ -50,14 +56,15 @@ PHP server-renders every URL. Progress and pass tags live in the browser (`local
 | Section | Role |
 |---------|------|
 | **Home** `/` | Beginner Reflex Path, milestones, fluency gate copy |
-| **Track A** `/track-a` | Everyday / business shortcuts (percents, zeros, time-money, break-even) |
+| **Track A** `/track-a` | Everyday / business shortcuts (percents, zeros, time-money, break-even) plus raw arithmetic (fixed multipliers incl. Trachtenberg rules, near-base, squares, area grid, soroban complements, divisibility, digit-root checks) |
 | **Track B** `/track-b` | Stakeholder planning math (runway, NRR, dilution, TAM, stacked infra) |
-| **Guides** `/guides/:slug` | Shortcut + lesson; coach on the same slug |
+| **Guides** `/guides/:slug` | Shortcut + lesson (tables and soroban bead diagrams render); coach on the same slug |
+| **Toolbox** `/toolbox` | Twelve master techniques, suggested progression, history notes |
 | **Coach** `/coach/:slug` | Deterministic choice tree with wrong paths and step-back |
 | **Drills** `/drills` | Timed banks; Beginner unlocks; gate to Cases |
-| **Cases** `/cases` | Typed conversation packs (locked until the timed gate) |
+| **Cases** `/cases` | Typed conversation packs, beginner to advanced, incl. Arithmetic in the room (locked until the timed gate) |
 | **Scenarios** `/scenarios` | Multi-skill MCQ, Hint, Cheat — always open |
-| **Games** `/games` | Decimal shifter, percent swap, percent chips |
+| **Games** `/games` | Decimal shifter, percent swap, percent chips, pair to 100, eleven neighbors, near-base gaps, soroban rod |
 
 ## Run locally
 
@@ -76,9 +83,10 @@ If the document root is `public/` instead, `public/index.php` still works.
 
 ```bash
 ./vendor/bin/phpunit
+node --test tests/js/*.test.mjs   # game round logic (Node 18+, no npm install)
 ```
 
-This is not a static site. Hosting needs PHP (built-in server, Apache, or nginx). `/archive` and `/guides` redirect to `/track-a`.
+This is not a static site. Hosting needs PHP (built-in server, Apache, or nginx). `/archive` and `/guides` redirect to `/track-a`. Unknown guide, coach, drill, case, scenario, and game slugs return 404.
 
 ## Context libraries
 

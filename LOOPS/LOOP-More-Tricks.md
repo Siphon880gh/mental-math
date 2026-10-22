@@ -106,11 +106,11 @@ The Phase C skips were reversed after a coverage audit. Visual and historical ro
 
 | Doc | Now |
 |-----|-----|
-| 3 fixed multipliers (×3…×1001) | `fixed-multipliers` |
+| 3 fixed multipliers (×3…×1001) | `fixed-multipliers` (plus Trachtenberg ×11, ×12, ×6, ×7 digit rules; row `trachtenberg`) |
 | 4 Nikhilam (above, below, mixed, base 1,000) | `near-base` |
 | 5, 33 (a±b)², same-ones tens-to-10 | `square-identities` |
 | 2 area / partial products; 6 line; 7 lattice | `area-grid` (line + lattice marked slower for big numbers) |
-| 6 soroban / anzan, complements to 5, rods, suanpan | `mental-abacus` |
+| 6 soroban / anzan, complements to 5, rods, suanpan | `mental-abacus` (bead diagrams in the guide, Soroban rod game) |
 | 42 squares to 30, cubes, reciprocals | `number-facts` |
 | Intro Vedic / “Japanese” origin notes, 12 masters, progression | `/toolbox` (`data/toolbox.json`) plus guide notes in `criss-cross`, `near-base`, `area-grid` |
 

@@ -52,4 +52,8 @@ Do not duplicate the original ladder (anchors, magnitude, percent shortcuts, ÷5
 
 These families are **not** on the Beginner Reflex Path. They live on the Guides hub under the matching track, then drills/cases via `LOOPS/` and E9.
 
+`Fixed multipliers.md` also carries the Trachtenberg digit rules (×11, ×12, ×6, ×7) with an origin note: the camp story comes from the 1960 book, not independent records. `Soroban and anzan.md` draws bead diagrams with a one-line directive, `::soroban 47 | caption` (digits, then an optional caption), rendered by `app/Soroban.php`.
+
+These arithmetic families also feed the **Arithmetic in the room** case pack (`arithmetic-in-the-room`, beginner to advanced) and the games Pair to 100 (`complements`), Eleven neighbors (`fixed-multipliers`), Near-base gaps (`near-base`), and Soroban rod (`mental-abacus`).
+
 A later arithmetic catalog (`context/docs-more-more/more-tricks.md`) is mapped in `data/more-tricks.json` and drained with `LOOPS/LOOP-More-Tricks.md`. Each row lists the `surfaces` that actually teach it; `tests/MoreTricksTest.php` checks those claims. The 12 master techniques, the suggested progression, and the historical notes render on `/toolbox` from `data/toolbox.json`.

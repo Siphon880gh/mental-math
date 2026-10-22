@@ -127,14 +127,14 @@ Walk **Track A first**, then Track B:
 | 35 | `tam-fermi` | B | … → Cases(`startup-people-capital`) |
 | 36 | `pareto` | A | Guide → Coach → Drill(`foundations`) → Home |
 | 37 | `revenue-triangle` | A | Guide → Coach → Drill(`foundations`) → Home |
-| 38 | `divisibility` | A | Guide → Coach → Drill(`foundations`) → Home |
+| 38 | `divisibility` | A | Guide → Coach → Drill(`foundations`) → Cases(`arithmetic-in-the-room`) → Home |
 | 39 | `criss-cross` | A | same |
-| 40 | `difference-squares` | A | same |
-| 41 | `easy-division` | A | same |
-| 42 | `complements` | A | same |
+| 40 | `difference-squares` | A | same as 38 |
+| 41 | `easy-division` | A | same as 38 |
+| 42 | `complements` | A | Guide → Coach → Drill(`foundations`) → Game (pair-hundred) → Cases(`arithmetic-in-the-room`) → Home |
 | 43 | `equal-adjust` | A | same |
 | 44 | `cross-cancel` | A | same |
-| 45 | `cast-nines` | A | same |
+| 45 | `cast-nines` | A | same as 38 |
 | 46 | `approx-sqrt` | A | same |
 | 47 | `regroup-factors` | A | same |
 | 48 | `concurrency` | B | Guide → Coach → Drill(`operator`) → Cases(`stacked-founder`) → Home |
@@ -143,19 +143,19 @@ Walk **Track A first**, then Track B:
 | 51 | `utilization` | B | same |
 | 52 | `estimate-pad` | B | same |
 | 53 | `funnel-bands` | B | Guide → Coach → Drill(`operator`) → Cases(`stacked-founder` funnel) → Home |
-| 54 | `fixed-multipliers` | A | Guide → Coach → Drill(`foundations`) → Home |
-| 55 | `near-base` | A | same |
-| 56 | `square-identities` | A | same |
-| 57 | `area-grid` | A | same |
-| 58 | `mental-abacus` | A | same |
-| 59 | `number-facts` | A | same |
+| 54 | `fixed-multipliers` | A | Guide (incl. Trachtenberg rules) → Coach → Drill(`foundations`) → Game (eleven-neighbors) → Cases(`arithmetic-in-the-room`) → Home |
+| 55 | `near-base` | A | Guide → Coach → Drill(`foundations`) → Game (near-base-gaps) → Cases(`arithmetic-in-the-room`) → Home |
+| 56 | `square-identities` | A | Guide → Coach → Drill(`foundations`) → Cases(`arithmetic-in-the-room`) → Home |
+| 57 | `area-grid` | A | same as 56 |
+| 58 | `mental-abacus` | A | Guide (bead diagrams) → Coach → Drill(`foundations`) → Game (soroban-rod) → Home |
+| 59 | `number-facts` | A | Guide → Coach → Drill(`foundations`) → Home |
 
 **Echo edge rules**
 
 - First hop after a new guide is always **Coach** (same slug) if that session is missing.
 - One hop = one tick = one unit in the **target** section file.
 - Drills Phase D (`cfo-*` groups) and Phase E (`foundations` / `startup`) only after earlier drill floors — park extra families until then unless policy is pure `ECHO` (then still follow Drills’ own queue if the hop is illegal).
-- Cases pack order (`stacked-founder` before CFO packs before startup-* packs) still binds Cases ticks.
+- Cases pack order (`stacked-founder` before CFO packs before startup-* packs) still binds Cases ticks. `arithmetic-in-the-room` is the Track A arithmetic pack; fill it after the family has foundations drills. Its levels are beginner, intermediate, and advanced.
 - Games hops: if the family is skip-only, record skip and continue the chain.
 - Home hops only after the named surface exists.
 
@@ -167,7 +167,7 @@ Walk **Track A first**, then Track B:
 Stage 0  DRAIN Guides until Done(guides) — Track A families first, then Track B
 Stage 1  PAIR Coach: exclusive coach ticks until every guide slug has a session
          (Track A then Track B). Skip families that already have a tree.
-Stage 2  ECHO families 1 → 53 (remaining hops: drill / game / case / home)
+Stage 2  ECHO families 1 → 59 (remaining hops: drill / game / case / home)
 Stage 3  DRAIN leftover section floors in drain order
          (Drills → Games → Cases → Home)
 Done(graph) when every section file’s Done(section) is true
