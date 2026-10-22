@@ -1042,341 +1042,6 @@
       ]
     },
     {
-      "id": "cfo-f-20-10k",
-      "groupId": "cfo-feasibility",
-      "familyId": "cfo-feasibility",
-      "prompt": "SAMPLE: $20/mo × 10k users. Monthly ceiling?",
-      "expectedAnswer": 200000,
-      "thoughtChain": [
-        "20×10,000=200,000"
-      ],
-      "unit": "usd"
-    },
-    {
-      "id": "cfo-f-50-1k",
-      "groupId": "cfo-feasibility",
-      "familyId": "cfo-feasibility",
-      "prompt": "SAMPLE: $50 × 1,000 users.",
-      "expectedAnswer": 50000,
-      "thoughtChain": [
-        "50×1,000=50,000"
-      ],
-      "unit": "usd"
-    },
-    {
-      "id": "cfo-f-100-10k",
-      "groupId": "cfo-feasibility",
-      "familyId": "cfo-feasibility",
-      "prompt": "SAMPLE: $100 × 10k users.",
-      "expectedAnswer": 1000000,
-      "thoughtChain": [
-        "100×10,000=1,000,000"
-      ],
-      "unit": "usd"
-    },
-    {
-      "id": "cfo-f-30-100k",
-      "groupId": "cfo-feasibility",
-      "familyId": "cfo-feasibility",
-      "prompt": "SAMPLE: $30 × 100k users.",
-      "expectedAnswer": 3000000,
-      "thoughtChain": [
-        "30×100,000=3,000,000"
-      ],
-      "unit": "usd"
-    },
-    {
-      "id": "cfo-f-15-2k",
-      "groupId": "cfo-feasibility",
-      "familyId": "cfo-feasibility",
-      "prompt": "SAMPLE: $15 × 2,000 users.",
-      "expectedAnswer": 30000,
-      "thoughtChain": [
-        "15×2,000=30,000"
-      ],
-      "unit": "usd"
-    },
-    {
-      "id": "cfo-f-9-8k",
-      "groupId": "cfo-feasibility",
-      "familyId": "cfo-feasibility",
-      "prompt": "SAMPLE: $9 × 8,000 users.",
-      "expectedAnswer": 72000,
-      "thoughtChain": [
-        "9×8,000=72,000"
-      ],
-      "unit": "usd"
-    },
-    {
-      "id": "cfo-f-40-500",
-      "groupId": "cfo-feasibility",
-      "familyId": "cfo-feasibility",
-      "prompt": "SAMPLE: $40 × 500 users.",
-      "expectedAnswer": 20000,
-      "thoughtChain": [
-        "40×500=20,000"
-      ],
-      "unit": "usd"
-    },
-    {
-      "id": "cfo-f-25-4k",
-      "groupId": "cfo-feasibility",
-      "familyId": "cfo-feasibility",
-      "prompt": "SAMPLE: $25 × 4,000 users.",
-      "expectedAnswer": 100000,
-      "thoughtChain": [
-        "25×4,000=100,000"
-      ],
-      "unit": "usd"
-    },
-    {
-      "id": "cfo-u-20x3",
-      "groupId": "cfo-unit-econ",
-      "familyId": "cfo-unit-econ",
-      "prompt": "SAMPLE: $20/mo, 3 months. LTV?",
-      "expectedAnswer": 60,
-      "thoughtChain": [
-        "20×3=60"
-      ],
-      "unit": "usd"
-    },
-    {
-      "id": "cfo-u-ratio-thin",
-      "groupId": "cfo-unit-econ",
-      "familyId": "cfo-unit-econ",
-      "prompt": "SAMPLE: LTV $60, CAC $40. LTV/CAC?",
-      "expectedAnswer": 1.5,
-      "thoughtChain": [
-        "60÷40=1.5"
-      ]
-    },
-    {
-      "id": "cfo-u-ratio-3",
-      "groupId": "cfo-unit-econ",
-      "familyId": "cfo-unit-econ",
-      "prompt": "SAMPLE: LTV $120, CAC $40. Ratio?",
-      "expectedAnswer": 3,
-      "thoughtChain": [
-        "120÷40=3"
-      ]
-    },
-    {
-      "id": "cfo-u-25x4",
-      "groupId": "cfo-unit-econ",
-      "familyId": "cfo-unit-econ",
-      "prompt": "SAMPLE: $25/mo, 4 months. LTV?",
-      "expectedAnswer": 100,
-      "thoughtChain": [
-        "25×4=100"
-      ],
-      "unit": "usd"
-    },
-    {
-      "id": "cfo-u-50x6",
-      "groupId": "cfo-unit-econ",
-      "familyId": "cfo-unit-econ",
-      "prompt": "SAMPLE: $50/mo, 6 months. LTV?",
-      "expectedAnswer": 300,
-      "thoughtChain": [
-        "50×6=300"
-      ],
-      "unit": "usd"
-    },
-    {
-      "id": "cfo-u-100-40",
-      "groupId": "cfo-unit-econ",
-      "familyId": "cfo-unit-econ",
-      "prompt": "SAMPLE: LTV $100, CAC $40. Ratio?",
-      "expectedAnswer": 2.5,
-      "thoughtChain": [
-        "100÷40=2.5"
-      ]
-    },
-    {
-      "id": "cfo-u-90-30",
-      "groupId": "cfo-unit-econ",
-      "familyId": "cfo-unit-econ",
-      "prompt": "SAMPLE: LTV $90, CAC $30. Ratio?",
-      "expectedAnswer": 3,
-      "thoughtChain": [
-        "90÷30=3"
-      ]
-    },
-    {
-      "id": "cfo-u-15x8",
-      "groupId": "cfo-unit-econ",
-      "familyId": "cfo-unit-econ",
-      "prompt": "SAMPLE: $15/mo, 8 months. LTV?",
-      "expectedAnswer": 120,
-      "thoughtChain": [
-        "15×8=120"
-      ],
-      "unit": "usd"
-    },
-    {
-      "id": "cfo-r-120-20",
-      "groupId": "cfo-runway",
-      "familyId": "cfo-runway",
-      "prompt": "SAMPLE: $120k cash, $20k burn. Months?",
-      "expectedAnswer": 6,
-      "thoughtChain": [
-        "120÷20=6"
-      ]
-    },
-    {
-      "id": "cfo-r-50-25",
-      "groupId": "cfo-runway",
-      "familyId": "cfo-runway",
-      "prompt": "SAMPLE: $50k cash, $25k burn.",
-      "expectedAnswer": 2,
-      "thoughtChain": [
-        "50÷25=2"
-      ]
-    },
-    {
-      "id": "cfo-r-90-15",
-      "groupId": "cfo-runway",
-      "familyId": "cfo-runway",
-      "prompt": "SAMPLE: $90k cash, $15k burn.",
-      "expectedAnswer": 6,
-      "thoughtChain": [
-        "90÷15=6"
-      ]
-    },
-    {
-      "id": "cfo-r-80-10",
-      "groupId": "cfo-runway",
-      "familyId": "cfo-runway",
-      "prompt": "SAMPLE: $80k cash, $10k burn.",
-      "expectedAnswer": 8,
-      "thoughtChain": [
-        "80÷10=8"
-      ]
-    },
-    {
-      "id": "cfo-r-200-25",
-      "groupId": "cfo-runway",
-      "familyId": "cfo-runway",
-      "prompt": "SAMPLE: $200k cash, $25k burn.",
-      "expectedAnswer": 8,
-      "thoughtChain": [
-        "200÷25=8"
-      ]
-    },
-    {
-      "id": "cfo-r-36-12",
-      "groupId": "cfo-runway",
-      "familyId": "cfo-runway",
-      "prompt": "SAMPLE: $36k cash, $12k burn.",
-      "expectedAnswer": 3,
-      "thoughtChain": [
-        "36÷12=3"
-      ]
-    },
-    {
-      "id": "cfo-r-45-9",
-      "groupId": "cfo-runway",
-      "familyId": "cfo-runway",
-      "prompt": "SAMPLE: $45k cash, $9k burn.",
-      "expectedAnswer": 5,
-      "thoughtChain": [
-        "45÷9=5"
-      ]
-    },
-    {
-      "id": "cfo-r-18-6",
-      "groupId": "cfo-runway",
-      "familyId": "cfo-runway",
-      "prompt": "SAMPLE: $18k cash, $6k burn.",
-      "expectedAnswer": 3,
-      "thoughtChain": [
-        "18÷6=3"
-      ]
-    },
-    {
-      "id": "cfo-g-9x",
-      "groupId": "cfo-growth",
-      "familyId": "cfo-growth",
-      "prompt": "SAMPLE: 100 users, ~9× in 12 months at 20%/mo.",
-      "expectedAnswer": 900,
-      "thoughtChain": [
-        "20%/mo ≈ 9× in a year",
-        "100×9=900"
-      ]
-    },
-    {
-      "id": "cfo-g-1-7x",
-      "groupId": "cfo-growth",
-      "familyId": "cfo-growth",
-      "prompt": "SAMPLE: 100 users × ~1.7 after 3 months at 20%/mo.",
-      "expectedAnswer": 170,
-      "thoughtChain": [
-        "3 months ≈ 1.7×",
-        "170"
-      ]
-    },
-    {
-      "id": "cfo-g-3x6",
-      "groupId": "cfo-growth",
-      "familyId": "cfo-growth",
-      "prompt": "SAMPLE: 100 users × ~3 after 6 months at 20%/mo.",
-      "expectedAnswer": 300,
-      "thoughtChain": [
-        "6 months ≈ 3×",
-        "300"
-      ]
-    },
-    {
-      "id": "cfo-g-200-9",
-      "groupId": "cfo-growth",
-      "familyId": "cfo-growth",
-      "prompt": "SAMPLE: 200 users at ~9× in a year.",
-      "expectedAnswer": 1800,
-      "thoughtChain": [
-        "200×9=1,800"
-      ]
-    },
-    {
-      "id": "cfo-g-50-9",
-      "groupId": "cfo-growth",
-      "familyId": "cfo-growth",
-      "prompt": "SAMPLE: 50 users at ~9× in a year.",
-      "expectedAnswer": 450,
-      "thoughtChain": [
-        "50×9=450"
-      ]
-    },
-    {
-      "id": "cfo-g-10-3",
-      "groupId": "cfo-growth",
-      "familyId": "cfo-growth",
-      "prompt": "SAMPLE: 10 users × ~3 in 6 months.",
-      "expectedAnswer": 30,
-      "thoughtChain": [
-        "10×3=30"
-      ]
-    },
-    {
-      "id": "cfo-g-40-1-7",
-      "groupId": "cfo-growth",
-      "familyId": "cfo-growth",
-      "prompt": "SAMPLE: 40 users × 1.7 in 3 months.",
-      "expectedAnswer": 68,
-      "thoughtChain": [
-        "40×1.7=68"
-      ]
-    },
-    {
-      "id": "cfo-g-25-9",
-      "groupId": "cfo-growth",
-      "familyId": "cfo-growth",
-      "prompt": "SAMPLE: 25 users × ~9 in a year.",
-      "expectedAnswer": 225,
-      "thoughtChain": [
-        "25×9=225"
-      ]
-    },
-    {
       "id": "fd-47-36",
       "groupId": "foundations",
       "familyId": "left-to-right",
@@ -1973,14 +1638,14 @@
       ]
     },
     {
-      "id": "stf-1-40",
+      "id": "stf-150-45",
       "groupId": "stacked-founder",
       "familyId": "stacked-founder",
-      "prompt": "SAMPLE: $1/hr, $40/mo. Users per server?",
-      "expectedAnswer": 18,
+      "prompt": "SAMPLE: $1.50/hr server, $45/mo plan. Users to cover one box?",
+      "expectedAnswer": 24,
       "thoughtChain": [
-        "×720 → 720",
-        "720÷40=18"
+        "×720 → $1,080/mo",
+        "1,080 ÷ 45 = 24 users"
       ]
     },
     {
@@ -1995,14 +1660,48 @@
       ]
     },
     {
-      "id": "stf-10k-5",
+      "id": "stf-funnel-cover-16k",
       "groupId": "stacked-founder",
       "familyId": "stacked-founder",
-      "prompt": "SAMPLE: 10k visitors, 5% conversion. Customers?",
-      "expectedAnswer": 500,
+      "prompt": "SAMPLE: 16,000 visits, 5% convert, $50 price, $4,000 fixed cost. Surplus customers after covering cost?",
+      "expectedAnswer": 720,
       "thoughtChain": [
-        "1%=100",
-        "×5 → 500"
+        "5% of 16,000 = 800 customers",
+        "4,000 ÷ 50 = 80 to cover → 720 surplus"
+      ]
+    },
+    {
+      "id": "stf-050-year",
+      "groupId": "stacked-founder",
+      "familyId": "stacked-founder",
+      "prompt": "SAMPLE: a $0.50/hr box. Yearly cost?",
+      "expectedAnswer": 4320,
+      "thoughtChain": [
+        "×720 → $360/mo",
+        "×12 → $4,320"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "stf-markup-cover-12",
+      "groupId": "stacked-founder",
+      "familyId": "stacked-founder",
+      "prompt": "SAMPLE: cost $12 a unit, priced at 4× cost, $1,920 fixed. Units to cover?",
+      "expectedAnswer": 40,
+      "thoughtChain": [
+        "price 12 × 4 = $48",
+        "1,920 ÷ 48 = 40 units"
+      ]
+    },
+    {
+      "id": "stf-boxes-480",
+      "groupId": "stacked-founder",
+      "familyId": "stacked-founder",
+      "prompt": "SAMPLE: $1/hr boxes, a $30 plan, 480 paying users. How many boxes does that revenue cover?",
+      "expectedAnswer": 20,
+      "thoughtChain": [
+        "one box: 720 ÷ 30 = 24 users",
+        "480 ÷ 24 = 20 boxes"
       ]
     },
     {
@@ -3477,192 +3176,768 @@
       ]
     },
     {
-      "id": "op-cc-100",
+      "id": "op-cc-busy-450",
       "groupId": "operator",
       "familyId": "concurrency",
-      "prompt": "SAMPLE: 100 logos, busy hour. Concurrent at 20%?",
-      "expectedAnswer": 20,
+      "prompt": "SAMPLE: 450 logos, busy hour. Concurrent at 20%?",
+      "expectedAnswer": 90,
       "thoughtChain": [
-        "20% of 100 = 20"
+        "10% of 450 = 45",
+        "double → 90"
       ]
     },
     {
-      "id": "op-cc-1000",
+      "id": "op-cc-quiet-1300",
       "groupId": "operator",
       "familyId": "concurrency",
-      "prompt": "SAMPLE: 1,000 logos, quiet. Concurrent at 10%?",
-      "expectedAnswer": 100,
+      "prompt": "SAMPLE: 1,300 logos on a quiet day. Concurrent at 10%?",
+      "expectedAnswer": 130,
       "thoughtChain": [
-        "10% of 1,000 = 100"
+        "10% is one place left",
+        "130"
       ]
     },
     {
-      "id": "op-cc-50",
+      "id": "op-cc-box-1500",
       "groupId": "operator",
       "familyId": "concurrency",
-      "prompt": "SAMPLE: 50 logos, busy. Concurrent at 20%?",
+      "prompt": "SAMPLE: 1,500 logos, busy hour (20%). 30 concurrent jobs per box. Boxes?",
       "expectedAnswer": 10,
       "thoughtChain": [
-        "20% of 50 = 10"
+        "20% of 1,500 = 300 active",
+        "300 ÷ 30 = 10 boxes"
       ]
     },
     {
-      "id": "op-cs-1000",
+      "id": "op-cc-gpu-700",
       "groupId": "operator",
-      "familyId": "capacity-split",
-      "prompt": "SAMPLE: 1,000 users, 20 per server. Boxes?",
-      "expectedAnswer": 50,
+      "familyId": "concurrency",
+      "prompt": "SAMPLE: 700 logos on a quiet day (10%). 14 jobs per GPU. GPUs?",
+      "expectedAnswer": 5,
       "thoughtChain": [
-        "1,000÷20=50"
+        "10% of 700 = 70 active",
+        "70 ÷ 14 = 5 GPUs"
       ]
     },
     {
-      "id": "op-cs-400",
+      "id": "op-cc-back-120",
       "groupId": "operator",
-      "familyId": "capacity-split",
-      "prompt": "SAMPLE: 400 users, 20 per box.",
-      "expectedAnswer": 20,
-      "thoughtChain": [
-        "400÷20=20"
-      ]
-    },
-    {
-      "id": "op-cs-900",
-      "groupId": "operator",
-      "familyId": "capacity-split",
-      "prompt": "SAMPLE: 900 users, 30 per box.",
-      "expectedAnswer": 30,
-      "thoughtChain": [
-        "900÷30=30"
-      ]
-    },
-    {
-      "id": "op-bx-600",
-      "groupId": "operator",
-      "familyId": "box-contribution",
-      "prompt": "SAMPLE: $30 × 20 users on one box. Revenue?",
+      "familyId": "concurrency",
+      "prompt": "SAMPLE: 120 jobs are running at the busy hour (20%). About how many logos?",
       "expectedAnswer": 600,
       "thoughtChain": [
-        "30×20=600"
-      ],
-      "unit": "usd"
+        "120 is 20%, so 10% is 60",
+        "×10 → 600 logos"
+      ]
     },
     {
-      "id": "op-bx-120",
+      "id": "op-cc-gap-2500",
+      "groupId": "operator",
+      "familyId": "concurrency",
+      "prompt": "SAMPLE: 2,500 logos. Busy (20%) minus quiet (10%) concurrent: how much headroom must you hold?",
+      "expectedAnswer": 250,
+      "thoughtChain": [
+        "busy 500, quiet 250",
+        "500 − 250 = 250"
+      ]
+    },
+    {
+      "id": "op-cs-1800-60",
+      "groupId": "operator",
+      "familyId": "capacity-split",
+      "prompt": "SAMPLE: 1,800 simultaneous users, 60 per box. Boxes?",
+      "expectedAnswer": 30,
+      "thoughtChain": [
+        "cancel a zero: 180 ÷ 6",
+        "30 boxes"
+      ]
+    },
+    {
+      "id": "op-cs-170-40",
+      "groupId": "operator",
+      "familyId": "capacity-split",
+      "prompt": "SAMPLE: 170 simultaneous users, 40 per box. Boxes?",
+      "expectedAnswer": 5,
+      "thoughtChain": [
+        "170 ÷ 40 = 4.25",
+        "round up → 5 boxes"
+      ]
+    },
+    {
+      "id": "op-cs-610-50",
+      "groupId": "operator",
+      "familyId": "capacity-split",
+      "prompt": "SAMPLE: 610 simultaneous users at 50 per box. Boxes?",
+      "expectedAnswer": 13,
+      "thoughtChain": [
+        "610 ÷ 50 = 12.2",
+        "round up → 13 boxes"
+      ]
+    },
+    {
+      "id": "op-cs-logos-3000",
+      "groupId": "operator",
+      "familyId": "capacity-split",
+      "prompt": "SAMPLE: 3,000 logos, busy hour 20%, 25 users per box. Boxes?",
+      "expectedAnswer": 24,
+      "thoughtChain": [
+        "20% of 3,000 = 600 active",
+        "600 ÷ 25 = 24 boxes"
+      ]
+    },
+    {
+      "id": "op-cs-safe-560",
+      "groupId": "operator",
+      "familyId": "capacity-split",
+      "prompt": "SAMPLE: 560 simultaneous users. A box maxes at 40; plan at 70%. Boxes?",
+      "expectedAnswer": 20,
+      "thoughtChain": [
+        "plan 0.7 × 40 = 28 per box",
+        "560 ÷ 28 = 20 boxes"
+      ]
+    },
+    {
+      "id": "op-cs-safe-350",
+      "groupId": "operator",
+      "familyId": "capacity-split",
+      "prompt": "SAMPLE: 350 simultaneous users. Box max 50, planned at 70%. Boxes?",
+      "expectedAnswer": 10,
+      "thoughtChain": [
+        "plan 35 per box",
+        "350 ÷ 35 = 10 boxes"
+      ]
+    },
+    {
+      "id": "op-bx-45x16",
       "groupId": "operator",
       "familyId": "box-contribution",
-      "prompt": "SAMPLE: $600 revenue vs $720 cost. Shortfall?",
-      "expectedAnswer": 120,
+      "prompt": "SAMPLE: $45 × 16 users on one box. Monthly revenue for the box?",
+      "expectedAnswer": 720,
       "thoughtChain": [
-        "720−600=120"
+        "45 × 16 = 45 × 4 × 4",
+        "180 × 4 = $720"
       ],
       "unit": "usd"
     },
     {
-      "id": "op-bx-800",
+      "id": "op-bx-loss-35x15",
       "groupId": "operator",
       "familyId": "box-contribution",
-      "prompt": "SAMPLE: $40 × 20 users. Revenue?",
-      "expectedAnswer": 800,
+      "prompt": "SAMPLE: $35 × 15 users on a $720/mo box. How much does the box lose each month?",
+      "expectedAnswer": 195,
       "thoughtChain": [
-        "40×20=800"
+        "revenue 35 × 15 = $525",
+        "720 − 525 = $195 lost"
       ],
       "unit": "usd"
     },
     {
-      "id": "op-ut-10",
+      "id": "op-bx-gain-50x22",
       "groupId": "operator",
-      "familyId": "utilization",
-      "prompt": "SAMPLE: 10 jobs/sec max. 70% safe?",
-      "expectedAnswer": 7,
-      "thoughtChain": [
-        "0.7×10=7"
-      ]
-    },
-    {
-      "id": "op-ut-100",
-      "groupId": "operator",
-      "familyId": "utilization",
-      "prompt": "SAMPLE: 100 seats. 70% filled?",
-      "expectedAnswer": 70,
-      "thoughtChain": [
-        "0.7×100=70"
-      ]
-    },
-    {
-      "id": "op-ut-50",
-      "groupId": "operator",
-      "familyId": "utilization",
-      "prompt": "SAMPLE: 50 req/sec max. Safe load?",
-      "expectedAnswer": 35,
-      "thoughtChain": [
-        "0.7×50=35"
-      ]
-    },
-    {
-      "id": "op-pd-2000",
-      "groupId": "operator",
-      "familyId": "estimate-pad",
-      "prompt": "SAMPLE: $2,000 guess ×1.3.",
-      "expectedAnswer": 2600,
-      "thoughtChain": [
-        "2,000×1.3=2,600"
-      ],
-      "unit": "usd"
-    },
-    {
-      "id": "op-pd-1000",
-      "groupId": "operator",
-      "familyId": "estimate-pad",
-      "prompt": "SAMPLE: $1,000 guess ×1.3.",
-      "expectedAnswer": 1300,
-      "thoughtChain": [
-        "1,000×1.3=1,300"
-      ],
-      "unit": "usd"
-    },
-    {
-      "id": "op-pd-5000",
-      "groupId": "operator",
-      "familyId": "estimate-pad",
-      "prompt": "SAMPLE: $5,000 guess ×1.3.",
-      "expectedAnswer": 6500,
-      "thoughtChain": [
-        "5,000×1.3=6,500"
-      ],
-      "unit": "usd"
-    },
-    {
-      "id": "op-fn-100",
-      "groupId": "operator",
-      "familyId": "funnel-bands",
-      "prompt": "SAMPLE: 10,000 visits, 20% then 5% paid.",
-      "expectedAnswer": 100,
-      "thoughtChain": [
-        "20%=2,000 signups",
-        "5% of 2,000=100"
-      ]
-    },
-    {
-      "id": "op-fn-80",
-      "groupId": "operator",
-      "familyId": "funnel-bands",
-      "prompt": "SAMPLE: 8,000 visits, 10% then 10% paid.",
-      "expectedAnswer": 80,
-      "thoughtChain": [
-        "10%=800",
-        "10% of 800=80"
-      ]
-    },
-    {
-      "id": "op-fn-200",
-      "groupId": "operator",
-      "familyId": "funnel-bands",
-      "prompt": "SAMPLE: 20,000 visits, 20% then 5% paid.",
+      "familyId": "box-contribution",
+      "prompt": "SAMPLE: $50 × 22 users on a $900/mo box. Contribution per box?",
       "expectedAnswer": 200,
       "thoughtChain": [
-        "20%=4,000",
-        "5% of 4,000=200"
+        "revenue $1,100",
+        "1,100 − 900 = $200"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "op-bx-be-1080-45",
+      "groupId": "operator",
+      "familyId": "box-contribution",
+      "prompt": "SAMPLE: the box costs $1,080/mo and a seat is $45. Users to cover the box?",
+      "expectedAnswer": 24,
+      "thoughtChain": [
+        "1,080 ÷ 45",
+        "= 216 ÷ 9 = 24 users"
+      ]
+    },
+    {
+      "id": "op-bx-hr-150-36",
+      "groupId": "operator",
+      "familyId": "box-contribution",
+      "prompt": "SAMPLE: a $1.50/hr GPU and $36/mo seats. Users to cover one box?",
+      "expectedAnswer": 30,
+      "thoughtChain": [
+        "1.50 × 720 = $1,080/mo",
+        "1,080 ÷ 36 = 30 users"
+      ]
+    },
+    {
+      "id": "op-bx-hr-075-12",
+      "groupId": "operator",
+      "familyId": "box-contribution",
+      "prompt": "SAMPLE: a $0.75/hr box holds 12 users at $50/mo. Contribution per box per month?",
+      "expectedAnswer": 60,
+      "thoughtChain": [
+        "box 0.75 × 720 = $540",
+        "revenue $600 − 540 = $60"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "op-ut-340",
+      "groupId": "operator",
+      "familyId": "utilization",
+      "prompt": "SAMPLE: a worker maxes at 340 jobs/min. Safe plan?",
+      "expectedAnswer": 238,
+      "thoughtChain": [
+        "7 × 34 = 238",
+        "238 jobs/min"
+      ]
+    },
+    {
+      "id": "op-ut-90",
+      "groupId": "operator",
+      "familyId": "utilization",
+      "prompt": "SAMPLE: 90 req/sec advertised. Safe load?",
+      "expectedAnswer": 63,
+      "thoughtChain": [
+        "7 × 9 = 63",
+        "63 req/sec"
+      ]
+    },
+    {
+      "id": "op-ut-back-210",
+      "groupId": "operator",
+      "familyId": "utilization",
+      "prompt": "SAMPLE: you need 210 req/sec safely. What max capacity does that require?",
+      "expectedAnswer": 300,
+      "thoughtChain": [
+        "210 ÷ 7 = 30",
+        "×10 → 300"
+      ]
+    },
+    {
+      "id": "op-ut-back-56",
+      "groupId": "operator",
+      "familyId": "utilization",
+      "prompt": "SAMPLE: 56 seats must be filled at a safe load. How big a room?",
+      "expectedAnswer": 80,
+      "thoughtChain": [
+        "56 ÷ 7 = 8",
+        "×10 → 80 seats"
+      ]
+    },
+    {
+      "id": "op-ut-fleet-1400",
+      "groupId": "operator",
+      "familyId": "utilization",
+      "prompt": "SAMPLE: 1,400 req/sec needed, each box maxes at 40. Boxes at a safe load?",
+      "expectedAnswer": 50,
+      "thoughtChain": [
+        "safe per box 28",
+        "1,400 ÷ 28 = 50 boxes"
+      ]
+    },
+    {
+      "id": "op-ut-fleet-630",
+      "groupId": "operator",
+      "familyId": "utilization",
+      "prompt": "SAMPLE: 630 jobs/sec, boxes max at 30 each. Boxes at a safe load?",
+      "expectedAnswer": 30,
+      "thoughtChain": [
+        "safe per box 21",
+        "630 ÷ 21 = 30 boxes"
+      ]
+    },
+    {
+      "id": "op-pd-3400",
+      "groupId": "operator",
+      "familyId": "estimate-pad",
+      "prompt": "SAMPLE: $3,400 cost guess. Padded budget?",
+      "expectedAnswer": 4420,
+      "thoughtChain": [
+        "30% of 3,400 = 1,020",
+        "3,400 + 1,020 = $4,420"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "op-pd-750",
+      "groupId": "operator",
+      "familyId": "estimate-pad",
+      "prompt": "SAMPLE: a $750 vendor quote. Padded budget?",
+      "expectedAnswer": 975,
+      "thoughtChain": [
+        "30% of 750 = 225",
+        "$975"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "op-pd-undo-3900",
+      "groupId": "operator",
+      "familyId": "estimate-pad",
+      "prompt": "SAMPLE: the padded budget is $3,900. What was the raw guess?",
+      "expectedAnswer": 3000,
+      "thoughtChain": [
+        "3,900 ÷ 1.3",
+        "39 ÷ 13 = 3 → $3,000"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "op-pd-undo-11700",
+      "groupId": "operator",
+      "familyId": "estimate-pad",
+      "prompt": "SAMPLE: a padded budget of $11,700. Raw guess?",
+      "expectedAnswer": 9000,
+      "thoughtChain": [
+        "117 ÷ 13 = 9",
+        "$9,000"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "op-pd-weeks-10",
+      "groupId": "operator",
+      "familyId": "estimate-pad",
+      "prompt": "SAMPLE: an engineer says 10 weeks. Padded timeline, in weeks?",
+      "expectedAnswer": 13,
+      "thoughtChain": [
+        "10 × 1.3",
+        "13 weeks"
+      ]
+    },
+    {
+      "id": "op-pd-over-6000",
+      "groupId": "operator",
+      "familyId": "estimate-pad",
+      "prompt": "SAMPLE: a $6,000 guess against a $7,500 budget. After the pad, how far over budget?",
+      "expectedAnswer": 300,
+      "thoughtChain": [
+        "padded 6,000 × 1.3 = $7,800",
+        "7,800 − 7,500 = $300 over"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "op-fn-35k",
+      "groupId": "operator",
+      "familyId": "funnel-bands",
+      "prompt": "SAMPLE: 35,000 visits, 20% sign up, 5% of signups pay. Paid?",
+      "expectedAnswer": 350,
+      "thoughtChain": [
+        "compress: 20% × 5% = 1%",
+        "1% of 35,000 = 350"
+      ]
+    },
+    {
+      "id": "op-fn-6k-30-2",
+      "groupId": "operator",
+      "familyId": "funnel-bands",
+      "prompt": "SAMPLE: 6,000 visits, 30% then 2% paid. Paid?",
+      "expectedAnswer": 36,
+      "thoughtChain": [
+        "30% × 2% = 0.6%",
+        "0.6% of 6,000 = 36"
+      ]
+    },
+    {
+      "id": "op-fn-rate-25-4",
+      "groupId": "operator",
+      "familyId": "funnel-bands",
+      "prompt": "SAMPLE: 25% visit→signup and 4% signup→paid. Combined visit→paid percent?",
+      "expectedAnswer": 1,
+      "thoughtChain": [
+        "0.25 × 0.04 = 0.01",
+        "1%"
+      ]
+    },
+    {
+      "id": "op-fn-rate-15-6",
+      "groupId": "operator",
+      "familyId": "funnel-bands",
+      "prompt": "SAMPLE: 15% then 6%. Combined visit→paid percent?",
+      "expectedAnswer": 0.9,
+      "thoughtChain": [
+        "15 × 6 = 90 → 0.0090",
+        "0.9%"
+      ]
+    },
+    {
+      "id": "op-fn-back-450",
+      "groupId": "operator",
+      "familyId": "funnel-bands",
+      "prompt": "SAMPLE: you need 450 paid at the 1% middle. Visits?",
+      "expectedAnswer": 45000,
+      "thoughtChain": [
+        "450 is 1%",
+        "×100 → 45,000 visits"
+      ]
+    },
+    {
+      "id": "op-fn-implied-12k",
+      "groupId": "operator",
+      "familyId": "funnel-bands",
+      "prompt": "SAMPLE: 12,000 visits and a plan for 240 paid. Implied visit→paid percent?",
+      "expectedAnswer": 2,
+      "thoughtChain": [
+        "240 ÷ 12,000 = 0.02",
+        "2% — double the 1% middle"
+      ]
+    },
+    {
+      "id": "cfo-f-18-7k",
+      "groupId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "prompt": "SAMPLE: $18/mo × 7,000 possible customers. Monthly ceiling?",
+      "expectedAnswer": 126000,
+      "thoughtChain": [
+        "18 × 7 = 126",
+        "three zeros → $126,000/mo"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cfo-f-45-3k",
+      "groupId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "prompt": "SAMPLE: $45/mo × 3,000 possible buyers. Ceiling?",
+      "expectedAnswer": 135000,
+      "thoughtChain": [
+        "45 × 3 = 135",
+        "three zeros → $135,000/mo"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cfo-f-ratio-240-30",
+      "groupId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "prompt": "SAMPLE: ceiling $240k/mo, costs $30k/mo. Ceiling ÷ cost?",
+      "expectedAnswer": 8,
+      "thoughtChain": [
+        "drop the k: 240 ÷ 30",
+        "8× — room to talk"
+      ]
+    },
+    {
+      "id": "cfo-f-ratio-15x6k-36",
+      "groupId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "prompt": "SAMPLE: $15 × 6,000 seats is the ceiling. Costs are $36k/mo. Ceiling ÷ cost?",
+      "expectedAnswer": 2.5,
+      "thoughtChain": [
+        "ceiling 15 × 6,000 = $90k",
+        "90 ÷ 36 = 2.5× — under 3×, red flag"
+      ]
+    },
+    {
+      "id": "cfo-f-share-200-50",
+      "groupId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "prompt": "SAMPLE: ceiling $200k/mo, costs $50k/mo. What percent of possible customers must pay just to cover costs?",
+      "expectedAnswer": 25,
+      "thoughtChain": [
+        "50 ÷ 200 = 1/4",
+        "25%"
+      ]
+    },
+    {
+      "id": "cfo-f-share-25x8k-40",
+      "groupId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "prompt": "SAMPLE: $25 × 8,000 possible seats. Costs $40k/mo. Percent who must pay to cover costs?",
+      "expectedAnswer": 20,
+      "thoughtChain": [
+        "ceiling 25 × 8,000 = $200k",
+        "40 ÷ 200 = 20%"
+      ]
+    },
+    {
+      "id": "cfo-f-year-480-5k",
+      "groupId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "prompt": "SAMPLE: $480/year × 5,000 buyers. Monthly ceiling?",
+      "expectedAnswer": 200000,
+      "thoughtChain": [
+        "480 ÷ 12 = $40/mo",
+        "40 × 5,000 = $200,000/mo"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cfo-f-year-1200-900",
+      "groupId": "cfo-feasibility",
+      "familyId": "cfo-feasibility",
+      "prompt": "SAMPLE: $1,200/year × 900 buyers. Monthly ceiling?",
+      "expectedAnswer": 90000,
+      "thoughtChain": [
+        "1,200 ÷ 12 = $100/mo",
+        "100 × 900 = $90,000/mo"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cfo-u-35x6",
+      "groupId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "prompt": "SAMPLE: $35/mo, customers stay 6 months. LTV?",
+      "expectedAnswer": 210,
+      "thoughtChain": [
+        "35 × 6",
+        "$210"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cfo-u-14x7",
+      "groupId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "prompt": "SAMPLE: $14/mo, 7 months of life. LTV?",
+      "expectedAnswer": 98,
+      "thoughtChain": [
+        "14 × 7",
+        "$98"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cfo-u-ratio-210-60",
+      "groupId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "prompt": "SAMPLE: LTV $210, CAC $60. LTV ÷ CAC?",
+      "expectedAnswer": 3.5,
+      "thoughtChain": [
+        "210 ÷ 60 = 21 ÷ 6",
+        "3.5× — clears the 3× bar"
+      ]
+    },
+    {
+      "id": "cfo-u-ratio-16x4-80",
+      "groupId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "prompt": "SAMPLE: $16/mo for 4 months. CAC $80. LTV ÷ CAC?",
+      "expectedAnswer": 0.8,
+      "thoughtChain": [
+        "LTV 16 × 4 = $64",
+        "64 ÷ 80 = 0.8× — under 1×"
+      ]
+    },
+    {
+      "id": "cfo-u-need-70",
+      "groupId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "prompt": "SAMPLE: CAC $70. LTV needed for 3×?",
+      "expectedAnswer": 210,
+      "thoughtChain": [
+        "3 × 70",
+        "$210"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cfo-u-months-60-20",
+      "groupId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "prompt": "SAMPLE: CAC $60, price $20/mo. Months of life needed for 3×?",
+      "expectedAnswer": 9,
+      "thoughtChain": [
+        "need LTV 3 × 60 = $180",
+        "180 ÷ 20 = 9 months"
+      ]
+    },
+    {
+      "id": "cfo-u-months-120-30",
+      "groupId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "prompt": "SAMPLE: CAC $120, price $30/mo. Months needed for 3×?",
+      "expectedAnswer": 12,
+      "thoughtChain": [
+        "need LTV $360",
+        "360 ÷ 30 = 12 months"
+      ]
+    },
+    {
+      "id": "cfo-u-churn-30-4",
+      "groupId": "cfo-unit-econ",
+      "familyId": "cfo-unit-econ",
+      "prompt": "SAMPLE: $30/mo, 4% monthly churn. LTV?",
+      "expectedAnswer": 750,
+      "thoughtChain": [
+        "life ≈ 1 ÷ 0.04 = 25 months",
+        "30 × 25 = $750"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "cfo-r-210-35",
+      "groupId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "prompt": "SAMPLE: $210k cash, $35k monthly burn. Months?",
+      "expectedAnswer": 6,
+      "thoughtChain": [
+        "drop the k: 210 ÷ 35",
+        "6 months"
+      ]
+    },
+    {
+      "id": "cfo-r-1.2m-80",
+      "groupId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "prompt": "SAMPLE: $1.2M cash, $80k monthly burn. Months?",
+      "expectedAnswer": 15,
+      "thoughtChain": [
+        "$1.2M = 1,200k",
+        "1,200 ÷ 80 = 15 months"
+      ]
+    },
+    {
+      "id": "cfo-r-net-180",
+      "groupId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "prompt": "SAMPLE: $180k cash. Costs $40k/mo, revenue $10k/mo. Months of runway?",
+      "expectedAnswer": 6,
+      "thoughtChain": [
+        "net burn 40 − 10 = $30k",
+        "180 ÷ 30 = 6 months"
+      ]
+    },
+    {
+      "id": "cfo-r-net-400",
+      "groupId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "prompt": "SAMPLE: $400k cash. Costs $70k/mo, revenue $20k/mo. Months?",
+      "expectedAnswer": 8,
+      "thoughtChain": [
+        "net burn $50k",
+        "400 ÷ 50 = 8 months"
+      ]
+    },
+    {
+      "id": "cfo-r-hire-144",
+      "groupId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "prompt": "SAMPLE: $144k cash, $16k burn. A hire adds $8k a month. New runway?",
+      "expectedAnswer": 6,
+      "thoughtChain": [
+        "new burn 16 + 8 = $24k",
+        "144 ÷ 24 = 6 months"
+      ]
+    },
+    {
+      "id": "cfo-r-cut-240",
+      "groupId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "prompt": "SAMPLE: $240k cash, $40k burn. Cut burn to $30k. Months gained?",
+      "expectedAnswer": 2,
+      "thoughtChain": [
+        "before 240 ÷ 40 = 6",
+        "after 240 ÷ 30 = 8 → 2 more months"
+      ]
+    },
+    {
+      "id": "cfo-r-need-9x25",
+      "groupId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "prompt": "SAMPLE: burn is $25k/mo. Cash needed for 9 months, in $k?",
+      "expectedAnswer": 225,
+      "thoughtChain": [
+        "9 × 25",
+        "$225k"
+      ]
+    },
+    {
+      "id": "cfo-r-halve-75",
+      "groupId": "cfo-runway",
+      "familyId": "cfo-runway",
+      "prompt": "SAMPLE: $75k cash, $25k burn. Halve the burn. New runway?",
+      "expectedAnswer": 6,
+      "thoughtChain": [
+        "3 months today",
+        "half the burn doubles it → 6 months"
+      ]
+    },
+    {
+      "id": "cfo-g-300-12m",
+      "groupId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "prompt": "SAMPLE: 300 users at 20%/mo. About how many after 12 months?",
+      "expectedAnswer": 2700,
+      "thoughtChain": [
+        "12 months ≈ 9×",
+        "300 × 9 = 2,700"
+      ]
+    },
+    {
+      "id": "cfo-g-60-6m",
+      "groupId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "prompt": "SAMPLE: 60 users at 20%/mo. About how many after 6 months?",
+      "expectedAnswer": 180,
+      "thoughtChain": [
+        "6 months ≈ 3×",
+        "60 × 3 = 180"
+      ]
+    },
+    {
+      "id": "cfo-g-500-3m",
+      "groupId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "prompt": "SAMPLE: 500 users at 20%/mo. About how many after 3 months?",
+      "expectedAnswer": 850,
+      "thoughtChain": [
+        "3 months ≈ 1.7×",
+        "500 × 1.7 = 850"
+      ]
+    },
+    {
+      "id": "cfo-g-back-4500",
+      "groupId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "prompt": "SAMPLE: the plan says ~4,500 users in 12 months at 20%/mo. About how many users today?",
+      "expectedAnswer": 500,
+      "thoughtChain": [
+        "12 months ≈ 9×",
+        "4,500 ÷ 9 = 500"
+      ]
+    },
+    {
+      "id": "cfo-g-back-6m-900",
+      "groupId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "prompt": "SAMPLE: want ~900 users in 6 months at 20%/mo. Start with about how many?",
+      "expectedAnswer": 300,
+      "thoughtChain": [
+        "6 months ≈ 3×",
+        "900 ÷ 3 = 300"
+      ]
+    },
+    {
+      "id": "cfo-g-claim-36k",
+      "groupId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "prompt": "SAMPLE: 200 users, 20%/mo, and a claim of 36,000 in a year. How many times too high is the claim?",
+      "expectedAnswer": 20,
+      "thoughtChain": [
+        "table: 200 × 9 = 1,800",
+        "36,000 ÷ 1,800 = 20×"
+      ]
+    },
+    {
+      "id": "cfo-g-24m",
+      "groupId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "prompt": "SAMPLE: 20%/mo for 24 months. About what multiple, chaining the 12-month figure?",
+      "expectedAnswer": 81,
+      "thoughtChain": [
+        "12 months ≈ 9×",
+        "9 × 9 = 81×"
+      ]
+    },
+    {
+      "id": "cfo-g-9m",
+      "groupId": "cfo-growth",
+      "familyId": "cfo-growth",
+      "prompt": "SAMPLE: 20%/mo for 9 months. Chain 6 months and 3 months: about what multiple?",
+      "expectedAnswer": 5.1,
+      "thoughtChain": [
+        "6 months ≈ 3×, 3 months ≈ 1.7×",
+        "3 × 1.7 = 5.1× (true 1.2⁹ ≈ 5.16)"
       ]
     }
   ],
