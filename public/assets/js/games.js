@@ -1,4 +1,5 @@
 import { elevenRound } from "./eleven.js";
+import { addOptions, classifyAdd, freshBoard, nextAdd, renderRods, wantedKind } from "./soroban.js";
 
 export function initGames() {
   const shift = document.querySelector(".js-game-decimal");
@@ -248,5 +249,74 @@ export function initGames() {
       miss.hidden = true;
       win.hidden = true;
     });
+  }
+
+  const soroban = document.querySelector(".js-game-soroban");
+  if (soroban) {
+    const board = soroban.querySelector(".js-soroban-board");
+    const prompt = soroban.querySelector(".js-soroban-prompt");
+    const choices = soroban.querySelector(".js-soroban-choices");
+    const miss = soroban.querySelector(".js-soroban-miss");
+    const okEl = soroban.querySelector(".js-soroban-ok");
+    const next = soroban.querySelector(".js-soroban-next");
+    const tally = soroban.querySelector(".js-soroban-tally");
+    let value = 0;
+    let step = 0;
+    let done = 0;
+    const paintBoard = () => {
+      const fig = board.querySelector(".soroban");
+      fig.querySelector(".soroban__frame").replaceWith(renderRods(document, value));
+      fig.setAttribute("aria-label", `Soroban showing ${value}`);
+    };
+    const ask = () => {
+      let k = nextAdd(value, step);
+      if (k === null) {
+        value = freshBoard();
+        paintBoard();
+        k = nextAdd(value, step);
+      }
+      prompt.textContent = `${value} + ${k}`;
+      okEl.hidden = true;
+      miss.hidden = true;
+      next.hidden = true;
+      choices.replaceChildren(
+        ...addOptions(value, k).map((o) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.textContent = o.text;
+          btn.dataset.kind = o.kind;
+          if (o.ok) btn.dataset.ok = "1";
+          btn.addEventListener("click", () => {
+            if (!o.ok) {
+              miss.textContent = o.why;
+              miss.hidden = false;
+              return;
+            }
+            const before = value;
+            if (classifyAdd(before % 10, k) === wantedKind(step)) step += 1;
+            value = o.after;
+            done += 1;
+            paintBoard();
+            miss.hidden = true;
+            choices.replaceChildren();
+            okEl.textContent = `${before} + ${k} = ${value}. ${o.text}.`;
+            okEl.hidden = false;
+            next.hidden = false;
+            tally.textContent = `Adds done: ${done}`;
+          });
+          return btn;
+        }),
+      );
+    };
+    next.addEventListener("click", ask);
+    soroban.querySelector(".js-soroban-reset").addEventListener("click", () => {
+      value = freshBoard();
+      step = 0;
+      paintBoard();
+      ask();
+    });
+    value = 47;
+    step = 2; // open on the guide sample shape: 47 needs a ten-complement add
+    ask();
   }
 }

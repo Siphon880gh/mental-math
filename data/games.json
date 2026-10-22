@@ -41,6 +41,13 @@
       "summary": "97 × 94: pick the cross, then multiply the gaps.",
       "familyId": "near-base",
       "relatedGuide": "near-base"
+    },
+    {
+      "slug": "soroban-rod",
+      "title": "Soroban rod",
+      "summary": "Watch two soroban rods take each add: push beads on, five-complement, or ten-complement.",
+      "familyId": "mental-abacus",
+      "relatedGuide": "mental-abacus"
     }
   ],
   "skips": [
@@ -246,10 +253,6 @@
     },
     {
       "familyId": "area-grid",
-      "reason": "no_mechanic"
-    },
-    {
-      "familyId": "mental-abacus",
       "reason": "no_mechanic"
     },
     {

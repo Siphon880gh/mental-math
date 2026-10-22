@@ -253,6 +253,13 @@ final class RoutesTest extends TestCase
         $this->assertStringContainsString('2- or 3-digit number × 11', $eleven);
         $this->assertStringContainsString('97 − 6 = 91', $this->html('/games/near-base-gaps'));
         $this->assertStringContainsString('Near-base gaps', $this->html('/games'));
+        $soroban = $this->html('/games/soroban-rod');
+        $this->assertStringContainsString('js-soroban-choices', $soroban);
+        $this->assertStringContainsString('aria-label="Soroban showing 47"', $soroban);
+        $this->assertStringContainsString('Soroban rod', $this->html('/games'));
+        $guide = $this->html('/guides/mental-abacus');
+        $this->assertSame(7, substr_count($guide, 'class="soroban"'));
+        $this->assertStringContainsString('aria-label="Soroban showing 55"', $guide);
     }
 
     public function testNavActiveOnGuide(): void

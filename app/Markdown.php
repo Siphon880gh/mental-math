@@ -17,7 +17,9 @@ final class Markdown
                 }
                 continue;
             }
-            if (str_starts_with($line, '### ')) {
+            if (preg_match('/^::soroban (\d{1,6})(?: \| (.+))?$/', $line, $m) === 1) {
+                $blocks[] = ['soroban', 0, [$m[1], $m[2] ?? '']];
+            } elseif (str_starts_with($line, '### ')) {
                 $blocks[] = ['h', 3, substr($line, 4)];
             } elseif (str_starts_with($line, '## ')) {
                 $blocks[] = ['h', 2, substr($line, 3)];
@@ -49,6 +51,10 @@ final class Markdown
         foreach ($blocks as $block) {
             [$type, $level, $text] = $block;
             if ($type === 'gap') {
+                continue;
+            }
+            if ($type === 'soroban') {
+                $html .= Soroban::html($text[0], $text[1]);
                 continue;
             }
             if ($type === 'table') {

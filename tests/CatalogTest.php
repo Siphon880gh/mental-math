@@ -141,7 +141,7 @@ final class CatalogTest extends TestCase
     public function testGamesAndPaths(): void
     {
         $this->assertSame(
-            ['decimal-shift', 'percent-swap', 'percent-chips', 'pair-hundred', 'eleven-neighbors', 'near-base-gaps'],
+            ['decimal-shift', 'percent-swap', 'percent-chips', 'pair-hundred', 'eleven-neighbors', 'near-base-gaps', 'soroban-rod'],
             array_column(Games::all(), 'slug'),
         );
         $gameFamilies = array_column(Games::all(), 'familyId');

@@ -1087,3 +1087,90 @@ html.cases-unlocked .js-cases-gate {
 .js-empty-filter[hidden] {
   display: none;
 }
+
+/* Soroban bead diagram (guide figures and the Soroban rod game). */
+.soroban {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin: var(--space-2) var(--space-4) var(--space-3) 0;
+  vertical-align: top;
+}
+
+.soroban__frame {
+  align-self: flex-start;
+  display: inline-flex;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--panel-edge);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.soroban__rod {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 2rem;
+}
+
+.soroban__rod::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 1.4rem;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: var(--panel-edge);
+}
+
+.soroban__upper,
+.soroban__lower {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.soroban__beam {
+  position: relative;
+  width: 2.4rem;
+  height: 4px;
+  margin: 3px 0;
+  background: var(--ink-muted);
+  border-radius: 2px;
+}
+
+.soroban__bead,
+.soroban__gap {
+  width: 1.7rem;
+  height: 0.75rem;
+}
+
+.soroban__bead {
+  position: relative;
+  border-radius: 50%;
+  border: 1px solid var(--ink-muted);
+  background: var(--panel-alt);
+}
+
+.soroban__bead.is-on {
+  border-color: var(--link);
+  background: var(--link);
+}
+
+.soroban__digit {
+  margin-top: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.soroban figcaption {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  max-width: 13rem;
+}
