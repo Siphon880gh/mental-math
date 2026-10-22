@@ -111,6 +111,26 @@ final class CatalogTest extends TestCase
         }
     }
 
+    /**
+     * The debrief shows the mode's tip under the thought chain, so the chain
+     * must actually use the move the tip names.
+     */
+    public function testInfraTipsFitTheCasesThatShowThem(): void
+    {
+        $moves = [
+            'infra_chain' => '/×\s*720/u',
+            'clock_convert' => '/(÷\s*30|×\s*12|×12|months? free|pay 10 months)/u',
+            'capacity_read' => '/(÷|%|simultaneous)/u',
+        ];
+        foreach (Cases::all() as $row) {
+            if (!isset($moves[$row['thinkingMode']])) {
+                continue;
+            }
+            $this->assertMatchesRegularExpression($moves[$row['thinkingMode']], implode(' ', $row['thoughtChain']), $row['id'] . ' does not use the ' . $row['thinkingMode'] . ' move');
+        }
+        $this->assertStringNotContainsString('÷ price.', ThinkingModeTips::ALL['infra_chain']);
+    }
+
     public function testScenarios(): void
     {
         $ids = array_column(Scenarios::all(), 'id');

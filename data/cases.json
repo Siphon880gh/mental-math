@@ -106,7 +106,7 @@
       "id": "sf-day-30",
       "packId": "stacked-founder",
       "familyId": "month-day",
-      "thinkingMode": "infra_chain",
+      "thinkingMode": "clock_convert",
       "prompt": "SAMPLE: the bill is $900/mo. What daily burn should we quote?",
       "expectedAnswer": 30,
       "thoughtChain": [
@@ -120,7 +120,7 @@
       "id": "sf-year-360",
       "packId": "stacked-founder",
       "familyId": "month-year",
-      "thinkingMode": "infra_chain",
+      "thinkingMode": "clock_convert",
       "prompt": "SAMPLE: $30/mo plan. Investor asks yearly revenue per seat.",
       "expectedAnswer": 360,
       "thoughtChain": [
@@ -1305,7 +1305,7 @@
       "id": "sf-conc-640",
       "packId": "stacked-founder",
       "familyId": "concurrency",
-      "thinkingMode": "infra_chain",
+      "thinkingMode": "capacity_read",
       "prompt": "SAMPLE: 640 logos, busy hour. How many concurrent at 20%?",
       "expectedAnswer": 128,
       "thoughtChain": [
@@ -1319,7 +1319,7 @@
       "id": "sf-boxes-900-36",
       "packId": "stacked-founder",
       "familyId": "capacity-split",
-      "thinkingMode": "infra_chain",
+      "thinkingMode": "capacity_read",
       "prompt": "SAMPLE: 900 simultaneous users, 36 per server. How many boxes?",
       "expectedAnswer": 25,
       "thoughtChain": [
@@ -1348,7 +1348,7 @@
       "id": "sf-util-120",
       "packId": "stacked-founder",
       "familyId": "utilization",
-      "thinkingMode": "infra_chain",
+      "thinkingMode": "capacity_read",
       "prompt": "SAMPLE: the box claims 120 jobs/sec. What sustained load do you plan?",
       "expectedAnswer": 84,
       "thoughtChain": [
@@ -1564,7 +1564,7 @@
       "id": "sf-adv-seats-annual",
       "packId": "stacked-founder",
       "familyId": "month-year",
-      "thinkingMode": "infra_chain",
+      "thinkingMode": "clock_convert",
       "prompt": "SAMPLE: a tool costs $85 a seat a month for 14 seats, and annual billing gives 2 months free. Annual bill?",
       "expectedAnswer": 11900,
       "thoughtChain": [

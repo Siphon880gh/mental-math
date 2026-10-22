@@ -120,7 +120,7 @@ Cases are **decide-and-reveal for a number**, not BUY/SELL/HOLD. They belong pri
 | Field | Role |
 |-------|------|
 | `familyId` | Primary trick the case exercises (often `stacked-founder` plus supporting families) |
-| `thinkingMode` | `break_even`, `infra_chain`, `conversion_funnel`, `markup_read`, `smell_test`, `runway`, `ltv_cac`, `growth_claim`, `nrr_read`, `rule_of_40`, `burn_multiple`, `payback`, `take_rate`, `fees`, `loaded_cost`, `dilution`, `tam_fermi` |
+| `thinkingMode` | `break_even`, `infra_chain`, `clock_convert`, `capacity_read`, `conversion_funnel`, `markup_read`, `smell_test`, `runway`, `ltv_cac`, `growth_claim`, `nrr_read`, `rule_of_40`, `burn_multiple`, `payback`, `take_rate`, `fees`, `loaded_cost`, `dilution`, `tam_fermi` |
 | `prompt` | What the other person said (conversation) |
 | `expectedAnswer` | Number (and unit) |
 | `thoughtChain` | The taught steps (reveal after submit) |

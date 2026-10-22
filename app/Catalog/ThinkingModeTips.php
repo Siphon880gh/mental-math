@@ -7,7 +7,9 @@ namespace Reflex\Catalog;
 final class ThinkingModeTips
 {
     public const ALL = [
-        'infra_chain' => 'Hourly ×720 then ÷ price. Drill /drills/conversions or walk /coach/hour-month.',
+        'infra_chain' => 'A box’s month is hourly × 720. Then scale it: × boxes (or GPUs), less any discount, × 12 for a year, or ÷ price for the users who cover one box. /coach/hour-month.',
+        'clock_convert' => 'Change the clock first: monthly ÷ 30 is daily, monthly × 12 is yearly, and months given free come off the 12. /drills/conversions.',
+        'capacity_read' => 'Not everyone is on at once: take the busy-hour share, plan each box at about 70% of its max, and divide users by box size, rounding up. /guides/capacity-split.',
         'break_even' => 'Users = cost ÷ price. Reduce both sides on /drills/break-even.',
         'conversion_funnel' => '1% is two places left, then scale. /drills/percents or /coach/percent-shift.',
         'markup_read' => 'Price ÷ cost. Track A guide /guides/markup.',
