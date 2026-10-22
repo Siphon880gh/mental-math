@@ -35,7 +35,7 @@ Scenarios are multi-skill multiple choice with Hint and Cheat. They are not behi
 
 ![Scenario — one GPU, one price](docs/screenshots/scenario.png)
 
-Mini-games teach one motion: decimal shift, percent swap, percent chips, pair to 100, eleven neighbors (a new 2- or 3-digit number each round), near-base gaps, and a soroban rod.
+Mini-games teach one motion: decimal shift, percent swap, percent chips, pair to 100, eleven neighbors (a new 2- or 3-digit number each round), near-base gaps, a soroban rod, and two Track B reads: runway check (net burn, months, when to start a raise) and ARR read (MRR without setup fees, ×12, a percent of ARR).
 
 ![Mini-game — Decimal shifter](docs/screenshots/game.png)
 
@@ -64,7 +64,7 @@ PHP server-renders every URL. Progress and pass tags live in the browser (`local
 | **Drills** `/drills` | Timed banks; Beginner unlocks; gate to Cases |
 | **Cases** `/cases` | Typed conversation packs, beginner to advanced, incl. Arithmetic in the room (locked until the timed gate) |
 | **Scenarios** `/scenarios` | Multi-skill MCQ, Hint, Cheat — always open |
-| **Games** `/games` | Decimal shifter, percent swap, percent chips, pair to 100, eleven neighbors, near-base gaps, soroban rod |
+| **Games** `/games` | Decimal shifter, percent swap, percent chips, pair to 100, eleven neighbors, near-base gaps, soroban rod, runway check, ARR read |
 
 ## Run locally
 

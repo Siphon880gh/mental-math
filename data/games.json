@@ -48,6 +48,20 @@
       "summary": "Watch two soroban rods take each add or take-away: beads on or off, five-complement, or ten-complement.",
       "familyId": "mental-abacus",
       "relatedGuide": "mental-abacus"
+    },
+    {
+      "slug": "runway-check",
+      "title": "Runway check",
+      "summary": "Cash, spend, and revenue: net burn, months of runway, then when to start a six-month raise.",
+      "familyId": "cfo-runway",
+      "relatedGuide": "cfo-runway"
+    },
+    {
+      "slug": "arr-read",
+      "title": "ARR read",
+      "summary": "Seats × price is MRR (setup fees out), ×12 is ARR, then take a percent of ARR for a budget line.",
+      "familyId": "mrr-arr",
+      "relatedGuide": "mrr-arr"
     }
   ],
   "skips": [
@@ -104,10 +118,6 @@
       "reason": "no_mechanic"
     },
     {
-      "familyId": "cfo-runway",
-      "reason": "no_mechanic"
-    },
-    {
       "familyId": "cfo-growth",
       "reason": "no_mechanic"
     },
@@ -133,10 +143,6 @@
     },
     {
       "familyId": "rule-of-72",
-      "reason": "no_mechanic"
-    },
-    {
-      "familyId": "mrr-arr",
       "reason": "no_mechanic"
     },
     {

@@ -114,6 +114,55 @@ async function nearBaseGaps(page, base, rep) {
   rep.ok(!(await visible(page, ".js-nb-win")) && (await text(page, ".js-nb-status")) === "? | ?", "reset starts a fresh round");
 }
 
+async function stepGame(page, base, rep, { slug, title, rounds, check }) {
+  rep.section(title);
+  await page.goto(`${base}/games/${slug}`);
+  for (let round = 0; round < rounds; round += 1) {
+    const prompt = await text(page, ".js-step-prompt");
+    const info = await text(page, ".js-step-info");
+    rep.ok(!(await visible(page, ".js-step-miss")), `r${round}: no stale miss`);
+    const steps = await walkSteps(page, rep, { choices: ".js-step-choices", miss: ".js-step-miss", label: `r${round} ${prompt}`, maxSteps: 4 });
+    rep.ok(steps === 3, `r${round}: three picks (${steps})`);
+    const win = await text(page, ".js-step-win");
+    rep.ok(check(prompt, info, win), `r${round}: ${prompt} · ${info} → ${win}`);
+    rep.ok((await text(page, ".js-step-tally")) === `Rounds solved: ${round + 1}`, `r${round}: tally`);
+    await page.click(".js-step-next");
+  }
+  await page.click(".js-step-reset");
+  rep.ok(!(await visible(page, ".js-step-win")) && (await page.locator(".js-step-choices button").count()) >= 3, "reset gives a fresh round");
+}
+
+const num = (s) => Number(s.replace(/[$,k]/g, ""));
+
+async function runwayCheck(page, base, rep) {
+  await stepGame(page, base, rep, {
+    slug: "runway-check",
+    title: "Runway check",
+    rounds: 5,
+    check: (prompt, info, win) => {
+      const cash = num(prompt.split(" ")[0]);
+      const [spend, revenue] = [...info.matchAll(/\$(\d+)k/g)].map((m) => Number(m[1]));
+      const months = cash / (spend - revenue);
+      const start = months - 6;
+      return win.includes(`Net burn $${spend - revenue}k → ${months} months`) && win.endsWith(start === 0 ? "now." : `in ${start} month${start === 1 ? "" : "s"}.`);
+    },
+  });
+}
+
+async function arrRead(page, base, rep) {
+  await stepGame(page, base, rep, {
+    slug: "arr-read",
+    title: "ARR read",
+    rounds: 6,
+    check: (prompt, info, win) => {
+      const [, seats, price] = prompt.match(/^(\d+) seats at \$(\d+)\/mo$/) || [];
+      const pct = Number(info.match(/Budget (\d+)% of ARR/)[1]);
+      const arr = seats * price * 12;
+      return win === `MRR $${(seats * price).toLocaleString("en-US")} → ARR $${arr.toLocaleString("en-US")} → ${pct}% = $${((arr * pct) / 100).toLocaleString("en-US")}.`;
+    },
+  });
+}
+
 async function sorobanRod(page, base, rep) {
   rep.section("Soroban rod");
   await page.goto(`${base}/games/soroban-rod`);
@@ -166,7 +215,7 @@ async function olderGames(page, base, rep) {
 export async function runGames(browser, base, rep) {
   const page = await browser.newPage();
   const flush = watch(page, rep);
-  for (const run of [pairHundred, elevenNeighbors, nearBaseGaps, sorobanRod, olderGames]) {
+  for (const run of [pairHundred, elevenNeighbors, nearBaseGaps, sorobanRod, runwayCheck, arrRead, olderGames]) {
     await run(page, base, rep);
     flush();
   }

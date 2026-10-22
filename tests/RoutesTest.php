@@ -263,6 +263,14 @@ final class RoutesTest extends TestCase
         $this->assertStringContainsString('js-soroban-choices', $soroban);
         $this->assertStringContainsString('aria-label="Soroban showing 47"', $soroban);
         $this->assertStringContainsString('Soroban rod', $this->html('/games'));
+        $runway = $this->html('/games/runway-check');
+        $this->assertStringContainsString('data-game="runway-check"', $runway);
+        $this->assertStringContainsString('net burn', $runway);
+        $arr = $this->html('/games/arr-read');
+        $this->assertStringContainsString('data-game="arr-read"', $arr);
+        $this->assertStringContainsString('one-time setup fee', $arr);
+        $this->assertStringContainsString('Runway check', $this->html('/games'));
+        $this->assertStringContainsString('ARR read', $this->html('/games'));
         $guide = $this->html('/guides/mental-abacus');
         $this->assertSame(9, substr_count($guide, 'class="soroban"'));
         $this->assertStringContainsString('aria-label="Soroban showing 46"', $guide);

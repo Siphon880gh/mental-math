@@ -1,9 +1,86 @@
+import { arrRound } from "./arr.js";
 import { elevenRound } from "./eleven.js";
 import { nearBaseRound } from "./nearbase.js";
 import { pairMiss, pairRound } from "./pairs.js";
+import { runwayRound } from "./runway.js";
 import { classifyMove, freshBoard, moveOptions, nextMove, renderRods, wantedMove } from "./soroban.js";
 
+const STEP_ROUNDS = { "runway-check": runwayRound, "arr-read": arrRound };
+
+// Multiple-choice step games: each round has steps, then a final pick. Wrong picks explain; right picks advance.
+function runStepGame(root, makeRound) {
+  const q = (name) => root.querySelector(`.js-step-${name}`);
+  const [prompt, info, status, stepEl, choices, miss, win, next, tally] = ["prompt", "info", "status", "label", "choices", "miss", "win", "next", "tally"].map(q);
+  let index = 0;
+  let solved = 0;
+  let round = null;
+  let done = [];
+  const show = (label, opts, onOk) => {
+    stepEl.textContent = label;
+    choices.replaceChildren(
+      ...opts.map((o) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.textContent = o.text;
+        btn.dataset.value = String(o.value);
+        if (o.ok) btn.dataset.ok = "1";
+        btn.addEventListener("click", () => {
+          if (o.ok) {
+            miss.hidden = true;
+            onOk();
+          } else {
+            miss.textContent = o.why;
+            miss.hidden = false;
+          }
+        });
+        return btn;
+      }),
+    );
+  };
+  const ask = () => {
+    status.textContent = done.length ? done.join(" → ") : "";
+    if (done.length < round.steps.length) {
+      const step = round.steps[done.length];
+      show(step.label, step.options, () => {
+        done.push(step.done);
+        ask();
+      });
+      return;
+    }
+    show(round.finalLabel, round.finals, () => {
+      solved += 1;
+      stepEl.textContent = "";
+      choices.replaceChildren();
+      win.textContent = round.winText;
+      win.hidden = false;
+      next.hidden = false;
+      tally.textContent = `Rounds solved: ${solved}`;
+    });
+  };
+  const start = () => {
+    round = makeRound(index);
+    done = [];
+    prompt.textContent = round.prompt;
+    info.textContent = round.info;
+    win.hidden = true;
+    next.hidden = true;
+    miss.hidden = true;
+    ask();
+  };
+  next.addEventListener("click", () => {
+    index += 1;
+    start();
+  });
+  q("reset").addEventListener("click", start);
+  start();
+}
+
 export function initGames() {
+  document.querySelectorAll(".js-game-step").forEach((root) => {
+    const makeRound = STEP_ROUNDS[root.dataset.game];
+    if (makeRound) runStepGame(root, makeRound);
+  });
+
   const shift = document.querySelector(".js-game-decimal");
   if (shift) {
     const START = 8500;
