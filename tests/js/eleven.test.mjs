@@ -2,17 +2,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { carrySlots, ELEVEN_SHAPES, elevenRound, elevenSlots, needsCarry } from "../../public/assets/js/eleven.js";
-
-function seeded(seed) {
-  let a = seed >>> 0;
-  return () => {
-    a = (a + 0x6d2b79f5) >>> 0;
-    let t = a;
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
+import { seeded } from "./seeded.mjs";
 
 test("guide sample 347 × 11 slots and carry", () => {
   assert.deepEqual(elevenSlots(347), [3, 7, 11, 7]);

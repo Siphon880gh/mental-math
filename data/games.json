@@ -24,7 +24,7 @@
     {
       "slug": "pair-hundred",
       "title": "Pair to 100",
-      "summary": "Tap two invoices that make 100 until the whole list is paired.",
+      "summary": "Tap two invoices that make 100 until the set is paired. A new set each round.",
       "familyId": "complements",
       "relatedGuide": "complements"
     },
@@ -38,7 +38,7 @@
     {
       "slug": "near-base-gaps",
       "title": "Near-base gaps",
-      "summary": "97 × 94: pick the cross, then multiply the gaps.",
+      "summary": "Numbers near 100 or 1,000, below, above, or mixed: cross, multiply the gaps, put it together.",
       "familyId": "near-base",
       "relatedGuide": "near-base"
     },

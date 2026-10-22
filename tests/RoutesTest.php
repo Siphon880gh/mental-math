@@ -251,11 +251,13 @@ final class RoutesTest extends TestCase
 
     public function testNewGamesRender(): void
     {
-        $this->assertStringContainsString('data-pair="82"', $this->html('/games/pair-hundred'));
+        $this->assertStringContainsString('js-pair-tiles', $this->html('/games/pair-hundred'));
         $eleven = $this->html('/games/eleven-neighbors');
         $this->assertStringContainsString('js-eleven-choices', $eleven);
         $this->assertStringContainsString('2- or 3-digit number × 11', $eleven);
-        $this->assertStringContainsString('97 − 6 = 91', $this->html('/games/near-base-gaps'));
+        $nearBase = $this->html('/games/near-base-gaps');
+        $this->assertStringContainsString('js-nb-choices', $nearBase);
+        $this->assertStringContainsString('near 100 or 1,000', $nearBase);
         $this->assertStringContainsString('Near-base gaps', $this->html('/games'));
         $soroban = $this->html('/games/soroban-rod');
         $this->assertStringContainsString('js-soroban-choices', $soroban);

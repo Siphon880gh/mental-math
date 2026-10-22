@@ -1,4 +1,6 @@
 import { elevenRound } from "./eleven.js";
+import { nearBaseRound } from "./nearbase.js";
+import { pairMiss, pairRound } from "./pairs.js";
 import { classifyMove, freshBoard, moveOptions, nextMove, renderRods, wantedMove } from "./soroban.js";
 
 export function initGames() {
@@ -82,53 +84,72 @@ export function initGames() {
   const pairs = document.querySelector(".js-game-pairs");
   if (pairs) {
     const status = pairs.querySelector(".js-pair-status");
+    const tiles = pairs.querySelector(".js-pair-tiles");
     const miss = pairs.querySelector(".js-pair-miss");
     const win = pairs.querySelector(".js-pair-win");
-    const buttons = [...pairs.querySelectorAll("[data-pair]")];
+    const next = pairs.querySelector(".js-pair-next");
+    let index = 0;
+    let round = null;
     let picked = null;
     let found = 0;
     const paint = () => {
-      status.textContent = `Pairs found: ${found} of 3`;
-      win.hidden = found !== 3;
+      status.textContent = `Pairs found: ${found} of ${round.pairs.length}`;
+      const done = found === round.pairs.length;
+      win.hidden = !done;
+      next.hidden = !done;
+      if (done) {
+        win.textContent = `${round.pairs.map(([a, b]) => `${a}+${b}`).join(", ")} → three hundreds = 300.`;
+      }
     };
-    buttons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const n = Number(btn.dataset.pair);
-        miss.hidden = true;
-        if (picked === null) {
-          picked = btn;
-          btn.setAttribute("aria-pressed", "true");
-          return;
-        }
-        if (picked === btn) {
-          picked = null;
-          btn.setAttribute("aria-pressed", "false");
-          return;
-        }
-        const first = Number(picked.dataset.pair);
-        if (first + n === 100) {
-          picked.disabled = true;
-          btn.disabled = true;
-          found += 1;
-        } else {
-          miss.textContent = `${first} + ${n} = ${first + n}, not 100. ${first} needs ${100 - first}.`;
-          miss.hidden = false;
-        }
-        picked.setAttribute("aria-pressed", "false");
-        picked = null;
-        paint();
-      });
-    });
-    pairs.querySelector(".js-pair-reset").addEventListener("click", () => {
-      buttons.forEach((btn) => {
-        btn.disabled = false;
-        btn.setAttribute("aria-pressed", "false");
-      });
+    const deal = () => {
       picked = null;
       found = 0;
       miss.hidden = true;
+      tiles.replaceChildren(
+        ...round.numbers.map((n) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.textContent = String(n);
+          btn.dataset.pair = String(n);
+          btn.setAttribute("aria-pressed", "false");
+          btn.addEventListener("click", () => {
+            miss.hidden = true;
+            if (picked === null) {
+              picked = btn;
+              btn.setAttribute("aria-pressed", "true");
+              return;
+            }
+            if (picked === btn) {
+              picked = null;
+              btn.setAttribute("aria-pressed", "false");
+              return;
+            }
+            const first = Number(picked.dataset.pair);
+            if (first + n === round.target) {
+              picked.disabled = true;
+              btn.disabled = true;
+              found += 1;
+            } else {
+              miss.textContent = pairMiss(first, n, round.target);
+              miss.hidden = false;
+            }
+            picked.setAttribute("aria-pressed", "false");
+            picked = null;
+            paint();
+          });
+          return btn;
+        }),
+      );
       paint();
+    };
+    next.addEventListener("click", () => {
+      index += 1;
+      round = pairRound(index);
+      deal();
     });
+    pairs.querySelector(".js-pair-reset").addEventListener("click", deal);
+    round = pairRound(index);
+    deal();
   }
 
   const eleven = document.querySelector(".js-game-eleven");
@@ -214,41 +235,83 @@ export function initGames() {
 
   const nearBase = document.querySelector(".js-game-nearbase");
   if (nearBase) {
+    const prompt = nearBase.querySelector(".js-nb-prompt");
+    const gapsEl = nearBase.querySelector(".js-nb-gaps");
     const status = nearBase.querySelector(".js-nb-status");
-    const left = nearBase.querySelector(".js-nb-left");
-    const right = nearBase.querySelector(".js-nb-right");
+    const stepEl = nearBase.querySelector(".js-nb-step");
+    const choices = nearBase.querySelector(".js-nb-choices");
     const miss = nearBase.querySelector(".js-nb-miss");
     const win = nearBase.querySelector(".js-nb-win");
-    const choose = (row, onOk) => {
-      row.querySelectorAll("[data-nb]").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          if (btn.dataset.ok) {
-            miss.hidden = true;
-            onOk(btn.dataset.nb);
-          } else {
-            miss.textContent = btn.dataset.why;
-            miss.hidden = false;
-          }
+    const next = nearBase.querySelector(".js-nb-next");
+    const tally = nearBase.querySelector(".js-nb-tally");
+    let index = 0;
+    let solved = 0;
+    let round = null;
+    let parts = [];
+    const width = () => String(round.shape.base).length - 1;
+    const paintParts = () => {
+      const left = parts.length > 0 ? String(parts[0]) : "?";
+      const right = parts.length > 1 ? (parts[1] < 0 ? "−" : "") + String(Math.abs(parts[1])).padStart(width(), "0") : "?";
+      status.textContent = `${left} | ${right}`;
+    };
+    const show = (label, opts, onOk) => {
+      stepEl.textContent = label;
+      choices.replaceChildren(
+        ...opts.map((o) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.textContent = o.text;
+          btn.dataset.nb = String(o.value);
+          if (o.ok) btn.dataset.ok = "1";
+          btn.addEventListener("click", () => {
+            if (o.ok) {
+              miss.hidden = true;
+              onOk();
+            } else {
+              miss.textContent = o.why;
+              miss.hidden = false;
+            }
+          });
+          return btn;
+        }),
+      );
+    };
+    const ask = () => {
+      paintParts();
+      if (parts.length < round.steps.length) {
+        const step = round.steps[parts.length];
+        show(step.label, step.options, () => {
+          parts.push(step.answer);
+          ask();
         });
+        return;
+      }
+      show(round.finalLabel, round.finals, () => {
+        solved += 1;
+        stepEl.textContent = "";
+        choices.replaceChildren();
+        win.textContent = `${status.textContent} → ${round.answer.toLocaleString("en-US")}.`;
+        win.hidden = false;
+        next.hidden = false;
+        tally.textContent = `Rounds solved: ${solved}`;
       });
     };
-    choose(left, (value) => {
-      status.textContent = `${value} | ?  Right part?`;
-      left.hidden = true;
-      right.hidden = false;
-    });
-    choose(right, (value) => {
-      status.textContent = `91 | ${value}`;
-      right.hidden = true;
-      win.hidden = false;
-    });
-    nearBase.querySelector(".js-nb-reset").addEventListener("click", () => {
-      status.textContent = "Left part?";
-      left.hidden = false;
-      right.hidden = true;
-      miss.hidden = true;
+    const start = () => {
+      round = nearBaseRound(index);
+      parts = [];
+      prompt.textContent = round.prompt;
+      gapsEl.textContent = round.gapsText;
       win.hidden = true;
+      next.hidden = true;
+      miss.hidden = true;
+      ask();
+    };
+    next.addEventListener("click", () => {
+      index += 1;
+      start();
     });
+    nearBase.querySelector(".js-nb-reset").addEventListener("click", start);
+    start();
   }
 
   const soroban = document.querySelector(".js-game-soroban");
