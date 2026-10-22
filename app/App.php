@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Reflex;
 
+use Reflex\Catalog\CaseRedirects;
 use Reflex\Http\Request;
 use Reflex\Http\Response;
 
@@ -19,6 +20,12 @@ final class App
         $path = $request->path;
         if ($path === '/archive' || $path === '/guides') {
             return Response::redirect(url('/track-a'));
+        }
+        if (preg_match('#^/cases/([^/]+)$#', $path, $m) === 1) {
+            $moved = CaseRedirects::target($m[1]);
+            if ($moved !== null) {
+                return Response::redirect(url('/cases/' . $moved), 301);
+            }
         }
 
         Pages::takeStatus();

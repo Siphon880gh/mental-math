@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
 use Reflex\App;
+use Reflex\Catalog\CaseRedirects;
 use Reflex\Http\Request;
 
 final class RoutesTest extends TestCase
@@ -129,6 +130,20 @@ final class RoutesTest extends TestCase
         $guides = App::handle(Request::get('/guides'));
         $this->assertSame(302, $guides->status);
         $this->assertSame('/index.php?route=%2Ftrack-a', $guides->headers['Location']);
+    }
+
+    public function testRemovedCaseIdsRedirectPermanently(): void
+    {
+        $res = App::handle(Request::get('/cases/sf-be-60'));
+        $this->assertSame(301, $res->status);
+        $this->assertSame('/index.php?route=%2Fcases%2Fsf-be-ads-75', $res->headers['Location']);
+        $this->assertSame(200, App::handle(Request::get('/cases/sf-be-ads-75'))->status);
+        $this->assertSame(404, App::handle(Request::get('/cases/sf-be-61'))->status);
+        foreach (CaseRedirects::all() as $old => $new) {
+            $moved = App::handle(Request::get('/cases/' . $old));
+            $this->assertSame(301, $moved->status, $old);
+            $this->assertSame(url('/cases/' . $new), $moved->headers['Location'], $old);
+        }
     }
 
     public function testUnknownSlugsReturn404(): void

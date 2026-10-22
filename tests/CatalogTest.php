@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
+use Reflex\Catalog\CaseRedirects;
 use Reflex\Catalog\Cases;
 use Reflex\Catalog\Drills;
 use Reflex\Catalog\Games;
@@ -188,5 +189,20 @@ final class CatalogTest extends TestCase
         $this->assertSame('op-feasibility', LearningPaths::OPERATOR['milestones'][0]['id']);
         $this->assertSame([], array_filter(LearningPaths::BEGINNER['milestones'], static fn (array $m) => str_starts_with($m['id'], 'op-')));
         $this->assertSame(Progress::BEGINNER_PATH_ID, LearningPaths::BEGINNER['id']);
+    }
+
+    public function testCaseRedirectsPointFromRemovedIdsToLiveCasesInTheSamePackAndFamily(): void
+    {
+        $redirects = CaseRedirects::all();
+        $this->assertNotEmpty($redirects);
+        foreach ($redirects as $old => $new) {
+            $this->assertNull(Cases::get($old), "$old is a live case and must not be redirected");
+            $target = Cases::get($new);
+            $this->assertNotNull($target, "$old points at missing case $new");
+            $this->assertSame(substr($old, 0, 3), substr($new, 0, 3), "$old → $new crosses packs");
+            $this->assertSame($new, CaseRedirects::target($old));
+        }
+        $this->assertNull(CaseRedirects::target('sf-be-ads-75'));
+        $this->assertNull(CaseRedirects::target('no-such-case'));
     }
 }

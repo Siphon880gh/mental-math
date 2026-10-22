@@ -11,7 +11,7 @@ function rawGet(base, path) {
       res.on("data", (c) => {
         body += c;
       });
-      res.on("end", () => ok({ status: res.statusCode, type: res.headers["content-type"] || "", length: res.headers["content-length"], body }));
+      res.on("end", () => ok({ status: res.statusCode, type: res.headers["content-type"] || "", length: res.headers["content-length"], location: res.headers.location || "", body }));
     });
     req.on("error", fail);
     req.end();
@@ -46,5 +46,12 @@ export async function runRouter(base, rep) {
   for (const [path, status] of [["/", 200], ["/games", 200], ["/index.php?route=%2Fgames", 200], ["/cases/ar-nope", 404], ["/cases?pack=nope", 404], ["/nope", 404]]) {
     const res = await rawGet(base, path);
     rep.ok(res.status === status && res.type.startsWith("text/html"), `${path} → ${res.status} html`);
+  }
+  // Bookmarks to removed case ids land on their replacement (data/case-redirects.json).
+  for (const path of ["/cases/sf-be-60", "/index.php?route=%2Fcases%2Fsf-be-60"]) {
+    const res = await rawGet(base, path);
+    rep.ok(res.status === 301 && res.location.endsWith("/index.php?route=%2Fcases%2Fsf-be-ads-75"), `${path} → ${res.status} ${res.location}`);
+    const next = await rawGet(base, res.location);
+    rep.ok(next.status === 200 && next.body.includes("sf-be-ads-75"), `${res.location} → ${next.status}`);
   }
 }
