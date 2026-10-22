@@ -97,7 +97,7 @@ final class CoachingTest extends TestCase
     {
         $expected = [
             'easy-division' => ['partial', 'missing', 'buildup'],
-            'round-compensate' => ['add998'],
+            'round-compensate' => ['add998', 'compatible'],
             'difference-squares' => ['near'],
             'magnitude' => ['decimal'],
             'cast-nines' => ['sum'],

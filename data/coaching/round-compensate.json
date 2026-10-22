@@ -12,7 +12,7 @@
     "start": "start",
     "nodes": {
       "success": {
-        "message": "Session complete. Round to an easy number, compute, compensate with the opposite sign. +998 is +1,000 −2.\n\nSAMPLE: 49×6=294, 38×5=190, 2,345+998=3,343.",
+        "message": "Session complete. Round to an easy number, compute, compensate with the opposite sign. +998 is +1,000 −2. For a size check, swap in compatible numbers: 2,870 ÷ 41 ≈ 2,800 ÷ 40 = 70.\n\nSAMPLE: 49×6=294, 38×5=190, 2,345+998=3,343.",
         "outcome": "success",
         "choices": []
       },
@@ -122,7 +122,7 @@
           {
             "id": "thousand",
             "label": "+1,000 = 3,345, take back 2 → 3,343",
-            "next": "success"
+            "next": "compatible"
           },
           {
             "id": "add_two",
@@ -147,6 +147,39 @@
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "add998"
+      },
+      "compatible": {
+        "message": "SAMPLE: estimate 2,870 ÷ 41 in your head. Which pair do you reach for?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "pair",
+            "label": "2,800 ÷ 40 = 70 — a pair that divides cleanly",
+            "next": "success"
+          },
+          {
+            "id": "round",
+            "label": "3,000 ÷ 40 = 75 — nearest thousand",
+            "next": "wrong_compatible_round"
+          },
+          {
+            "id": "long",
+            "label": "Long-divide 2,870 by 41 first",
+            "next": "wrong_compatible_long"
+          }
+        ]
+      },
+      "wrong_compatible_round": {
+        "message": "Round is not the same as compatible. 3,000 ÷ 40 is not instant, and it drifts to 75. 2,800 sits next to 2,870 and 40 goes into it 70 times.\n\nReturn to the estimate.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "compatible"
+      },
+      "wrong_compatible_long": {
+        "message": "You only need the size. Pick numbers that divide in one breath, then refine if the decision needs it.\n\nReturn to the estimate.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "compatible"
       }
     }
   }

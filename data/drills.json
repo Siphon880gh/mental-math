@@ -2134,6 +2134,50 @@
       ]
     },
     {
+      "id": "fd-sq-bab-20",
+      "groupId": "foundations",
+      "familyId": "approx-sqrt",
+      "prompt": "SAMPLE: √20, guess 4. One Babylonian step?",
+      "expectedAnswer": 4.5,
+      "thoughtChain": [
+        "20 ÷ 4 = 5",
+        "(4 + 5) ÷ 2 = 4.5 (true ≈ 4.47)"
+      ]
+    },
+    {
+      "id": "fd-sq-bab-200",
+      "groupId": "foundations",
+      "familyId": "approx-sqrt",
+      "prompt": "SAMPLE: √200, guess 14. One Babylonian step, to two decimals.",
+      "expectedAnswer": 14.14,
+      "thoughtChain": [
+        "200 ÷ 14 ≈ 14.29",
+        "(14 + 14.29) ÷ 2 ≈ 14.14"
+      ]
+    },
+    {
+      "id": "fd-sq-bump-96",
+      "groupId": "foundations",
+      "familyId": "approx-sqrt",
+      "prompt": "SAMPLE: √96 as a bump under 10².",
+      "expectedAnswer": 9.8,
+      "thoughtChain": [
+        "d = 96 − 100 = −4",
+        "10 − 4/20 = 9.8 (true ≈ 9.798)"
+      ]
+    },
+    {
+      "id": "fd-sq-bump-150",
+      "groupId": "foundations",
+      "familyId": "approx-sqrt",
+      "prompt": "SAMPLE: √150, bumped off 12² = 144.",
+      "expectedAnswer": 12.25,
+      "thoughtChain": [
+        "d = 6",
+        "12 + 6/24 = 12.25 (true ≈ 12.247)"
+      ]
+    },
+    {
       "id": "fd-rg-4x37x25",
       "groupId": "foundations",
       "familyId": "regroup-factors",
@@ -2401,6 +2445,28 @@
       "thoughtChain": [
         "3,600",
         "÷4 = 900"
+      ]
+    },
+    {
+      "id": "fd-dh-peasant-19x24",
+      "groupId": "foundations",
+      "familyId": "double-half",
+      "prompt": "SAMPLE: 19 × 24, Russian peasant: add the odd rows.",
+      "expectedAnswer": 456,
+      "thoughtChain": [
+        "19→24, 9→48, 4→96 drop, 2→192 drop, 1→384",
+        "24 + 48 + 384 = 456"
+      ]
+    },
+    {
+      "id": "fd-dh-egypt-21x17",
+      "groupId": "foundations",
+      "familyId": "double-half",
+      "prompt": "SAMPLE: 21 × 17 with an Egyptian doubling ladder of 17.",
+      "expectedAnswer": 357,
+      "thoughtChain": [
+        "21 = 16 + 4 + 1",
+        "rungs 17, 68, 272 → 357"
       ]
     },
     {
@@ -2680,6 +2746,51 @@
       "unit": "usd"
     },
     {
+      "id": "fd-rc-cmp-7840-39",
+      "groupId": "foundations",
+      "familyId": "round-compensate",
+      "prompt": "SAMPLE: estimate 7,840 ÷ 39 with compatible numbers.",
+      "expectedAnswer": 200,
+      "thoughtChain": [
+        "39 → 40, 7,840 → 8,000",
+        "8,000 ÷ 40 = 200 (true ≈ 201)"
+      ]
+    },
+    {
+      "id": "fd-rc-cmp-4170-61",
+      "groupId": "foundations",
+      "familyId": "round-compensate",
+      "prompt": "SAMPLE: estimate 4,170 ÷ 61 with compatible numbers.",
+      "expectedAnswer": 70,
+      "thoughtChain": [
+        "61 → 60, 4,170 → 4,200",
+        "4,200 ÷ 60 = 70 (true ≈ 68.4)"
+      ]
+    },
+    {
+      "id": "fd-rc-cmp-412x19",
+      "groupId": "foundations",
+      "familyId": "round-compensate",
+      "prompt": "SAMPLE: estimate 412 × 19, each factor rounded to its leading digit.",
+      "expectedAnswer": 8000,
+      "thoughtChain": [
+        "412 → 400, 19 → 20",
+        "400 × 20 = 8,000 (true 7,828)"
+      ]
+    },
+    {
+      "id": "fd-rc-cmp-3580-6",
+      "groupId": "foundations",
+      "familyId": "round-compensate",
+      "prompt": "SAMPLE: $3,580 split 6 ways. Compatible estimate per person?",
+      "expectedAnswer": 600,
+      "thoughtChain": [
+        "3,580 → 3,600, which 6 divides",
+        "3,600 ÷ 6 = $600 (true ≈ $597)"
+      ],
+      "unit": "usd"
+    },
+    {
       "id": "fd-rg-23x17",
       "groupId": "foundations",
       "familyId": "regroup-factors",
@@ -2774,6 +2885,29 @@
       ]
     },
     {
+      "id": "fd-ag-lat-34x27",
+      "groupId": "foundations",
+      "familyId": "area-grid",
+      "prompt": "SAMPLE: 34 × 27 in a lattice. What does the middle diagonal add to, before carrying?",
+      "expectedAnswer": 11,
+      "thoughtChain": [
+        "cells 06, 08, 21, 28",
+        "middle diagonal: 2 (of 28) + 1 (of 21) + 8 (of 08) = 11 → product 918"
+      ]
+    },
+    {
+      "id": "fd-ag-lat-56x43",
+      "groupId": "foundations",
+      "familyId": "area-grid",
+      "prompt": "SAMPLE: 56 × 43 in a lattice. Product?",
+      "expectedAnswer": 2408,
+      "thoughtChain": [
+        "cells 20, 24, 15, 18",
+        "diagonals from the right: 8 · 1+4+5 = 10 → 0 carry 1 · 2+1+0+1 = 4 · 2",
+        "2,408"
+      ]
+    },
+    {
       "id": "fd-nb-97x94",
       "groupId": "foundations",
       "familyId": "near-base",
@@ -2835,6 +2969,17 @@
         "−2, −3",
         "95 | 06",
         "9,506"
+      ]
+    },
+    {
+      "id": "fd-nb-cross-96x93",
+      "groupId": "foundations",
+      "familyId": "near-base",
+      "prompt": "SAMPLE: 96 × 93 near 100. What is the left part (the cross)?",
+      "expectedAnswer": 89,
+      "thoughtChain": [
+        "gaps −4 and −7",
+        "96 − 7 = 89 → 89 | 28 = 8,928"
       ]
     },
     {
@@ -2928,6 +3073,28 @@
       "thoughtChain": [
         "1,000² − 3²",
         "999,991"
+      ]
+    },
+    {
+      "id": "fd-ds-center-41x39",
+      "groupId": "foundations",
+      "familyId": "difference-squares",
+      "prompt": "SAMPLE: 41 × 39. Which center are both the same distance from?",
+      "expectedAnswer": 40,
+      "thoughtChain": [
+        "41 = 40 + 1, 39 = 40 − 1",
+        "center 40 → 1,600 − 1 = 1,599"
+      ]
+    },
+    {
+      "id": "fd-ds-nsq-45x46",
+      "groupId": "foundations",
+      "familyId": "difference-squares",
+      "prompt": "SAMPLE: 45 × 46, starting from 45² = 2,025.",
+      "expectedAnswer": 2070,
+      "thoughtChain": [
+        "45 × 46 = 45² + 45",
+        "2,025 + 45 = 2,070"
       ]
     },
     {
@@ -3076,14 +3243,69 @@
       ]
     },
     {
-      "id": "fd-ed-936-4-3",
+      "id": "fd-ed-fac-1512-24",
       "groupId": "foundations",
       "familyId": "easy-division",
-      "prompt": "SAMPLE: 936 ÷ 12, reverse order: ÷4 first, then ÷3.",
-      "expectedAnswer": 78,
+      "prompt": "SAMPLE: 1,512 ÷ 24 by factoring the divisor.",
+      "expectedAnswer": 63,
       "thoughtChain": [
-        "936 ÷ 4 = 234",
-        "234 ÷ 3 = 78"
+        "24 = 8 × 3",
+        "1,512 ÷ 8 = 189, ÷ 3 = 63"
+      ]
+    },
+    {
+      "id": "fd-ed-pq-1173-23",
+      "groupId": "foundations",
+      "familyId": "easy-division",
+      "prompt": "SAMPLE: 1,173 ÷ 23 with partial quotients.",
+      "expectedAnswer": 51,
+      "thoughtChain": [
+        "23 × 50 = 1,150",
+        "23 left is one more 23 → 51"
+      ]
+    },
+    {
+      "id": "fd-ed-pq-1862-38",
+      "groupId": "foundations",
+      "familyId": "easy-division",
+      "prompt": "SAMPLE: 1,862 ÷ 38.",
+      "expectedAnswer": 49,
+      "thoughtChain": [
+        "38 × 50 = 1,900",
+        "one 38 too many → 49"
+      ]
+    },
+    {
+      "id": "fd-ed-mf-345-15",
+      "groupId": "foundations",
+      "familyId": "easy-division",
+      "prompt": "SAMPLE: 15 × ? = 345.",
+      "expectedAnswer": 23,
+      "thoughtChain": [
+        "15 × 20 = 300",
+        "45 left = 15 × 3 → 23"
+      ]
+    },
+    {
+      "id": "fd-ed-mf-252-14",
+      "groupId": "foundations",
+      "familyId": "easy-division",
+      "prompt": "SAMPLE: 252 ÷ 14. Ask 14 × what?",
+      "expectedAnswer": 18,
+      "thoughtChain": [
+        "14 × 20 = 280, 28 too many",
+        "28 is two 14s → 18"
+      ]
+    },
+    {
+      "id": "fd-ed-sb-3.6-0.09",
+      "groupId": "foundations",
+      "familyId": "easy-division",
+      "prompt": "SAMPLE: 3.6 ÷ 0.09.",
+      "expectedAnswer": 40,
+      "thoughtChain": [
+        "×100 on both → 360 ÷ 9",
+        "40"
       ]
     },
     {
@@ -3096,6 +3318,39 @@
         "4,738 → 4",
         "2,595 → 3",
         "4 + 3 = 7"
+      ]
+    },
+    {
+      "id": "fd-cn-prod-418x37",
+      "groupId": "foundations",
+      "familyId": "cast-nines",
+      "prompt": "SAMPLE: a sheet says 418 × 37 = 15,476. What digit root must the true product have?",
+      "expectedAnswer": 4,
+      "thoughtChain": [
+        "418 → 13 → 4, 37 → 10 → 1",
+        "4 × 1 = 4, but 15,476 → 23 → 5, so reject (true 15,466)"
+      ]
+    },
+    {
+      "id": "fd-cn-prod-526x84",
+      "groupId": "foundations",
+      "familyId": "cast-nines",
+      "prompt": "SAMPLE: digit root of 526 × 84, without multiplying.",
+      "expectedAnswer": 3,
+      "thoughtChain": [
+        "526 → 13 → 4, 84 → 12 → 3",
+        "4 × 3 = 12 → 3"
+      ]
+    },
+    {
+      "id": "fd-cn-diff-8214",
+      "groupId": "foundations",
+      "familyId": "cast-nines",
+      "prompt": "SAMPLE: a ledger says 8,214 − 3,679 = 4,535. What digit root must the true difference have?",
+      "expectedAnswer": 8,
+      "thoughtChain": [
+        "8,214 → 6, 3,679 → 7",
+        "6 − 7 = −1 → +9 = 8; 4,535 → 17 → 8, so the claim survives"
       ]
     },
     {

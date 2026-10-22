@@ -490,7 +490,9 @@
     ],
     "surfaces": [
       "guide",
-      "trick"
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {

@@ -43,6 +43,14 @@ If you need 1,000 ÷ 48, treat 48 as 50: 1,000 ÷ 50 = 20. True answer is a bit 
 
 Round the **dividend** when it sits next to a multiple of the divisor: 602 ÷ 3 → 600 ÷ 3 = 200, plus 2 ÷ 3 ≈ 0.67 → **≈ 200.67**.
 
+## Estimate with compatible numbers
+
+When you only need the size of an answer, swap the numbers for a nearby pair that works instantly. For division that means a pair that divides cleanly, not just the nearest round number.
+
+2,870 ÷ 41 → 2,800 ÷ 40 = **70**. The true answer is 70.0. Rounding to 3,000 ÷ 40 = 75 is round but not compatible: 40 does not go into 3,000 cleanly in your head, and the estimate drifts.
+
+For a product, round each factor to its leading digit: 386 × 52 → 400 × 50 = **20,000** (true 20,072).
+
 ## Lock magnitude first
 
 598 × 21 looks ugly. Compatible estimate: 600 × 20 = **12,000**. Then the exact: 598×20 + 598 = 11,960 + 598 = **12,558**. The estimate told you it could not be 1,200 or 120,000.
