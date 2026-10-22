@@ -12,7 +12,7 @@
     "start": "start",
     "nodes": {
       "success": {
-        "message": "Session complete. √(a²+d) ≈ a + d/(2a). One Babylonian average if you have a guess.\n\nSAMPLE: √104≈10.2, √16 from 5 → 4.1.",
+        "message": "Session complete. √(a²+d) ≈ a + d/(2a). One Babylonian average if you have a guess.\n\nSAMPLE: √104≈10.2, √10 from 3 → 3.17.",
         "outcome": "success",
         "choices": []
       },
@@ -50,28 +50,28 @@
         "rewind_to": "start"
       },
       "babylon": {
-        "message": "√16, sloppy guess 5. One Babylonian step?",
+        "message": "√10, sloppy guess 3. One Babylonian step?",
         "outcome": "continue",
         "choices": [
           {
-            "id": "41",
-            "label": "(5 + 16/5)/2 = 4.1",
+            "id": "317",
+            "label": "(3 + 10/3)/2 ≈ (3 + 3.33)/2 ≈ 3.17",
             "next": "check"
           },
           {
-            "id": "five",
-            "label": "Stay at 5",
+            "id": "three",
+            "label": "Stay at 3",
             "next": "wrong_babylon_five"
           },
           {
-            "id": "21",
-            "label": "5 + 16/5 = 8.2, and stop (forgot the /2)",
+            "id": "633",
+            "label": "3 + 10/3 ≈ 6.33, and stop (forgot the /2)",
             "next": "wrong_babylon_21"
           }
         ]
       },
       "wrong_babylon_five": {
-        "message": "The step averages 5 with 3.2.\n\nRevisit the average.",
+        "message": "3² = 9, not 10. The step averages 3 with 10/3 ≈ 3.33.\n\nRevisit the average.",
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "babylon"

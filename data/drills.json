@@ -2292,33 +2292,47 @@
       ]
     },
     {
-      "id": "fd-ea-502",
+      "id": "fd-ea-634-297",
       "groupId": "foundations",
       "familyId": "equal-adjust",
-      "prompt": "SAMPLE: 502 − 198. Add 2 to both.",
-      "expectedAnswer": 304,
+      "prompt": "SAMPLE: 634 − 297, without borrowing.",
+      "expectedAnswer": 337,
       "thoughtChain": [
-        "504 − 200 = 304"
+        "297 is 3 short of 300, so add 3 to both",
+        "637 − 300 = 337"
       ]
     },
     {
-      "id": "fd-ea-725",
+      "id": "fd-ea-1205-396",
       "groupId": "foundations",
       "familyId": "equal-adjust",
-      "prompt": "SAMPLE: 725 − 397. Add 3 to both.",
-      "expectedAnswer": 328,
+      "prompt": "SAMPLE: 1,205 − 396.",
+      "expectedAnswer": 809,
       "thoughtChain": [
-        "728 − 400 = 328"
+        "396 is 4 short of 400, so add 4 to both",
+        "1,209 − 400 = 809"
       ]
     },
     {
-      "id": "fd-ea-1003",
+      "id": "fd-ea-846-203",
       "groupId": "foundations",
       "familyId": "equal-adjust",
-      "prompt": "SAMPLE: 1,003 − 198. Add 2 to both.",
-      "expectedAnswer": 805,
+      "prompt": "SAMPLE: 846 − 203.",
+      "expectedAnswer": 643,
       "thoughtChain": [
-        "1,005 − 200 = 805"
+        "203 is 3 past 200, so take 3 from both",
+        "843 − 200 = 643"
+      ]
+    },
+    {
+      "id": "fd-ea-move-731-298",
+      "groupId": "foundations",
+      "familyId": "equal-adjust",
+      "prompt": "SAMPLE: 731 − 298. What do you add to both numbers to make the subtraction round?",
+      "expectedAnswer": 2,
+      "thoughtChain": [
+        "298 needs 2 to reach 300",
+        "then 733 − 300 = 433"
       ]
     },
     {
@@ -2342,14 +2356,14 @@
       ]
     },
     {
-      "id": "fd-xc-91",
+      "id": "fd-xc-cmp-5-8-7-11",
       "groupId": "foundations",
       "familyId": "cross-cancel",
-      "prompt": "SAMPLE: cross product 7×13 (vs 8×11=88).",
-      "expectedAnswer": 91,
+      "prompt": "SAMPLE: which is larger, 5/8 or 7/11? Enter the larger fraction’s numerator.",
+      "expectedAnswer": 7,
       "thoughtChain": [
-        "7×13=91",
-        "91>88 so 7/11 is larger"
+        "cross: 5 × 11 = 55, 7 × 8 = 56",
+        "56 wins, so 7/11 is larger"
       ]
     },
     {
@@ -2364,13 +2378,14 @@
       ]
     },
     {
-      "id": "fd-cn-6",
+      "id": "fd-cn-last-463x28",
       "groupId": "foundations",
       "familyId": "cast-nines",
-      "prompt": "SAMPLE: last digit of 7×8 (must-end-in test).",
-      "expectedAnswer": 6,
+      "prompt": "SAMPLE: a slide says 463 × 28 = 12,963. What digit must the true product end in?",
+      "expectedAnswer": 4,
       "thoughtChain": [
-        "56 ends in 6"
+        "ones digits: 3 × 8 = 24, so it must end in 4",
+        "the claim ends in 3, so reject it (true 12,964)"
       ]
     },
     {
@@ -2397,14 +2412,14 @@
       ]
     },
     {
-      "id": "fd-sq-16",
+      "id": "fd-sq-bab-50",
       "groupId": "foundations",
       "familyId": "approx-sqrt",
-      "prompt": "SAMPLE: √16, guess 5. One Babylonian step?",
-      "expectedAnswer": 4.1,
+      "prompt": "SAMPLE: √50, guess 7. One Babylonian step, to two decimals.",
+      "expectedAnswer": 7.07,
       "thoughtChain": [
-        "16/5=3.2",
-        "(5+3.2)/2=4.1"
+        "50 ÷ 7 ≈ 7.14",
+        "(7 + 7.14) ÷ 2 ≈ 7.07 (true √50 ≈ 7.071)"
       ]
     },
     {
@@ -2420,14 +2435,14 @@
       ]
     },
     {
-      "id": "fd-rg-1600",
+      "id": "fd-rg-4x37x25",
       "groupId": "foundations",
       "familyId": "regroup-factors",
-      "prompt": "SAMPLE: 25 × 16 × 4. Pair 25×4 first.",
-      "expectedAnswer": 1600,
+      "prompt": "SAMPLE: 4 × 37 × 25, in the easiest order.",
+      "expectedAnswer": 3700,
       "thoughtChain": [
-        "25×4=100",
-        "100×16=1,600"
+        "scan for a round pair: 4 × 25 = 100",
+        "100 × 37 = 3,700"
       ]
     },
     {
@@ -2595,9 +2610,9 @@
       "prompt": "SAMPLE: 3 + 4 with a five-complement. +4 is +5 then −?",
       "expectedAnswer": 1,
       "thoughtChain": [
-        "3 ones, one bead free",
-        "+4 = +5 −1",
-        "take back 1 → 7"
+        "3 lower beads are up, so only 1 is free",
+        "+4 = +5 − 1: drop the heaven bead, take back 1",
+        "answer 1 (the rod now shows 7)"
       ]
     },
     {
@@ -2997,6 +3012,18 @@
       "thoughtChain": [
         "60 + 42",
         "102"
+      ]
+    },
+    {
+      "id": "fd-rg-2x19x5x3",
+      "groupId": "foundations",
+      "familyId": "regroup-factors",
+      "prompt": "SAMPLE: 2 × 19 × 5 × 3, in whatever order is easiest.",
+      "expectedAnswer": 570,
+      "thoughtChain": [
+        "2 × 5 = 10",
+        "19 × 3 = 57",
+        "57 × 10 = 570"
       ]
     },
     {

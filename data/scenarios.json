@@ -373,7 +373,7 @@
     "id": "five-x-then-cover",
     "track": "quick",
     "title": "Markup, then heads to cover",
-    "prompt": "SAMPLE: cost is $20, you want 5× markup. Fixed cost this month is $2,000. How many units cover it?",
+    "prompt": "SAMPLE: cost is $16 a unit and you price at 5× cost. Fixed cost this month is $2,400. How many units cover it?",
     "skillIds": [
       "markup",
       "break-even"
@@ -381,30 +381,30 @@
     "choices": [
       {
         "id": "a",
-        "label": "20",
+        "label": "30",
         "correct": true
       },
       {
         "id": "b",
-        "label": "100",
+        "label": "150",
         "correct": false
       },
       {
         "id": "c",
-        "label": "5",
+        "label": "80",
         "correct": false
       },
       {
         "id": "d",
-        "label": "40",
+        "label": "480",
         "correct": false
       }
     ],
     "hints": [
-      "Price is cost × the multiple. 5× on $20.",
-      "Users = fixed cost ÷ price. Cancel zeros."
+      "Price is cost × the multiple. 5× on $16.",
+      "Units = fixed cost ÷ price, not ÷ cost."
     ],
-    "cheat": "Price = 20×5 = $100. Users = 2,000÷100 = 20. 100 is the price, not the headcount. 5 is the multiple. 40 would be if you left price at $50."
+    "cheat": "Price = 16 × 5 = $80. Units = 2,400 ÷ 80 = 30. 150 divided by the $16 cost instead of the price. 80 is the price, not a count. 480 divided by the 5× multiple."
   },
   {
     "id": "tens-then-year",
@@ -447,7 +447,7 @@
     "id": "double-in-years",
     "track": "quick",
     "title": "Rule of 72 vs a third",
-    "prompt": "SAMPLE: 6% growth. About how many years to double, and what is 1/3 of that many years?",
+    "prompt": "SAMPLE: 6% growth. About how many years to double, and what is a third of that span?",
     "skillIds": [
       "rule-of-72",
       "fraction-percent"
@@ -455,30 +455,30 @@
     "choices": [
       {
         "id": "a",
-        "label": "12 years to double, 4 years for a third of that span",
+        "label": "12 years to double, 4 years for a third",
         "correct": true
       },
       {
         "id": "b",
-        "label": "6 years to double, 2 years for a third",
+        "label": "12 years to double, 36 years for a third",
         "correct": false
       },
       {
         "id": "c",
-        "label": "72 years to double, 24 for a third",
+        "label": "16.7 years to double, 5.6 years for a third",
         "correct": false
       },
       {
         "id": "d",
-        "label": "12 years to double, 3 years for a quarter of that span",
+        "label": "6 years to double, 2 years for a third",
         "correct": false
       }
     ],
     "hints": [
       "Years to double ≈ 72 ÷ rate.",
-      "A third of that span is ÷3, not a 33% rate."
+      "A third of that span is ÷3, not ×3."
     ],
-    "cheat": "72÷6=12 years to double. A third of 12 is 4. 6 swapped the 72 and the rate. 72 is the constant, not the years. 3 would be a quarter of 12."
+    "cheat": "72 ÷ 6 = 12 years to double, and a third of 12 is 4. 36 multiplied by 3 instead of dividing. 16.7 used 100 ÷ 6, which ignores compounding. 6 years confused the rate with the doubling time."
   },
   {
     "id": "ceiling-vs-burn",
@@ -706,7 +706,7 @@
     "id": "chunks-then-cover",
     "track": "quick",
     "title": "15% convert, then surplus",
-    "prompt": "SAMPLE: 800 trial users, 15% pay. Ads plus tools are $3,000 and price is $50. Surplus customers after break-even?",
+    "prompt": "SAMPLE: 900 trial users, 15% pay. Ads plus tools are $3,000 and price is $50. Surplus customers after break-even?",
     "skillIds": [
       "percent-chunks",
       "break-even"
@@ -714,22 +714,22 @@
     "choices": [
       {
         "id": "a",
-        "label": "60",
+        "label": "75",
         "correct": true
       },
       {
         "id": "b",
-        "label": "120",
+        "label": "60",
         "correct": false
       },
       {
         "id": "c",
-        "label": "740",
+        "label": "135",
         "correct": false
       },
       {
         "id": "d",
-        "label": "45",
+        "label": "840",
         "correct": false
       }
     ],
@@ -737,7 +737,7 @@
       "15% is 10% plus 5%.",
       "Break-even users = 3,000 ÷ 50. Surplus is payers minus that floor."
     ],
-    "cheat": "10% of 800 = 80, 5% = 40 → 120 payers. 3,000÷50 = 60 to cover. Surplus 120 − 60 = 60. 120 is the funnel, not the surplus. 740 treated 15% as 15 people."
+    "cheat": "10% of 900 = 90, 5% = 45 → 135 payers. 3,000 ÷ 50 = 60 to cover. Surplus 135 − 60 = 75. 60 stops at the break-even floor. 135 is the payers, not the surplus. 840 took 60 off all 900 trial users."
   },
   {
     "id": "five-then-percent",
