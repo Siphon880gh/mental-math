@@ -8,6 +8,7 @@ use Reflex\Catalog\Drills;
 use Reflex\Catalog\Guides;
 use Reflex\Catalog\Scenarios;
 use Reflex\Catalog\Tracks;
+use Reflex\Catalog\Tricks;
 
 /**
  * Guards against thin or copied practice: every family needs drills beyond the
@@ -139,6 +140,18 @@ final class ContentQualityTest extends TestCase
             $this->assertMatchesRegularExpression('/^## Why/m', $body, $familyId);
             $this->assertMatchesRegularExpression('/^## Where it goes wrong/m', $body, $familyId);
             $this->assertGreaterThanOrEqual(180, preg_match_all('/\S+/u', $body), $familyId);
+        }
+    }
+
+    public function testEveryFamilyHasTrickCardsAndTrackBHasThree(): void
+    {
+        $ids = array_column(Tricks::all(), 'id');
+        $this->assertSame(count($ids), count(array_unique($ids)));
+        foreach (Tracks::trackAFamilyIds() as $familyId) {
+            $this->assertNotSame([], Tricks::forFamily($familyId), $familyId);
+        }
+        foreach (Tracks::trackBFamilyIds() as $familyId) {
+            $this->assertGreaterThanOrEqual(3, count(Tricks::forFamily($familyId)), $familyId);
         }
     }
 }

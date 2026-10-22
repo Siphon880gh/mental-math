@@ -160,11 +160,43 @@
     "category": "Advanced"
   },
   {
+    "id": "stacked-founder-cover-then-boxes",
+    "familyId": "stacked-founder",
+    "title": "Cover fixed costs with users, then count boxes",
+    "rule": "Fixed cost ÷ price = users to break even. Those users ÷ users per box = servers you then need.",
+    "example": "$2,400/mo fixed at $30 a user → 80 users; at 20 per box → 4 servers.",
+    "category": "Advanced"
+  },
+  {
+    "id": "stacked-founder-units",
+    "familyId": "stacked-founder",
+    "title": "Say the unit at every link",
+    "rule": "Write $/hr, $/mo, or users/box at each step. A chain that drops its unit usually drops a factor of 12 or 720.",
+    "example": "$0.50/hr × 720 = $360/mo; ÷ $45 a user → 8 users cover one box.",
+    "category": "Advanced"
+  },
+  {
     "id": "cfo-ceiling",
     "familyId": "cfo-feasibility",
     "title": "Ceiling is price times possible customers",
     "rule": "Max revenue ≈ price × reachable customers. If infra already rivals that ceiling, the model is weak.",
     "example": "$20/mo × 10k users = $200k/mo. A $150k cost base is tight.",
+    "category": "Advanced"
+  },
+  {
+    "id": "cfo-users-floor",
+    "familyId": "cfo-feasibility",
+    "title": "Fixed cost over price is the user floor",
+    "rule": "Users needed ≈ monthly fixed cost ÷ price. Compare that floor with the users you can actually reach.",
+    "example": "$45k/mo of costs at $15/mo → 3,000 users just to break even.",
+    "category": "Advanced"
+  },
+  {
+    "id": "cfo-cost-share",
+    "familyId": "cfo-feasibility",
+    "title": "Cost as a share of the ceiling",
+    "rule": "Divide the cost base by the revenue ceiling. Above about half leaves little room for CAC and margin.",
+    "example": "$90k of costs against a $150k ceiling → 60%, thin even if you win everyone.",
     "category": "Advanced"
   },
   {
@@ -176,6 +208,22 @@
     "category": "Advanced"
   },
   {
+    "id": "cfo-ltv-from-churn",
+    "familyId": "cfo-unit-econ",
+    "title": "LTV is gross profit times lifetime",
+    "rule": "LTV ≈ monthly gross profit × (1 ÷ monthly churn). Then compare with CAC.",
+    "example": "$30/mo at 80% margin, 4% churn → $24 × 25 = $600 LTV; CAC $200 → 3×.",
+    "category": "Advanced"
+  },
+  {
+    "id": "cfo-max-cac",
+    "familyId": "cfo-unit-econ",
+    "title": "Work back to the CAC you can afford",
+    "rule": "Max CAC ≈ LTV ÷ 3. Say it before you plan ad spend.",
+    "example": "LTV $900 → spend at most about $300 to win a customer.",
+    "category": "Advanced"
+  },
+  {
     "id": "cfo-runway-div",
     "familyId": "cfo-runway",
     "title": "Runway is cash divided by burn",
@@ -184,11 +232,43 @@
     "category": "Advanced"
   },
   {
+    "id": "cfo-runway-net",
+    "familyId": "cfo-runway",
+    "title": "Runway uses net burn, not gross spend",
+    "rule": "Net burn = spend − revenue. Dividing cash by gross spend shortens runway on paper.",
+    "example": "$80k spend, $30k revenue → $50k net; $400k cash → 8 months, not 5.",
+    "category": "Advanced"
+  },
+  {
+    "id": "cfo-runway-raise-window",
+    "familyId": "cfo-runway",
+    "title": "Start raising with six months left",
+    "rule": "A raise takes about six months. Months until you must start = runway − 6.",
+    "example": "14 months of runway → start the raise in about 8 months.",
+    "category": "Advanced"
+  },
+  {
     "id": "cfo-growth-20",
     "familyId": "cfo-growth",
     "title": "Twenty percent a month is not a 50× year",
     "rule": "20%/mo ≈ 1.7× in 3 months, ~3× in 6, ~9× in 12.",
     "example": "100 users cannot become 50,000 at 20% in a year (~900).",
+    "category": "Advanced"
+  },
+  {
+    "id": "cfo-growth-72",
+    "familyId": "cfo-growth",
+    "title": "Rule of 72 for monthly growth",
+    "rule": "Months to double ≈ 72 ÷ monthly growth percent.",
+    "example": "8% a month → doubles about every 9 months.",
+    "category": "Advanced"
+  },
+  {
+    "id": "cfo-growth-doublings",
+    "familyId": "cfo-growth",
+    "title": "Count doublings to the target",
+    "rule": "Target ÷ start, count the doublings, then multiply by the months each doubling takes.",
+    "example": "500 → 4,000 is 8×, three doublings; at 12%/mo each takes 6 months → about 18 months.",
     "category": "Advanced"
   },
   {
@@ -352,11 +432,43 @@
     "category": "Startup"
   },
   {
+    "id": "mrr-arr-back",
+    "familyId": "mrr-arr",
+    "title": "MRR is ARR divided by twelve",
+    "rule": "÷12 is ÷4 then ÷3. Check by multiplying back.",
+    "example": "$2.4M ARR → ÷4 = $600k → ÷3 = $200k MRR.",
+    "category": "Startup"
+  },
+  {
+    "id": "mrr-arr-net-new",
+    "familyId": "mrr-arr",
+    "title": "Net new ARR is the MRR change times twelve",
+    "rule": "Ending MRR − starting MRR, then ×12. Never ×12 the whole MRR and call it new.",
+    "example": "MRR $42k → $47k: +$5k × 12 = $60k net new ARR.",
+    "category": "Startup"
+  },
+  {
     "id": "churn-lifetime",
     "familyId": "churn",
     "title": "Lifetime months ≈ 1 / monthly churn",
     "rule": "5% monthly churn → about 20 months. Do not mix monthly with annual churn.",
     "example": "2% monthly → about 50 months.",
+    "category": "Startup"
+  },
+  {
+    "id": "churn-from-lifetime",
+    "familyId": "churn",
+    "title": "Monthly churn is one over lifetime",
+    "rule": "Turn it around: churn ≈ 1 ÷ average lifetime in months.",
+    "example": "Customers stay about 16 months → about 6% monthly churn.",
+    "category": "Startup"
+  },
+  {
+    "id": "churn-year-flag",
+    "familyId": "churn",
+    "title": "Monthly churn × 12 is a red-flag ceiling",
+    "rule": "Simple ×12 overstates the compounded loss, but it flags a leak fast.",
+    "example": "4% monthly → under 48% a year; compounded it is about 39%.",
     "category": "Startup"
   },
   {
@@ -368,11 +480,43 @@
     "category": "Startup"
   },
   {
+    "id": "nrr-build-up",
+    "familyId": "nrr",
+    "title": "Start, plus expansion, minus losses",
+    "rule": "Ending = start + expansion − contraction − churn. Divide by the start.",
+    "example": "$300k + $45k − $15k − $30k = $300k → 100% NRR: expansion only refilled the leak.",
+    "category": "Startup"
+  },
+  {
+    "id": "nrr-grr",
+    "familyId": "nrr",
+    "title": "GRR drops the expansion",
+    "rule": "GRR = (start − contraction − churn) ÷ start. It can never top 100%.",
+    "example": "Start $500k, lose $75k → GRR 85%, whatever expansion did.",
+    "category": "Startup"
+  },
+  {
     "id": "rule-of-40-sum",
     "familyId": "rule-of-40",
     "title": "Rule of 40",
     "rule": "Growth % + margin % should land around 40 or better (later-stage smell test).",
     "example": "30% growth and 15% margin → 45, passes.",
+    "category": "Startup"
+  },
+  {
+    "id": "rule-of-40-solve",
+    "familyId": "rule-of-40",
+    "title": "Solve for the missing side",
+    "rule": "Needed margin = 40 − growth. Needed growth = 40 − margin.",
+    "example": "60% growth → margin can be as low as −20% and still pass.",
+    "category": "Startup"
+  },
+  {
+    "id": "rule-of-40-sign",
+    "familyId": "rule-of-40",
+    "title": "Say the minus out loud",
+    "rule": "A negative margin subtracts. Write the sign before you add.",
+    "example": "45% growth, −15% margin → 30, not 60.",
     "category": "Startup"
   },
   {
@@ -384,11 +528,43 @@
     "category": "Startup"
   },
   {
+    "id": "burn-multiple-annualize",
+    "familyId": "burn-multiple",
+    "title": "Annualize the MRR change first",
+    "rule": "Net new ARR = MRR change × 12, over the same period as the burn.",
+    "example": "Burned $900k in a quarter while MRR rose $25k → $300k new ARR → 3×.",
+    "category": "Startup"
+  },
+  {
+    "id": "burn-multiple-budget",
+    "familyId": "burn-multiple",
+    "title": "Allowed burn = multiple × ARR plan",
+    "rule": "Turn the ratio around to budget: target multiple × planned net new ARR.",
+    "example": "Plan +$1.6M ARR at a 2× bar → up to $3.2M of net burn.",
+    "category": "Startup"
+  },
+  {
     "id": "cac-payback-months",
     "familyId": "cac-payback",
     "title": "Payback is CAC over monthly gross profit",
     "rule": "Aim for ≤12 months. Use profit after COGS, not list price.",
     "example": "CAC $240, $40/mo gross profit → 6 months.",
+    "category": "Startup"
+  },
+  {
+    "id": "cac-payback-gp-first",
+    "familyId": "cac-payback",
+    "title": "Gross profit first, then divide",
+    "rule": "Monthly gross profit = price × margin. Divide CAC by that, never by price.",
+    "example": "CAC $560, $100/mo at 70% → $70 GP → 8 months.",
+    "category": "Startup"
+  },
+  {
+    "id": "cac-payback-max",
+    "familyId": "cac-payback",
+    "title": "Max CAC is gross profit × target months",
+    "rule": "For a 12-month bar you can pay up to a year of gross profit.",
+    "example": "$55/mo gross profit → CAC up to $660.",
     "category": "Startup"
   },
   {
@@ -400,11 +576,43 @@
     "category": "Startup"
   },
   {
+    "id": "take-rate-back",
+    "familyId": "take-rate",
+    "title": "GMV is revenue over take",
+    "rule": "Going back, divide by the rate: 10% → ×10, 20% → ×5, 25% → ×4.",
+    "example": "$75k revenue at a 25% take → $300k GMV.",
+    "category": "Startup"
+  },
+  {
+    "id": "take-rate-blend",
+    "familyId": "take-rate",
+    "title": "Blend take by GMV share",
+    "rule": "Weight each product’s take by its slice of volume, not by order count.",
+    "example": "30% of GMV at 10% and 70% at 20% → 3 + 14 = 17% blended.",
+    "category": "Startup"
+  },
+  {
     "id": "processing-fees-3pct",
     "familyId": "processing-fees",
     "title": "Card fees ≈ 2.9% plus 30 cents",
     "rule": "Small tickets are a much higher percent. For a smell test, about 3% of volume.",
     "example": "$10 charge → ~$0.59 fees. $50k processed → ~$1.5k at 3%.",
+    "category": "Startup"
+  },
+  {
+    "id": "processing-fees-split",
+    "familyId": "processing-fees",
+    "title": "Percent on dollars, 30¢ on the count",
+    "rule": "Fees = 2.9% × volume + $0.30 × number of charges.",
+    "example": "1,000 charges of $50 → $1,450 + $300 = $1,750.",
+    "category": "Startup"
+  },
+  {
+    "id": "processing-fees-small-ticket",
+    "familyId": "processing-fees",
+    "title": "Small tickets pay the highest rate",
+    "rule": "Effective rate ≈ 2.9% + 30¢ ÷ ticket. Below about $10 the fixed part dominates.",
+    "example": "$3 charge: 30¢ ÷ $3 = 10%, plus 2.9% → about 13%.",
     "category": "Startup"
   },
   {
@@ -416,6 +624,22 @@
     "category": "Startup"
   },
   {
+    "id": "fully-loaded-back",
+    "familyId": "fully-loaded",
+    "title": "Back out salary: divide by 1.3",
+    "rule": "Loaded ÷ 1.3 ≈ salary. ÷1.3 is close to ×0.77.",
+    "example": "$130k loaded → about $100k salary.",
+    "category": "Startup"
+  },
+  {
+    "id": "fully-loaded-monthly",
+    "familyId": "fully-loaded",
+    "title": "Monthly loaded cost per head",
+    "rule": "Salary × 1.3 ÷ 12 is one person’s monthly burn.",
+    "example": "$120k → $156k ÷ 12 = $13k a month. Ten hires ≈ $130k a month.",
+    "category": "Startup"
+  },
+  {
     "id": "dilution-post-money",
     "familyId": "dilution",
     "title": "Percent sold is cash over post-money",
@@ -424,11 +648,43 @@
     "category": "Startup"
   },
   {
+    "id": "dilution-compounds",
+    "familyId": "dilution",
+    "title": "Dilution multiplies across rounds",
+    "rule": "Stake after = stake × (1 − percent sold). Subtracting points overstates the loss.",
+    "example": "40% after the seed, sell 25% in the A → 40 × 0.75 = 30%.",
+    "category": "Startup"
+  },
+  {
+    "id": "dilution-post-from-sold",
+    "familyId": "dilution",
+    "title": "Post-money from percent sold",
+    "rule": "Post = cash ÷ percent sold. Pre = post − cash.",
+    "example": "$4M for 20% → post $20M, pre $16M.",
+    "category": "Startup"
+  },
+  {
     "id": "tam-fermi-stack",
     "familyId": "tam-fermi",
     "title": "Fermi TAM is customers times yearly price",
     "rule": "Stack round numbers, then take a believable slice. Watch for a 10× error in one factor.",
     "example": "200k dentists × $600/year → $120M TAM; 1,000 customers is $600k ARR.",
+    "category": "Startup"
+  },
+  {
+    "id": "tam-fermi-period",
+    "familyId": "tam-fermi",
+    "title": "Match the price period to the TAM",
+    "rule": "Turn a monthly price into a yearly one before multiplying by customers.",
+    "example": "60k clinics × $50/mo → × $600/year → $36M TAM, not $3M.",
+    "category": "Startup"
+  },
+  {
+    "id": "tam-fermi-share",
+    "familyId": "tam-fermi",
+    "title": "Divide your goal by the TAM",
+    "rule": "Goal ARR ÷ TAM = the share you must win. Above about 10% needs a story.",
+    "example": "$5M ARR goal in a $40M TAM → 12.5%, a big slice.",
     "category": "Startup"
   },
   {
@@ -744,11 +1000,43 @@
     "category": "Advanced"
   },
   {
+    "id": "concurrency-peak",
+    "familyId": "concurrency",
+    "title": "Size infra for the busy hour",
+    "rule": "Use about 10% for average load and 20% for peak. Infra goes to peak.",
+    "example": "3,000 users → 300 on at once on average, 600 at peak.",
+    "category": "Advanced"
+  },
+  {
+    "id": "concurrency-to-boxes",
+    "familyId": "concurrency",
+    "title": "Concurrent users, then boxes",
+    "rule": "Boxes = users × concurrency ÷ users per box, rounded up.",
+    "example": "2,000 users × 15% = 300 at once; 40 per box → 7.5 → 8 boxes.",
+    "category": "Advanced"
+  },
+  {
     "id": "capacity-users-per-box",
     "familyId": "capacity-split",
     "title": "Boxes is users divided by per-box capacity",
     "rule": "Server count ≈ users ÷ users each box can hold. Cancel zeros first.",
     "example": "1,000 users / 20 per server = 50 servers.",
+    "category": "Advanced"
+  },
+  {
+    "id": "capacity-round-up",
+    "familyId": "capacity-split",
+    "title": "Always round boxes up",
+    "rule": "7.2 boxes is 8 boxes. A partial server still costs a whole one.",
+    "example": "900 users ÷ 125 per box = 7.2 → 8.",
+    "category": "Advanced"
+  },
+  {
+    "id": "capacity-safe-load",
+    "familyId": "capacity-split",
+    "title": "Divide by safe load, not max",
+    "rule": "Take per-box capacity × 0.7 first, then divide the users.",
+    "example": "50 per box max → plan 35; 700 users → 20 boxes.",
     "category": "Advanced"
   },
   {
@@ -760,11 +1048,43 @@
     "category": "Advanced"
   },
   {
+    "id": "box-contribution-margin",
+    "familyId": "box-contribution",
+    "title": "Contribution is box revenue minus box cost",
+    "rule": "Users on the box × price, minus that box’s monthly cost.",
+    "example": "25 users × $40 = $1,000 against a $650 box → +$350 per server.",
+    "category": "Advanced"
+  },
+  {
+    "id": "box-contribution-floor",
+    "familyId": "box-contribution",
+    "title": "Users needed to cover one box",
+    "rule": "Box cost ÷ price = users each server needs before it pays.",
+    "example": "$720 box at $24 a user → 30 users per server.",
+    "category": "Advanced"
+  },
+  {
     "id": "utilization-70",
     "familyId": "utilization",
     "title": "Plan at about 70% of max",
     "rule": "Safe load ≈ 0.7 × advertised capacity. Do not size as if you run at 100%.",
     "example": "10 jobs/sec max → plan on 7. 100 seats → 70 filled.",
+    "category": "Advanced"
+  },
+  {
+    "id": "utilization-buy-capacity",
+    "familyId": "utilization",
+    "title": "Back out the capacity to buy",
+    "rule": "Needed max capacity ≈ steady load ÷ 0.7.",
+    "example": "140 requests/sec steady → buy about 200/sec of capacity.",
+    "category": "Advanced"
+  },
+  {
+    "id": "utilization-burst",
+    "familyId": "utilization",
+    "title": "The last 30% absorbs bursts",
+    "rule": "Queues blow up near 100% busy. Headroom is what takes a spike or a failover.",
+    "example": "At 70%, a 20% burst lands at 84%. At 90%, the same burst overflows to 108%.",
     "category": "Advanced"
   },
   {
@@ -776,11 +1096,43 @@
     "category": "Advanced"
   },
   {
+    "id": "estimate-pad-once",
+    "familyId": "estimate-pad",
+    "title": "Pad once, at the end",
+    "rule": "Add the line items, then ×1.3 the total. Padding each line and the total compounds to ×1.69.",
+    "example": "$4k + $3k + $3k = $10k → $13k.",
+    "category": "Advanced"
+  },
+  {
+    "id": "estimate-pad-runway",
+    "familyId": "estimate-pad",
+    "title": "Pad the burn before runway math",
+    "rule": "Runway on padded burn: cash ÷ (burn × 1.3).",
+    "example": "$520k cash, $40k planned burn → $52k padded → 10 months, not 13.",
+    "category": "Advanced"
+  },
+  {
     "id": "funnel-bands-saas",
     "familyId": "funnel-bands",
     "title": "SaaS funnel bands, then compress",
     "rule": "Visit→signup ~10–30%, signup→paid ~2–10%. Mid smell: 20% then 5%.",
     "example": "10,000 visits → ~2,000 signups → ~100 paid (20% then 5%).",
+    "category": "Advanced"
+  },
+  {
+    "id": "funnel-bands-backward",
+    "familyId": "funnel-bands",
+    "title": "Work backward from the paid goal",
+    "rule": "Signups needed = paid goal ÷ paid rate; visits = signups ÷ signup rate.",
+    "example": "50 paid at 5% → 1,000 signups; at 20% → 5,000 visits.",
+    "category": "Advanced"
+  },
+  {
+    "id": "funnel-bands-combined",
+    "familyId": "funnel-bands",
+    "title": "Multiply the bands into one rate",
+    "rule": "20% × 5% = 1% visit-to-paid. One number for quick checks.",
+    "example": "30,000 visits × 1% → about 300 paid.",
     "category": "Advanced"
   },
   {
