@@ -12,7 +12,7 @@
     "start": "start",
     "nodes": {
       "success": {
-        "message": "Session complete. Rewrite ÷ as × and a shift; factor; scale both; overshoot and back off.\n\nSAMPLE: 675÷25=27, 936÷12=78, 4.8÷0.06=80, 936÷24=39.",
+        "message": "Session complete. Rewrite ÷ as × and a shift; factor; scale both; overshoot or build up; or ask divisor × what.\n\nSAMPLE: 675÷25=27, 936÷12=78, 4.8÷0.06=80, 936÷24=39, 168÷12=14, 861÷21=41.",
         "outcome": "success",
         "choices": []
       },
@@ -122,7 +122,7 @@
           {
             "id": "overshoot",
             "label": "24 × 40 = 960, one 24 too many → 39",
-            "next": "success"
+            "next": "missing"
           },
           {
             "id": "forty",
@@ -147,6 +147,72 @@
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "partial"
+      },
+      "missing": {
+        "message": "SAMPLE: 168 ÷ 12. Missing-factor reading?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "times_what",
+            "label": "12 × what = 168? 12 × 14 → 14",
+            "next": "buildup"
+          },
+          {
+            "id": "divide_cols",
+            "label": "Long division 168 ÷ 12",
+            "next": "wrong_missing_divide_cols"
+          },
+          {
+            "id": "times",
+            "label": "168 × 12",
+            "next": "wrong_missing_times"
+          }
+        ]
+      },
+      "wrong_missing_divide_cols": {
+        "message": "Works, slow. If you know 12 × 14, you are done.\n\nReturn to the missing factor.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "missing"
+      },
+      "wrong_missing_times": {
+        "message": "That multiplies. Ask 12 × ? = 168.\n\nReturn to the missing factor.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "missing"
+      },
+      "buildup": {
+        "message": "SAMPLE: 861 ÷ 21. Build up with partial quotients?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "forty_one",
+            "label": "21 × 40 = 840, 21 left = one more 21 → 41",
+            "next": "success"
+          },
+          {
+            "id": "forty",
+            "label": "40, the remainder does not matter",
+            "next": "wrong_buildup_forty"
+          },
+          {
+            "id": "forty_two",
+            "label": "21 × 42 = 861",
+            "next": "wrong_buildup_forty_two"
+          }
+        ]
+      },
+      "wrong_buildup_forty": {
+        "message": "861 − 840 = 21 is one more copy of 21. Answer 41.\n\nTry the build-up again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "buildup"
+      },
+      "wrong_buildup_forty_two": {
+        "message": "21 × 42 = 882. One copy too many.\n\nTry the build-up again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "buildup"
       }
     }
   }

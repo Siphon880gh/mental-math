@@ -12,7 +12,7 @@
     "start": "start",
     "nodes": {
       "success": {
-        "message": "Session complete. Equally far from c is c²−d². Same-tens ones-to-10 glues tens×(tens+1) | ones product.\n\nSAMPLE: 48×52=2,496, 43×47=2,021.",
+        "message": "Session complete. Equally far from c is c²−d². Same-tens ones-to-10 glues tens×(tens+1) | ones product. A known nearby square (75²) is a center too.\n\nSAMPLE: 48×52=2,496, 43×47=2,021, 73×77=5,621.",
         "outcome": "success",
         "choices": []
       },
@@ -89,7 +89,7 @@
           {
             "id": "2491",
             "label": "2,500 − 9 = 2,491",
-            "next": "success"
+            "next": "near"
           },
           {
             "id": "2509",
@@ -114,6 +114,39 @@
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "check"
+      },
+      "near": {
+        "message": "SAMPLE: 73 × 77. Nearby square?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "seventy_five",
+            "label": "Center 75: 75² = 5,625, gap 2 → −4 → 5,621",
+            "next": "success"
+          },
+          {
+            "id": "seventy",
+            "label": "70² = 4,900 and adjust",
+            "next": "wrong_near_seventy"
+          },
+          {
+            "id": "plus_four",
+            "label": "5,625 + 4",
+            "next": "wrong_near_plus_four"
+          }
+        ]
+      },
+      "wrong_near_seventy": {
+        "message": "70 is not the center. Both sit 2 from 75.\n\nTry the near-square again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "near"
+      },
+      "wrong_near_plus_four": {
+        "message": "Equal gaps subtract the gap squared.\n\nTry the near-square again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "near"
       }
     }
   }

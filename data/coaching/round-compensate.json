@@ -12,7 +12,7 @@
     "start": "start",
     "nodes": {
       "success": {
-        "message": "Session complete. Round to an easy number, compute, compensate with the opposite sign.\n\nSAMPLE: 49×6=294, 38×5=190.",
+        "message": "Session complete. Round to an easy number, compute, compensate with the opposite sign. +998 is +1,000 −2.\n\nSAMPLE: 49×6=294, 38×5=190, 2,345+998=3,343.",
         "outcome": "success",
         "choices": []
       },
@@ -89,7 +89,7 @@
           {
             "id": "190",
             "label": "190",
-            "next": "success"
+            "next": "add998"
           },
           {
             "id": "210",
@@ -114,6 +114,39 @@
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "check"
+      },
+      "add998": {
+        "message": "SAMPLE: 2,345 + 998. Overshoot?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "thousand",
+            "label": "+1,000 = 3,345, take back 2 → 3,343",
+            "next": "success"
+          },
+          {
+            "id": "add_two",
+            "label": "+1,000, then +2",
+            "next": "wrong_add998_add_two"
+          },
+          {
+            "id": "cols",
+            "label": "Column add with carries",
+            "next": "wrong_add998_cols"
+          }
+        ]
+      },
+      "wrong_add998_add_two": {
+        "message": "You added 2 too many, so subtract 2.\n\nReturn to the overshoot.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "add998"
+      },
+      "wrong_add998_cols": {
+        "message": "Works, slow. 998 is 1,000 − 2.\n\nReturn to the overshoot.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "add998"
       }
     }
   }

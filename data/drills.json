@@ -2914,6 +2914,19 @@
       ]
     },
     {
+      "id": "fd-rc-602-3",
+      "groupId": "foundations",
+      "familyId": "round-compensate",
+      "prompt": "SAMPLE: $602 split 3 ways, to the cent.",
+      "expectedAnswer": 200.67,
+      "thoughtChain": [
+        "600 ÷ 3 = 200",
+        "2 ÷ 3 ≈ 0.67",
+        "≈ $200.67 (within $1 grades close)"
+      ],
+      "unit": "usd"
+    },
+    {
       "id": "fd-rg-23x17",
       "groupId": "foundations",
       "familyId": "regroup-factors",

@@ -12,7 +12,7 @@
     "start": "start",
     "nodes": {
       "success": {
-        "message": "Session complete. Last digit is a hard fail. Digit root match is only a maybe.\n\nSAMPLE: 327×648 cannot end in 5; 87,946 roots to 7.",
+        "message": "Session complete. Last digit is a hard fail. Digit root match is only a maybe. Roots add for sums and multiply for products.\n\nSAMPLE: 327×648 cannot end in 5; 87,946 roots to 7; 4,738+2,595 ≠ 7,343.",
         "outcome": "success",
         "choices": []
       },
@@ -89,7 +89,7 @@
           {
             "id": "seven",
             "label": "8+7+9+4+6=34 → 7",
-            "next": "success"
+            "next": "sum"
           },
           {
             "id": "34",
@@ -114,6 +114,39 @@
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "check"
+      },
+      "sum": {
+        "message": "SAMPLE: a teammate says $4,738 + $2,595 = $7,343. Digit-root check?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "reject",
+            "label": "Roots 4 + 3 = 7, but 7,343 → 8 → reject",
+            "next": "success"
+          },
+          {
+            "id": "accept",
+            "label": "Last digits 8 + 5 = 13 end in 3, so accept",
+            "next": "wrong_sum_accept"
+          },
+          {
+            "id": "multiply_roots",
+            "label": "Multiply the roots: 4 × 3 = 12 → 3",
+            "next": "wrong_sum_multiply_roots"
+          }
+        ]
+      },
+      "wrong_sum_accept": {
+        "message": "The last digit passes, but the root fails. One failed check is enough to reject.\n\nTry the sum check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "sum"
+      },
+      "wrong_sum_multiply_roots": {
+        "message": "Sums add their roots; products multiply them.\n\nTry the sum check again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "sum"
       }
     }
   }

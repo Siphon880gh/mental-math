@@ -12,7 +12,7 @@
     "start": "start",
     "nodes": {
       "success": {
-        "message": "Session complete. You kept the base fact and moved zeros instead of recomputing.\n\nSAMPLE: 70×8=560, 90×6=540.",
+        "message": "Session complete. You kept the base fact and moved zeros instead of recomputing — decimals included.\n\nSAMPLE: 70×8=560, 90×6=540, 1.7×2.4=4.08.",
         "outcome": "success",
         "choices": []
       },
@@ -89,7 +89,7 @@
           {
             "id": "540",
             "label": "540 — one zero on 54",
-            "next": "success"
+            "next": "decimal"
           },
           {
             "id": "54",
@@ -114,6 +114,39 @@
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "check"
+      },
+      "decimal": {
+        "message": "SAMPLE: 1.7 × 2.4 for a per-kilo price. Decimals?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "ignore",
+            "label": "17 × 24 = 408, two places → 4.08",
+            "next": "success"
+          },
+          {
+            "id": "one_place",
+            "label": "408 → 40.8",
+            "next": "wrong_decimal_one_place"
+          },
+          {
+            "id": "round",
+            "label": "2 × 2 = 4 and stop",
+            "next": "wrong_decimal_round"
+          }
+        ]
+      },
+      "wrong_decimal_one_place": {
+        "message": "Count places in both factors: one + one = two → 4.08.\n\nTry the decimals again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "decimal"
+      },
+      "wrong_decimal_round": {
+        "message": "A fine estimate, but the exact is 4.08: multiply digits, then park two places.\n\nTry the decimals again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "decimal"
       }
     }
   }
