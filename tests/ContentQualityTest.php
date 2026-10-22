@@ -146,12 +146,12 @@ final class ContentQualityTest extends TestCase
         }
     }
 
-    public function testEveryFamilyHasTrickCardsAndTrackBHasThree(): void
+    public function testTrackAFamiliesHaveTwoTrickCardsAndTrackBHasThree(): void
     {
         $ids = array_column(Tricks::all(), 'id');
         $this->assertSame(count($ids), count(array_unique($ids)));
         foreach (Tracks::trackAFamilyIds() as $familyId) {
-            $this->assertNotSame([], Tricks::forFamily($familyId), $familyId);
+            $this->assertGreaterThanOrEqual(2, count(Tricks::forFamily($familyId)), $familyId);
         }
         foreach (Tracks::trackBFamilyIds() as $familyId) {
             $this->assertGreaterThanOrEqual(3, count(Tricks::forFamily($familyId)), $familyId);

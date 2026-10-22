@@ -47,7 +47,7 @@ The Toolbox lists the twelve master techniques, a suggested progression, and his
 
 ## How it works
 
-Open a track, read the shortcut, walk the coach, then drill until the number is a reflex. Cases ask you to type a number in a conversation, then show the thought chain. Scenarios mix skills from the same track. Games isolate one mechanic. The Toolbox ties the arithmetic families together and says where each idea really comes from.
+Open a track, read the shortcut, walk the coach, then drill until the number is a reflex. Cases ask you to type a number in a conversation, then show the thought chain. Scenarios mix skills from the same track; the longer ones chain three or four. Games isolate one mechanic. The Toolbox ties the arithmetic families together and says where each idea really comes from.
 
 PHP server-renders every URL. Progress and pass tags live in the browser (`localStorage`). Internal name: REFLEX_CORE.
 
@@ -85,7 +85,7 @@ If the document root is `public/` instead, `public/index.php` still works.
 ./vendor/bin/phpunit
 ```
 
-`tests/ContentQualityTest.php` guards the content itself: every prompt says SAMPLE, no drill repeats another in its family, no case reuses a drill's numbers, every family has at least three drills beyond its guide's worked examples (and no more than 60% that only repeat them) plus a case and a scenario, every case pack and every Track A family with a real chain has an advanced case, every Track B guide has a worked example, the why, and where it goes wrong, and every Track B family has at least three trick cards. `tests/CoachingTest.php` also checks that the coach does not always show the right move first and that step counts follow how hard the technique is.
+`tests/ContentQualityTest.php` guards the content itself: every prompt says SAMPLE, no drill repeats another in its family, no case reuses a drill's numbers, every family has at least three drills beyond its guide's worked examples (and no more than 60% that only repeat them) plus a case and a scenario, every case pack and every Track A family with a real chain has an advanced case, every Track B guide has a worked example, the why, and where it goes wrong, every Track A family has at least two trick cards and every Track B family at least three, scenario choices are not listed right-answer-first, and at least 16 scenarios (six per track) chain three or four families with a cheat that names the mistake behind every wrong choice. `tests/CoachingTest.php` also checks that the coach does not always show the right move first and that step counts follow how hard the technique is.
 
 ### JS and browser tests (optional, Node 18+)
 

@@ -193,13 +193,16 @@
     ],
     "trickIds": [
       "easy-division-rewrite",
-      "easy-division-twenty-eighth"
+      "easy-division-twenty-eighth",
+      "div-by-5-double-shift",
+      "div-by-5-remainder-decimal"
     ],
     "surfaces": [
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "scenario"
     ]
   },
   {
@@ -282,7 +285,8 @@
     ],
     "trickIds": [
       "complements-make-ten",
-      "left-to-right-add"
+      "left-to-right-add",
+      "left-to-right-subtract"
     ],
     "surfaces": [
       "guide",
@@ -290,7 +294,8 @@
       "coach",
       "drill",
       "game",
-      "case"
+      "case",
+      "scenario"
     ]
   },
   {
@@ -319,7 +324,8 @@
       "equal-adjust"
     ],
     "trickIds": [
-      "equal-adjust-both"
+      "equal-adjust-both",
+      "equal-adjust-from-thousand"
     ],
     "surfaces": [
       "guide",
@@ -402,7 +408,10 @@
       "percent-chunks-12-5",
       "percent-chunks-small",
       "percent-chunks-fractions",
-      "percent-1-shift"
+      "percent-1-shift",
+      "percent-tenth-of-one",
+      "percent-tip-20",
+      "percent-tip-18"
     ],
     "surfaces": [
       "guide",
@@ -410,7 +419,8 @@
       "coach",
       "drill",
       "game",
-      "case"
+      "case",
+      "scenario"
     ]
   },
   {
@@ -421,7 +431,8 @@
       "percent-reversible"
     ],
     "trickIds": [
-      "percent-swap"
+      "percent-swap",
+      "percent-swap-friendly"
     ],
     "surfaces": [
       "guide",
@@ -503,7 +514,8 @@
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "scenario"
     ]
   },
   {
@@ -594,7 +606,8 @@
     ],
     "trickIds": [
       "magnitude-append-zeros",
-      "percent-1-shift"
+      "percent-1-shift",
+      "percent-tenth-of-one"
     ],
     "surfaces": [
       "guide",
@@ -656,7 +669,8 @@
       "trick",
       "coach",
       "drill",
-      "case"
+      "case",
+      "scenario"
     ]
   },
   {
@@ -781,7 +795,8 @@
     ],
     "trickIds": [
       "regroup-factors-commute",
-      "percent-swap"
+      "percent-swap",
+      "percent-swap-friendly"
     ],
     "surfaces": [
       "guide",
@@ -882,7 +897,9 @@
       "area-grid"
     ],
     "trickIds": [
-      "area-grid-place-value"
+      "area-grid-place-value",
+      "left-to-right-add",
+      "left-to-right-subtract"
     ],
     "surfaces": [
       "toolbox",
@@ -921,7 +938,9 @@
       "equal-adjust"
     ],
     "trickIds": [
-      "round-compensate-49x6"
+      "round-compensate-49x6",
+      "equal-adjust-both",
+      "equal-adjust-from-thousand"
     ],
     "surfaces": [
       "toolbox",
@@ -946,7 +965,8 @@
       "toolbox",
       "guide",
       "trick",
-      "case"
+      "case",
+      "scenario"
     ]
   },
   {
@@ -984,7 +1004,8 @@
       "toolbox",
       "guide",
       "trick",
-      "case"
+      "case",
+      "scenario"
     ]
   },
   {
@@ -1034,7 +1055,8 @@
       "div-by-5"
     ],
     "trickIds": [
-      "easy-division-rewrite"
+      "easy-division-rewrite",
+      "div-by-5-double-shift"
     ],
     "surfaces": [
       "toolbox",
