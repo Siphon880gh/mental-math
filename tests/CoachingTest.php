@@ -93,6 +93,31 @@ final class CoachingTest extends TestCase
         }
     }
 
+    public function testDedicatedStepsForThinTechniques(): void
+    {
+        $expected = [
+            'easy-division' => ['partial', 'missing', 'buildup'],
+            'round-compensate' => ['add998'],
+            'difference-squares' => ['near'],
+            'magnitude' => ['decimal'],
+            'cast-nines' => ['sum'],
+            'divisibility' => ['seven', 'composite'],
+            'double-half' => ['peasant', 'egypt'],
+            'criss-cross' => ['three'],
+        ];
+        foreach ($expected as $slug => $nodeIds) {
+            $loaded = Sessions::load($slug);
+            $this->assertTrue($loaded['ok'], $slug);
+            $nodes = $loaded['session']['tree']['nodes'];
+            foreach ($nodeIds as $id) {
+                $this->assertArrayHasKey($id, $nodes, $slug . ' ' . $id);
+                $this->assertSame('continue', $nodes[$id]['outcome']);
+                $wrongs = array_filter($nodes[$id]['choices'], static fn (array $c) => ($nodes[$c['next']]['outcome'] ?? '') === 'wrong');
+                $this->assertGreaterThanOrEqual(2, count($wrongs), $slug . ' ' . $id);
+            }
+        }
+    }
+
     public function testNavKeyPrefix(): void
     {
         $this->assertSame('reflex_core_coaching_nav_v1:', Navigate::NAV_KEY_PREFIX);

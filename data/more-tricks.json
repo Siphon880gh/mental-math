@@ -18,7 +18,9 @@
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "scenario",
+      "case"
     ]
   },
   {
@@ -52,7 +54,10 @@
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "game",
+      "scenario",
+      "case"
     ]
   },
   {
@@ -78,7 +83,10 @@
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "game",
+      "scenario",
+      "case"
     ]
   },
   {
@@ -100,7 +108,9 @@
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "game",
+      "case"
     ]
   },
   {
@@ -122,7 +132,9 @@
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "scenario",
+      "case"
     ]
   },
   {
@@ -144,7 +156,9 @@
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "game",
+      "scenario"
     ]
   },
   {
@@ -234,7 +248,9 @@
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "scenario",
+      "case"
     ]
   },
   {
@@ -250,6 +266,7 @@
     "surfaces": [
       "guide",
       "trick",
+      "coach",
       "drill"
     ]
   },
@@ -269,7 +286,8 @@
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "game"
     ]
   },
   {
@@ -285,6 +303,7 @@
     "surfaces": [
       "guide",
       "trick",
+      "coach",
       "drill"
     ]
   },
@@ -335,7 +354,8 @@
     "surfaces": [
       "guide",
       "trick",
-      "coach"
+      "coach",
+      "game"
     ]
   },
   {
@@ -353,7 +373,8 @@
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "case"
     ]
   },
   {
@@ -501,7 +522,9 @@
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "scenario",
+      "case"
     ]
   },
   {
@@ -538,7 +561,9 @@
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "scenario",
+      "case"
     ]
   },
   {
@@ -574,7 +599,9 @@
     "surfaces": [
       "guide",
       "trick",
-      "drill"
+      "coach",
+      "drill",
+      "case"
     ]
   },
   {
@@ -628,7 +655,9 @@
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "scenario",
+      "case"
     ]
   },
   {
@@ -644,6 +673,7 @@
     "surfaces": [
       "guide",
       "trick",
+      "coach",
       "drill"
     ]
   },
@@ -663,7 +693,8 @@
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "case"
     ]
   },
   {
@@ -789,7 +820,8 @@
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "scenario"
     ]
   },
   {
