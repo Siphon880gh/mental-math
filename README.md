@@ -83,8 +83,19 @@ If the document root is `public/` instead, `public/index.php` still works.
 
 ```bash
 ./vendor/bin/phpunit
-node --test tests/js/*.test.mjs   # game round logic (Node 18+, no npm install)
 ```
+
+### JS and browser tests (optional, Node 18+)
+
+PHPUnit does not need Node. The game logic and a browser click-through have their own runners:
+
+```bash
+npm run test:js        # node --test tests/js/*.test.mjs — seeded round generators and soroban bead rules; no install needed
+npm install            # once: playwright-core only (no browser download)
+npm run test:browser   # starts php -S on a free port with router.php, runs tests/browser/*.spec.mjs, stops the server
+```
+
+The browser suite drives the installed Google Chrome headless. It checks `router.php` asset serving (including refused `../` paths), clicks through every game with wrong then right answers, loads the main pages, checks unknown slugs return 404, and fails on any console error or PHP warning. Options: `PHP_BIN=/Applications/MAMP/bin/php/php7.4.33/bin/php` to test the PHP 7.4 floor, `BROWSER_CHANNEL=chromium` after `npx playwright-core install chromium` if Chrome is not installed, `HEADED=1` to watch, `VERBOSE=1` to list every check.
 
 This is not a static site. Hosting needs PHP (built-in server, Apache, or nginx). `/archive` and `/guides` redirect to `/track-a`. Unknown guide, coach, drill, case, scenario, and game slugs return 404.
 

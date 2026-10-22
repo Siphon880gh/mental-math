@@ -1,0 +1,16 @@
+{
+  "name": "mental-math-trainer",
+  "private": true,
+  "description": "Dev-only tooling for the JS game logic and the browser suite. The app itself needs only PHP.",
+  "type": "module",
+  "scripts": {
+    "test:js": "node --test tests/js/*.test.mjs",
+    "test:browser": "node tests/browser/run.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "1.55.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

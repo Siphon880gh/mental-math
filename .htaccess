@@ -2,9 +2,9 @@ DirectoryIndex index.php
 
 RewriteEngine On
 
-# Keep catalogs, PHP, and Composer off the public web.
-RewriteRule ^(?:app|data|vendor|tests|context|docs|LOOPS|\.agents|\.git)(?:/|$) - [F,L]
-RewriteRule ^(?:composer\.(json|lock)|phpunit\.xml|router\.php)$ - [F,L]
+# Keep catalogs, PHP, Composer, and Node dev tooling off the public web.
+RewriteRule ^(?:app|data|vendor|node_modules|tests|context|docs|LOOPS|\.agents|\.git)(?:/|$) - [F,L]
+RewriteRule ^(?:composer\.(json|lock)|package(-lock)?\.json|phpunit\.xml|router\.php)$ - [F,L]
 
 # CSS/JS still live under public/assets
 RewriteRule ^assets/(.*)$ public/assets/$1 [L]

@@ -1,5 +1,6 @@
 .DS_Store
 vendor/
+node_modules/
 .phpunit.cache/
 
 # Cloned reference apps from context/clone.sh — keep the catalog and script
