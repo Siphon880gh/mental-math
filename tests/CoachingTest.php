@@ -104,6 +104,7 @@ final class CoachingTest extends TestCase
             'divisibility' => ['seven', 'composite'],
             'double-half' => ['peasant', 'egypt'],
             'criss-cross' => ['three'],
+            'fixed-multipliers' => ['trach12', 'trach12b', 'trach6'],
         ];
         foreach ($expected as $slug => $nodeIds) {
             $loaded = Sessions::load($slug);

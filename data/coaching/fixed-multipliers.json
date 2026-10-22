@@ -12,7 +12,7 @@
     "start": "start",
     "nodes": {
       "success": {
-        "message": "Session complete. Neighbors of round numbers add or remove one copy; ×6, ×12, ×15 are small builds.\n\nSAMPLE: 42×19=798, 43×6=258, 46×15=690, 38×1,001=38,038.",
+        "message": "Session complete. Neighbors of round numbers add or remove one copy; ×6, ×12, ×15 are small builds. The Trachtenberg digit rules do the same rows one digit at a time, right to left.\n\nSAMPLE: 42×19=798, 43×6=258, 46×15=690, 38×1,001=38,038, 263×12=3,156, 524×6=3,144.",
         "outcome": "success",
         "choices": []
       },
@@ -122,7 +122,7 @@
           {
             "id": "park",
             "label": "38,000 + 38 → 38,038 (the number twice)",
-            "next": "success"
+            "next": "trach12"
           },
           {
             "id": "times_thousand",
@@ -147,6 +147,105 @@
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "big"
+      },
+      "trach12": {
+        "message": "SAMPLE: Trachtenberg ×12 on 263, written 0263. Start at the right: digit 3, neighbor 0. What goes down?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "double_plus",
+            "label": "2 × 3 + 0 = 6. Write 6",
+            "next": "trach12b"
+          },
+          {
+            "id": "eleven_rule",
+            "label": "3 + 0 = 3",
+            "next": "wrong_trach12_eleven_rule"
+          },
+          {
+            "id": "whole",
+            "label": "3 × 12 = 36. Write 36",
+            "next": "wrong_trach12_whole"
+          }
+        ]
+      },
+      "wrong_trach12_eleven_rule": {
+        "message": "That is the ×11 rule. ×12 doubles the digit first: 2 × 3 + 0 = 6.\n\nBack to the first digit.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "trach12"
+      },
+      "wrong_trach12_whole": {
+        "message": "One digit per step. Double plus neighbor is 6, and nothing carries yet.\n\nBack to the first digit.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "trach12"
+      },
+      "trach12b": {
+        "message": "Next: digit 6, neighbor 3. 2 × 6 + 3 = 15. What do you write?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "carry",
+            "label": "Write 5, carry 1. The answer finishes as 3,156",
+            "next": "trach6"
+          },
+          {
+            "id": "write15",
+            "label": "Write 15",
+            "next": "wrong_trach12b_write15"
+          },
+          {
+            "id": "swap",
+            "label": "Write 1, carry 5",
+            "next": "wrong_trach12b_swap"
+          }
+        ]
+      },
+      "wrong_trach12b_write15": {
+        "message": "Each step writes one digit. Write 5 and carry the 1 left.\n\nTry the carry again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "trach12b"
+      },
+      "wrong_trach12b_swap": {
+        "message": "The ones digit stays; the tens digit carries. Write 5, carry 1.\n\nTry the carry again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "trach12b"
+      },
+      "trach6": {
+        "message": "SAMPLE: Trachtenberg ×6 on 524. Middle digit 2, neighbor 4. What goes down?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "half",
+            "label": "2 + half of 4 = 4. 2 is even, so no +5",
+            "next": "success"
+          },
+          {
+            "id": "whole_nb",
+            "label": "2 + 4 = 6",
+            "next": "wrong_trach6_whole_nb"
+          },
+          {
+            "id": "plus5",
+            "label": "2 + 2 + 5 = 9",
+            "next": "wrong_trach6_plus5"
+          }
+        ]
+      },
+      "wrong_trach6_whole_nb": {
+        "message": "×6 takes half the neighbor, not all of it: 2 + 2 = 4.\n\nBack to the ×6 digit.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "trach6"
+      },
+      "wrong_trach6_plus5": {
+        "message": "The +5 is only for odd digits. 2 is even, so 4.\n\nBack to the ×6 digit.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "trach6"
       }
     }
   }

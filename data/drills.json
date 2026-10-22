@@ -2846,6 +2846,45 @@
       ]
     },
     {
+      "id": "fd-fm-tr-263x12",
+      "groupId": "foundations",
+      "familyId": "fixed-multipliers",
+      "prompt": "SAMPLE: 263 × 12 with the Trachtenberg ×12 rule (double plus neighbor).",
+      "expectedAnswer": 3156,
+      "thoughtChain": [
+        "3: 6",
+        "6: 12 + 3 = 15 → 5, carry 1",
+        "2: 4 + 6 + 1 = 11 → 1, carry 1",
+        "0: 2 + 1 = 3 → 3,156"
+      ]
+    },
+    {
+      "id": "fd-fm-tr-524x6",
+      "groupId": "foundations",
+      "familyId": "fixed-multipliers",
+      "prompt": "SAMPLE: 524 × 6 with the Trachtenberg ×6 rule (half the neighbor, +5 if odd).",
+      "expectedAnswer": 3144,
+      "thoughtChain": [
+        "4: 4",
+        "2: 2 + 2 = 4",
+        "5: 5 + 1 + 5 = 11 → 1, carry 1",
+        "0: 2 + 1 = 3 → 3,144"
+      ]
+    },
+    {
+      "id": "fd-fm-tr-236x7",
+      "groupId": "foundations",
+      "familyId": "fixed-multipliers",
+      "prompt": "SAMPLE: 236 × 7 with the Trachtenberg ×7 rule (double, half the neighbor, +5 if odd).",
+      "expectedAnswer": 1652,
+      "thoughtChain": [
+        "6: 12 → 2, carry 1",
+        "3: 6 + 3 + 5 + 1 = 15 → 5, carry 1",
+        "2: 4 + 1 + 1 = 6",
+        "0: 1 → 1,652"
+      ]
+    },
+    {
       "id": "fd-mn-347x11",
       "groupId": "foundations",
       "familyId": "multiply-near",

@@ -64,4 +64,14 @@ final class GuidesTest extends TestCase
         $this->assertStringContainsString('| 7 | 343 |', Guides::get('number-facts')['body']);
         $this->assertStringContainsString('Complement to five', Guides::get('mental-abacus')['body']);
     }
+
+    public function testTrachtenbergSectionKeepsHistoryHonest(): void
+    {
+        $body = Guides::get('fixed-multipliers')['body'];
+        $this->assertStringContainsString('## Trachtenberg digit rules', $body);
+        $this->assertStringContainsString('| 12 | double the digit + neighbor |', $body);
+        $this->assertStringContainsString('not independently documented', $body);
+        $this->assertStringContainsString('**4,164**', $body);
+        $this->assertStringContainsString('**2,052**', $body);
+    }
 }

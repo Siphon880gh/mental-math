@@ -808,6 +808,22 @@
     "category": "Foundations"
   },
   {
+    "id": "fixed-multipliers-trachtenberg-12",
+    "familyId": "fixed-multipliers",
+    "title": "Trachtenberg ×11 and ×12: digit plus neighbor",
+    "rule": "Put a 0 in front and work right to left. ×11: digit + the neighbor on its right. ×12: double the digit + neighbor. Write one digit, carry the rest.",
+    "example": "347 × 12 → 14 → 4; 8 + 7 + 1 = 16 → 6; 6 + 4 + 1 = 11 → 1; 3 + 1 = 4 → 4,164.",
+    "category": "Foundations"
+  },
+  {
+    "id": "fixed-multipliers-trachtenberg-6-7",
+    "familyId": "fixed-multipliers",
+    "title": "Trachtenberg ×6 and ×7: half the neighbor, +5 if odd",
+    "rule": "×6: digit + half the neighbor (drop any half), +5 if the digit is odd. ×7: the same, but double the digit.",
+    "example": "342 × 6 → 2, 5, 10 → 0 carry 1, 2 → 2,052. 342 × 7 → 2,394.",
+    "category": "Foundations"
+  },
+  {
     "id": "near-base-below",
     "familyId": "near-base",
     "title": "Below the base: cross subtract, multiply the gaps",

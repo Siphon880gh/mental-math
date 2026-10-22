@@ -206,6 +206,10 @@
     {
       "title": "Chinese counting rods and the suanpan",
       "body": "China calculated with counting rods on place-value boards, including multiplication, division, and square-root algorithms. The later suanpan bead abacus influenced Japan’s soroban."
+    },
+    {
+      "title": "Trachtenberg speed system",
+      "body": "Jakow Trachtenberg’s digit-by-digit multiplication rules were published in the 1960 book by Ann Cutler and Rudolph McShane. The book says he developed them while imprisoned in Nazi camps; that account is not independently documented in detail. The rules themselves (×11 neighbor sums, ×12 double plus neighbor, ×6 and ×7 with half the neighbor) are ordinary place-value arithmetic and check out."
     }
   ]
 }

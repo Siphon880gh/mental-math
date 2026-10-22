@@ -1084,5 +1084,36 @@
       "toolbox",
       "guide"
     ]
+  },
+  {
+    "id": "trachtenberg",
+    "title": "Trachtenberg speed system (×11, ×12, ×6, ×7 digit rules)",
+    "status": "shipped",
+    "familyIds": [
+      "fixed-multipliers"
+    ],
+    "trickIds": [
+      "fixed-multipliers-trachtenberg-12",
+      "fixed-multipliers-trachtenberg-6-7"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill",
+      "game"
+    ]
+  },
+  {
+    "id": "caveat-trachtenberg",
+    "title": "Trachtenberg origin story comes from the 1960 book, not independent records",
+    "status": "shipped",
+    "familyIds": [
+      "fixed-multipliers"
+    ],
+    "surfaces": [
+      "toolbox",
+      "guide"
+    ]
   }
 ]
