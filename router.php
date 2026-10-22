@@ -5,9 +5,12 @@ declare(strict_types=1);
 $uri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
 $uri = rawurldecode($uri);
 
-if (preg_match('#^/assets(/.*)$#', $uri, $m) === 1) {
-    $file = __DIR__ . '/public/assets' . $m[1];
-    if (is_file($file)) {
+// asset_url() links /public/assets/... when the project root is the document
+// root (as with this router) and /assets/... when public/ is; serve both.
+if (preg_match('#^(?:/public)?/assets(/.*)$#', $uri, $m) === 1) {
+    $assetRoot = realpath(__DIR__ . '/public/assets');
+    $file = realpath(__DIR__ . '/public/assets' . $m[1]);
+    if ($assetRoot !== false && $file !== false && strpos($file, $assetRoot . DIRECTORY_SEPARATOR) === 0 && is_file($file)) {
         $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
         $types = [
             'css' => 'text/css; charset=UTF-8',
