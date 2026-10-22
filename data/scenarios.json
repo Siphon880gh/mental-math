@@ -1922,5 +1922,690 @@
       "That is 200. Then × 17."
     ],
     "cheat": "5 × 20 × 2 = 200, × 17 = $3,400. $1,700 dropped the second day. $34,000 and $340 slipped a zero."
+  },
+  {
+    "id": "lunch-tip-split",
+    "track": "quick",
+    "title": "Three plates, a tip, six ways",
+    "prompt": "SAMPLE: you and five colleagues order plates of $47, $38, and $65, then add a 20% tip. Even split per person?",
+    "skillIds": [
+      "left-to-right",
+      "percent-tip",
+      "easy-division"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "$30",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "$25",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "$28.75",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "$36",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "Add left to right: 40 + 30 + 60, then 7 + 8 + 5.",
+      "Tip: 10% doubled. Split by everyone at the table, you included."
+    ],
+    "cheat": "Bill 150, tip 20% = 30 → 180, ÷ 6 = $30. $25 forgot the tip, $28.75 used a 15% habit, $36 split by 5 and left yourself out."
+  },
+  {
+    "id": "resale-near-base",
+    "track": "quick",
+    "title": "Resell a near-100 lot",
+    "prompt": "SAMPLE: buy 98 units at $96, resell at 25% over cost, then give a bulk buyer 10% off. Revenue?",
+    "skillIds": [
+      "near-base",
+      "percent-chunks",
+      "percent-shift"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "$10,584",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "$10,819.20",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "$11,760",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "$10,800",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "98 × 96: both near 100. 98 − 4 = 94 | 2 × 4 = 08.",
+      "Add a quarter, then take a tenth off what you have."
+    ],
+    "cheat": "Cost 98 × 96 = 9,408. +25% (2,352) = 11,760, −10% (1,176) = $10,584. $10,819.20 netted the two as +15%, $11,760 forgot the discount, $10,800 rounded 98 to 100 and never paid it back."
+  },
+  {
+    "id": "lot-minus-shed",
+    "track": "quick",
+    "title": "Sod around a shed",
+    "prompt": "SAMPLE: a 45 ft square lot with a 15 ft square shed on it. Sod costs $4 a sq ft. Cost to sod the rest?",
+    "skillIds": [
+      "difference-squares",
+      "multiply-near",
+      "double-half"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "$7,200",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "$3,600",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "$8,100",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "$9,000",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "a² − b² = (a − b)(a + b), or square each: 45² ends in 25.",
+      "×4 is double, double."
+    ],
+    "cheat": "45² − 15² = 30 × 60 = 1,800 sq ft, ×4 = $7,200. $3,600 squared the difference of the sides (30²), $8,100 forgot to take out the shed, $9,000 added the shed instead."
+  },
+  {
+    "id": "desks-eleven-months",
+    "track": "quick",
+    "title": "Desks on an annual plan",
+    "prompt": "SAMPLE: 11 desks at $46 a month, billed for the year with one month free, plus a $1,250 setup fee. First-year bill?",
+    "skillIds": [
+      "multiply-near",
+      "month-year",
+      "left-to-right"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "$6,816",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "$7,322",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "$5,566",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "$6,072",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "×11 is neighbor sums: 46 → 4 | 10 | 6, carry.",
+      "One month free means 11 billed months. Then add the setup."
+    ],
+    "cheat": "506 a month × 11 billed months = 5,566, + 1,250 = $6,816. $7,322 billed all 12 months, $5,566 forgot the setup, $6,072 did both."
+  },
+  {
+    "id": "boxes-of-twelve-check",
+    "track": "quick",
+    "title": "Check the box count",
+    "prompt": "SAMPLE: 4,236 widgets go into boxes of 12. A clerk’s sheet says 352 boxes. Right count?",
+    "skillIds": [
+      "divisibility",
+      "easy-division",
+      "cast-nines"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "353",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "352",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "363",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "1,059",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "12 = 4 × 3. 36 passes ÷4; digit sum 15 passes ÷3.",
+      "Check the sheet: 352 × 12 should land on 4,236."
+    ],
+    "cheat": "4,236 ÷ 4 = 1,059, ÷ 3 = 353. 352 trusts the sheet (352 × 12 = 4,224, digit root 3 vs 4,236’s 6). 363 split 3,600 + 636 and wrote 63 for 53. 1,059 stopped after ÷4."
+  },
+  {
+    "id": "pages-weekly-signups",
+    "track": "quick",
+    "title": "Signups per page per week",
+    "prompt": "SAMPLE: about 2,870 visitors a day spread over 41 landing pages, and 15% sign up. Signups per page in a week, roughly?",
+    "skillIds": [
+      "round-compensate",
+      "percent-chunks",
+      "anchors"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "about 74",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "about 490",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "about 7",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "about 10",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "Compatible numbers: 2,800 ÷ 40 = 70 a page a day.",
+      "A week is ×7; then 10% + 5%."
+    ],
+    "cheat": "2,870 ÷ 41 ≈ 2,800 ÷ 40 = 70, × 7 = 490, 15% = 73.5 → about 74. about 490 forgot the sign-up rate, about 7 used 1.5%, about 10 forgot the week."
+  },
+  {
+    "id": "folio-cross-check",
+    "track": "quick",
+    "title": "Check the hotel folio",
+    "prompt": "SAMPLE: 23 rooms at $41 a night for 3 nights. The folio says $2,839. True total?",
+    "skillIds": [
+      "criss-cross",
+      "cast-nines",
+      "fixed-multipliers"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "$2,829",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "$2,839",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "$2,760",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "$943",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "23 × 41: ones 3, cross 2 + 12 = 14 → 4 carry 1, tens 8 + 1 = 9.",
+      "Then ×3, and check digit roots: 943 → 7, ×3 → 3."
+    ],
+    "cheat": "23 × 41 = 943, × 3 = $2,829 (digit root 3). $2,839 is the folio (root 4, so it is wrong), $2,760 dropped the ×1 cross and used 40, $943 is one night."
+  },
+  {
+    "id": "till-then-invoice",
+    "track": "quick",
+    "title": "Till, then an invoice",
+    "prompt": "SAMPLE: a $1,000 float takes in $47 and $38, refunds $26, then pays a $386 invoice. What is left?",
+    "skillIds": [
+      "mental-abacus",
+      "complements",
+      "left-to-right"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "$673",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "$725",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "$614",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "$59",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "+47 is +50 −3; +38 is +40 −2; −26 is −30 +4.",
+      "Then 1,059 − 386: count up from 386."
+    ],
+    "cheat": "1,000 + 47 + 38 − 26 = 1,059, − 386 = $673. $725 added the refund, $614 took the invoice off the float and ignored the till, $59 forgot the float."
+  },
+  {
+    "id": "double-then-tax",
+    "track": "quick",
+    "title": "Double, double, then tax the gain",
+    "prompt": "SAMPLE: $40,000 grows at 9% a year for 16 years, then 37.5% of the gain goes to tax. What is left, roughly?",
+    "skillIds": [
+      "rule-of-72",
+      "fraction-percent",
+      "double-half"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "about $115,000",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "about $100,000",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "about $45,000",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "about $50,000",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "72 ÷ 9 = 8 years a doubling; 16 years is two.",
+      "37.5% = 3/8. Tax the gain, not the whole pot."
+    ],
+    "cheat": "Two doublings: 40k → 160k, gain 120k, 3/8 of it = 45k → about $115,000. about $100,000 taxed the whole pot, about $45,000 is the tax, about $50,000 counted one doubling and taxed the whole pot."
+  },
+  {
+    "id": "hires-then-raise",
+    "track": "stakeholder",
+    "title": "Four hires, then the raise clock",
+    "prompt": "SAMPLE: $1.8M in the bank, $98k a month of other net burn, and you add four engineers at $120k salary. Runway, and when do you start the raise?",
+    "skillIds": [
+      "fully-loaded",
+      "cfo-runway",
+      "month-year"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "12 months — start the raise in 6",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "about 13 months — start in 7",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "about 18 months — start in 12",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "12 months — start the raise in 11",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "Load the salaries: 4 × 120k × 1.3, then ÷ 12.",
+      "Runway = cash ÷ net burn. A raise takes about six months."
+    ],
+    "cheat": "4 × 120k × 1.3 = 624k a year = 52k a month. Burn 150k → 1,800 ÷ 150 = 12 months; start the raise at 12 − 6 → 12 months — start the raise in 6. about 13 months — start in 7 left salaries unloaded, about 18 months — start in 12 forgot the hires, and 12 months — start the raise in 11 waits until the money is nearly gone."
+  },
+  {
+    "id": "growth-nrr-forty",
+    "track": "stakeholder",
+    "title": "Growth, NRR, and the 40 line",
+    "prompt": "SAMPLE: MRR went from $250k to $300k this year, at a −15% margin. Last year’s customers alone now pay $270k a month. Rule of 40 score and NRR?",
+    "skillIds": [
+      "mrr-arr",
+      "nrr",
+      "rule-of-40"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "5, NRR 108%",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "35, NRR 108%",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "5, NRR 120%",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "20, NRR 108%",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "Growth is (300 − 250) ÷ 250. The margin is negative.",
+      "NRR holds the customer list fixed: 270 ÷ 250."
+    ],
+    "cheat": "Growth 50 ÷ 250 = 20%, + (−15) = 5. NRR 270 ÷ 250 = 108% → 5, NRR 108%. 35, NRR 108% dropped the minus, 5, NRR 120% put new logos into NRR (300 ÷ 250), 20, NRR 108% forgot the margin."
+  },
+  {
+    "id": "ltv-cac-from-churn",
+    "track": "stakeholder",
+    "title": "LTV to CAC from churn",
+    "prompt": "SAMPLE: a $60/mo plan at 75% gross margin, 3% monthly churn, and a $450 CAC. LTV to CAC, roughly?",
+    "skillIds": [
+      "cfo-unit-econ",
+      "churn",
+      "cac-payback"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "about 3.3×",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "about 4.4×",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "about 1.2×",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "10×",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "Gross profit first: 75% of 60. Lifetime ≈ 1 ÷ 0.03.",
+      "LTV = GP × lifetime. Then divide by CAC."
+    ],
+    "cheat": "GP $45 × about 33 months = $1,500 LTV, ÷ 450 = about 3.3×. about 4.4× used price instead of gross profit, about 1.2× counted only the first year, 10× is the payback in months (450 ÷ 45), not the ratio."
+  },
+  {
+    "id": "take-minus-card-fees",
+    "track": "stakeholder",
+    "title": "Take rate after card fees",
+    "prompt": "SAMPLE: 20,000 orders a month at $30, a 12% take, and you pay 2.9% + $0.30 per order in card fees. Net revenue a month?",
+    "skillIds": [
+      "take-rate",
+      "processing-fees",
+      "magnitude"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "$48,600",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "$54,600",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "$63,912",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "$72,000",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "GMV 20,000 × 30 = $600k. Take 12%.",
+      "Card fees run on every full charge: 2.9% of GMV plus 30¢ an order."
+    ],
+    "cheat": "Take 12% of 600k = 72k. Fees 17.4k + 6k = 23.4k → $48,600. $54,600 forgot the 30¢ per order, $63,912 charged the 2.9% on revenue instead of GMV, $72,000 ignored fees."
+  },
+  {
+    "id": "tam-slice-and-round",
+    "track": "stakeholder",
+    "title": "TAM slice and the round",
+    "prompt": "SAMPLE: 120k clinics at $50/mo. You raise $3M on a $12M pre-money to win 2% of that market. ARR target and percent sold?",
+    "skillIds": [
+      "tam-fermi",
+      "dilution",
+      "percent-shift"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "$1.44M ARR; 20% sold",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "$120k ARR; 20% sold",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "$1.44M ARR; 25% sold",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "$14.4M ARR; 20% sold",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "Yearly price first: $600. TAM = 120k × 600.",
+      "Post = pre + cash. Sold = cash ÷ post."
+    ],
+    "cheat": "TAM $72M, 2% = $1.44M ARR; post $15M, 3 ÷ 15 = 20% → $1.44M ARR; 20% sold. $120k ARR; 20% sold used the monthly price, $1.44M ARR; 25% sold divided by pre, $14.4M ARR; 20% sold took 20% instead of 2%."
+  },
+  {
+    "id": "busy-hour-padded-bill",
+    "track": "stakeholder",
+    "title": "Busy hour to padded bill",
+    "prompt": "SAMPLE: 3,000 logos, about 15% on at the busy hour. A box holds 50 users at max and you plan at 70%. Boxes cost $1.50/hr, and you pad the budget 30%. Monthly infra budget?",
+    "skillIds": [
+      "concurrency",
+      "utilization",
+      "capacity-split",
+      "estimate-pad"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "$18,252",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "$12,636",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "$14,040",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "$16,848",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "15% of 3,000 are on at once. Plan each box at 70% of 50.",
+      "Round boxes up. $1.50 × 720 a month, then pad once."
+    ],
+    "cheat": "450 active ÷ 35 safe = 12.9 → 13 boxes × $1,080 = 14,040, ×1.3 = $18,252. $12,636 planned at the 50-user max, $14,040 skipped the pad, $16,848 rounded 12.9 down to 12 boxes."
+  },
+  {
+    "id": "ads-to-payback",
+    "track": "stakeholder",
+    "title": "Ad spend to payback",
+    "prompt": "SAMPLE: $60,000 of ads buys 40,000 visits. 20% sign up and 5% of signups pay $50/mo at an 80% gross margin. CAC payback in months?",
+    "skillIds": [
+      "funnel-bands",
+      "cac-payback",
+      "percent-shift"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "3.75 months",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "3 months",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "about 0.2 months",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "37.5 months",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "Paid = 40,000 × 20% × 5%. CAC = spend ÷ paid.",
+      "Payback divides CAC by gross profit, not price."
+    ],
+    "cheat": "400 paid → CAC $150; GP $40 → 3.75 months. 3 months divided by price, about 0.2 months treated every signup as a customer, 37.5 months used 0.5% instead of 5% (40 paid)."
+  },
+  {
+    "id": "quarter-burn-multiple",
+    "track": "stakeholder",
+    "title": "Quarter burn multiple",
+    "prompt": "SAMPLE: this quarter you spent $2.4M, collected $0.9M, and MRR rose from $410k to $460k. Burn multiple, and how does it read?",
+    "skillIds": [
+      "burn-multiple",
+      "mrr-arr",
+      "cfo-runway"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "2.5× — scaling, not efficient",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "4× — expensive",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "30× — burning badly",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "0.4× — very efficient",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "Net burn = spend − collections.",
+      "Net new ARR = the MRR change × 12."
+    ],
+    "cheat": "Net burn 1.5M ÷ net new ARR (50k × 12 = 600k) → 2.5× — scaling, not efficient. 4× — expensive used gross spend, 30× — burning badly forgot to annualize the MRR change, 0.4× — very efficient flipped the ratio."
+  },
+  {
+    "id": "heavy-accounts-boxes",
+    "track": "stakeholder",
+    "title": "Boxes for the heavy accounts",
+    "prompt": "SAMPLE: 400 accounts send 50,000 jobs a day and the top 20% send 80% of them. A box handles 2,000 jobs a day; plan at 70%. Boxes for the top accounts alone?",
+    "skillIds": [
+      "pareto",
+      "utilization",
+      "capacity-split"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "29",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "20",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "28",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "8",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "Top 20% of accounts send 80% of 50,000 jobs.",
+      "Safe box = 70% of 2,000. Round up."
+    ],
+    "cheat": "40,000 heavy jobs ÷ 1,400 safe = 28.6 → 29. 20 planned at the 2,000 max, 28 rounded down, 8 sized the light 20% of jobs instead."
   }
 ]

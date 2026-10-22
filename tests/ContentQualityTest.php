@@ -193,4 +193,29 @@ final class ContentQualityTest extends TestCase
         }
         $this->assertLessThan(0.4, $first / count($raw), "right answer first in {$first} scenarios");
     }
+
+    /**
+     * Chained scenarios (three or more skills) must name the mistake behind
+     * every wrong choice in the cheat, so a learner who picks one sees why.
+     */
+    public function testMultiSkillScenariosChainThreeSkillsAndExplainEveryDistractor(): void
+    {
+        $perTrack = ['quick' => 0, 'stakeholder' => 0];
+        foreach (Scenarios::all() as $scenario) {
+            $skills = $scenario['skillIds'];
+            $this->assertSame(count($skills), count(array_unique($skills)), $scenario['id']);
+            if (count($skills) < 3) {
+                continue;
+            }
+            $this->assertLessThanOrEqual(4, count($skills), $scenario['id']);
+            $perTrack[$scenario['track']]++;
+            $this->assertGreaterThanOrEqual(2, count($scenario['hints']), $scenario['id']);
+            foreach ($scenario['choices'] as $choice) {
+                $this->assertStringContainsString($choice['label'], $scenario['cheat'], $scenario['id'] . ' cheat skips ' . $choice['label']);
+            }
+        }
+        $this->assertGreaterThanOrEqual(16, array_sum($perTrack));
+        $this->assertGreaterThanOrEqual(6, $perTrack['quick']);
+        $this->assertGreaterThanOrEqual(6, $perTrack['stakeholder']);
+    }
 }
