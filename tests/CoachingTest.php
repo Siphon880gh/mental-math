@@ -171,4 +171,27 @@ final class CoachingTest extends TestCase
         $this->assertFalse($r['ok']);
         $this->assertSame('invalid_choice', $r['error']);
     }
+
+    public function testTheRightMoveIsNotAlwaysTheFirstButton(): void
+    {
+        $steps = 0;
+        $rightFirst = 0;
+        foreach (Sessions::all() as $slug => $session) {
+            $raw = json_decode((string) file_get_contents(ROOT . '/data/coaching/' . $slug . '.json'), true);
+            foreach ($session['tree']['nodes'] as $id => $node) {
+                if ($node['outcome'] !== 'continue') {
+                    continue;
+                }
+                $this->assertEqualsCanonicalizing(array_column($raw['tree']['nodes'][$id]['choices'], 'id'), array_column($node['choices'], 'id'), $slug . ' ' . $id);
+                $steps++;
+                $first = $session['tree']['nodes'][$node['choices'][0]['next']];
+                if ($first['outcome'] !== 'wrong') {
+                    $rightFirst++;
+                }
+            }
+        }
+        $this->assertGreaterThan(50, $steps);
+        $this->assertLessThan(0.5, $rightFirst / $steps, "right move first in {$rightFirst} of {$steps} steps");
+        $this->assertSame(Sessions::load('near-base')['session'], Sessions::load('near-base')['session']);
+    }
 }

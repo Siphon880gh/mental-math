@@ -21,12 +21,35 @@ final class Sessions
         foreach (glob(ROOT . '/data/coaching/*.json') ?: [] as $file) {
             $slug = basename($file, '.json');
             $session = Json::load('coaching/' . $slug . '.json');
-            $out[$slug] = $session;
+            $out[$slug] = self::mixChoices($slug, $session);
         }
         ksort($out);
         self::$all = $out;
 
         return $out;
+    }
+
+    /**
+     * The data files list the right move first. Put choices in a stable order
+     * keyed on slug, node, and choice id so the first button is not a tell,
+     * while the page and the JSON session still agree on one order.
+     *
+     * @param array<string, mixed> $session
+     * @return array<string, mixed>
+     */
+    private static function mixChoices(string $slug, array $session): array
+    {
+        foreach ($session['tree']['nodes'] ?? [] as $nodeId => $node) {
+            $choices = $node['choices'] ?? [];
+            if (!is_array($choices) || count($choices) < 2) {
+                continue;
+            }
+            usort($choices, static fn (array $a, array $b): int => crc32($slug . ':' . $nodeId . ':' . ($a['id'] ?? ''))
+                <=> crc32($slug . ':' . $nodeId . ':' . ($b['id'] ?? '')));
+            $session['tree']['nodes'][$nodeId]['choices'] = $choices;
+        }
+
+        return $session;
     }
 
     /** @return list<array<string, mixed>> */
