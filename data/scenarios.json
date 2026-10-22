@@ -1700,5 +1700,227 @@
       "Monthly × 12 for the year."
     ],
     "cheat": "18,000 ÷ 45 = 400 seats. 18,000 × 12 = $216,000 a year. 40 dropped a zero in the division. $21,600 dropped a zero in the ×12. 810 multiplied 18 × 45 instead of dividing."
+  },
+  {
+    "id": "seats-forty-nine",
+    "track": "quick",
+    "title": "Round the seats, pay back",
+    "prompt": "SAMPLE: 49 seats at $38 a month. Monthly total?",
+    "skillIds": [
+      "round-compensate",
+      "left-to-right"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "$1,862",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "$1,900",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "$1,938",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "$1,824",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "49 is 50 − 1. Price 50 seats first.",
+      "Then pay back one $38 seat."
+    ],
+    "cheat": "50 × 38 = 1,900, minus one 38 → $1,862. $1,900 forgot the payback. $1,938 added it instead. $1,824 paid back two seats."
+  },
+  {
+    "id": "two-quotes-squares",
+    "track": "quick",
+    "title": "Two quotes near a square",
+    "prompt": "SAMPLE: quote A is 62 × 58 units, quote B is 61 × 59 units. Which is larger, and by how much?",
+    "skillIds": [
+      "difference-squares",
+      "criss-cross"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "B, by 3 units",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "A, by 3 units",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "They are equal",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "B, by 4 units",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "Both pairs sit on 60. Each product is 60² minus the gap squared.",
+      "Compare the gaps: 2² against 1²."
+    ],
+    "cheat": "A = 3,600 − 4 = 3,596. B = 3,600 − 1 = 3,599. B is larger by 3. Same sums do not mean same products. \"By 4\" compared 2² with 0."
+  },
+  {
+    "id": "refund-without-borrowing",
+    "track": "quick",
+    "title": "A refund without borrowing",
+    "prompt": "SAMPLE: $5,003 in the account and a $1,998 vendor payment clears. Balance?",
+    "skillIds": [
+      "equal-adjust",
+      "left-to-right"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "$3,005",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "$3,003",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "$3,001",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "$3,105",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "Move both numbers the same way so the payment is round.",
+      "Add 2 to both: 5,005 − 2,000."
+    ],
+    "cheat": "5,005 − 2,000 = $3,005. $3,003 rounded only the payment. $3,001 took the 2 away instead of adding it. $3,105 is a borrowing slip."
+  },
+  {
+    "id": "advisor-slice",
+    "track": "quick",
+    "title": "Fraction of a fraction of a pool",
+    "prompt": "SAMPLE: an advisor gets 3/8 of 4/9 of a 54,000-share pool. Shares?",
+    "skillIds": [
+      "cross-cancel",
+      "fraction-percent"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "9,000",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "24,000",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "20,250",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "6,000",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "Cancel across before multiplying: 3 with 9, 4 with 8.",
+      "3/8 × 4/9 = 1/6."
+    ],
+    "cheat": "1/6 of 54,000 = 9,000. 24,000 stopped at 4/9. 20,250 used only 3/8. 6,000 is 1/9 of the pool."
+  },
+  {
+    "id": "yard-side",
+    "track": "quick",
+    "title": "How long is the side?",
+    "prompt": "SAMPLE: a square storage yard is 410 sq m. About how long is one side?",
+    "skillIds": [
+      "approx-sqrt",
+      "square-identities"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "About 20.25 m",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "About 20.5 m",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "About 21 m",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "About 205 m",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "Nearest square: 20² = 400, so d = 10.",
+      "Bump by d ÷ 2a = 10 ÷ 40."
+    ],
+    "cheat": "20 + 10/40 = 20.25 m (true ≈ 20.248). 20.5 bumped by d ÷ a. 21 rounded up to the next whole meter. 205 halved the area."
+  },
+  {
+    "id": "stipend-order",
+    "track": "quick",
+    "title": "Pick the multiplication order",
+    "prompt": "SAMPLE: 5 offices × 17 people × a $20 lunch stipend × 2 days. Total?",
+    "skillIds": [
+      "regroup-factors",
+      "magnitude"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "$3,400",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "$1,700",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "$34,000",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "$340",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "Pair the round factors first: 5 × 20 × 2.",
+      "That is 200. Then × 17."
+    ],
+    "cheat": "5 × 20 × 2 = 200, × 17 = $3,400. $1,700 dropped the second day. $34,000 and $340 slipped a zero."
   }
 ]

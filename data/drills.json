@@ -3018,11 +3018,11 @@
       "id": "fd-fm-x19",
       "groupId": "foundations",
       "familyId": "fixed-multipliers",
-      "prompt": "SAMPLE: 42 × 19.",
-      "expectedAnswer": 798,
+      "prompt": "SAMPLE: 53 × 19.",
+      "expectedAnswer": 1007,
       "thoughtChain": [
-        "×20 = 840",
-        "−42 = 798"
+        "×20 = 1,060",
+        "−53 = 1,007"
       ]
     },
     {

@@ -1431,6 +1431,62 @@
       "unit": "usd"
     },
     {
+      "id": "sf-anchor-25x80",
+      "packId": "stacked-founder",
+      "familyId": "anchors",
+      "thinkingMode": "chord_zeros",
+      "prompt": "SAMPLE: 25 seats at $80 a month. Monthly bill?",
+      "expectedAnswer": 2000,
+      "thoughtChain": [
+        "chord 25 × 8 = 200",
+        "one more zero → $2,000"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "sf-tens-30-70",
+      "packId": "stacked-founder",
+      "familyId": "percent-tens",
+      "thinkingMode": "percent_read",
+      "prompt": "SAMPLE: 30% off a $70 plan. Discount in dollars?",
+      "expectedAnswer": 21,
+      "thoughtChain": [
+        "drop the zeros: 3 × 7 = 21",
+        "$21 off"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "sf-tip-146",
+      "packId": "stacked-founder",
+      "familyId": "percent-tip",
+      "thinkingMode": "percent_read",
+      "prompt": "SAMPLE: the team dinner is $146. A 20% tip?",
+      "expectedAnswer": 29.2,
+      "thoughtChain": [
+        "×2 = 292",
+        "one place left → $29.20"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "sf-div5-1340",
+      "packId": "stacked-founder",
+      "familyId": "div-by-5",
+      "thinkingMode": "division_rewrite",
+      "prompt": "SAMPLE: a $1,340 tool bill split across 5 teams. Each team pays?",
+      "expectedAnswer": 268,
+      "thoughtChain": [
+        "×2 = 2,680",
+        "one place left → $268"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
       "id": "ar-seats-19",
       "packId": "arithmetic-in-the-room",
       "familyId": "fixed-multipliers",
@@ -1446,32 +1502,31 @@
       "unit": "usd"
     },
     {
-      "id": "ar-team-12",
+      "id": "ar-team-12x43",
       "packId": "arithmetic-in-the-room",
       "familyId": "fixed-multipliers",
       "thinkingMode": "fixed_multiplier",
-      "prompt": "SAMPLE: a 12-person team at $37 a seat. Monthly?",
-      "expectedAnswer": 444,
+      "prompt": "SAMPLE: a 12-person team at $43 a seat. Monthly?",
+      "expectedAnswer": 516,
       "thoughtChain": [
-        "×12 = ×10 + ×2",
-        "370 + 74 = 444"
+        "×10 = 430",
+        "×2 = 86 → $516"
       ],
       "difficulty": "beginner",
       "unit": "usd"
     },
     {
-      "id": "ar-sku-1001",
+      "id": "ar-sku-46x1001",
       "packId": "arithmetic-in-the-room",
       "familyId": "fixed-multipliers",
       "thinkingMode": "fixed_multiplier",
-      "prompt": "SAMPLE: 38 SKUs, 1,001 units each. Total units?",
-      "expectedAnswer": 38038,
+      "prompt": "SAMPLE: 46 SKUs, 1,001 units each. Total units?",
+      "expectedAnswer": 46046,
       "thoughtChain": [
-        "×1,001 = ×1,000 + one copy",
-        "38,000 + 38 = 38,038"
+        "46,000 + 46",
+        "46,046"
       ],
-      "difficulty": "beginner",
-      "unit": null
+      "difficulty": "beginner"
     },
     {
       "id": "ar-cartons-97x94",
@@ -1489,19 +1544,17 @@
       "unit": null
     },
     {
-      "id": "ar-order-103x107",
+      "id": "ar-order-104x106",
       "packId": "arithmetic-in-the-room",
       "familyId": "near-base",
       "thinkingMode": "near_base",
-      "prompt": "SAMPLE: 103 stores each order 107 units. Total units?",
-      "expectedAnswer": 11021,
+      "prompt": "SAMPLE: 104 stores each order 106 units. Total units?",
+      "expectedAnswer": 11024,
       "thoughtChain": [
-        "Distances +3, +7",
-        "103 + 7 = 110",
-        "3 × 7 = 21 → 11,021"
+        "+4, +6",
+        "104 + 6 = 110 | 4 × 6 = 24 → 11,024"
       ],
-      "difficulty": "beginner",
-      "unit": null
+      "difficulty": "beginner"
     },
     {
       "id": "ar-booth-43",
@@ -1533,63 +1586,59 @@
       "unit": null
     },
     {
-      "id": "ar-lunch-48x32",
+      "id": "ar-lunch-52x34",
       "packId": "arithmetic-in-the-room",
       "familyId": "area-grid",
       "thinkingMode": "partial_products",
-      "prompt": "SAMPLE: 48 people at $32 a lunch. Bill?",
-      "expectedAnswer": 1536,
+      "prompt": "SAMPLE: 52 people at $34 a lunch. Bill?",
+      "expectedAnswer": 1768,
       "thoughtChain": [
-        "48 × 30 = 1,440",
-        "48 × 2 = 96",
-        "1,536"
+        "52 × 30 = 1,560",
+        "52 × 4 = 208 → $1,768"
       ],
       "difficulty": "beginner",
       "unit": "usd"
     },
     {
-      "id": "ar-signups-run",
+      "id": "ar-signups-30-39",
       "packId": "arithmetic-in-the-room",
       "familyId": "complements",
       "thinkingMode": "complement_count",
-      "prompt": "SAMPLE: daily signups ran 20, 21, … 29 over ten days. Total?",
-      "expectedAnswer": 245,
+      "prompt": "SAMPLE: daily signups ran 30, 31, … 39 over ten days. Total?",
+      "expectedAnswer": 345,
       "thoughtChain": [
-        "10 terms",
-        "average (20 + 29) / 2 = 24.5",
-        "10 × 24.5 = 245"
+        "10 days",
+        "average (30 + 39) ÷ 2 = 34.5 → 345"
       ],
-      "difficulty": "beginner",
-      "unit": "users"
+      "difficulty": "beginner"
     },
     {
-      "id": "ar-produce-1.7",
+      "id": "ar-produce-2.3",
       "packId": "arithmetic-in-the-room",
       "familyId": "magnitude",
       "thinkingMode": "decimal_shift",
-      "prompt": "SAMPLE: 1.7 kg of produce at $2.40 a kilo. Cost?",
-      "expectedAnswer": 4.08,
+      "prompt": "SAMPLE: 2.3 kg of produce at $1.60 a kilo. Cost?",
+      "expectedAnswer": 3.68,
       "thoughtChain": [
-        "17 × 24 = 408",
-        "two decimal places → 4.08"
+        "23 × 16 = 368",
+        "two decimal places → $3.68"
       ],
       "difficulty": "beginner",
       "unit": "usd"
     },
     {
-      "id": "ar-mixed-98x103",
+      "id": "ar-mixed-97x102",
       "packId": "arithmetic-in-the-room",
       "familyId": "near-base",
       "thinkingMode": "near_base",
-      "prompt": "SAMPLE: 98 pallets, 103 boxes on each. Boxes?",
-      "expectedAnswer": 10094,
+      "prompt": "SAMPLE: 97 pallets, 102 boxes on each. Boxes?",
+      "expectedAnswer": 9894,
       "thoughtChain": [
-        "Distances −2, +3",
-        "98 + 3 = 101 → 10,100",
-        "−2 × 3 = −6 → 10,094"
+        "−3, +2",
+        "97 + 2 = 99 → 9,900",
+        "−3 × 2 = −6 → 9,894"
       ],
-      "difficulty": "intermediate",
-      "unit": null
+      "difficulty": "intermediate"
     },
     {
       "id": "ar-grid-98",
@@ -1607,16 +1656,15 @@
       "unit": null
     },
     {
-      "id": "ar-break-even-936",
+      "id": "ar-break-even-1064",
       "packId": "arithmetic-in-the-room",
       "familyId": "easy-division",
       "thinkingMode": "division_rewrite",
-      "prompt": "SAMPLE: $936 a month of cost, $24 a month per user. Users to break even?",
-      "expectedAnswer": 39,
+      "prompt": "SAMPLE: $1,064 a month of cost, $28 a month per user. Users to break even?",
+      "expectedAnswer": 38,
       "thoughtChain": [
-        "24 × 40 = 960",
-        "one 24 too many",
-        "39"
+        "28 × 40 = 1,120",
+        "56 too many = two 28s → 38"
       ],
       "difficulty": "intermediate",
       "unit": "users"
@@ -1759,6 +1807,213 @@
       ],
       "difficulty": "advanced",
       "unit": "usd"
+    },
+    {
+      "id": "ar-l2r-478-356",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "left-to-right",
+      "thinkingMode": "left_to_right",
+      "prompt": "SAMPLE: two invoices, $478 and $356. Total?",
+      "expectedAnswer": 834,
+      "thoughtChain": [
+        "400 + 300 = 700, 70 + 50 = 120 → 820",
+        "8 + 6 = 14 → $834"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-rc-29x48",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "round-compensate",
+      "thinkingMode": "round_compensate",
+      "prompt": "SAMPLE: 29 licenses at $48. Total?",
+      "expectedAnswer": 1392,
+      "thoughtChain": [
+        "30 × 48 = 1,440",
+        "one 48 too many → $1,392"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-rc-398x27",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "round-compensate",
+      "thinkingMode": "round_compensate",
+      "prompt": "SAMPLE: 398 units at $27, quoted on the call. Total?",
+      "expectedAnswer": 10746,
+      "thoughtChain": [
+        "400 × 27 = 10,800",
+        "two 27s too many: −54 → $10,746"
+      ],
+      "difficulty": "intermediate",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-dh-18x45",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "double-half",
+      "thinkingMode": "double_half",
+      "prompt": "SAMPLE: 18 shifts at $45. Payroll?",
+      "expectedAnswer": 810,
+      "thoughtChain": [
+        "halve and double: 9 × 90",
+        "$810"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-dh-peasant-37x26",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "double-half",
+      "thinkingMode": "double_half",
+      "prompt": "SAMPLE: 37 boxes at $26, worked by Russian peasant halving on a whiteboard. Total?",
+      "expectedAnswer": 962,
+      "thoughtChain": [
+        "37→26, 18→52 drop, 9→104, 4→208 drop, 2→416 drop, 1→832",
+        "26 + 104 + 832 = $962"
+      ],
+      "difficulty": "intermediate",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-mn-46x11",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "multiply-near",
+      "thinkingMode": "near_ten",
+      "prompt": "SAMPLE: 46 crates of 11 bottles. Bottles?",
+      "expectedAnswer": 506,
+      "thoughtChain": [
+        "4 | 4+6 | 6 → 4 | 10 | 6",
+        "carry → 506"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "ar-fp-3-8-5600",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "fraction-percent",
+      "thinkingMode": "fraction_benchmark",
+      "prompt": "SAMPLE: 3/8 of a $5,600 budget goes to ads. Ads?",
+      "expectedAnswer": 2100,
+      "thoughtChain": [
+        "1/8 of 5,600 = 700",
+        "×3 → $2,100"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-72-reserve",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "rule-of-72",
+      "thinkingMode": "doubling_time",
+      "prompt": "SAMPLE: a $50k reserve earns 6% a year. About what is it worth after 24 years?",
+      "expectedAnswer": 200000,
+      "thoughtChain": [
+        "doubles every 72 ÷ 6 = 12 years",
+        "two doublings → $200k"
+      ],
+      "difficulty": "intermediate",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-cc-43x32",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "criss-cross",
+      "thinkingMode": "criss_cross",
+      "prompt": "SAMPLE: 43 pallets of 32 cartons. Cartons?",
+      "expectedAnswer": 1376,
+      "thoughtChain": [
+        "ones 3 × 2 = 6",
+        "cross 4×2 + 3×3 = 17 → 7 carry 1",
+        "tens 4×3 + 1 = 13 → 1,376"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "ar-ea-2004-397",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "equal-adjust",
+      "thinkingMode": "equal_adjust",
+      "prompt": "SAMPLE: $2,004 in the till and a $397 refund goes out. What is left?",
+      "expectedAnswer": 1607,
+      "thoughtChain": [
+        "add 3 to both: 2,007 − 400",
+        "$1,607"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-xc-vested-36k",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "cross-cancel",
+      "thinkingMode": "fraction_cancel",
+      "prompt": "SAMPLE: an advisor gets 3/4 of the 8/9 of a $36k pool that has vested. Dollars?",
+      "expectedAnswer": 24000,
+      "thoughtChain": [
+        "3/4 × 8/9: cancel 3 with 9 and 4 with 8 → 2/3",
+        "2/3 of 36k = $24k"
+      ],
+      "difficulty": "intermediate",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-sqrt-plot-140",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "approx-sqrt",
+      "thinkingMode": "root_estimate",
+      "prompt": "SAMPLE: a square plot is 140 sq ft. About how long is a side, to one decimal?",
+      "expectedAnswer": 11.8,
+      "thoughtChain": [
+        "12² = 144, d = −4",
+        "12 − 4/24 ≈ 11.83 → 11.8 (true 11.83)"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "ar-rg-8x23x125",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "regroup-factors",
+      "thinkingMode": "regroup",
+      "prompt": "SAMPLE: 8 regions × 23 reps × a $125 stipend. Total?",
+      "expectedAnswer": 23000,
+      "thoughtChain": [
+        "pair 8 × 125 = 1,000",
+        "× 23 = $23,000"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-ab-86-7-9",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "mental-abacus",
+      "thinkingMode": "abacus_move",
+      "prompt": "SAMPLE: the register shows $86. Ring up $7, then $9, one bead move at a time. Total?",
+      "expectedAnswer": 102,
+      "thoughtChain": [
+        "+7 = +10 − 3 → 93",
+        "+9 = +10 − 1 → 102"
+      ],
+      "difficulty": "beginner",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-nf-cube-12",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "number-facts",
+      "thinkingMode": "number_fact",
+      "prompt": "SAMPLE: a 12-ft cube storage unit. Cubic feet?",
+      "expectedAnswer": 1728,
+      "thoughtChain": [
+        "12² = 144",
+        "144 × 12 = 1,728"
+      ],
+      "difficulty": "beginner"
     }
   ]
 }

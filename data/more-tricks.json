@@ -178,7 +178,8 @@
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "case"
     ]
   },
   {
@@ -321,7 +322,9 @@
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "scenario",
+      "case"
     ]
   },
   {
@@ -458,7 +461,9 @@
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "scenario",
+      "case"
     ]
   },
   {
@@ -510,7 +515,9 @@
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "scenario",
+      "case"
     ]
   },
   {
@@ -680,7 +687,8 @@
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "scenario"
     ]
   },
   {
@@ -717,7 +725,9 @@
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "scenario",
+      "case"
     ]
   },
   {
@@ -787,7 +797,9 @@
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "scenario",
+      "case"
     ]
   },
   {
@@ -804,7 +816,8 @@
       "guide",
       "trick",
       "coach",
-      "drill"
+      "drill",
+      "case"
     ]
   },
   {
@@ -903,7 +916,9 @@
     "surfaces": [
       "toolbox",
       "guide",
-      "trick"
+      "trick",
+      "scenario",
+      "case"
     ]
   },
   {
@@ -920,7 +935,8 @@
     "surfaces": [
       "toolbox",
       "guide",
-      "trick"
+      "trick",
+      "case"
     ]
   },
   {
@@ -938,7 +954,9 @@
     "surfaces": [
       "toolbox",
       "guide",
-      "trick"
+      "trick",
+      "scenario",
+      "case"
     ]
   },
   {
