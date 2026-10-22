@@ -11,23 +11,23 @@ Recognize number shapes, then calculate on the fly. Five minutes. No calculator.
 
 ## Screenshots
 
-Home is the Beginner Reflex Path — Track A shortcuts, a timed drill gate, then conversation cases. The logo in the header returns here; there is no separate Home nav link.
+Home is the Beginner Reflex Path — Track A shortcuts, a timed drill gate, then conversation cases, with a browse-this-session option if you want to look at the cases first. The logo in the header returns here; there is no separate Home nav link.
 
 ![Home — Beginner Reflex Path](docs/screenshots/home.png)
 
-Track A is everyday and business fluency. Track B is stakeholder and planning math. Tag a guide on first pass or second pass, then filter the list (OR match), same pattern as [leetcode-coach](https://github.com/Siphon880gh/leetcode-coach).
+Track A is everyday and business fluency. Track B is stakeholder and planning math. Tag a guide on first pass or second pass with its + Tag button, then open Filter to narrow the list (OR match), same pattern as [leetcode-coach](https://github.com/Siphon880gh/leetcode-coach).
 
-![Track A — guides with first-pass and second-pass tags](docs/screenshots/track-a.png)
+![Track A — the Filter menu with first-pass and second-pass tags](docs/screenshots/track-a.png)
 
-Each guide has a shortcut, the principle, and a link to the step-by-step coach on the same slug:
+Each guide opens with its shortcut and the family’s other trick cards, then the principle, fresh practice numbers, and a link to the step-by-step coach on the same slug:
 
-![Guide — Number anchors shortcut and lesson](docs/screenshots/guide.png)
+![Guide — Number anchors shortcut and trick cards](docs/screenshots/guide.png)
 
 The coach is a choice tree: wrong path explains, then rewinds. Step back, restart, and a path trail stay on the page.
 
 ![Step-by-step coach — Number anchors](docs/screenshots/coach.png)
 
-Timed drills are typed banks. Cases stay locked until percents (median ≤5s) and conversions (median ≤6s) both hit ≥80%.
+Timed drills are typed banks. Cases stay locked until percents (median ≤5s) and conversions (median ≤6s) both hit ≥80% (you can still open them for one browser session; that peek does not save progress).
 
 ![Timed drill — Number anchors](docs/screenshots/drill.png)
 
@@ -119,7 +119,7 @@ PHPUnit does not need Node. The game logic and a browser click-through have thei
 npm run test:js        # node --test tests/js/*.test.mjs — seeded round generators (including runway check and ARR read) and soroban bead rules; no install needed
 npm install            # once: playwright-core only (no browser download)
 npm run test:browser   # starts php -S on a free port with router.php, runs tests/browser/*.spec.mjs, stops the server
-npm run screenshots    # re-shoots the newer README screenshots (games, Toolbox, advanced case) at 1315×717 @2×, dark; add names to shoot only some
+npm run screenshots    # re-shoots every README screenshot at 1315×717 @2×, dark; add names to shoot only some
 ```
 
 The browser suite drives the installed Google Chrome headless. It checks `router.php` asset serving (including refused `../` paths), clicks through every game with wrong then right answers, loads the main pages, checks unknown slugs return 404, and fails on any console error or PHP warning. Options: `PHP_BIN=/Applications/MAMP/bin/php/php7.4.33/bin/php` to test the PHP 7.4 floor, `BROWSER_CHANNEL=chromium` after `npx playwright-core install chromium` if Chrome is not installed, `HEADED=1` to watch, `VERBOSE=1` to list every check.

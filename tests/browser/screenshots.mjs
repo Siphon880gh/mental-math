@@ -1,11 +1,11 @@
-// Re-shoot the README screenshots for the newer pages. Starts `php -S` on a
-// free port with router.php, drives one wrong pick per game so the shot shows
-// the explanation, saves to docs/screenshots, and always stops the server.
+// Re-shoot the README screenshots. Starts `php -S` on a free port with
+// router.php, drives one wrong pick per newer game so the shot shows the
+// explanation, saves to docs/screenshots, and always stops the server.
 //
 //   npm run screenshots              # all shots below
 //   npm run screenshots -- toolbox   # only the named ones
 //
-// Same viewport as the older shots: 1315×717 CSS px at 2× (2630×1434), dark.
+// Same viewport for every shot: 1315×717 CSS px at 2× (2630×1434), dark.
 // Games deal random numbers, so each run shows a different round.
 // Env: PHP_BIN (default "php"), BROWSER_CHANNEL (default "chrome").
 import { spawn } from "node:child_process";
@@ -22,6 +22,13 @@ const wrongAfterRight = (choices) => async (page) => {
 };
 
 const SHOTS = {
+  home: { path: "/" },
+  "track-a": { path: "/track-a", act: (page) => page.click(".js-filter button[aria-haspopup]"), keepFocus: true },
+  guide: { path: "/guides/anchors" },
+  coach: { path: "/coach/anchors" },
+  drill: { path: "/drills/anchors" },
+  scenario: { path: "/scenarios/box-cover" },
+  game: { path: "/games/decimal-shift" },
   "pair-hundred": {
     path: "/games/pair-hundred",
     async act(page) {
@@ -91,10 +98,10 @@ try {
     await page.goto(base + shot.path);
     await page.waitForLoadState("networkidle");
     if (shot.act) await shot.act(page);
-    await page.evaluate((y) => {
+    await page.evaluate(([y, keepFocus]) => {
       window.scrollTo(0, y);
-      if (document.activeElement) document.activeElement.blur();
-    }, shot.scrollY || 0);
+      if (!keepFocus && document.activeElement) document.activeElement.blur();
+    }, [shot.scrollY || 0, Boolean(shot.keepFocus)]);
     await page.waitForTimeout(200);
     await page.screenshot({ path: `${OUT}/${name}.png` });
     console.log(`docs/screenshots/${name}.png`);
