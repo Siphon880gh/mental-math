@@ -39,7 +39,7 @@ Mini-games teach one motion: decimal shift, percent swap, percent chips, pair to
 
 ![Mini-game — Decimal shifter](docs/screenshots/game.png)
 
-The soroban rod draws the beads for each add and asks which move does it: push beads on, the five-complement, or the ten-complement. The Soroban guide uses the same bead diagrams.
+The soroban rod draws the beads for each add or take-away and asks which move does it: beads straight on or off, the five-complement, or the ten-complement (carry or borrow). The Soroban guide uses the same bead diagrams.
 
 ![Mini-game — Soroban rod](docs/screenshots/soroban.png)
 

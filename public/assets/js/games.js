@@ -1,5 +1,5 @@
 import { elevenRound } from "./eleven.js";
-import { addOptions, classifyAdd, freshBoard, nextAdd, renderRods, wantedKind } from "./soroban.js";
+import { classifyMove, freshBoard, moveOptions, nextMove, renderRods, wantedMove } from "./soroban.js";
 
 export function initGames() {
   const shift = document.querySelector(".js-game-decimal");
@@ -269,18 +269,20 @@ export function initGames() {
       fig.setAttribute("aria-label", `Soroban showing ${value}`);
     };
     const ask = () => {
-      let k = nextAdd(value, step);
-      if (k === null) {
+      let move = nextMove(value, step);
+      if (move === null) {
         value = freshBoard();
         paintBoard();
-        k = nextAdd(value, step);
+        move = nextMove(value, step);
       }
-      prompt.textContent = `${value} + ${k}`;
+      const { op, k } = move;
+      const sign = op === "-" ? "−" : "+";
+      prompt.textContent = `${value} ${sign} ${k}`;
       okEl.hidden = true;
       miss.hidden = true;
       next.hidden = true;
       choices.replaceChildren(
-        ...addOptions(value, k).map((o) => {
+        ...moveOptions(value, k, op).map((o) => {
           const btn = document.createElement("button");
           btn.type = "button";
           btn.textContent = o.text;
@@ -293,16 +295,17 @@ export function initGames() {
               return;
             }
             const before = value;
-            if (classifyAdd(before % 10, k) === wantedKind(step)) step += 1;
+            const want = wantedMove(step);
+            if (want.op === op && classifyMove(before % 10, k, op) === want.kind) step += 1;
             value = o.after;
             done += 1;
             paintBoard();
             miss.hidden = true;
             choices.replaceChildren();
-            okEl.textContent = `${before} + ${k} = ${value}. ${o.text}.`;
+            okEl.textContent = `${before} ${sign} ${k} = ${value}. ${o.text}.`;
             okEl.hidden = false;
             next.hidden = false;
-            tally.textContent = `Adds done: ${done}`;
+            tally.textContent = `Moves done: ${done}`;
           });
           return btn;
         }),

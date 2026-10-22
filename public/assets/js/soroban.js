@@ -1,7 +1,17 @@
-// Soroban rod game logic. Pure functions plus one markup builder that
+// Soroban rod game logic (add and take away). Pure functions plus one markup builder that
 // mirrors app/Soroban.php, so `node --test tests/js` can check the rules.
 
 export const KINDS = ["direct", "five", "ten"];
+
+// Practice order: each add move, then each take-away move.
+export const MOVES = [
+  { op: "+", kind: "direct" },
+  { op: "+", kind: "five" },
+  { op: "+", kind: "ten" },
+  { op: "-", kind: "direct" },
+  { op: "-", kind: "five" },
+  { op: "-", kind: "ten" },
+];
 
 // How a soroban adds k (1–9) to a ones rod showing v (0–9).
 export function classifyAdd(v, k) {
@@ -10,21 +20,29 @@ export function classifyAdd(v, k) {
   return "direct";
 }
 
+// How a soroban takes k (1–9) off a ones rod showing v (0–9).
+// The mirror of adding: take beads off, −5 and give some back, or borrow ten.
+export function classifySub(v, k) {
+  if (v - k < 0) return "ten";
+  if (k < 5 && v % 5 < k) return "five";
+  return "direct";
+}
+
+export function classifyMove(v, k, op) {
+  return op === "-" ? classifySub(v, k) : classifyAdd(v, k);
+}
+
 const plural = (n, word) => `${n} ${word}${n === 1 ? "" : "s"}`;
 
-// Options shown for one add; exactly one is ok.
-export function addOptions(value, k) {
-  const v = value % 10;
-  const kind = classifyAdd(v, k);
+function addWhy(v, k) {
   const free = 4 - (v % 5);
-  const after = value + k;
-  const why = {
+  return {
     direct: {
       five: `Only ${plural(free, "lower bead")} free on a rod showing ${v}. Bring the five in: +5, −${5 - k}.`,
       ten: `${v} + ${k} passes 9, so this rod cannot hold it. Carry one to the tens rod and take ${10 - k} back.`,
     },
     five: {
-      direct: k < 5 ? `${plural(free, "lower bead")} free, enough for ${k}. Push them straight on.` : "",
+      direct: `${plural(free, "lower bead")} free, enough for ${k}. Push them straight on.`,
       ten: `${v} + ${k} passes 9, so the rod must carry: +10, −${10 - k}.`,
     },
     ten: {
@@ -32,32 +50,66 @@ export function addOptions(value, k) {
       five: `${v} + ${k} = ${v + k} stays under 10. Bring the five in instead: +5, −${5 - k}.`,
     },
   };
-  const opts = [{ kind: "direct", text: k === 5 ? "Push the five bead on" : `Push ${k} on this rod` }];
-  if (k < 5) opts.push({ kind: "five", text: `+5, −${5 - k}` });
-  opts.push({ kind: "ten", text: `+10, −${10 - k}` });
-  return opts.map((o) => (o.kind === kind ? { ...o, ok: true } : { ...o, why: why[o.kind][kind] }))
-    .map((o) => ({ ...o, after }));
 }
 
-export const wantedKind = (step) => KINDS[step % KINDS.length];
+function subWhy(v, k) {
+  const on = v % 5;
+  return {
+    direct: {
+      five: `Only ${plural(on, "lower bead")} on a rod showing ${v}. Take the five off and give ${5 - k} back: −5, +${5 - k}.`,
+      ten: `${v} − ${k} goes below 0 on this rod. Borrow one from the tens rod and add ${10 - k} back.`,
+    },
+    five: {
+      direct: `${plural(on, "lower bead")} on, enough to take ${k} off directly.`,
+      ten: `${v} − ${k} goes below 0, so borrow from the tens rod: −10, +${10 - k}.`,
+    },
+    ten: {
+      direct: `${v} − ${k} = ${v - k} stays at 0 or above. No borrow needed: take ${k} off.`,
+      five: `${v} − ${k} = ${v - k} stays at 0 or above. Use the five bead instead: −5, +${5 - k}.`,
+    },
+  };
+}
 
-// Next k for a board showing value. Steps cycle direct → five → ten so every
-// move gets practice. When the wanted move cannot happen on this rod (a
-// five-complement needs a ones digit of 1–4), pick an add that sets it up;
-// the caller only advances step when the wanted move was served.
-// null means the board is too full and should reset.
-export function nextAdd(value, step, rand = Math.random) {
-  if (value > 90) return null;
-  const want = wantedKind(step);
+// Options shown for one move; exactly one is ok.
+export function moveOptions(value, k, op = "+") {
+  const v = value % 10;
+  const kind = classifyMove(v, k, op);
+  const why = op === "-" ? subWhy(v, k) : addWhy(v, k);
+  const after = op === "-" ? value - k : value + k;
+  const opts =
+    op === "-"
+      ? [{ kind: "direct", text: k === 5 ? "Take the five bead off" : `Take ${k} off this rod` }]
+      : [{ kind: "direct", text: k === 5 ? "Push the five bead on" : `Push ${k} on this rod` }];
+  if (k < 5) opts.push({ kind: "five", text: op === "-" ? `−5, +${5 - k}` : `+5, −${5 - k}` });
+  opts.push({ kind: "ten", text: op === "-" ? `−10, +${10 - k}` : `+10, −${10 - k}` });
+  return opts.map((o) => ({ ...o, after, ...(o.kind === kind ? { ok: true } : { why: why[o.kind][kind] }) }));
+}
+
+export const wantedMove = (step) => MOVES[step % MOVES.length];
+
+// Ones digits that make the wanted five-complement possible next time.
+const FIVE_SETUP = { "+": [1, 2, 3, 4], "-": [5, 6, 7, 8] };
+
+// Next move for a board showing value: { op, k }. Steps cycle through MOVES.
+// When the wanted move cannot happen on this rod, pick a move of the same op
+// that sets it up; the caller only advances step when the wanted move was
+// served. null means the board has no room for that op and should reset.
+export function nextMove(value, step, rand = Math.random) {
+  const { op, kind } = wantedMove(step);
+  if (op === "+" && value > 90) return null;
+  if (op === "-" && value < 10) return null;
   const room = [];
-  for (let k = 1; k <= 9 && value + k <= 99; k += 1) room.push(k);
-  const fits = room.filter((k) => classifyAdd(value % 10, k) === want);
+  for (let k = 1; k <= 9; k += 1) {
+    const after = op === "-" ? value - k : value + k;
+    if (after >= 0 && after <= 99) room.push(k);
+  }
+  const fits = room.filter((k) => classifyMove(value % 10, k, op) === kind);
   const setup = room.filter((k) => {
-    const ones = (value + k) % 10;
-    return ones >= 1 && ones <= 4 && value + k <= 90;
+    const after = op === "-" ? value - k : value + k;
+    return FIVE_SETUP[op].includes(after % 10) && after >= 10 && after <= 90;
   });
   const pool = fits.length ? fits : setup.length ? setup : room;
-  return pool[Math.floor(rand() * pool.length)];
+  return { op, k: pool[Math.floor(rand() * pool.length)] };
 }
 
 export function freshBoard(rand = Math.random) {

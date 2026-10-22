@@ -262,7 +262,8 @@ final class RoutesTest extends TestCase
         $this->assertStringContainsString('aria-label="Soroban showing 47"', $soroban);
         $this->assertStringContainsString('Soroban rod', $this->html('/games'));
         $guide = $this->html('/guides/mental-abacus');
-        $this->assertSame(7, substr_count($guide, 'class="soroban"'));
+        $this->assertSame(9, substr_count($guide, 'class="soroban"'));
+        $this->assertStringContainsString('aria-label="Soroban showing 46"', $guide);
         $this->assertStringContainsString('aria-label="Soroban showing 55"', $guide);
     }
 

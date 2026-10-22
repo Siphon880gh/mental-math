@@ -39,6 +39,19 @@ SAMPLE: 47 + 8 → 47 + 10 − 2 = **55**. The tens rod gains one; the ones rod 
 ::soroban 47 | Before: 47. The ones rod shows 7 and cannot take 8 more.
 ::soroban 55 | After +10, −2: one bead on the tens rod, two off the ones rod.
 
+## Taking away: the mirror moves
+
+Subtraction runs the same complements backwards.
+
+- Enough beads on the rod: take them straight off. 8 − 3 → **5**.
+- Not enough lower beads: take the five off and give the complement back. −4 is **−5, +1**, so 7 − 4 → **3**.
+- The rod would go below 0: borrow one from the next rod and give the ten-complement back. −6 is **−10, +4**.
+
+SAMPLE: 52 − 6 → 52 − 10 + 4 = **46**. The tens rod loses one; the ones rod gains four. Adding those four to a rod showing 2 is itself a five-complement: +5, −1.
+
+::soroban 52 | Before: 52. The ones rod shows 2 and cannot give up 6.
+::soroban 46 | After −10, +4: one bead off the tens rod, the ones rod now shows 6.
+
 ## Anzan: the same moves, no beads
 
 After enough practice the bead picture moves without hands. The trainer cannot give you that picture, but it can drill the reflex underneath: hear “+8” and think “+10, −2” without counting. The Soroban rod game shows the beads move for each add, so you can check the picture you are forming.
