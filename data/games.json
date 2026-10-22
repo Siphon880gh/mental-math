@@ -20,6 +20,27 @@
       "summary": "Build a target with 50 / 25 / 10 / 5 chips.",
       "familyId": "percent-chunks",
       "relatedGuide": "percent-chunks"
+    },
+    {
+      "slug": "pair-hundred",
+      "title": "Pair to 100",
+      "summary": "Tap two invoices that make 100 until the whole list is paired.",
+      "familyId": "complements",
+      "relatedGuide": "complements"
+    },
+    {
+      "slug": "eleven-neighbors",
+      "title": "Eleven neighbors",
+      "summary": "Build 347 × 11 from neighbor sums, then carry.",
+      "familyId": "fixed-multipliers",
+      "relatedGuide": "fixed-multipliers"
+    },
+    {
+      "slug": "near-base-gaps",
+      "title": "Near-base gaps",
+      "summary": "97 × 94: pick the cross, then multiply the gaps.",
+      "familyId": "near-base",
+      "relatedGuide": "near-base"
     }
   ],
   "skips": [
@@ -176,10 +197,6 @@
       "reason": "no_mechanic"
     },
     {
-      "familyId": "complements",
-      "reason": "no_mechanic"
-    },
-    {
       "familyId": "equal-adjust",
       "reason": "no_mechanic"
     },
@@ -221,14 +238,6 @@
     },
     {
       "familyId": "funnel-bands",
-      "reason": "no_mechanic"
-    },
-    {
-      "familyId": "fixed-multipliers",
-      "reason": "no_mechanic"
-    },
-    {
-      "familyId": "near-base",
       "reason": "no_mechanic"
     },
     {

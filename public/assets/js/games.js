@@ -75,4 +75,131 @@ export function initGames() {
       paint();
     });
   }
+
+  const pairs = document.querySelector(".js-game-pairs");
+  if (pairs) {
+    const status = pairs.querySelector(".js-pair-status");
+    const miss = pairs.querySelector(".js-pair-miss");
+    const win = pairs.querySelector(".js-pair-win");
+    const buttons = [...pairs.querySelectorAll("[data-pair]")];
+    let picked = null;
+    let found = 0;
+    const paint = () => {
+      status.textContent = `Pairs found: ${found} of 3`;
+      win.hidden = found !== 3;
+    };
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const n = Number(btn.dataset.pair);
+        miss.hidden = true;
+        if (picked === null) {
+          picked = btn;
+          btn.setAttribute("aria-pressed", "true");
+          return;
+        }
+        if (picked === btn) {
+          picked = null;
+          btn.setAttribute("aria-pressed", "false");
+          return;
+        }
+        const first = Number(picked.dataset.pair);
+        if (first + n === 100) {
+          picked.disabled = true;
+          btn.disabled = true;
+          found += 1;
+        } else {
+          miss.textContent = `${first} + ${n} = ${first + n}, not 100. ${first} needs ${100 - first}.`;
+          miss.hidden = false;
+        }
+        picked.setAttribute("aria-pressed", "false");
+        picked = null;
+        paint();
+      });
+    });
+    pairs.querySelector(".js-pair-reset").addEventListener("click", () => {
+      buttons.forEach((btn) => {
+        btn.disabled = false;
+        btn.setAttribute("aria-pressed", "false");
+      });
+      picked = null;
+      found = 0;
+      miss.hidden = true;
+      paint();
+    });
+  }
+
+  const eleven = document.querySelector(".js-game-eleven");
+  if (eleven) {
+    const slotsEl = eleven.querySelector(".js-eleven-slots");
+    const carry = eleven.querySelector(".js-eleven-carry");
+    const win = eleven.querySelector(".js-eleven-win");
+    const buttons = [...eleven.querySelectorAll("[data-slot]")];
+    let slots = [null, null, null, null];
+    let carried = false;
+    const paint = () => {
+      slotsEl.textContent = slots.map((v) => (v === null ? "_" : String(v))).join(" | ");
+      const full = slots.every((v) => v !== null);
+      carry.disabled = !full || carried;
+      win.hidden = !carried;
+    };
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        slots[Number(btn.dataset.slot)] = Number(btn.dataset.value);
+        btn.disabled = true;
+        paint();
+      });
+    });
+    carry.addEventListener("click", () => {
+      slots = [3, 8, 1, 7];
+      carried = true;
+      paint();
+    });
+    eleven.querySelector(".js-eleven-reset").addEventListener("click", () => {
+      slots = [null, null, null, null];
+      carried = false;
+      buttons.forEach((btn) => {
+        btn.disabled = false;
+      });
+      paint();
+    });
+  }
+
+  const nearBase = document.querySelector(".js-game-nearbase");
+  if (nearBase) {
+    const status = nearBase.querySelector(".js-nb-status");
+    const left = nearBase.querySelector(".js-nb-left");
+    const right = nearBase.querySelector(".js-nb-right");
+    const miss = nearBase.querySelector(".js-nb-miss");
+    const win = nearBase.querySelector(".js-nb-win");
+    const choose = (row, onOk) => {
+      row.querySelectorAll("[data-nb]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          if (btn.dataset.ok) {
+            miss.hidden = true;
+            onOk(btn.dataset.nb);
+          } else {
+            miss.textContent = btn.dataset.why;
+            miss.hidden = false;
+          }
+        });
+      });
+    };
+    choose(left, (value) => {
+      status.textContent = `${value} | ?  Right part?`;
+      left.hidden = true;
+      right.hidden = false;
+    });
+    choose(right, (value) => {
+      status.textContent = `91 | ${value}`;
+      right.hidden = true;
+      win.hidden = false;
+    });
+    nearBase.querySelector(".js-nb-reset").addEventListener("click", () => {
+      status.textContent = "Left part?";
+      left.hidden = false;
+      right.hidden = true;
+      miss.hidden = true;
+      win.hidden = true;
+    });
+  }
 }

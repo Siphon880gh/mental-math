@@ -528,6 +528,11 @@ a:focus-visible {
   opacity: 0.7;
 }
 
+.coach-controls button[aria-pressed="true"] {
+  border-color: var(--link);
+  color: var(--link-hover);
+}
+
 .coach-choices button:focus-visible,
 .coach-controls button:focus-visible,
 .coach-controls a:focus-visible,

@@ -136,7 +136,19 @@ final class CatalogTest extends TestCase
 
     public function testGamesAndPaths(): void
     {
-        $this->assertSame(['decimal-shift', 'percent-swap', 'percent-chips'], array_column(Games::all(), 'slug'));
+        $this->assertSame(
+            ['decimal-shift', 'percent-swap', 'percent-chips', 'pair-hundred', 'eleven-neighbors', 'near-base-gaps'],
+            array_column(Games::all(), 'slug'),
+        );
+        $gameFamilies = array_column(Games::all(), 'familyId');
+        $skipFamilies = array_column(Games::skips(), 'familyId');
+        $this->assertSame([], array_values(array_intersect($gameFamilies, $skipFamilies)));
+        foreach (Tracks::allCurriculumFamilyIds() as $familyId) {
+            $this->assertTrue(in_array($familyId, $gameFamilies, true) || in_array($familyId, $skipFamilies, true), $familyId);
+        }
+        foreach (Games::all() as $game) {
+            $this->assertFileExists(ROOT . '/app/views/pages/game-' . $game['slug'] . '.php');
+        }
         $this->assertSame('percent-shift', Games::get('decimal-shift')['familyId']);
         $this->assertNotSame([], array_filter(Games::skips(), static fn (array $s) => $s['familyId'] === 'anchors' && $s['reason'] === 'no_mechanic'));
         $this->assertNull(Games::get('missing'));

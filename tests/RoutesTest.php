@@ -218,6 +218,14 @@ final class RoutesTest extends TestCase
         $this->assertStringContainsString('97 × 94', $coach);
     }
 
+    public function testNewGamesRender(): void
+    {
+        $this->assertStringContainsString('data-pair="82"', $this->html('/games/pair-hundred'));
+        $this->assertStringContainsString('347 × 11', $this->html('/games/eleven-neighbors'));
+        $this->assertStringContainsString('97 − 6 = 91', $this->html('/games/near-base-gaps'));
+        $this->assertStringContainsString('Near-base gaps', $this->html('/games'));
+    }
+
     public function testNavActiveOnGuide(): void
     {
         $html = $this->html('/guides/anchors');

@@ -198,7 +198,7 @@ final class Pages
     public static function game(Request $request, string $slug): string
     {
         $meta = Games::get($slug);
-        $known = ['decimal-shift', 'percent-swap', 'percent-chips'];
+        $known = ['decimal-shift', 'percent-swap', 'percent-chips', 'pair-hundred', 'eleven-neighbors', 'near-base-gaps'];
         if ($meta === null || !in_array($slug, $known, true)) {
             return View::page('missing-game', self::layout($request, [
                 'page' => 'game',
