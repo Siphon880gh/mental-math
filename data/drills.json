@@ -918,6 +918,28 @@
       ]
     },
     {
+      "id": "cv-37-5",
+      "groupId": "conversions",
+      "familyId": "div-by-5",
+      "prompt": "SAMPLE: 37 ÷ 5.",
+      "expectedAnswer": 7.4,
+      "thoughtChain": [
+        "×2 = 74",
+        "one place left → 7.4"
+      ]
+    },
+    {
+      "id": "cv-2300-50",
+      "groupId": "conversions",
+      "familyId": "div-by-5",
+      "prompt": "SAMPLE: 2,300 ÷ 50.",
+      "expectedAnswer": 46,
+      "thoughtChain": [
+        "×2 = 4,600",
+        "two places left → 46"
+      ]
+    },
+    {
       "id": "cv-4hr",
       "groupId": "conversions",
       "familyId": "hour-month",
@@ -1109,6 +1131,29 @@
       "expectedAnswer": 5,
       "thoughtChain": [
         "50÷10=5×"
+      ]
+    },
+    {
+      "id": "mk-price-18x4",
+      "groupId": "break-even",
+      "familyId": "markup",
+      "prompt": "SAMPLE: cost $18 at a 4× markup. Price?",
+      "expectedAnswer": 72,
+      "thoughtChain": [
+        "price = cost × multiple",
+        "18 × 4 = $72"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "mk-pct-25-100",
+      "groupId": "break-even",
+      "familyId": "markup",
+      "prompt": "SAMPLE: cost $25, price $100. Markup on cost, in percent?",
+      "expectedAnswer": 300,
+      "thoughtChain": [
+        "100 ÷ 25 = 4×",
+        "minus the 1× of cost → 300%"
       ]
     },
     {
@@ -1644,6 +1689,40 @@
       ]
     },
     {
+      "id": "st-pay-gm-450",
+      "groupId": "startup",
+      "familyId": "cac-payback",
+      "prompt": "SAMPLE: CAC $450. $75/mo revenue at an 80% gross margin. Payback months?",
+      "expectedAnswer": 7.5,
+      "thoughtChain": [
+        "gross profit 0.8 × 75 = $60",
+        "450 ÷ 60 = 7.5 months"
+      ]
+    },
+    {
+      "id": "st-pay-max-cac",
+      "groupId": "startup",
+      "familyId": "cac-payback",
+      "prompt": "SAMPLE: $35/mo gross profit and a 12-month payback target. Highest CAC you can pay?",
+      "expectedAnswer": 420,
+      "thoughtChain": [
+        "CAC = target months × monthly GP",
+        "12 × 35 = $420"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "st-pay-500-40",
+      "groupId": "startup",
+      "familyId": "cac-payback",
+      "prompt": "SAMPLE: CAC $500, $40/mo gross profit. Months?",
+      "expectedAnswer": 12.5,
+      "thoughtChain": [
+        "500 ÷ 40 = 50 ÷ 4",
+        "12.5 — just past 12"
+      ]
+    },
+    {
       "id": "st-take-15",
       "groupId": "startup",
       "familyId": "take-rate",
@@ -1675,6 +1754,41 @@
       "expectedAnswer": 100000,
       "thoughtChain": [
         "20% of 500k=100k"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "st-take-gmv-back",
+      "groupId": "startup",
+      "familyId": "take-rate",
+      "prompt": "SAMPLE: $90k revenue at a 15% take. GMV?",
+      "expectedAnswer": 600000,
+      "thoughtChain": [
+        "GMV = revenue ÷ take",
+        "90 ÷ 0.15 = 600 → $600k"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "st-take-rate-find",
+      "groupId": "startup",
+      "familyId": "take-rate",
+      "prompt": "SAMPLE: $4M GMV and $280k revenue. Take rate percent?",
+      "expectedAnswer": 7,
+      "thoughtChain": [
+        "280k ÷ 4M = 0.07",
+        "7%"
+      ]
+    },
+    {
+      "id": "st-take-8-1.5m",
+      "groupId": "startup",
+      "familyId": "take-rate",
+      "prompt": "SAMPLE: $1.5M GMV at an 8% take. Revenue?",
+      "expectedAnswer": 120000,
+      "thoughtChain": [
+        "1% = 15k",
+        "×8 → $120k"
       ],
       "unit": "usd"
     },
@@ -1712,6 +1826,41 @@
       "unit": "usd"
     },
     {
+      "id": "st-fee-orders-2000",
+      "groupId": "startup",
+      "familyId": "processing-fees",
+      "prompt": "SAMPLE: 2,000 orders at $40, each charged 2.9% + $0.30. Total fees?",
+      "expectedAnswer": 2920,
+      "thoughtChain": [
+        "2.9% of $80k = $2,320",
+        "2,000 × 0.30 = $600 → $2,920"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "st-fee-small-5",
+      "groupId": "startup",
+      "familyId": "processing-fees",
+      "prompt": "SAMPLE: a $5 charge at 2.9% + $0.30. Fee as a percent of the charge?",
+      "expectedAnswer": 8.9,
+      "thoughtChain": [
+        "fee 0.145 + 0.30 = $0.445",
+        "0.445 ÷ 5 = 8.9%"
+      ]
+    },
+    {
+      "id": "st-fee-keep-60",
+      "groupId": "startup",
+      "familyId": "processing-fees",
+      "prompt": "SAMPLE: a $60 sale at 2.9% + $0.30. What do you keep?",
+      "expectedAnswer": 57.96,
+      "thoughtChain": [
+        "fee 1.74 + 0.30 = $2.04",
+        "60 − 2.04 = $57.96"
+      ],
+      "unit": "usd"
+    },
+    {
       "id": "st-load-120",
       "groupId": "startup",
       "familyId": "fully-loaded",
@@ -1741,6 +1890,42 @@
       "expectedAnswer": 104000,
       "thoughtChain": [
         "80×1.3=104k"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "st-load-back-195",
+      "groupId": "startup",
+      "familyId": "fully-loaded",
+      "prompt": "SAMPLE: a $195k loaded cost at ×1.3. Base salary?",
+      "expectedAnswer": 150000,
+      "thoughtChain": [
+        "195 ÷ 1.3 = 1,950 ÷ 13",
+        "150 → $150k"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "st-load-team-110",
+      "groupId": "startup",
+      "familyId": "fully-loaded",
+      "prompt": "SAMPLE: three engineers at $110k each, loaded ×1.3. Team cost per year?",
+      "expectedAnswer": 429000,
+      "thoughtChain": [
+        "one: 110 × 1.3 = $143k",
+        "×3 → $429k"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "st-load-monthly-96",
+      "groupId": "startup",
+      "familyId": "fully-loaded",
+      "prompt": "SAMPLE: a $96k salary, loaded ×1.3. Monthly cost?",
+      "expectedAnswer": 10400,
+      "thoughtChain": [
+        "96 × 1.3 = $124.8k a year",
+        "÷12 → $10.4k a month"
       ],
       "unit": "usd"
     },
@@ -3875,6 +4060,17 @@
       "thoughtChain": [
         "swap → 350% of 4",
         "3.5 × 4 = 14"
+      ]
+    },
+    {
+      "id": "pct-rev-40-15-customers",
+      "groupId": "percents",
+      "familyId": "percent-reversible",
+      "prompt": "SAMPLE: 40% of 15 trial customers switch to an annual plan. How many?",
+      "expectedAnswer": 6,
+      "thoughtChain": [
+        "swap → 15% of 40",
+        "10% = 4, 5% = 2 → 6"
       ]
     },
     {
