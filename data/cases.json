@@ -1544,6 +1544,40 @@
       ],
       "difficulty": "advanced",
       "unit": null
+    },
+    {
+      "id": "ar-boxes-2463x12",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "fixed-multipliers",
+      "thinkingMode": "digit_rule",
+      "prompt": "SAMPLE: a whiteboard order: 2,463 boxes at 12 units each. Units, with the Trachtenberg ×12 rule?",
+      "expectedAnswer": 29556,
+      "thoughtChain": [
+        "0 2463, right to left: 3 → 2 × 3 = 6",
+        "6: 12 + 3 = 15 → 5, carry 1",
+        "4: 8 + 6 + 1 = 15 → 5, carry 1",
+        "2: 4 + 4 + 1 = 9",
+        "0: 0 + 2 = 2 → 29,556"
+      ],
+      "difficulty": "intermediate",
+      "unit": null
+    },
+    {
+      "id": "ar-licenses-3158x7",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "fixed-multipliers",
+      "thinkingMode": "digit_rule",
+      "prompt": "SAMPLE: 3,158 licenses at $7, worked on paper with the Trachtenberg ×7 rule. Total?",
+      "expectedAnswer": 22106,
+      "thoughtChain": [
+        "×7: double the digit + half the neighbor, +5 if odd",
+        "8: 16 → 6, carry 1",
+        "5: 10 + 4 + 5 + 1 = 20 → 0, carry 2",
+        "1: 2 + 2 + 5 + 2 = 11 → 1, carry 1",
+        "3: 6 + 0 + 5 + 1 = 12 → 2, carry 1; 0: 1 + 1 = 2 → $22,106"
+      ],
+      "difficulty": "advanced",
+      "unit": "usd"
     }
   ]
 }

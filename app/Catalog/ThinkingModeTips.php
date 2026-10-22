@@ -33,5 +33,6 @@ final class ThinkingModeTips
         'decimal_shift' => 'Multiply digits, then park the decimal places. /guides/magnitude.',
         'division_rewrite' => 'Overshoot to a round multiple, then back off. /coach/easy-division.',
         'digit_check' => 'Digit roots add for sums. A mismatch is a hard fail. /guides/cast-nines.',
+        'digit_rule' => 'Trachtenberg digit rule: pad a zero, go right to left, and write one digit per step from the digit and its right-hand neighbor. Carry the rest. /guides/fixed-multipliers.',
     ];
 }

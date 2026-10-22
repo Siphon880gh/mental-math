@@ -1330,5 +1330,42 @@
       "24 × 40 = 960 is one 24 too many."
     ],
     "cheat": "936 ÷ 24: 24 × 40 = 960, back off one → 39 users. 40 overshoots by $24; 24 is the price."
+  },
+  {
+    "id": "restock-six-budget",
+    "track": "quick",
+    "title": "Restock at six dollars",
+    "prompt": "SAMPLE: 1,346 parts at $6 each, worked with the Trachtenberg ×6 rule. The restock budget is $8,000. Over or under, and by how much?",
+    "skillIds": [
+      "fixed-multipliers",
+      "complements"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "$76 over",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "$76 under",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "$924 under",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "$8,076 over",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "×6 digit rule: digit + half the neighbor, +5 if the digit is odd. Right to left.",
+      "Then compare the total with 8,000."
+    ],
+    "cheat": "0 1346: 6 → 6; 4 → 4 + 3 = 7; 3 → 3 + 2 + 5 = 10 → 0, carry 1; 1 → 1 + 1 + 5 + 1 = 8 → $8,076. That is $76 over. $76 under flips the comparison; $924 under dropped the carry (7,076); $8,076 is the total, not the gap."
   }
 ]

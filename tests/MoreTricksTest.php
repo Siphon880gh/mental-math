@@ -114,4 +114,28 @@ final class MoreTricksTest extends TestCase
         $this->assertStringContainsString('1965', $notes);
         $this->assertStringContainsString('no well-established Japanese origin', $notes);
     }
+
+    public function testTrachtenbergRowPointsAtRealPractice(): void
+    {
+        $row = array_values(array_filter(MoreTricks::coverage(), static fn (array $r) => $r['id'] === 'trachtenberg'))[0];
+        $named = static fn (array $items, string $field) => array_values(array_filter(
+            $items,
+            static fn (array $item) => str_contains((string) $item[$field], 'Trachtenberg'),
+        ));
+        if (in_array('case', $row['surfaces'], true)) {
+            $cases = $named(Cases::all(), 'prompt');
+            $this->assertNotEmpty($cases);
+            foreach ($cases as $case) {
+                $this->assertSame('fixed-multipliers', $case['familyId']);
+            }
+        }
+        if (in_array('scenario', $row['surfaces'], true)) {
+            $scenarios = $named(Scenarios::all(), 'prompt');
+            $this->assertNotEmpty($scenarios);
+            foreach ($scenarios as $scenario) {
+                $this->assertContains('fixed-multipliers', $scenario['skillIds']);
+            }
+        }
+        $this->assertNotEmpty($named(Drills::items(), 'prompt'));
+    }
 }
