@@ -430,6 +430,35 @@ a:focus-visible {
   border-radius: var(--radius);
 }
 
+.md-table {
+  margin: var(--space-3) 0;
+  overflow-x: auto;
+}
+
+.md-table table {
+  border-collapse: collapse;
+  min-width: 100%;
+  font-size: 0.95rem;
+}
+
+.md-table th,
+.md-table td {
+  padding: var(--space-1) var(--space-2);
+  border-bottom: 1px solid var(--panel-edge);
+  text-align: left;
+  vertical-align: top;
+}
+
+.md-table th {
+  color: var(--heading);
+  font-weight: 600;
+}
+
+.md-table td:first-child {
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
 /* -------- Coach panels (base + variants) -------- */
 
 .coach-message {
