@@ -212,10 +212,38 @@ async function olderGames(page, base, rep) {
   rep.ok(await visible(page, ".js-win-10"), "decimal: 10% win");
 }
 
+// Keyboard: Enter on a right pick re-renders the choices; focus must land on
+// the next button in the game, not fall back to <body>.
+async function keyboardFocus(page, base, rep) {
+  rep.section("Keyboard focus");
+  for (const [slug, choices, nextSel] of [
+    ["eleven-neighbors", ".js-eleven-choices", ".js-eleven-next"],
+    ["near-base-gaps", ".js-nb-choices", ".js-nb-next"],
+    ["soroban-rod", ".js-soroban-choices", ".js-soroban-next"],
+    ["runway-check", ".js-step-choices", ".js-step-next"],
+    ["arr-read", ".js-step-choices", ".js-step-next"],
+  ]) {
+    await page.goto(`${base}/games/${slug}`);
+    let steps = 0;
+    while ((await page.locator(`${choices} button[data-ok]`).count()) && steps < 6) {
+      await page.focus(`${choices} button[data-ok]`);
+      await page.keyboard.press("Enter");
+      await page.waitForTimeout(30);
+      const where = await page.evaluate(() => (document.activeElement && document.activeElement.tagName) || "");
+      rep.ok(where === "BUTTON", `${slug} step ${steps}: focus stays on a button (${where})`);
+      steps += 1;
+    }
+    rep.ok(await page.evaluate((sel) => document.activeElement === document.querySelector(sel), nextSel), `${slug}: solved round focuses Next`);
+    await page.keyboard.press("Enter");
+    await page.waitForTimeout(30);
+    rep.ok(await page.evaluate((sel) => !!document.activeElement.closest(sel), choices), `${slug}: Next focuses the new choices`);
+  }
+}
+
 export async function runGames(browser, base, rep) {
   const page = await browser.newPage();
   const flush = watch(page, rep);
-  for (const run of [pairHundred, elevenNeighbors, nearBaseGaps, sorobanRod, runwayCheck, arrRead, olderGames]) {
+  for (const run of [pairHundred, elevenNeighbors, nearBaseGaps, sorobanRod, runwayCheck, arrRead, olderGames, keyboardFocus]) {
     await run(page, base, rep);
     flush();
   }

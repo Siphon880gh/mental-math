@@ -75,7 +75,29 @@ function runStepGame(root, makeRound) {
   start();
 }
 
+// A right pick re-renders the choices (or hides the Next button), which drops
+// keyboard focus to <body>. Put it back on the next usable button in the game.
+function holdFocus(root) {
+  const usable = (b) => b && !b.disabled && !b.hidden && b.offsetParent !== null;
+  root.addEventListener("click", (e) => {
+    const btn = e.target.closest("button");
+    if (!btn) return;
+    const box = btn.parentElement;
+    setTimeout(() => {
+      const a = document.activeElement;
+      if (a && a !== document.body && usable(a)) return;
+      const pick =
+        [...root.querySelectorAll('[class*="-choices"] button, [class*="-tiles"] button')].find(usable) ||
+        [...root.querySelectorAll('button[class*="-next"]')].find(usable) ||
+        (box && [...box.querySelectorAll("button")].find(usable)) ||
+        [...root.querySelectorAll("button")].find(usable);
+      if (pick) pick.focus();
+    }, 0);
+  }, true); // capture: read the button's parent before its handler re-renders it
+}
+
 export function initGames() {
+  document.querySelectorAll('section[class^="js-game-"]').forEach(holdFocus);
   document.querySelectorAll(".js-game-step").forEach((root) => {
     const makeRound = STEP_ROUNDS[root.dataset.game];
     if (makeRound) runStepGame(root, makeRound);
