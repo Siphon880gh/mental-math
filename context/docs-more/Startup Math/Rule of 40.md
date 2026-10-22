@@ -20,6 +20,24 @@ Not a law. Early seed companies fail it on purpose. It is a **later-stage** conv
 
 “We’re a Rule of 40 company” should mean you can add the two percents in your head in two seconds. If they quote 90% growth and −80% margin, that is 10, not 40.
 
+## Worked example
+
+Revenue grew from $20M to $26M this year, at a −8% free-cash-flow margin.
+
+1. Growth: 6 ÷ 20 = **30%**.
+2. Sum: 30 + (−8) = **22**. Short by 18.
+3. To pass at the same growth, margin must reach +10%. At the same margin, growth must reach 48%.
+
+## Why it works
+
+Growth and profit trade off: spend more on sales and margin falls while growth rises. Adding the two percents rewards either path, and the 40 line is roughly where investors stopped penalizing burn that bought fast growth. It is a plain sum, so a point of margin and a point of growth count the same.
+
+## Where it goes wrong
+
+- Using monthly growth: 3% a month is not 3 for this test. Annualize first (about 43% compounded).
+- Dropping the minus sign: 30 + 8 = 38 looks nearly passing; the real sum is 22.
+- Mixing margins: EBITDA one quarter and free cash flow the next makes the score drift. Pick one.
+
 ## Same idea, new numbers
 
 - 25% growth, 10% margin → 35 (shy)

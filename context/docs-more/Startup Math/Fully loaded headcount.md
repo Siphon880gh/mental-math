@@ -21,6 +21,24 @@ A $150/hr contractor × 160 hours ≈ $24k/month ≈ $288k/year **without** the 
 
 “We hired ten people at 100k” is not a $1M cost line. It is about **$1.3M**.
 
+## Worked example
+
+You want four engineers at $135k and one manager at $170k.
+
+1. Salaries: 4 × 135 = 540, plus 170 → **$710k**.
+2. Loaded ×1.3: 710 + 30% (213) = **$923k** a year.
+3. Monthly burn: 923 ÷ 12 ≈ **$77k** a month.
+
+## Why it works
+
+On top of salary come payroll taxes, health insurance, retirement match, laptops, software seats, office or stipends, and recruiting. Each is small; together they are usually 25–40% of base. ×1.3 sits in the middle and is quick: add 30% as 3 × 10%.
+
+## Where it goes wrong
+
+- Loading contractors: their rate already includes their own overhead.
+- Loading twice: a figure quoted as "fully loaded" is not ×1.3 again.
+- Forgetting the ramp: a new hire costs full loaded pay for months before full output.
+
 ## Same idea, new numbers
 
 - $80k × 1.3 = $104k

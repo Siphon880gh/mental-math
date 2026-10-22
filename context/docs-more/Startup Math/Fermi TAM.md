@@ -24,6 +24,25 @@ If you will realistically get 1,000 of them: 1,000 × 600 = **$600k ARR** ceilin
 
 “There are 10k agencies, $200/mo” → 10k × 2,400 = **$24M TAM**. A $2M ARR goal is about 8% of TAM — possible, not a rounding error.
 
+## Worked example
+
+A scheduling tool for US hair salons.
+
+1. Customers: roughly 90,000 salons (order of magnitude, not a census).
+2. Price: $75/mo → $900 a year.
+3. TAM: 90,000 × 900 = **$81M**.
+4. Beachhead: 3% in five years → 2,700 salons → about **$2.4M ARR**.
+
+## Why it works
+
+Errors in independent round numbers partly cancel: one factor high, another low. Keeping each factor within 2–3× of the truth usually keeps the product within the same order of magnitude, which is all a TAM conversation needs.
+
+## Where it goes wrong
+
+- Counting people when the buyer is a business: 90k salons, not every stylist, unless you price per seat.
+- A monthly price called a year: 90,000 × 75 = $6.75M is one month, not the TAM.
+- Treating TAM as a forecast: the slice you can win is the plan; TAM only caps it.
+
 ## Same idea, new numbers
 
 - 5,000 shops × $30/mo × 12 = $1.8M TAM

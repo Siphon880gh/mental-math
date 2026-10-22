@@ -16,11 +16,6 @@ use Reflex\Catalog\Tracks;
  */
 final class ContentQualityTest extends TestCase
 {
-    private const OPERATOR_AND_CFO_GUIDES = [
-        'stacked-founder', 'cfo-feasibility', 'cfo-unit-econ', 'cfo-runway', 'cfo-growth',
-        'concurrency', 'capacity-split', 'box-contribution', 'utilization', 'estimate-pad', 'funnel-bands',
-    ];
-
     /** @return list<string> */
     private static function numbers(string $text): array
     {
@@ -136,13 +131,14 @@ final class ContentQualityTest extends TestCase
         }
     }
 
-    public function testOperatorAndCfoGuidesTeachAWorkedExample(): void
+    public function testTrackBGuidesTeachAWorkedExampleTheWhyAndTheSlip(): void
     {
-        foreach (self::OPERATOR_AND_CFO_GUIDES as $slug) {
-            $body = Guides::get($slug)['body'];
-            $this->assertStringContainsString('## Worked example', $body, $slug);
-            $this->assertMatchesRegularExpression('/^## (Why|Where it goes wrong)/m', $body, $slug);
-            $this->assertGreaterThanOrEqual(170, preg_match_all('/\S+/u', $body), $slug);
+        foreach (Tracks::trackBFamilyIds() as $familyId) {
+            $body = Guides::forFamilyOne($familyId)['body'];
+            $this->assertStringContainsString('## Worked example', $body, $familyId);
+            $this->assertMatchesRegularExpression('/^## Why/m', $body, $familyId);
+            $this->assertMatchesRegularExpression('/^## Where it goes wrong/m', $body, $familyId);
+            $this->assertGreaterThanOrEqual(180, preg_match_all('/\S+/u', $body), $familyId);
         }
     }
 }

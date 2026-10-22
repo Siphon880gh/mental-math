@@ -26,6 +26,24 @@ Quick annualization: monthly × 12 **overstates** true compounded loss but is fi
 
 “We churn 2% a month” → lifetime ~ **50 months**. LTV ≈ ARPU × 50 before you get fancy with gross margin.
 
+## Worked example
+
+A base of 1,400 customers at the start of the month loses 42 by the end.
+
+1. Churn: 42 ÷ 1,400 = **3%** (42 is 3 × 14).
+2. Lifetime: 1 ÷ 0.03 ≈ **33 months**.
+3. LTV smell: at $60/mo gross profit, 60 × 33 ≈ **$2,000**.
+
+## Why it works
+
+If a steady fraction leaves every month, the average customer lasts about one over that fraction. A 1-in-20 chance each month means about 20 months of waiting, on average. It is an average of a geometric decay, so it is best when churn is roughly stable month to month.
+
+## Where it goes wrong
+
+- Wrong denominator: divide by customers at the **start** of the month. Folding in this month's signups (42 ÷ 1,600 ≈ 2.6%) makes churn look better than it is.
+- Mixing periods: 3% **yearly** churn inverts to about 33 *years*. Say "monthly" out loud before you invert.
+- Treating logo life as revenue life: expansion stretches revenue past logo lifetime (see NRR), and contraction shortens it.
+
 ## Same idea, new numbers
 
 - 10% monthly → ~10 months
