@@ -35,6 +35,11 @@
   background: var(--bg);
 }
 
+/* The hidden attribute always wins, even on flex rows like .coach-controls. */
+[hidden] {
+  display: none !important;
+}
+
 * {
   box-sizing: border-box;
 }

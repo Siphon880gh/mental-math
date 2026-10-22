@@ -16,6 +16,7 @@ $caption = $activeTrack ? Tracks::LABEL[$activeTrack] : "\u{00A0}";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mental Math Trainer</title>
+    <link rel="icon" href="data:," />
     <link rel="stylesheet" href="<?= e(asset_url('/css/app.css')) ?>" />
     <script>
       (function () {
