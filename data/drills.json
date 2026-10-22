@@ -638,6 +638,40 @@
       ]
     },
     {
+      "id": "pct-tens-60-90",
+      "groupId": "percents",
+      "familyId": "percent-tens",
+      "prompt": "SAMPLE: 60% of 90.",
+      "expectedAnswer": 54,
+      "thoughtChain": [
+        "drop zeros → 6 × 9 = 54",
+        "54"
+      ]
+    },
+    {
+      "id": "pct-tens-70-300",
+      "groupId": "percents",
+      "familyId": "percent-tens",
+      "prompt": "SAMPLE: 70% of 300.",
+      "expectedAnswer": 210,
+      "thoughtChain": [
+        "7 × 3 = 21",
+        "one zero left over → 210"
+      ]
+    },
+    {
+      "id": "pct-tens-30-1200",
+      "groupId": "percents",
+      "familyId": "percent-tens",
+      "prompt": "SAMPLE: 30% of $1,200.",
+      "expectedAnswer": 360,
+      "thoughtChain": [
+        "10% = 120",
+        "×3 → $360"
+      ],
+      "unit": "usd"
+    },
+    {
       "id": "pct-20-2000",
       "groupId": "percents",
       "familyId": "percent-chunks",
@@ -658,6 +692,42 @@
         "×2=120",
         "one place left → 12"
       ]
+    },
+    {
+      "id": "pct-tip-37.50",
+      "groupId": "percents",
+      "familyId": "percent-tip",
+      "prompt": "SAMPLE: 20% tip on $37.50.",
+      "expectedAnswer": 7.5,
+      "thoughtChain": [
+        "×2 = 75.00",
+        "one place left → $7.50"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "pct-tip-total-64",
+      "groupId": "percents",
+      "familyId": "percent-tip",
+      "prompt": "SAMPLE: $64 bill plus a 20% tip. Total?",
+      "expectedAnswer": 76.8,
+      "thoughtChain": [
+        "tip: 64 × 2 = 128 → 12.80",
+        "64 + 12.80 = $76.80"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "pct-tip-15-86",
+      "groupId": "percents",
+      "familyId": "percent-tip",
+      "prompt": "SAMPLE: 15% tip on $86, from the 20% tip minus a quarter of it.",
+      "expectedAnswer": 12.9,
+      "thoughtChain": [
+        "20% = 17.20",
+        "a quarter of 17.20 = 4.30 → 12.90"
+      ],
+      "unit": "usd"
     },
     {
       "id": "cv-80-5",
@@ -1258,6 +1328,39 @@
       ]
     },
     {
+      "id": "fd-72-12",
+      "groupId": "foundations",
+      "familyId": "rule-of-72",
+      "prompt": "SAMPLE: years to double at 12%.",
+      "expectedAnswer": 6,
+      "thoughtChain": [
+        "72 ÷ 12",
+        "6 years"
+      ]
+    },
+    {
+      "id": "fd-72-rate-18y",
+      "groupId": "foundations",
+      "familyId": "rule-of-72",
+      "prompt": "SAMPLE: money doubles in 18 years. About what annual rate?",
+      "expectedAnswer": 4,
+      "thoughtChain": [
+        "rate ≈ 72 ÷ years",
+        "72 ÷ 18 = 4%"
+      ]
+    },
+    {
+      "id": "fd-72-quad-9",
+      "groupId": "foundations",
+      "familyId": "rule-of-72",
+      "prompt": "SAMPLE: years to quadruple at 9%.",
+      "expectedAnswer": 16,
+      "thoughtChain": [
+        "double in 72 ÷ 9 = 8 years",
+        "quadruple = two doublings → 16"
+      ]
+    },
+    {
       "id": "fd-19x6",
       "groupId": "foundations",
       "familyId": "round-compensate",
@@ -1362,6 +1465,29 @@
       ]
     },
     {
+      "id": "st-nrr-mix-500",
+      "groupId": "startup",
+      "familyId": "nrr",
+      "prompt": "SAMPLE: a $500k cohort adds $90k of expansion and loses $40k to churn. NRR percent?",
+      "expectedAnswer": 110,
+      "thoughtChain": [
+        "500 + 90 − 40 = 550",
+        "550 ÷ 500 = 110%"
+      ]
+    },
+    {
+      "id": "st-nrr-forward-200",
+      "groupId": "startup",
+      "familyId": "nrr",
+      "prompt": "SAMPLE: a $200k cohort at 115% NRR. Same-customer revenue a year later?",
+      "expectedAnswer": 230000,
+      "thoughtChain": [
+        "115% of 200k",
+        "200 + 30 = $230k"
+      ],
+      "unit": "usd"
+    },
+    {
       "id": "st-r40-45",
       "groupId": "startup",
       "familyId": "rule-of-40",
@@ -1392,6 +1518,50 @@
       ]
     },
     {
+      "id": "st-r40-need-growth",
+      "groupId": "startup",
+      "familyId": "rule-of-40",
+      "prompt": "SAMPLE: margin is −10%. Growth needed to hit the Rule of 40?",
+      "expectedAnswer": 50,
+      "thoughtChain": [
+        "growth + (−10) = 40",
+        "growth = 50%"
+      ]
+    },
+    {
+      "id": "st-r40-gap-35",
+      "groupId": "startup",
+      "familyId": "rule-of-40",
+      "prompt": "SAMPLE: 35% growth, −5% margin. Points short of 40?",
+      "expectedAnswer": 10,
+      "thoughtChain": [
+        "35 − 5 = 30",
+        "40 − 30 = 10 points"
+      ]
+    },
+    {
+      "id": "st-r40-55-12",
+      "groupId": "startup",
+      "familyId": "rule-of-40",
+      "prompt": "SAMPLE: 55% growth, −12% margin. Rule of 40 sum?",
+      "expectedAnswer": 43,
+      "thoughtChain": [
+        "55 − 12",
+        "43 — passes"
+      ]
+    },
+    {
+      "id": "st-r40-18-27",
+      "groupId": "startup",
+      "familyId": "rule-of-40",
+      "prompt": "SAMPLE: 18% growth, 27% margin. Rule of 40 sum?",
+      "expectedAnswer": 45,
+      "thoughtChain": [
+        "18 + 27",
+        "45 — passes on margin, not growth"
+      ]
+    },
+    {
       "id": "st-burn-2",
       "groupId": "startup",
       "familyId": "burn-multiple",
@@ -1419,6 +1589,28 @@
       "expectedAnswer": 1,
       "thoughtChain": [
         "1.5/1.5=1"
+      ]
+    },
+    {
+      "id": "st-burn-mrr-1.2",
+      "groupId": "startup",
+      "familyId": "burn-multiple",
+      "prompt": "SAMPLE: burned $1.2M while MRR rose $40k. Burn multiple on the new ARR?",
+      "expectedAnswer": 2.5,
+      "thoughtChain": [
+        "new ARR 40k × 12 = $480k",
+        "1,200 ÷ 480 = 2.5×"
+      ]
+    },
+    {
+      "id": "st-burn-allowed-2",
+      "groupId": "startup",
+      "familyId": "burn-multiple",
+      "prompt": "SAMPLE: you add $2M of net new ARR at a 1.5× burn multiple. Burn, in $M?",
+      "expectedAnswer": 3,
+      "thoughtChain": [
+        "burn = multiple × new ARR",
+        "1.5 × 2 = $3M"
       ]
     },
     {
@@ -1584,6 +1776,39 @@
       ]
     },
     {
+      "id": "st-dil-pre-10",
+      "groupId": "startup",
+      "familyId": "dilution",
+      "prompt": "SAMPLE: raise $2.5M at $10M pre. Percent sold?",
+      "expectedAnswer": 20,
+      "thoughtChain": [
+        "post = 12.5",
+        "2.5 ÷ 12.5 = 20%"
+      ]
+    },
+    {
+      "id": "st-dil-back-pre",
+      "groupId": "startup",
+      "familyId": "dilution",
+      "prompt": "SAMPLE: 25% sold for $5M. Pre-money, in $M?",
+      "expectedAnswer": 15,
+      "thoughtChain": [
+        "post = 5 ÷ 0.25 = $20M",
+        "pre = 20 − 5 = $15M"
+      ]
+    },
+    {
+      "id": "st-dil-own-60",
+      "groupId": "startup",
+      "familyId": "dilution",
+      "prompt": "SAMPLE: you own 60% and the round sells 20% of the company. Your stake after, in percent?",
+      "expectedAnswer": 48,
+      "thoughtChain": [
+        "you keep 80% of your 60%",
+        "0.8 × 60 = 48%"
+      ]
+    },
+    {
       "id": "st-tam-120",
       "groupId": "startup",
       "familyId": "tam-fermi",
@@ -1617,6 +1842,39 @@
       ]
     },
     {
+      "id": "st-tam-gyms",
+      "groupId": "startup",
+      "familyId": "tam-fermi",
+      "prompt": "SAMPLE: 30k gyms × $2,400/year. TAM in $M?",
+      "expectedAnswer": 72,
+      "thoughtChain": [
+        "30,000 × 2,400 = 72,000,000",
+        "$72M"
+      ]
+    },
+    {
+      "id": "st-tam-slice-2",
+      "groupId": "startup",
+      "familyId": "tam-fermi",
+      "prompt": "SAMPLE: a $150M TAM. A 2% slice is how many $M of ARR?",
+      "expectedAnswer": 3,
+      "thoughtChain": [
+        "1% = 1.5",
+        "×2 → $3M"
+      ]
+    },
+    {
+      "id": "st-tam-buyers-90",
+      "groupId": "startup",
+      "familyId": "tam-fermi",
+      "prompt": "SAMPLE: a $90M TAM at $1,500 a year. How many buyers, in thousands?",
+      "expectedAnswer": 60,
+      "thoughtChain": [
+        "90,000,000 ÷ 1,500 = 60,000",
+        "60k buyers"
+      ]
+    },
+    {
       "id": "st-mrr-25",
       "groupId": "startup",
       "familyId": "mrr-arr",
@@ -1628,6 +1886,42 @@
       "unit": "usd"
     },
     {
+      "id": "st-arr-back-3.6m",
+      "groupId": "startup",
+      "familyId": "mrr-arr",
+      "prompt": "SAMPLE: $3.6M ARR. MRR?",
+      "expectedAnswer": 300000,
+      "thoughtChain": [
+        "ARR ÷ 12",
+        "3,600k ÷ 12 = $300k"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "st-mrr-seats-450",
+      "groupId": "startup",
+      "familyId": "mrr-arr",
+      "prompt": "SAMPLE: 450 seats at $40/mo. ARR?",
+      "expectedAnswer": 216000,
+      "thoughtChain": [
+        "MRR 450 × 40 = $18k",
+        "×12 → $216k"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "st-arr-net-new",
+      "groupId": "startup",
+      "familyId": "mrr-arr",
+      "prompt": "SAMPLE: MRR grew from $60k to $75k. Net new ARR?",
+      "expectedAnswer": 180000,
+      "thoughtChain": [
+        "net new MRR $15k",
+        "×12 → $180k"
+      ],
+      "unit": "usd"
+    },
+    {
       "id": "st-churn-4",
       "groupId": "startup",
       "familyId": "churn",
@@ -1635,6 +1929,39 @@
       "expectedAnswer": 25,
       "thoughtChain": [
         "1/0.04=25"
+      ]
+    },
+    {
+      "id": "st-churn-life-25",
+      "groupId": "startup",
+      "familyId": "churn",
+      "prompt": "SAMPLE: customers stay 25 months on average. Monthly churn percent?",
+      "expectedAnswer": 4,
+      "thoughtChain": [
+        "churn ≈ 1 ÷ life",
+        "1 ÷ 25 = 4%"
+      ]
+    },
+    {
+      "id": "st-churn-lost-600",
+      "groupId": "startup",
+      "familyId": "churn",
+      "prompt": "SAMPLE: 600 customers at 3% monthly churn. About how many leave this month?",
+      "expectedAnswer": 18,
+      "thoughtChain": [
+        "1% of 600 = 6",
+        "×3 → 18"
+      ]
+    },
+    {
+      "id": "st-churn-year-2",
+      "groupId": "startup",
+      "familyId": "churn",
+      "prompt": "SAMPLE: 2% monthly churn. Simple yearly loss, ×12, in percent?",
+      "expectedAnswer": 24,
+      "thoughtChain": [
+        "2 × 12",
+        "≈ 24% (compounding makes it a bit less)"
       ]
     },
     {
@@ -1771,24 +2098,40 @@
       ]
     },
     {
-      "id": "fd-p80-1000",
+      "id": "fd-p-heavy-mrr",
       "groupId": "foundations",
       "familyId": "pareto",
-      "prompt": "SAMPLE: 1,000 users. 80% of load as a count?",
-      "expectedAnswer": 800,
+      "prompt": "SAMPLE: 300 customers and $90k MRR, split 80/20. MRR from the heavy 20%?",
+      "expectedAnswer": 72000,
       "thoughtChain": [
-        "80% of 1,000 = 800"
-      ]
+        "the heavy 60 customers carry 80%",
+        "80% of 90k = $72k"
+      ],
+      "unit": "usd"
     },
     {
-      "id": "fd-p20-500",
+      "id": "fd-p-heavy-avg",
       "groupId": "foundations",
       "familyId": "pareto",
-      "prompt": "SAMPLE: 500 customers. Heavy slice?",
-      "expectedAnswer": 100,
+      "prompt": "SAMPLE: 500 accounts, $50k MRR, 80/20. Average MRR per heavy account?",
+      "expectedAnswer": 400,
       "thoughtChain": [
-        "20% of 500 = 100"
-      ]
+        "heavy: 100 accounts carry $40k",
+        "40,000 ÷ 100 = $400"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "fd-p-light-avg",
+      "groupId": "foundations",
+      "familyId": "pareto",
+      "prompt": "SAMPLE: 500 accounts, $50k MRR, 80/20. Average MRR per light account?",
+      "expectedAnswer": 25,
+      "thoughtChain": [
+        "light: 400 accounts carry $10k",
+        "10,000 ÷ 400 = $25"
+      ],
+      "unit": "usd"
     },
     {
       "id": "fd-rt-50-20",
@@ -1821,6 +2164,41 @@
       "thoughtChain": [
         "5,000÷50=100"
       ]
+    },
+    {
+      "id": "fd-rt-price-300",
+      "groupId": "foundations",
+      "familyId": "revenue-triangle",
+      "prompt": "SAMPLE: $12,000 revenue from 300 users. Price?",
+      "expectedAnswer": 40,
+      "thoughtChain": [
+        "P = R ÷ U",
+        "12,000 ÷ 300 = $40"
+      ],
+      "unit": "usd"
+    },
+    {
+      "id": "fd-rt-users-35",
+      "groupId": "foundations",
+      "familyId": "revenue-triangle",
+      "prompt": "SAMPLE: $8,750 revenue at $35 a user. Users?",
+      "expectedAnswer": 250,
+      "thoughtChain": [
+        "U = R ÷ P",
+        "8,750 ÷ 35 = 250"
+      ]
+    },
+    {
+      "id": "fd-rt-raise-36",
+      "groupId": "foundations",
+      "familyId": "revenue-triangle",
+      "prompt": "SAMPLE: 400 users at $30. Raise the price to $36 with the same users. New revenue?",
+      "expectedAnswer": 14400,
+      "thoughtChain": [
+        "R = P × U",
+        "36 × 400 = $14,400"
+      ],
+      "unit": "usd"
     },
     {
       "id": "fd-div-4731",
@@ -2063,6 +2441,39 @@
       "thoughtChain": [
         "cross: 5 × 11 = 55, 7 × 8 = 56",
         "56 wins, so 7/11 is larger"
+      ]
+    },
+    {
+      "id": "fd-xc-35-6x12-7",
+      "groupId": "foundations",
+      "familyId": "cross-cancel",
+      "prompt": "SAMPLE: 35/6 × 12/7 after cancelling.",
+      "expectedAnswer": 10,
+      "thoughtChain": [
+        "35 and 7 → 5 and 1",
+        "12 and 6 → 2 and 1 → 5 × 2 = 10"
+      ]
+    },
+    {
+      "id": "fd-xc-9-16x32-3",
+      "groupId": "foundations",
+      "familyId": "cross-cancel",
+      "prompt": "SAMPLE: 9/16 × 32/3 after cancelling.",
+      "expectedAnswer": 6,
+      "thoughtChain": [
+        "9 and 3 → 3 and 1",
+        "32 and 16 → 2 and 1 → 3 × 2 = 6"
+      ]
+    },
+    {
+      "id": "fd-xc-cmp-4-7-5-9",
+      "groupId": "foundations",
+      "familyId": "cross-cancel",
+      "prompt": "SAMPLE: which is larger, 4/7 or 5/9? Enter the larger fraction’s numerator.",
+      "expectedAnswer": 4,
+      "thoughtChain": [
+        "cross: 4 × 9 = 36, 5 × 7 = 35",
+        "36 wins, so 4/7"
       ]
     },
     {
@@ -2347,6 +2758,50 @@
       ]
     },
     {
+      "id": "fd-cm-1000-367",
+      "groupId": "foundations",
+      "familyId": "complements",
+      "prompt": "SAMPLE: 367 needs ? to make 1,000.",
+      "expectedAnswer": 633,
+      "thoughtChain": [
+        "367 → 400 needs 33",
+        "400 → 1,000 needs 600 → 633"
+      ]
+    },
+    {
+      "id": "fd-cm-76-58",
+      "groupId": "foundations",
+      "familyId": "complements",
+      "prompt": "SAMPLE: 76 + 58. Make 100.",
+      "expectedAnswer": 134,
+      "thoughtChain": [
+        "76 needs 24 from the 58",
+        "leftover 34 → 134"
+      ]
+    },
+    {
+      "id": "fd-cm-gauss-50",
+      "groupId": "foundations",
+      "familyId": "complements",
+      "prompt": "SAMPLE: 1 + 2 + … + 50.",
+      "expectedAnswer": 1275,
+      "thoughtChain": [
+        "25 pairs of 51",
+        "25 × 51 = 1,275"
+      ]
+    },
+    {
+      "id": "fd-cm-run-35-44",
+      "groupId": "foundations",
+      "familyId": "complements",
+      "prompt": "SAMPLE: 35 + 36 + … + 44.",
+      "expectedAnswer": 395,
+      "thoughtChain": [
+        "10 terms",
+        "average (35 + 44) ÷ 2 = 39.5 → 395"
+      ]
+    },
+    {
       "id": "fd-ab-five-3p4",
       "groupId": "foundations",
       "familyId": "mental-abacus",
@@ -2389,6 +2844,39 @@
       "thoughtChain": [
         "38 + 10 = 48",
         "48 − 3 = 45"
+      ]
+    },
+    {
+      "id": "fd-ab-ten-64p9",
+      "groupId": "foundations",
+      "familyId": "mental-abacus",
+      "prompt": "SAMPLE: 64 + 9 on a soroban: +10, then take back how many?",
+      "expectedAnswer": 1,
+      "thoughtChain": [
+        "+9 = +10 − 1",
+        "64 + 10 = 74, take back 1 → 73"
+      ]
+    },
+    {
+      "id": "fd-ab-five-2p3",
+      "groupId": "foundations",
+      "familyId": "mental-abacus",
+      "prompt": "SAMPLE: 2 + 3 on one rod. +3 is +5, then take back how many?",
+      "expectedAnswer": 2,
+      "thoughtChain": [
+        "2 lower beads up, only 2 free",
+        "+3 = +5 − 2 → rod shows 5"
+      ]
+    },
+    {
+      "id": "fd-ab-ten-71m8",
+      "groupId": "foundations",
+      "familyId": "mental-abacus",
+      "prompt": "SAMPLE: 71 − 8 as −10, then give back how many?",
+      "expectedAnswer": 2,
+      "thoughtChain": [
+        "−8 = −10 + 2",
+        "71 − 10 = 61, +2 → 63"
       ]
     },
     {
@@ -2699,6 +3187,39 @@
       ]
     },
     {
+      "id": "fd-mn-65sq",
+      "groupId": "foundations",
+      "familyId": "multiply-near",
+      "prompt": "SAMPLE: 65².",
+      "expectedAnswer": 4225,
+      "thoughtChain": [
+        "6 × 7 = 42",
+        "glue 25 → 4,225"
+      ]
+    },
+    {
+      "id": "fd-mn-526x11",
+      "groupId": "foundations",
+      "familyId": "multiply-near",
+      "prompt": "SAMPLE: 526 × 11. Neighbor sums.",
+      "expectedAnswer": 5786,
+      "thoughtChain": [
+        "5 | 5+2 | 2+6 | 6",
+        "5 | 7 | 8 | 6 → 5,786"
+      ]
+    },
+    {
+      "id": "fd-mn-58x9",
+      "groupId": "foundations",
+      "familyId": "multiply-near",
+      "prompt": "SAMPLE: 58 × 9.",
+      "expectedAnswer": 522,
+      "thoughtChain": [
+        "58 × 10 = 580",
+        "580 − 58 = 522"
+      ]
+    },
+    {
       "id": "fd-rc-347p99",
       "groupId": "foundations",
       "familyId": "round-compensate",
@@ -2983,6 +3504,40 @@
       ]
     },
     {
+      "id": "fd-nb-94x95",
+      "groupId": "foundations",
+      "familyId": "near-base",
+      "prompt": "SAMPLE: 94 × 95 near 100.",
+      "expectedAnswer": 8930,
+      "thoughtChain": [
+        "−6, −5",
+        "94 − 5 = 89 | 6 × 5 = 30 → 8,930"
+      ]
+    },
+    {
+      "id": "fd-nb-108x104",
+      "groupId": "foundations",
+      "familyId": "near-base",
+      "prompt": "SAMPLE: 108 × 104.",
+      "expectedAnswer": 11232,
+      "thoughtChain": [
+        "+8, +4",
+        "108 + 4 = 112 | 8 × 4 = 32 → 11,232"
+      ]
+    },
+    {
+      "id": "fd-nb-1004x997",
+      "groupId": "foundations",
+      "familyId": "near-base",
+      "prompt": "SAMPLE: 1,004 × 997, base 1,000.",
+      "expectedAnswer": 1000988,
+      "thoughtChain": [
+        "+4, −3",
+        "1,004 − 3 = 1,001 → 1,001,000",
+        "4 × −3 = −12 → 1,000,988"
+      ]
+    },
+    {
       "id": "fd-sq-43sq",
       "groupId": "foundations",
       "familyId": "square-identities",
@@ -3039,6 +3594,63 @@
       "thoughtChain": [
         "12 × 13 = 156",
         "glue 25 → 15,625"
+      ]
+    },
+    {
+      "id": "fd-si-57sq",
+      "groupId": "foundations",
+      "familyId": "square-identities",
+      "prompt": "SAMPLE: 57² as (60 − 3)².",
+      "expectedAnswer": 3249,
+      "thoughtChain": [
+        "3,600",
+        "− 2 × 60 × 3 = 360 → 3,240",
+        "+ 9 = 3,249"
+      ]
+    },
+    {
+      "id": "fd-si-85sq",
+      "groupId": "foundations",
+      "familyId": "square-identities",
+      "prompt": "SAMPLE: 85².",
+      "expectedAnswer": 7225,
+      "thoughtChain": [
+        "8 × 9 = 72",
+        "glue 25 → 7,225"
+      ]
+    },
+    {
+      "id": "fd-si-37x77",
+      "groupId": "foundations",
+      "familyId": "square-identities",
+      "prompt": "SAMPLE: 37 × 77. Same ones, tens add to 10.",
+      "expectedAnswer": 2849,
+      "thoughtChain": [
+        "3 × 7 + 7 = 28",
+        "7² = 49 → 2,849"
+      ]
+    },
+    {
+      "id": "fd-si-47sq",
+      "groupId": "foundations",
+      "familyId": "square-identities",
+      "prompt": "SAMPLE: 47² as (50 − 3)².",
+      "expectedAnswer": 2209,
+      "thoughtChain": [
+        "2,500",
+        "− 2 × 50 × 3 = 300 → 2,200",
+        "+ 9 = 2,209"
+      ]
+    },
+    {
+      "id": "fd-si-64x66",
+      "groupId": "foundations",
+      "familyId": "square-identities",
+      "prompt": "SAMPLE: 64 × 66. Same tens, ones add to 10.",
+      "expectedAnswer": 4224,
+      "thoughtChain": [
+        "6 × 7 = 42",
+        "4 × 6 = 24 → 4,224"
       ]
     },
     {
@@ -3122,6 +3734,41 @@
       ]
     },
     {
+      "id": "fd-cc-34x21",
+      "groupId": "foundations",
+      "familyId": "criss-cross",
+      "prompt": "SAMPLE: 34 × 21, vertical and crosswise.",
+      "expectedAnswer": 714,
+      "thoughtChain": [
+        "ones 4 × 1 = 4",
+        "cross 3×1 + 4×2 = 11 → 1 carry 1",
+        "tens 3×2 + 1 = 7 → 714"
+      ]
+    },
+    {
+      "id": "fd-cc-46x37",
+      "groupId": "foundations",
+      "familyId": "criss-cross",
+      "prompt": "SAMPLE: 46 × 37 with carries.",
+      "expectedAnswer": 1702,
+      "thoughtChain": [
+        "ones 42 → 2 carry 4",
+        "cross 4×7 + 6×3 = 46, +4 = 50 → 0 carry 5",
+        "tens 4×3 + 5 = 17 → 1,702"
+      ]
+    },
+    {
+      "id": "fd-cc-mid-52x43",
+      "groupId": "foundations",
+      "familyId": "criss-cross",
+      "prompt": "SAMPLE: 52 × 43. What is the crosswise middle sum?",
+      "expectedAnswer": 23,
+      "thoughtChain": [
+        "5 × 3 = 15",
+        "2 × 4 = 8 → 23 (product 2,236)"
+      ]
+    },
+    {
       "id": "fd-pc-half-600",
       "groupId": "foundations",
       "familyId": "percent-chunks",
@@ -3154,6 +3801,39 @@
       ]
     },
     {
+      "id": "pct-ch-45-600",
+      "groupId": "percents",
+      "familyId": "percent-chunks",
+      "prompt": "SAMPLE: 45% of 600.",
+      "expectedAnswer": 270,
+      "thoughtChain": [
+        "50% = 300",
+        "minus 5% = 30 → 270"
+      ]
+    },
+    {
+      "id": "pct-ch-12.5-640",
+      "groupId": "percents",
+      "familyId": "percent-chunks",
+      "prompt": "SAMPLE: 12.5% of 640.",
+      "expectedAnswer": 80,
+      "thoughtChain": [
+        "12.5% is an eighth",
+        "640 ÷ 8 = 80"
+      ]
+    },
+    {
+      "id": "pct-ch-65-120",
+      "groupId": "percents",
+      "familyId": "percent-chunks",
+      "prompt": "SAMPLE: 65% of 120.",
+      "expectedAnswer": 78,
+      "thoughtChain": [
+        "50% = 60, 10% = 12, 5% = 6",
+        "60 + 12 + 6 = 78"
+      ]
+    },
+    {
       "id": "fd-pr-4-75",
       "groupId": "foundations",
       "familyId": "percent-reversible",
@@ -3162,6 +3842,39 @@
       "thoughtChain": [
         "75% of 4",
         "3"
+      ]
+    },
+    {
+      "id": "pct-rev-22-50",
+      "groupId": "percents",
+      "familyId": "percent-reversible",
+      "prompt": "SAMPLE: 22% of 50.",
+      "expectedAnswer": 11,
+      "thoughtChain": [
+        "swap → 50% of 22",
+        "half of 22 = 11"
+      ]
+    },
+    {
+      "id": "pct-rev-36-25",
+      "groupId": "percents",
+      "familyId": "percent-reversible",
+      "prompt": "SAMPLE: 36% of 25.",
+      "expectedAnswer": 9,
+      "thoughtChain": [
+        "swap → 25% of 36",
+        "quarter of 36 = 9"
+      ]
+    },
+    {
+      "id": "pct-rev-4-350",
+      "groupId": "percents",
+      "familyId": "percent-reversible",
+      "prompt": "SAMPLE: 4% of 350.",
+      "expectedAnswer": 14,
+      "thoughtChain": [
+        "swap → 350% of 4",
+        "3.5 × 4 = 14"
       ]
     },
     {
@@ -3184,6 +3897,39 @@
       "thoughtChain": [
         "1/8 = 0.125",
         "×3 = 0.375"
+      ]
+    },
+    {
+      "id": "fd-fp-5-8-480",
+      "groupId": "foundations",
+      "familyId": "fraction-percent",
+      "prompt": "SAMPLE: 5/8 of 480.",
+      "expectedAnswer": 300,
+      "thoughtChain": [
+        "1/8 of 480 = 60",
+        "×5 → 300"
+      ]
+    },
+    {
+      "id": "fd-fp-375-64",
+      "groupId": "foundations",
+      "familyId": "fraction-percent",
+      "prompt": "SAMPLE: 37.5% of 64, as a fraction.",
+      "expectedAnswer": 24,
+      "thoughtChain": [
+        "37.5% = 3/8",
+        "64 ÷ 8 = 8, ×3 = 24"
+      ]
+    },
+    {
+      "id": "fd-fp-sixth-540",
+      "groupId": "foundations",
+      "familyId": "fraction-percent",
+      "prompt": "SAMPLE: 16⅔% of 540.",
+      "expectedAnswer": 90,
+      "thoughtChain": [
+        "16⅔% = 1/6",
+        "540 ÷ 6 = 90"
       ]
     },
     {
@@ -3428,6 +4174,39 @@
       "thoughtChain": [
         "900 − 30 − 29",
         "841"
+      ]
+    },
+    {
+      "id": "fd-nf-24sq",
+      "groupId": "foundations",
+      "familyId": "number-facts",
+      "prompt": "SAMPLE: 24². Step down from 25² = 625.",
+      "expectedAnswer": 576,
+      "thoughtChain": [
+        "25² − 25 − 24",
+        "625 − 49 = 576"
+      ]
+    },
+    {
+      "id": "fd-nf-2p12",
+      "groupId": "foundations",
+      "familyId": "number-facts",
+      "prompt": "SAMPLE: 2¹².",
+      "expectedAnswer": 4096,
+      "thoughtChain": [
+        "2¹⁰ = 1,024",
+        "×4 → 4,096"
+      ]
+    },
+    {
+      "id": "fd-nf-31sq",
+      "groupId": "foundations",
+      "familyId": "number-facts",
+      "prompt": "SAMPLE: 31². Step up from 30² = 900.",
+      "expectedAnswer": 961,
+      "thoughtChain": [
+        "900 + 30 + 31",
+        "961"
       ]
     },
     {
