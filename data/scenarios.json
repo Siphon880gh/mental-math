@@ -1367,5 +1367,338 @@
       "Then compare the total with 8,000."
     ],
     "cheat": "0 1346: 6 → 6; 4 → 4 + 3 = 7; 3 → 3 + 2 + 5 = 10 → 0, carry 1; 1 → 1 + 1 + 5 + 1 = 8 → $8,076. That is $76 over. $76 under flips the comparison; $924 under dropped the carry (7,076); $8,076 is the total, not the gap."
+  },
+  {
+    "id": "logos-to-boxes",
+    "track": "stakeholder",
+    "title": "Logos are not boxes",
+    "prompt": "SAMPLE: 1,200 customer logos. On a busy hour about 20% are on, and each box serves 30 at once. How many boxes?",
+    "skillIds": [
+      "concurrency",
+      "capacity-split"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "8",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "40",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "4",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "240",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "Concurrent first: busy is about 20% of logos.",
+      "Then boxes = simultaneous users ÷ per-box capacity."
+    ],
+    "cheat": "20% of 1,200 = 240 on at once. 240 ÷ 30 = 8 boxes. 40 sized for every logo at once. 4 used the quiet 10%. 240 is the concurrent count, not boxes."
+  },
+  {
+    "id": "safe-load-boxes",
+    "track": "stakeholder",
+    "title": "Vendor max is not the plan",
+    "prompt": "SAMPLE: 900 simultaneous users. The vendor says a box handles 50. Plan at a safe load. How many boxes?",
+    "skillIds": [
+      "utilization",
+      "capacity-split"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "26",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "18",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "25",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "35",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "Safe load is about 70% of the advertised max.",
+      "Divide, then round up: a part box is a whole box."
+    ],
+    "cheat": "Safe per box 0.7 × 50 = 35. 900 ÷ 35 ≈ 25.7 → 26 boxes. 18 trusted the vendor max. 25 rounded down and leaves users without a seat. 35 is the per-box plan, not the count."
+  },
+  {
+    "id": "box-leak-check",
+    "track": "stakeholder",
+    "title": "Each box, make or lose?",
+    "prompt": "SAMPLE: a $1.25/hr GPU holds 20 users on a $40/mo plan. Per box, per month, do you make or lose money, and how much?",
+    "skillIds": [
+      "box-contribution",
+      "hour-month"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lose $100",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "Make $775",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "Make $100",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Lose $900",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "Put the box on a monthly clock: hourly × 720.",
+      "Contribution = price × users − box cost."
+    ],
+    "cheat": "Box 1.25 × 720 = $900/mo. Revenue 40 × 20 = $800. 800 − 900 = −$100 a box. $775 subtracted the hourly price. +$100 flipped the sign. −$900 forgot the revenue."
+  },
+  {
+    "id": "pad-then-runway",
+    "track": "stakeholder",
+    "title": "Pad the burn, then runway",
+    "prompt": "SAMPLE: $300k in the bank. The team guesses burn at $40k a month. Pad the guess, then about how many months of runway?",
+    "skillIds": [
+      "estimate-pad",
+      "cfo-runway"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "About 5.8",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "7.5",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "About 9.8",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "About 4.4",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "A cost guess runs long: pad it ×1.3 once.",
+      "Runway = cash ÷ padded monthly burn."
+    ],
+    "cheat": "Padded burn 40 × 1.3 = $52k. 300 ÷ 52 ≈ 5.8 months. 7.5 skipped the pad. 9.8 padded the cash instead of the burn. 4.4 padded twice (×1.7)."
+  },
+  {
+    "id": "funnel-covers-fixed",
+    "track": "stakeholder",
+    "title": "Mid-band funnel vs fixed costs",
+    "prompt": "SAMPLE: 25,000 visits a month at a mid-band funnel (20% sign up, 5% of those pay). Price $60, fixed costs $12,000. Paid customers, and do they cover cost?",
+    "skillIds": [
+      "funnel-bands",
+      "break-even"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "250 paid, covers with $3,000 spare",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "5,000 paid, covers easily",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "250 paid, $3,000 short",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "1,250 paid, covers with $63,000 spare",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "Compress the funnel: 20% × 5% = 1% of visits.",
+      "Revenue = paid × price, then compare with fixed cost."
+    ],
+    "cheat": "1% of 25,000 = 250 paid. 250 × 60 = $15,000 against $12,000 → $3,000 spare. 5,000 stopped at signups. \"$3,000 short\" flipped the comparison. 1,250 applied 5% to visits."
+  },
+  {
+    "id": "gpus-at-busy-hour",
+    "track": "stakeholder",
+    "title": "Busy hour at a safe load",
+    "prompt": "SAMPLE: 4,200 logos. About 20% are on at the busy hour. A GPU runs 20 jobs at max, and you plan at 70%. How many GPUs?",
+    "skillIds": [
+      "concurrency",
+      "utilization"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "60",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "42",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "210",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "30",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "Concurrent jobs: 20% of logos.",
+      "Safe jobs per GPU: 0.7 × max. Then divide."
+    ],
+    "cheat": "20% of 4,200 = 840 jobs. Safe per GPU 14. 840 ÷ 14 = 60 GPUs. 42 skipped the 70% plan. 210 sized every logo at max. 30 used the quiet 10%."
+  },
+  {
+    "id": "chain-cover-and-fill",
+    "track": "stakeholder",
+    "title": "Cover the box, then fill it",
+    "prompt": "SAMPLE: a $2/hr GPU, a $48/mo plan, and 40 users fit on a box. Users to cover the box, and monthly contribution when it is full?",
+    "skillIds": [
+      "stacked-founder",
+      "box-contribution"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "30 to cover, +$480 full",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "30 to cover, −$480 full",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "24 to cover, +$480 full",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "40 to cover, +$1,920 full",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "Box per month: hourly × 720.",
+      "Cover = box ÷ price. Full contribution = 40 × price − box."
+    ],
+    "cheat": "Box 2 × 720 = $1,440. 1,440 ÷ 48 = 30 to cover. Full: 40 × 48 = $1,920 − 1,440 = +$480. The minus sign is backwards. 24 divided by $60. $1,920 is revenue before the box."
+  },
+  {
+    "id": "heavy-slice-boxes",
+    "track": "quick",
+    "title": "Give the heavy slice its own boxes",
+    "prompt": "SAMPLE: 2,000 accounts. About 20% of them carry 80% of the load. The heavy accounts get dedicated boxes at 25 per box. How many boxes?",
+    "skillIds": [
+      "pareto",
+      "capacity-split"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "16",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "80",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "64",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "20",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "The heavy slice is 20% of the accounts, not 80%.",
+      "Boxes = heavy accounts ÷ 25."
+    ],
+    "cheat": "20% of 2,000 = 400 heavy accounts. 400 ÷ 25 = 16 boxes. 80 boxed every account. 64 used the 80% (1,600) as a headcount. 20 is the percent, not the boxes."
+  },
+  {
+    "id": "seats-for-the-goal",
+    "track": "quick",
+    "title": "Seats for a revenue goal",
+    "prompt": "SAMPLE: the goal is $18,000 a month at $45 a seat. Seats needed, and yearly revenue at that goal?",
+    "skillIds": [
+      "revenue-triangle",
+      "month-year"
+    ],
+    "choices": [
+      {
+        "id": "a",
+        "label": "400 seats, $216,000/yr",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "40 seats, $216,000/yr",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "400 seats, $21,600/yr",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "810 seats, $216,000/yr",
+        "correct": false
+      }
+    ],
+    "hints": [
+      "Users = revenue ÷ price. Cancel what you can.",
+      "Monthly × 12 for the year."
+    ],
+    "cheat": "18,000 ÷ 45 = 400 seats. 18,000 × 12 = $216,000 a year. 40 dropped a zero in the division. $21,600 dropped a zero in the ×12. 810 multiplied 18 × 45 instead of dividing."
   }
 ]

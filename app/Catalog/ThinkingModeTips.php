@@ -24,6 +24,8 @@ final class ThinkingModeTips
         'dilution' => 'Cash ÷ post-money. Ask pre vs post. /coach/dilution.',
         'tam_fermi' => 'Customers × yearly price, then a slice. /guides/tam-fermi.',
         'nrr_read' => 'Same-customer revenue later. /guides/nrr.',
+        'arr_read' => 'MRR × 12 is ARR; ARR ÷ 12 is MRR. /guides/mrr-arr.',
+        'churn_life' => 'Lifetime months ≈ 1 ÷ monthly churn, and back again. /guides/churn.',
         'fixed_multiplier' => '×19 is ×20 minus one copy; ×12 is ×10 plus ×2. /guides/fixed-multipliers.',
         'near_base' => 'Distances from 100, cross, multiply the gaps. /coach/near-base.',
         'square_shape' => '(a + b)² = a² + 2ab + b². /guides/square-identities.',
