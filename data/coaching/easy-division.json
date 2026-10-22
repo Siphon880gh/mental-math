@@ -154,7 +154,7 @@
         "choices": [
           {
             "id": "times_what",
-            "label": "12 × what = 168? 12 × 14 → 14",
+            "label": "12 × what = 168? 12 × 14 = 168, so 14",
             "next": "buildup"
           },
           {

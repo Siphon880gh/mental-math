@@ -211,7 +211,7 @@
     "id": "break-even-contribution",
     "familyId": "break-even",
     "title": "Divide by what each sale keeps",
-    "rule": "Break-even units = fixed cost ÷ (price − variable cost). Using price alone undercounts.",
+    "rule": "When each sale also has its own cost, divide the fixed cost by what each sale keeps: price − variable cost. Price alone undercounts.",
     "example": "$3,000 fixed, $50 price, $20 variable → 3,000 ÷ 30 = 100 sales, not 60.",
     "category": "Business"
   },
