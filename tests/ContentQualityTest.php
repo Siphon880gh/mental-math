@@ -180,4 +180,17 @@ final class ContentQualityTest extends TestCase
             $this->assertArrayHasKey($familyId, $advanced, $familyId . ' has no advanced case');
         }
     }
+
+    public function testTheRightScenarioAnswerIsNotAlwaysFirst(): void
+    {
+        $raw = json_decode((string) file_get_contents(ROOT . '/data/scenarios.json'), true);
+        $first = 0;
+        foreach (Scenarios::all() as $i => $scenario) {
+            $this->assertEqualsCanonicalizing(array_column($raw[$i]['choices'], 'id'), array_column($scenario['choices'], 'id'), $scenario['id']);
+            if (!empty($scenario['choices'][0]['correct'])) {
+                $first++;
+            }
+        }
+        $this->assertLessThan(0.4, $first / count($raw), "right answer first in {$first} scenarios");
+    }
 }
