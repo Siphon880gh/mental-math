@@ -1487,6 +1487,152 @@
       "unit": "usd"
     },
     {
+      "id": "sf-adv-anchors-bookings",
+      "packId": "stacked-founder",
+      "familyId": "anchors",
+      "thinkingMode": "chord_zeros",
+      "prompt": "SAMPLE: 40 reps each close 30 deals a quarter at $7,000. Quarterly bookings?",
+      "expectedAnswer": 8400000,
+      "thoughtChain": [
+        "4 × 3 = 12 → 1,200 deals (two zeros)",
+        "12 × 7 = 84",
+        "zeros: 2 + 3 → $8,400,000"
+      ],
+      "difficulty": "advanced",
+      "unit": "usd"
+    },
+    {
+      "id": "sf-adv-swap-teams",
+      "packId": "stacked-founder",
+      "familyId": "percent-reversible",
+      "thinkingMode": "conversion_funnel",
+      "prompt": "SAMPLE: 16% of 75 trial teams convert, and each pays 4% of a $50,000 budget. Revenue from them?",
+      "expectedAnswer": 24000,
+      "thoughtChain": [
+        "swap: 16% of 75 = 75% of 16 = 12 teams",
+        "4% of 50,000 = 2,000",
+        "12 × 2,000 = $24,000"
+      ],
+      "difficulty": "advanced",
+      "unit": "usd"
+    },
+    {
+      "id": "sf-adv-chunks-8400",
+      "packId": "stacked-founder",
+      "familyId": "percent-chunks",
+      "thinkingMode": "conversion_funnel",
+      "prompt": "SAMPLE: 8,400 visitors, 35% start a trial, and 15% of trials pay. Paying customers?",
+      "expectedAnswer": 441,
+      "thoughtChain": [
+        "25% = 2,100, 10% = 840 → 2,940 trials",
+        "10% = 294, 5% = 147",
+        "294 + 147 = 441"
+      ],
+      "difficulty": "advanced"
+    },
+    {
+      "id": "sf-adv-dinner-340",
+      "packId": "stacked-founder",
+      "familyId": "percent-tip",
+      "thinkingMode": "percent_read",
+      "prompt": "SAMPLE: a $340 team dinner with 8% tax, and a 20% tip on the pre-tax bill. Total?",
+      "expectedAnswer": 435.2,
+      "thoughtChain": [
+        "10% = 34 → tip 20% = 68",
+        "tax 8% = 27.20",
+        "340 + 27.20 + 68 = $435.20"
+      ],
+      "difficulty": "advanced",
+      "unit": "usd"
+    },
+    {
+      "id": "sf-adv-gpu-reserved",
+      "packId": "stacked-founder",
+      "familyId": "hour-month",
+      "thinkingMode": "infra_chain",
+      "prompt": "SAMPLE: 6 GPUs at $2.40/hr run around the clock, with a 25% reserved discount. Monthly bill?",
+      "expectedAnswer": 7776,
+      "thoughtChain": [
+        "2.40 × 720 = $1,728 a GPU",
+        "× 6 = $10,368",
+        "take off a quarter (2,592) → $7,776"
+      ],
+      "difficulty": "advanced",
+      "unit": "usd"
+    },
+    {
+      "id": "sf-adv-seats-annual",
+      "packId": "stacked-founder",
+      "familyId": "month-year",
+      "thinkingMode": "infra_chain",
+      "prompt": "SAMPLE: a tool costs $85 a seat a month for 14 seats, and annual billing gives 2 months free. Annual bill?",
+      "expectedAnswer": 11900,
+      "thoughtChain": [
+        "85 × 14 = $1,190 a month",
+        "two months free → pay 10 months",
+        "× 10 = $11,900"
+      ],
+      "difficulty": "advanced",
+      "unit": "usd"
+    },
+    {
+      "id": "sf-adv-be-profit",
+      "packId": "stacked-founder",
+      "familyId": "break-even",
+      "thinkingMode": "break_even",
+      "prompt": "SAMPLE: $18,000/mo fixed costs, $60 price, $15 variable cost a unit, and you want $4,500 of profit. Units a month?",
+      "expectedAnswer": 500,
+      "thoughtChain": [
+        "contribution 60 − 15 = $45 a unit",
+        "cover 18,000 + 4,500 = $22,500",
+        "22,500 ÷ 45 = 500"
+      ],
+      "difficulty": "advanced"
+    },
+    {
+      "id": "sf-adv-markup-distributor",
+      "packId": "stacked-founder",
+      "familyId": "markup",
+      "thinkingMode": "markup_read",
+      "prompt": "SAMPLE: a part costs $32, you price it at a 3× markup, and a distributor keeps 25% of your price. Profit per part?",
+      "expectedAnswer": 40,
+      "thoughtChain": [
+        "price 32 × 3 = $96",
+        "distributor 25% = $24 → you get $72",
+        "72 − 32 = $40"
+      ],
+      "difficulty": "advanced",
+      "unit": "usd"
+    },
+    {
+      "id": "sf-adv-pareto-ratio",
+      "packId": "stacked-founder",
+      "familyId": "pareto",
+      "thinkingMode": "smell_test",
+      "prompt": "SAMPLE: $600k MRR across 500 accounts, and the top 20% bring 80% of it. A top account is how many times the average of the rest?",
+      "expectedAnswer": 16,
+      "thoughtChain": [
+        "top 100 accounts: $480k → $4,800 each",
+        "other 400: $120k → $300 each",
+        "4,800 ÷ 300 = 16×"
+      ],
+      "difficulty": "advanced"
+    },
+    {
+      "id": "sf-adv-triangle-reps",
+      "packId": "stacked-founder",
+      "familyId": "revenue-triangle",
+      "thinkingMode": "break_even",
+      "prompt": "SAMPLE: target $90k MRR at $45 a seat, and one rep closes 50 seats a month. Rep-months from zero?",
+      "expectedAnswer": 40,
+      "thoughtChain": [
+        "seats = 90,000 ÷ 45 = 2,000",
+        "rep-months = 2,000 ÷ 50",
+        "= 40"
+      ],
+      "difficulty": "advanced"
+    },
+    {
       "id": "ar-seats-19",
       "packId": "arithmetic-in-the-room",
       "familyId": "fixed-multipliers",
@@ -2014,6 +2160,272 @@
         "144 × 12 = 1,728"
       ],
       "difficulty": "beginner"
+    },
+    {
+      "id": "ar-adv-cpc-2.5m",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "magnitude",
+      "thinkingMode": "decimal_shift",
+      "prompt": "SAMPLE: 2.5 million impressions at $0.004 each, and 0.2% of them click. Cost per click?",
+      "expectedAnswer": 2,
+      "thoughtChain": [
+        "spend: 2.5M × 0.004 = $10,000",
+        "clicks: 0.2% of 2.5M = 5,000",
+        "10,000 ÷ 5,000 = $2"
+      ],
+      "difficulty": "advanced",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-adv-ltr-invoices",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "left-to-right",
+      "thinkingMode": "left_to_right",
+      "prompt": "SAMPLE: four invoices of $3,847, $2,596, $1,738, and $4,265. Total?",
+      "expectedAnswer": 12446,
+      "thoughtChain": [
+        "thousands 3 + 2 + 1 + 4 = 10,000; hundreds 8 + 5 + 7 + 2 = 22 → 12,200",
+        "tens 4 + 9 + 3 + 6 = 22 → 12,420",
+        "ones 7 + 6 + 8 + 5 = 26 → 12,446"
+      ],
+      "difficulty": "advanced",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-adv-rc-budget",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "round-compensate",
+      "thinkingMode": "round_compensate",
+      "prompt": "SAMPLE: a $12,000 budget minus line items of $2,997, $1,498, and $3,995. What is left?",
+      "expectedAnswer": 3510,
+      "thoughtChain": [
+        "round: 3,000 + 1,500 + 4,000 = 8,500",
+        "you rounded up by 3 + 2 + 5 = 10 → 8,490",
+        "12,000 − 8,490 = $3,510"
+      ],
+      "difficulty": "advanced",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-adv-dh-crates",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "double-half",
+      "thinkingMode": "double_half",
+      "prompt": "SAMPLE: 16 crates of 35 units at $25 a unit. Value?",
+      "expectedAnswer": 14000,
+      "thoughtChain": [
+        "16 × 35: halve and double → 8 × 70 = 560 units",
+        "× 25 = × 100 ÷ 4",
+        "56,000 ÷ 4 = $14,000"
+      ],
+      "difficulty": "advanced",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-adv-near-seats",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "multiply-near",
+      "thinkingMode": "near_ten",
+      "prompt": "SAMPLE: 99 seats at $47, plus 11 more at $63. Total?",
+      "expectedAnswer": 5346,
+      "thoughtChain": [
+        "99 × 47 = 4,700 − 47 = 4,653",
+        "63 × 11: 6 | 6+3 | 3 → 693",
+        "4,653 + 693 = $5,346"
+      ],
+      "difficulty": "advanced",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-adv-frac-pool",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "fraction-percent",
+      "thinkingMode": "fraction_benchmark",
+      "prompt": "SAMPLE: 37.5% of a $4,800 pool goes to sales, and one-sixth of that to the top rep. Top rep?",
+      "expectedAnswer": 300,
+      "thoughtChain": [
+        "37.5% = 3/8 → 4,800 ÷ 8 × 3 = 1,800",
+        "one-sixth of 1,800",
+        "= $300"
+      ],
+      "difficulty": "advanced",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-adv-72-27y",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "rule-of-72",
+      "thinkingMode": "doubling_time",
+      "prompt": "SAMPLE: $25,000 invested at 8% a year. About how much after 27 years?",
+      "expectedAnswer": 200000,
+      "thoughtChain": [
+        "72 ÷ 8 = 9 years a doubling",
+        "27 ÷ 9 = 3 doublings → ×8",
+        "25,000 × 8 = about $200,000"
+      ],
+      "difficulty": "advanced",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-adv-cc-rooms",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "criss-cross",
+      "thinkingMode": "criss_cross",
+      "prompt": "SAMPLE: 132 rooms at $213 a night. Revenue a night?",
+      "expectedAnswer": 28116,
+      "thoughtChain": [
+        "ones 2×3 = 6; tens 3×3 + 2×1 = 11 → 1, carry 1",
+        "hundreds 1×3 + 3×1 + 2×2 = 10, +1 = 11 → 1, carry 1",
+        "thousands 1×1 + 3×2 = 7, +1 = 8; ten-thousands 1×2 = 2 → $28,116"
+      ],
+      "difficulty": "advanced",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-adv-ed-15120",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "easy-division",
+      "thinkingMode": "division_rewrite",
+      "prompt": "SAMPLE: $15,120 spread over 36 months, then across 12 people. Each person a month?",
+      "expectedAnswer": 35,
+      "thoughtChain": [
+        "÷36 = ÷4 then ÷9: 15,120 → 3,780 → 420",
+        "420 ÷ 12 = 35",
+        "$35"
+      ],
+      "difficulty": "advanced",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-adv-float-1000",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "complements",
+      "thinkingMode": "complement_count",
+      "prompt": "SAMPLE: a $1,000 float pays a $386.45 bill, then a $227.80 bill. What remains?",
+      "expectedAnswer": 385.75,
+      "thoughtChain": [
+        "complement of 386.45 → 613.55 (9s, last digit to 10)",
+        "613.55 − 227.80: −228 + 0.20",
+        "385.55 + 0.20 = $385.75"
+      ],
+      "difficulty": "advanced",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-adv-ea-days",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "equal-adjust",
+      "thinkingMode": "equal_adjust",
+      "prompt": "SAMPLE: one project ran from day 1,847 to day 2,003 on a counter, a second from day 3,192 to day 3,401. Total days?",
+      "expectedAnswer": 365,
+      "thoughtChain": [
+        "2,003 − 1,847: add 3 to both → 2,006 − 1,850 = 156",
+        "3,401 − 3,192: add 8 → 3,409 − 3,200 = 209",
+        "156 + 209 = 365"
+      ],
+      "difficulty": "advanced"
+    },
+    {
+      "id": "ar-adv-cancel-budget",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "cross-cancel",
+      "thinkingMode": "fraction_cancel",
+      "prompt": "SAMPLE: 18/35 of 28/45 of a $10,000 budget. Amount?",
+      "expectedAnswer": 3200,
+      "thoughtChain": [
+        "pair across: 18/45 = 2/5, 28/35 = 4/5",
+        "2/5 × 4/5 = 8/25",
+        "10,000 ÷ 25 × 8 = $3,200"
+      ],
+      "difficulty": "advanced",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-adv-root-trim",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "approx-sqrt",
+      "thinkingMode": "root_estimate",
+      "prompt": "SAMPLE: a square room of 410 sq ft. About how many feet of trim for all four walls?",
+      "expectedAnswer": 81,
+      "thoughtChain": [
+        "20² = 400, leftover 10",
+        "side ≈ 20 + 10/40 = 20.25",
+        "4 × 20.25 = 81 ft"
+      ],
+      "difficulty": "advanced"
+    },
+    {
+      "id": "ar-adv-rg-stipend",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "regroup-factors",
+      "thinkingMode": "regroup",
+      "prompt": "SAMPLE: 25 teams × 12 people × 8 hours × a $5 hourly stipend. Total?",
+      "expectedAnswer": 12000,
+      "thoughtChain": [
+        "regroup: 25 × 8 = 200",
+        "12 × 5 = 60",
+        "200 × 60 = $12,000"
+      ],
+      "difficulty": "advanced",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-adv-sq-lots",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "square-identities",
+      "thinkingMode": "square_shape",
+      "prompt": "SAMPLE: a 67 ft square lot and a 33 ft square lot. Combined area?",
+      "expectedAnswer": 5578,
+      "thoughtChain": [
+        "67² = (70 − 3)² = 4,900 − 420 + 9 = 4,489",
+        "33² = 900 + 180 + 9 = 1,089",
+        "4,489 + 1,089 = 5,578 sq ft"
+      ],
+      "difficulty": "advanced"
+    },
+    {
+      "id": "ar-adv-grid-floor",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "area-grid",
+      "thinkingMode": "partial_products",
+      "prompt": "SAMPLE: a 47 ft × 36 ft floor at $8 a sq ft. Cost?",
+      "expectedAnswer": 13536,
+      "thoughtChain": [
+        "40×30 = 1,200, 40×6 = 240, 7×30 = 210, 7×6 = 42",
+        "area 1,692 sq ft",
+        "× 8 = $13,536"
+      ],
+      "difficulty": "advanced",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-adv-abacus-till",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "mental-abacus",
+      "thinkingMode": "abacus_move",
+      "prompt": "SAMPLE: a till at $386 takes in $47, pays out $29, then takes in $58. Balance?",
+      "expectedAnswer": 462,
+      "thoughtChain": [
+        "+47 = +50 −3 → 433",
+        "−29 = −30 +1 → 404",
+        "+58 = +60 −2 → 462"
+      ],
+      "difficulty": "advanced",
+      "unit": "usd"
+    },
+    {
+      "id": "ar-adv-facts-cube",
+      "packId": "arithmetic-in-the-room",
+      "familyId": "number-facts",
+      "thinkingMode": "number_fact",
+      "prompt": "SAMPLE: a 7 × 7 × 7 cube of boxes. Strip the outer layer. How many boxes remain?",
+      "expectedAnswer": 125,
+      "thoughtChain": [
+        "7³ = 343 in total",
+        "the inside is 5 on a side",
+        "5³ = 125"
+      ],
+      "difficulty": "advanced"
     }
   ]
 }

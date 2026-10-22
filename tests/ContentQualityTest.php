@@ -154,4 +154,27 @@ final class ContentQualityTest extends TestCase
             $this->assertGreaterThanOrEqual(3, count(Tricks::forFamily($familyId)), $familyId);
         }
     }
+
+    /**
+     * One-move conversions with no chain worth calling advanced. Their harder
+     * use shows up inside other families' advanced cases.
+     */
+    private const NO_ADVANCED_CASE = ['percent-shift', 'percent-tens', 'div-by-5', 'month-day'];
+
+    public function testEveryFamilyWithAChainHasAnAdvancedCase(): void
+    {
+        $advanced = [];
+        foreach (Cases::all() as $case) {
+            if ($case['difficulty'] === 'advanced') {
+                $advanced[$case['familyId']] = true;
+            }
+        }
+        foreach (Tracks::trackAFamilyIds() as $familyId) {
+            if (in_array($familyId, self::NO_ADVANCED_CASE, true)) {
+                $this->assertArrayNotHasKey($familyId, $advanced, $familyId . ' now has an advanced case; drop it from the skip list');
+                continue;
+            }
+            $this->assertArrayHasKey($familyId, $advanced, $familyId . ' has no advanced case');
+        }
+    }
 }
