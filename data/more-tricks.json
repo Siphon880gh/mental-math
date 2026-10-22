@@ -9,7 +9,16 @@
     "trickIds": [
       "divisibility-digit-sum",
       "divisibility-last-two",
-      "divisibility-alt-11"
+      "divisibility-alt-11",
+      "divisibility-trim-primes",
+      "divisibility-endings",
+      "divisibility-composite"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -17,12 +26,33 @@
     "title": "Core mental multiplication",
     "status": "shipped",
     "familyIds": [
-      "double-half",
+      "regroup-factors",
+      "area-grid",
       "round-compensate",
-      "multiply-near",
+      "double-half",
+      "near-base",
       "difference-squares",
+      "square-identities",
       "criss-cross",
-      "regroup-factors"
+      "fixed-multipliers"
+    ],
+    "trickIds": [
+      "regroup-factors-distribute",
+      "area-grid-place-value",
+      "area-grid-rectangle",
+      "round-compensate-49x6",
+      "double-half-x5",
+      "regroup-factors-factor-multiplier",
+      "near-base-below",
+      "difference-squares-center",
+      "square-identities-split",
+      "criss-cross-two-digit"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -30,27 +60,47 @@
     "title": "Fixed-multiplier tricks",
     "status": "shipped",
     "familyIds": [
+      "fixed-multipliers",
       "double-half",
       "multiply-near"
     ],
     "trickIds": [
+      "fixed-multipliers-builds",
+      "fixed-multipliers-neighbors",
+      "fixed-multipliers-fractions",
       "double-half-x50",
       "double-half-x125",
       "multiply-near-x99",
-      "multiply-near-x101"
+      "multiply-near-x101",
+      "multiply-near-x11-three"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
     "id": "4",
-    "title": "Vedic-style multiplication",
+    "title": "Vedic-style multiplication (Urdhva, Nikhilam)",
     "status": "shipped",
     "familyIds": [
       "criss-cross",
-      "multiply-near"
+      "near-base"
     ],
     "trickIds": [
       "criss-cross-two-digit",
-      "multiply-near-x11-three"
+      "criss-cross-three-digit",
+      "near-base-below",
+      "near-base-above-mixed",
+      "near-base-thousand"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -58,35 +108,64 @@
     "title": "Squaring tricks",
     "status": "shipped",
     "familyIds": [
+      "square-identities",
       "multiply-near",
       "difference-squares"
     ],
     "trickIds": [
-      "multiply-near-x9",
-      "difference-squares-same-tens"
+      "square-identities-ends-5",
+      "difference-squares-same-tens",
+      "square-identities-same-ones",
+      "difference-squares-center"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
     "id": "6",
-    "title": "Japanese / Chinese visual traditions",
-    "status": "skip",
+    "title": "Japanese / Chinese traditions (line, soroban/anzan, rods, suanpan)",
+    "status": "shipped",
     "familyIds": [
-      "complements",
-      "magnitude"
+      "mental-abacus",
+      "area-grid",
+      "complements"
     ],
-    "skipReason": "Line multiplication, soroban-as-training, rods, and suanpan are visual or apparatus. Complements and place-value already ship as mental moves."
+    "trickIds": [
+      "mental-abacus-five",
+      "mental-abacus-ten",
+      "complements-five",
+      "area-grid-line-lattice"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
+    ]
   },
   {
     "id": "7",
-    "title": "Historical rapid-multiplication systems",
+    "title": "Historical rapid-multiplication systems (peasant, Egyptian, lattice)",
     "status": "shipped",
     "familyIds": [
-      "double-half"
+      "double-half",
+      "area-grid"
     ],
     "trickIds": [
-      "double-half-peasant"
+      "double-half-peasant",
+      "double-half-egyptian",
+      "area-grid-line-lattice"
     ],
-    "skipReason": "Lattice / gelosia is visual; peasant and Egyptian doubling ship on double-half."
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
+    ]
   },
   {
     "id": "8",
@@ -97,7 +176,14 @@
       "div-by-5"
     ],
     "trickIds": [
-      "easy-division-rewrite"
+      "easy-division-rewrite",
+      "easy-division-twenty-eighth"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -109,6 +195,12 @@
     ],
     "trickIds": [
       "easy-division-factor"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -120,6 +212,12 @@
     ],
     "trickIds": [
       "easy-division-scale"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -130,7 +228,13 @@
       "easy-division"
     ],
     "trickIds": [
-      "easy-division-rewrite"
+      "easy-division-partial"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -141,7 +245,12 @@
       "easy-division"
     ],
     "trickIds": [
-      "easy-division-factor"
+      "easy-division-missing-factor"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "drill"
     ]
   },
   {
@@ -149,12 +258,18 @@
     "title": "Addition techniques",
     "status": "shipped",
     "familyIds": [
-      "left-to-right",
-      "complements"
+      "complements",
+      "left-to-right"
     ],
     "trickIds": [
-      "left-to-right-add",
-      "complements-make-ten"
+      "complements-make-ten",
+      "left-to-right-add"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -165,7 +280,12 @@
       "round-compensate"
     ],
     "trickIds": [
-      "round-compensate-49x6"
+      "round-compensate-add-99"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "drill"
     ]
   },
   {
@@ -177,6 +297,12 @@
     ],
     "trickIds": [
       "equal-adjust-both"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -188,6 +314,12 @@
     ],
     "trickIds": [
       "complements-make-ten"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -199,6 +331,11 @@
     ],
     "trickIds": [
       "complements-pair"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach"
     ]
   },
   {
@@ -209,7 +346,14 @@
       "complements"
     ],
     "trickIds": [
-      "complements-gauss"
+      "complements-gauss",
+      "complements-terms-average"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -223,7 +367,18 @@
       "fraction-percent"
     ],
     "trickIds": [
-      "percent-chunks-12-5"
+      "percent-chunks",
+      "percent-chunks-12-5",
+      "percent-chunks-small",
+      "percent-chunks-fractions",
+      "percent-1-shift"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill",
+      "game"
     ]
   },
   {
@@ -235,6 +390,15 @@
     ],
     "trickIds": [
       "percent-swap"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill",
+      "game",
+      "scenario",
+      "case"
     ]
   },
   {
@@ -246,7 +410,14 @@
     ],
     "trickIds": [
       "fraction-percent-eighth",
-      "fraction-percent-eighths"
+      "fraction-percent-eighths",
+      "fraction-percent-sixths-ninths"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -258,6 +429,12 @@
     ],
     "trickIds": [
       "cross-cancel-factors"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -269,6 +446,12 @@
     ],
     "trickIds": [
       "cross-cancel-compare"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -280,6 +463,10 @@
     ],
     "trickIds": [
       "round-compensate-compatible"
+    ],
+    "surfaces": [
+      "guide",
+      "trick"
     ]
   },
   {
@@ -290,7 +477,14 @@
       "round-compensate"
     ],
     "trickIds": [
-      "round-compensate-49x6"
+      "round-compensate-49x6",
+      "round-compensate-198x37"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -302,6 +496,12 @@
     ],
     "trickIds": [
       "cast-nines-root"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -313,6 +513,12 @@
     ],
     "trickIds": [
       "cast-nines-last-digit"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -320,12 +526,19 @@
     "title": "Digital-root shortcuts",
     "status": "shipped",
     "familyIds": [
-      "divisibility",
-      "cast-nines"
+      "cast-nines",
+      "divisibility"
     ],
     "trickIds": [
-      "divisibility-digit-sum",
-      "cast-nines-root"
+      "cast-nines-root",
+      "cast-nines-addition",
+      "divisibility-digit-sum"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -333,10 +546,19 @@
     "title": "Power-of-10 thinking",
     "status": "shipped",
     "familyIds": [
-      "magnitude"
+      "magnitude",
+      "percent-shift"
     ],
     "trickIds": [
-      "magnitude-append-zeros"
+      "magnitude-append-zeros",
+      "percent-1-shift"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill",
+      "game"
     ]
   },
   {
@@ -348,6 +570,11 @@
     ],
     "trickIds": [
       "magnitude-decimal-mult"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "drill"
     ]
   },
   {
@@ -359,6 +586,12 @@
     ],
     "trickIds": [
       "easy-division-scale"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -369,7 +602,14 @@
       "difference-squares"
     ],
     "trickIds": [
-      "difference-squares-center"
+      "difference-squares-center",
+      "difference-squares-thousand"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -377,10 +617,18 @@
     "title": "Algebraic square identities",
     "status": "shipped",
     "familyIds": [
+      "square-identities",
       "difference-squares"
     ],
     "trickIds": [
+      "square-identities-split",
       "difference-squares-center"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -392,6 +640,11 @@
     ],
     "trickIds": [
       "difference-squares-near"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "drill"
     ]
   },
   {
@@ -399,10 +652,18 @@
     "title": "Square near 100",
     "status": "shipped",
     "familyIds": [
-      "multiply-near"
+      "multiply-near",
+      "square-identities"
     ],
     "trickIds": [
-      "multiply-near-square-100"
+      "multiply-near-square-100",
+      "square-identities-split"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -414,6 +675,12 @@
     ],
     "trickIds": [
       "approx-sqrt-bump"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -425,6 +692,12 @@
     ],
     "trickIds": [
       "approx-sqrt-babylon"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -436,6 +709,12 @@
     ],
     "trickIds": [
       "anchors-relate-facts"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -443,10 +722,18 @@
     "title": "Commutative switching",
     "status": "shipped",
     "familyIds": [
+      "regroup-factors",
       "percent-reversible"
     ],
     "trickIds": [
+      "regroup-factors-commute",
       "percent-swap"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -458,6 +745,12 @@
     ],
     "trickIds": [
       "regroup-factors-associate"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -469,6 +762,12 @@
     ],
     "trickIds": [
       "regroup-factors-order"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
@@ -476,23 +775,38 @@
     "title": "Memorize strategically useful number facts",
     "status": "shipped",
     "familyIds": [
+      "number-facts",
       "anchors",
       "fraction-percent"
     ],
     "trickIds": [
-      "anchors-squares-powers",
-      "fraction-percent-eighth"
+      "number-facts-squares",
+      "number-facts-cubes-powers",
+      "number-facts-reciprocals",
+      "anchors-squares-powers"
+    ],
+    "surfaces": [
+      "guide",
+      "trick",
+      "coach",
+      "drill"
     ]
   },
   {
     "id": "master-1",
-    "title": "Complements to 10/100/1000",
+    "title": "Complements to 10, 100, 1,000",
     "status": "shipped",
     "familyIds": [
-      "complements"
+      "complements",
+      "mental-abacus"
     ],
     "trickIds": [
       "complements-make-ten"
+    ],
+    "surfaces": [
+      "toolbox",
+      "guide",
+      "trick"
     ]
   },
   {
@@ -500,12 +814,17 @@
     "title": "Place-value decomposition",
     "status": "shipped",
     "familyIds": [
+      "left-to-right",
       "magnitude",
-      "left-to-right"
+      "area-grid"
     ],
     "trickIds": [
-      "magnitude-append-zeros",
-      "left-to-right-add"
+      "area-grid-place-value"
+    ],
+    "surfaces": [
+      "toolbox",
+      "guide",
+      "trick"
     ]
   },
   {
@@ -514,10 +833,16 @@
     "status": "shipped",
     "familyIds": [
       "regroup-factors",
-      "round-compensate"
+      "area-grid",
+      "criss-cross"
     ],
     "trickIds": [
-      "regroup-factors-associate"
+      "regroup-factors-distribute"
+    ],
+    "surfaces": [
+      "toolbox",
+      "guide",
+      "trick"
     ]
   },
   {
@@ -525,10 +850,16 @@
     "title": "Round and compensate",
     "status": "shipped",
     "familyIds": [
-      "round-compensate"
+      "round-compensate",
+      "equal-adjust"
     ],
     "trickIds": [
       "round-compensate-49x6"
+    ],
+    "surfaces": [
+      "toolbox",
+      "guide",
+      "trick"
     ]
   },
   {
@@ -536,10 +867,16 @@
     "title": "Double and halve",
     "status": "shipped",
     "familyIds": [
-      "double-half"
+      "double-half",
+      "fixed-multipliers"
     ],
     "trickIds": [
       "double-half-x5"
+    ],
+    "surfaces": [
+      "toolbox",
+      "guide",
+      "trick"
     ]
   },
   {
@@ -548,11 +885,16 @@
     "status": "shipped",
     "familyIds": [
       "regroup-factors",
-      "easy-division"
+      "easy-division",
+      "cross-cancel"
     ],
     "trickIds": [
-      "regroup-factors-order",
-      "easy-division-factor"
+      "regroup-factors-factor-multiplier"
+    ],
+    "surfaces": [
+      "toolbox",
+      "guide",
+      "trick"
     ]
   },
   {
@@ -560,10 +902,16 @@
     "title": "Difference of squares",
     "status": "shipped",
     "familyIds": [
-      "difference-squares"
+      "difference-squares",
+      "square-identities"
     ],
     "trickIds": [
       "difference-squares-center"
+    ],
+    "surfaces": [
+      "toolbox",
+      "guide",
+      "trick"
     ]
   },
   {
@@ -571,10 +919,16 @@
     "title": "Near-base multiplication",
     "status": "shipped",
     "familyIds": [
+      "near-base",
       "multiply-near"
     ],
     "trickIds": [
-      "multiply-near-x9"
+      "near-base-below"
+    ],
+    "surfaces": [
+      "toolbox",
+      "guide",
+      "trick"
     ]
   },
   {
@@ -586,6 +940,11 @@
     ],
     "trickIds": [
       "divisibility-digit-sum"
+    ],
+    "surfaces": [
+      "toolbox",
+      "guide",
+      "trick"
     ]
   },
   {
@@ -598,32 +957,100 @@
     ],
     "trickIds": [
       "easy-division-rewrite"
+    ],
+    "surfaces": [
+      "toolbox",
+      "guide",
+      "trick"
     ]
   },
   {
     "id": "master-11",
-    "title": "Memorize squares / powers / common fractions",
+    "title": "Memorize squares, powers, common fractions",
     "status": "shipped",
     "familyIds": [
+      "number-facts",
       "anchors",
       "fraction-percent"
     ],
     "trickIds": [
-      "anchors-squares-powers",
-      "fraction-percent-eighth"
+      "number-facts-squares"
+    ],
+    "surfaces": [
+      "toolbox",
+      "guide",
+      "trick"
     ]
   },
   {
     "id": "master-12",
-    "title": "Estimate and independently check the result",
+    "title": "Estimate and independently check",
     "status": "shipped",
     "familyIds": [
       "round-compensate",
-      "cast-nines"
+      "cast-nines",
+      "approx-sqrt"
     ],
     "trickIds": [
-      "round-compensate-compatible",
       "cast-nines-root"
+    ],
+    "surfaces": [
+      "toolbox",
+      "guide",
+      "trick"
+    ]
+  },
+  {
+    "id": "progression",
+    "title": "Suggested progression",
+    "status": "shipped",
+    "familyIds": [
+      "area-grid",
+      "complements",
+      "criss-cross",
+      "difference-squares",
+      "divisibility",
+      "double-half",
+      "equal-adjust",
+      "fixed-multipliers",
+      "fraction-percent",
+      "mental-abacus",
+      "multiply-near",
+      "near-base",
+      "percent-chunks",
+      "percent-reversible",
+      "regroup-factors",
+      "round-compensate",
+      "square-identities"
+    ],
+    "surfaces": [
+      "toolbox"
+    ]
+  },
+  {
+    "id": "caveat-vedic",
+    "title": "Vedic Mathematics origin note (Tirtha, 1965; sutra origin disputed)",
+    "status": "shipped",
+    "familyIds": [
+      "criss-cross",
+      "near-base"
+    ],
+    "surfaces": [
+      "toolbox",
+      "guide"
+    ]
+  },
+  {
+    "id": "caveat-line",
+    "title": "“Japanese” line multiplication origin not established",
+    "status": "shipped",
+    "familyIds": [
+      "area-grid",
+      "mental-abacus"
+    ],
+    "surfaces": [
+      "toolbox",
+      "guide"
     ]
   }
 ]

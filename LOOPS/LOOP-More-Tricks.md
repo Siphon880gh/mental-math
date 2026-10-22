@@ -100,6 +100,22 @@ GuideView must list **every** trick for the family (not only `[0]`).
 | 7 lattice / gelosia | Visual grid; same as area / criss-cross conceptually |
 | Intro Vedic / “Japanese” origin notes | History, not a calculation move |
 
+### Phase D — full coverage pass (2026-10)
+
+The Phase C skips were reversed after a coverage audit. Visual and historical rows now ship as explanation guides, and the origin notes are user-facing:
+
+| Doc | Now |
+|-----|-----|
+| 3 fixed multipliers (×3…×1001) | `fixed-multipliers` |
+| 4 Nikhilam (above, below, mixed, base 1,000) | `near-base` |
+| 5, 33 (a±b)², same-ones tens-to-10 | `square-identities` |
+| 2 area / partial products; 6 line; 7 lattice | `area-grid` (line + lattice marked slower for big numbers) |
+| 6 soroban / anzan, complements to 5, rods, suanpan | `mental-abacus` |
+| 42 squares to 30, cubes, reciprocals | `number-facts` |
+| Intro Vedic / “Japanese” origin notes, 12 masters, progression | `/toolbox` (`data/toolbox.json`) plus guide notes in `criss-cross`, `near-base`, `area-grid` |
+
+Every `more-tricks.json` row now carries `surfaces`; `MoreTricksTest` fails if a claimed surface does not exist for the row’s families.
+
 **Done(more-tricks):** Phases A–C complete; `moreTricksCoverage.ts` has a row for sections 1–42 and master 1–12, each `shipped` or `skip`.
 
 ---
