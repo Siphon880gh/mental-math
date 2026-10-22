@@ -25,6 +25,8 @@ Think: 98 is 100 − 2, 97 is 100 − 3.
 
 You only need this shape for numbers in the 90s. For 102 × 104, add the extra: 102 + 4 = 106, holes 2 × 4 = 8 → **10,608**.
 
+The full method — above, below, mixed, and base 1,000 — lives in the Near-base multiplication guide.
+
 ## Squares ending in 5
 
 n5²: take n × (n+1), then glue 25.

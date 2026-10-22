@@ -14,6 +14,8 @@ Both are 2 away from 50.
 
 99 × 101 is the same idea around 100: 10,000 − 1 = **9,999**.
 
+997 × 1,003 sits around 1,000 with gap 3: 1,000,000 − 9 = **999,991**.
+
 ## Same tens digit, ones add to 10
 
 43 × 47: tens digit 4, ones 3+7=10.
@@ -39,3 +41,5 @@ A $48 seat × 52 weeks is not “about 2,500.” It is 2,500 minus 4. The identi
 - 47 × 53 = 2,491
 - 62 × 68 = 4,216
 - 96 × 104 = 9,984
+- 998 × 1,002 = 999,996
+- 71 × 79 → 75² − 4² = 5,625 − 16 = 5,609

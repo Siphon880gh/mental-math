@@ -2,7 +2,7 @@
   "meta": {
     "slug": "divisibility",
     "title": "Last digits and digit sums",
-    "summary": "SAMPLE 4,731: digit sum 15, so yes for 3. Last two / alternating sum for 4 and 11.",
+    "summary": "SAMPLE 4,731: digit sum 15, so yes for 3. Trim for 7, coprime pairs for 24.",
     "familyId": "divisibility",
     "tags": [
       "beginner"
@@ -12,7 +12,7 @@
     "start": "start",
     "nodes": {
       "success": {
-        "message": "Session complete. 3/9 digit sum; 4 last two; 11 alternating.\n\nSAMPLE: 4,731 yes for 3; 7,316 yes for 4; 2,728 yes for 11.",
+        "message": "Session complete. 3/9 digit sum; 4 last two; 11 alternating; 7/13/17/19 trim; composites are coprime pairs.\n\nSAMPLE: 4,731 yes for 3; 2,728 yes for 11; 203 yes for 7; 1,344 yes for 24.",
         "outcome": "success",
         "choices": []
       },
@@ -89,7 +89,7 @@
           {
             "id": "neg11",
             "label": "2−7+2−8=−11, a multiple of 11, so yes",
-            "next": "success"
+            "next": "seven"
           },
           {
             "id": "sum11",
@@ -114,6 +114,72 @@
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "check"
+      },
+      "seven": {
+        "message": "SAMPLE: 203 seats, tables of seven. Trim test?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "trim",
+            "label": "Drop 3, subtract 2×3: 20 − 6 = 14 → yes",
+            "next": "composite"
+          },
+          {
+            "id": "sum7",
+            "label": "Digit sum 2+0+3 = 5",
+            "next": "wrong_seven_sum7"
+          },
+          {
+            "id": "add4",
+            "label": "Drop 3, add 4×3: 20 + 12 = 32",
+            "next": "wrong_seven_add4"
+          }
+        ]
+      },
+      "wrong_seven_sum7": {
+        "message": "Digit sums are for 3 and 9. Seven uses the trim.\n\nReturn to the trim.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "seven"
+      },
+      "wrong_seven_add4": {
+        "message": "Add 4× is the 13 rule. Seven subtracts 2×.\n\nReturn to the trim.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "seven"
+      },
+      "composite": {
+        "message": "SAMPLE: is 1,344 divisible by 24?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "three_eight",
+            "label": "Test 3 (digit sum 12) and 8 (344 ÷ 8 = 43) → yes",
+            "next": "success"
+          },
+          {
+            "id": "two_twelve",
+            "label": "Test 2 and 12",
+            "next": "wrong_composite_two_twelve"
+          },
+          {
+            "id": "four_six",
+            "label": "Test 4 and 6",
+            "next": "wrong_composite_four_six"
+          }
+        ]
+      },
+      "wrong_composite_two_twelve": {
+        "message": "2 and 12 share a factor, so they do not prove 24. Use coprime 3 and 8.\n\nTry the composite again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "composite"
+      },
+      "wrong_composite_four_six": {
+        "message": "4 and 6 overlap (both even). Use 3 and 8.\n\nTry the composite again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "composite"
       }
     }
   }

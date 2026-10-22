@@ -45,7 +45,20 @@ Use this when one side becomes a multiple of 10.
 27→18, 13→36, 6→72 (drop), 3→144, 1→288  
 18+36+144+288 = **486**
 
-Egyptian multiplication is the same idea: build 1×, 2×, 4×, 8× of the other factor and add the bits you need.
+Why it works: you are writing 27 in powers of two (16 + 8 + 2 + 1) without saying “binary.”
+
+## Egyptian doubling
+
+Egyptian multiplication is the same idea from the other side: build a doubling ladder of one factor, then add the rungs that make the other.
+
+13 × 27, and 13 = 8 + 4 + 1:
+
+- 1 × 27 = 27
+- 2 × 27 = 54
+- 4 × 27 = 108
+- 8 × 27 = 216
+
+216 + 108 + 27 = **351**. Skip the 2× rung because 13 has no 2 in it.
 
 ## Conversation use
 
@@ -58,3 +71,6 @@ Headcount of 12 people × $80k is painful. 12 × 8 = 96, then three zeros for th
 - 36 × 25 = 900
 - 34 × 50 = 1,700
 - 48 × 125 = 6,000
+- 37 × 8 → 74 → 148 → 296
+- 21 × 14 (peasant) → keep 14, 56, 224 → 294
+- 11 × 23 (Egyptian, 8+2+1) → 184 + 46 + 23 = 253

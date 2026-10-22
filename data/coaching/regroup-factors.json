@@ -12,7 +12,7 @@
     "start": "start",
     "nodes": {
       "success": {
-        "message": "Session complete. Associate so a pair makes 10 or 100, then dump the leftover.\n\nSAMPLE: 25×16×4=1,600, 8×37×125=37,000.",
+        "message": "Session complete. Pair to a power of 10, factor awkward multipliers, and flip the product when the other order splits easier.\n\nSAMPLE: 8×37×125=37,000, 37×18=666, 17×6=102.",
         "outcome": "success",
         "choices": []
       },
@@ -89,7 +89,7 @@
           {
             "id": "1200",
             "label": "25×4×12 = 100×12 = 1,200",
-            "next": "success"
+            "next": "factor"
           },
           {
             "id": "1000",
@@ -114,6 +114,72 @@
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "check"
+      },
+      "factor": {
+        "message": "SAMPLE: 37 × 18. Factor the multiplier?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "nine_two",
+            "label": "×9 then ×2: 333 → 666",
+            "next": "flip"
+          },
+          {
+            "id": "three_six_add",
+            "label": "×3 plus ×6",
+            "next": "wrong_factor_three_six_add"
+          },
+          {
+            "id": "ten_eight",
+            "label": "×10 then ×8",
+            "next": "wrong_factor_ten_eight"
+          }
+        ]
+      },
+      "wrong_factor_three_six_add": {
+        "message": "Factors multiply, they do not add. 18 = 9 × 2.\n\nReturn to the factors.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "factor"
+      },
+      "wrong_factor_ten_eight": {
+        "message": "10 × 8 is 80, not 18.\n\nReturn to the factors.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "factor"
+      },
+      "flip": {
+        "message": "SAMPLE: 17 × 6. Easier reading?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "six_17s",
+            "label": "Six 17s: 60 + 42 = 102",
+            "next": "success"
+          },
+          {
+            "id": "long",
+            "label": "17 + 17 + 17 + 17 + 17 + 17 one at a time",
+            "next": "wrong_flip_long"
+          },
+          {
+            "id": "round",
+            "label": "17 × 5 and stop",
+            "next": "wrong_flip_round"
+          }
+        ]
+      },
+      "wrong_flip_long": {
+        "message": "Same answer, slow. Split 17 into 10 + 7.\n\nTry the flip again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "flip"
+      },
+      "wrong_flip_round": {
+        "message": "One copy short: 85 + 17 = 102.\n\nTry the flip again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "flip"
       }
     }
   }

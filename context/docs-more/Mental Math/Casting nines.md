@@ -14,6 +14,17 @@ If someone claims 347×26=9,022: 9+0+2+2=13 → **4**. The roots match, so the c
 
 If they had said 9,023, the root would be 5 and you would reject it immediately.
 
+## Check a sum the same way
+
+Digit roots add just like they multiply. 4,738 + 2,595 claimed as 7,333:
+
+- 4,738 → 22 → **4**
+- 2,595 → 21 → **3**
+- 4 + 3 = **7**
+- 7,333 → 16 → **7**. Match, so the claim survives.
+
+A claim of 7,343 has root 8 and dies on the spot. Subtraction works too: roots subtract (add 9 if you go negative).
+
 ## Last digit
 
 327×648: ones digits 7×8=56, so the product **must end in 6**. A claim ending in 5 is already false. You never touch the other digits.
@@ -29,3 +40,4 @@ A slide that says “327 × 648 = 211,895” dies on the last digit before you a
 - Digit root of 87,946 = 7
 - 7×8 ends in 6, so 56, 16, 96 are legal ones digits
 - 15×4 ends in 0, not 2
+- 386 + 457 = 843: roots 8 + 7 = 15 → 6, and 843 → 15 → 6

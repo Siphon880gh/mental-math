@@ -12,7 +12,7 @@
     "start": "start",
     "nodes": {
       "success": {
-        "message": "Session complete. Missing-to-10/100, pair a list, Gauss n(n+1)/2.\n\nSAMPLE: 8+7=15, 68+47=115, 1…10=55.",
+        "message": "Session complete. Missing-to-10/100, pair a list, Gauss n(n+1)/2, and any even run is count × average.\n\nSAMPLE: 8+7=15, 68+47=115, 1…10=55, 20…29=245.",
         "outcome": "success",
         "choices": []
       },
@@ -89,7 +89,7 @@
           {
             "id": "55",
             "label": "5 pairs of 11 = 55",
-            "next": "success"
+            "next": "average"
           },
           {
             "id": "10",
@@ -114,6 +114,39 @@
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "check"
+      },
+      "average": {
+        "message": "SAMPLE: 20 + 21 + … + 29. Shape?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "count_avg",
+            "label": "10 terms × average 24.5 = 245",
+            "next": "success"
+          },
+          {
+            "id": "gauss_formula",
+            "label": "n(n+1)/2 with n = 29",
+            "next": "wrong_average_gauss_formula"
+          },
+          {
+            "id": "first_last",
+            "label": "20 + 29 = 49",
+            "next": "wrong_average_first_last"
+          }
+        ]
+      },
+      "wrong_average_gauss_formula": {
+        "message": "That counts from 1. This run starts at 20: count × average.\n\nTry the run again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "average"
+      },
+      "wrong_average_first_last": {
+        "message": "That is one pair. Five pairs → 245.\n\nTry the run again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "average"
       }
     }
   }

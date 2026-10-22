@@ -105,7 +105,7 @@
     "slug": "divisibility",
     "familyId": "divisibility",
     "file": "Divisibility.md",
-    "summary": "Last digits, digit sums, and the alternating-11 test."
+    "summary": "Last digits, digit sums, trims for 7/13/17/19, composites."
   },
   {
     "slug": "criss-cross",
@@ -123,13 +123,13 @@
     "slug": "easy-division",
     "familyId": "easy-division",
     "file": "Easy division.md",
-    "summary": "Rewrite ÷ as ×, factor the divisor, or scale both sides."
+    "summary": "Rewrite ÷ as ×, factor, scale both, partial quotients."
   },
   {
     "slug": "complements",
     "familyId": "complements",
     "file": "Complements.md",
-    "summary": "What is missing to 10 or 100. Pair long sums. Gauss."
+    "summary": "Missing to 5, 10, or 100. Pair long sums. Count × average."
   },
   {
     "slug": "equal-adjust",

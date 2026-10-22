@@ -12,7 +12,7 @@
     "start": "start",
     "nodes": {
       "success": {
-        "message": "Session complete. Ones, cross, tens — carry when a slot hits 10.\n\nSAMPLE: 23×21=483, 12×13=156.",
+        "message": "Session complete. Ones, cross, tens — and for three digits, five slots with a three-product middle.\n\nSAMPLE: 23×21=483, 12×18=216, 123×321=39,483.",
         "outcome": "success",
         "choices": []
       },
@@ -89,7 +89,7 @@
           {
             "id": "156",
             "label": "2×3=6, 1×3+2×1=5, 1×1=1 → 156",
-            "next": "success"
+            "next": "three"
           },
           {
             "id": "36",
@@ -114,6 +114,39 @@
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "check"
+      },
+      "three": {
+        "message": "SAMPLE: 123 × 321. Middle (hundreds) slot?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "three_pairs",
+            "label": "1×1 + 2×2 + 3×3 = 14 → write 4, carry 1",
+            "next": "success"
+          },
+          {
+            "id": "two_pairs",
+            "label": "2×2 only",
+            "next": "wrong_three_two_pairs"
+          },
+          {
+            "id": "no_carry",
+            "label": "14 → write 14",
+            "next": "wrong_three_no_carry"
+          }
+        ]
+      },
+      "wrong_three_two_pairs": {
+        "message": "The hundreds slot gets every pair whose places add to 2: three products.\n\nTry the middle slot again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "three"
+      },
+      "wrong_three_no_carry": {
+        "message": "One digit per slot. Write 4, carry 1 → 39,483.\n\nTry the middle slot again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "three"
       }
     }
   }

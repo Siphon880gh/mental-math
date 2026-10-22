@@ -2453,6 +2453,535 @@
       ]
     },
     {
+      "id": "fd-div-7-203",
+      "groupId": "foundations",
+      "familyId": "divisibility",
+      "prompt": "SAMPLE: 203 for ÷7. Trim: 20 − 2×3 = ?",
+      "expectedAnswer": 14,
+      "thoughtChain": [
+        "drop 3 → 20",
+        "20 − 6 = 14",
+        "14 = 2×7 → yes"
+      ]
+    },
+    {
+      "id": "fd-div-13-286",
+      "groupId": "foundations",
+      "familyId": "divisibility",
+      "prompt": "SAMPLE: 286 for ÷13. Trim: 28 + 4×6 = ?",
+      "expectedAnswer": 52,
+      "thoughtChain": [
+        "drop 6 → 28",
+        "28 + 24 = 52",
+        "52 = 4×13 → yes"
+      ]
+    },
+    {
+      "id": "fd-div-17-221",
+      "groupId": "foundations",
+      "familyId": "divisibility",
+      "prompt": "SAMPLE: 221 for ÷17. Trim: 22 − 5×1 = ?",
+      "expectedAnswer": 17,
+      "thoughtChain": [
+        "drop 1 → 22",
+        "22 − 5 = 17 → yes"
+      ]
+    },
+    {
+      "id": "fd-div-19-133",
+      "groupId": "foundations",
+      "familyId": "divisibility",
+      "prompt": "SAMPLE: 133 for ÷19. Trim: 13 + 2×3 = ?",
+      "expectedAnswer": 19,
+      "thoughtChain": [
+        "drop 3 → 13",
+        "13 + 6 = 19 → yes"
+      ]
+    },
+    {
+      "id": "fd-div-16-31168",
+      "groupId": "foundations",
+      "familyId": "divisibility",
+      "prompt": "SAMPLE: 31,168 ÷ 16. Only the last four digits matter.",
+      "expectedAnswer": 1948,
+      "thoughtChain": [
+        "last four 1,168 ÷ 16 = 73 → divisible",
+        "31,168 ÷ 16 = 1,948"
+      ]
+    },
+    {
+      "id": "fd-div-8-12344",
+      "groupId": "foundations",
+      "familyId": "divisibility",
+      "prompt": "SAMPLE: last three digits of 12,344 ÷ 8 (the ÷8 test).",
+      "expectedAnswer": 43,
+      "thoughtChain": [
+        "344 ÷ 8 = 43 → yes"
+      ]
+    },
+    {
+      "id": "fd-div-9-7236",
+      "groupId": "foundations",
+      "familyId": "divisibility",
+      "prompt": "SAMPLE: digit sum of 7,236 (the ÷9 test).",
+      "expectedAnswer": 18,
+      "thoughtChain": [
+        "7+2+3+6 = 18",
+        "18 ÷ 9 → yes"
+      ]
+    },
+    {
+      "id": "fd-div-12-1236",
+      "groupId": "foundations",
+      "familyId": "divisibility",
+      "prompt": "SAMPLE: 1,236 ÷ 12. Passes 3 and 4.",
+      "expectedAnswer": 103,
+      "thoughtChain": [
+        "digit sum 12 → ÷3",
+        "36 ÷ 4 → ÷4",
+        "1,236 ÷ 12 = 103"
+      ]
+    },
+    {
+      "id": "fd-div-125-3375",
+      "groupId": "foundations",
+      "familyId": "divisibility",
+      "prompt": "SAMPLE: 3,375 ÷ 125. Last three digits are 375.",
+      "expectedAnswer": 27,
+      "thoughtChain": [
+        "375 is on the 125 ladder",
+        "3,375 = 3,000 + 375 → 24 + 3 = 27"
+      ]
+    },
+    {
+      "id": "fd-cm-1000-428",
+      "groupId": "foundations",
+      "familyId": "complements",
+      "prompt": "SAMPLE: 428 needs ? to make 1,000.",
+      "expectedAnswer": 572,
+      "thoughtChain": [
+        "428 → 500 needs 72",
+        "500 → 1,000 needs 500",
+        "572"
+      ]
+    },
+    {
+      "id": "fd-cm-gauss-100",
+      "groupId": "foundations",
+      "familyId": "complements",
+      "prompt": "SAMPLE: 1+2+…+100. Gauss pairs.",
+      "expectedAnswer": 5050,
+      "thoughtChain": [
+        "50 pairs of 101",
+        "5,050"
+      ]
+    },
+    {
+      "id": "fd-cm-run-20-29",
+      "groupId": "foundations",
+      "familyId": "complements",
+      "prompt": "SAMPLE: 20+21+…+29. Count × average.",
+      "expectedAnswer": 245,
+      "thoughtChain": [
+        "10 terms",
+        "average (20+29)/2 = 24.5",
+        "10 × 24.5 = 245"
+      ]
+    },
+    {
+      "id": "fd-dh-peasant-27x18",
+      "groupId": "foundations",
+      "familyId": "double-half",
+      "prompt": "SAMPLE: 27 × 18, Russian peasant: add the odd rows.",
+      "expectedAnswer": 486,
+      "thoughtChain": [
+        "27→18, 13→36, 6→72 drop, 3→144, 1→288",
+        "18+36+144+288 = 486"
+      ]
+    },
+    {
+      "id": "fd-dh-egypt-13x27",
+      "groupId": "foundations",
+      "familyId": "double-half",
+      "prompt": "SAMPLE: 13 × 27, Egyptian ladder (13 = 8+4+1).",
+      "expectedAnswer": 351,
+      "thoughtChain": [
+        "27, 54, 108, 216",
+        "216 + 108 + 27 = 351"
+      ]
+    },
+    {
+      "id": "fd-dh-37x8",
+      "groupId": "foundations",
+      "familyId": "double-half",
+      "prompt": "SAMPLE: 37 × 8, three doubles.",
+      "expectedAnswer": 296,
+      "thoughtChain": [
+        "74",
+        "148",
+        "296"
+      ]
+    },
+    {
+      "id": "fd-dh-16x35",
+      "groupId": "foundations",
+      "familyId": "double-half",
+      "prompt": "SAMPLE: 16 × 35. Halve one, double the other.",
+      "expectedAnswer": 560,
+      "thoughtChain": [
+        "8 × 70",
+        "4 × 140 = 560"
+      ]
+    },
+    {
+      "id": "fd-dh-36x25",
+      "groupId": "foundations",
+      "familyId": "double-half",
+      "prompt": "SAMPLE: 36 × 25. ×100 then ÷4.",
+      "expectedAnswer": 900,
+      "thoughtChain": [
+        "3,600",
+        "÷4 = 900"
+      ]
+    },
+    {
+      "id": "fd-mn-347x11",
+      "groupId": "foundations",
+      "familyId": "multiply-near",
+      "prompt": "SAMPLE: 347 × 11. Neighbor sums.",
+      "expectedAnswer": 3817,
+      "thoughtChain": [
+        "3 | 3+4 | 4+7 | 7",
+        "3 | 7 | 11 | 7 → carry",
+        "3,817"
+      ]
+    },
+    {
+      "id": "fd-mn-97sq",
+      "groupId": "foundations",
+      "familyId": "multiply-near",
+      "prompt": "SAMPLE: 97². Square near 100.",
+      "expectedAnswer": 9409,
+      "thoughtChain": [
+        "10,000 − 600 + 9",
+        "9,409"
+      ]
+    },
+    {
+      "id": "fd-mn-104sq",
+      "groupId": "foundations",
+      "familyId": "multiply-near",
+      "prompt": "SAMPLE: 104². Square near 100.",
+      "expectedAnswer": 10816,
+      "thoughtChain": [
+        "10,000 + 800 + 16",
+        "10,816"
+      ]
+    },
+    {
+      "id": "fd-rc-347p99",
+      "groupId": "foundations",
+      "familyId": "round-compensate",
+      "prompt": "SAMPLE: 347 + 99.",
+      "expectedAnswer": 446,
+      "thoughtChain": [
+        "+100 = 447",
+        "−1 = 446"
+      ]
+    },
+    {
+      "id": "fd-rc-1250p998",
+      "groupId": "foundations",
+      "familyId": "round-compensate",
+      "prompt": "SAMPLE: 1,250 + 998.",
+      "expectedAnswer": 2248,
+      "thoughtChain": [
+        "+1,000 = 2,250",
+        "−2 = 2,248"
+      ]
+    },
+    {
+      "id": "fd-rc-198x37",
+      "groupId": "foundations",
+      "familyId": "round-compensate",
+      "prompt": "SAMPLE: 198 × 37.",
+      "expectedAnswer": 7326,
+      "thoughtChain": [
+        "200 × 37 = 7,400",
+        "−2×37 = 74",
+        "7,326"
+      ]
+    },
+    {
+      "id": "fd-rg-23x17",
+      "groupId": "foundations",
+      "familyId": "regroup-factors",
+      "prompt": "SAMPLE: 23 × 17. Split 17 into 10 + 7.",
+      "expectedAnswer": 391,
+      "thoughtChain": [
+        "230",
+        "161",
+        "391"
+      ]
+    },
+    {
+      "id": "fd-rg-37x18",
+      "groupId": "foundations",
+      "familyId": "regroup-factors",
+      "prompt": "SAMPLE: 37 × 18 as ×9 then ×2.",
+      "expectedAnswer": 666,
+      "thoughtChain": [
+        "37 × 9 = 333",
+        "×2 = 666"
+      ]
+    },
+    {
+      "id": "fd-rg-17x6",
+      "groupId": "foundations",
+      "familyId": "regroup-factors",
+      "prompt": "SAMPLE: 17 × 6. Flip to six 17s or split 17.",
+      "expectedAnswer": 102,
+      "thoughtChain": [
+        "60 + 42",
+        "102"
+      ]
+    },
+    {
+      "id": "fd-ds-73x77",
+      "groupId": "foundations",
+      "familyId": "difference-squares",
+      "prompt": "SAMPLE: 73 × 77. Center 75.",
+      "expectedAnswer": 5621,
+      "thoughtChain": [
+        "75² = 5,625",
+        "gap 2 → −4",
+        "5,621"
+      ]
+    },
+    {
+      "id": "fd-ds-99x101",
+      "groupId": "foundations",
+      "familyId": "difference-squares",
+      "prompt": "SAMPLE: 99 × 101.",
+      "expectedAnswer": 9999,
+      "thoughtChain": [
+        "100² − 1²",
+        "9,999"
+      ]
+    },
+    {
+      "id": "fd-ds-997x1003",
+      "groupId": "foundations",
+      "familyId": "difference-squares",
+      "prompt": "SAMPLE: 997 × 1,003.",
+      "expectedAnswer": 999991,
+      "thoughtChain": [
+        "1,000² − 3²",
+        "999,991"
+      ]
+    },
+    {
+      "id": "fd-cc-123x321",
+      "groupId": "foundations",
+      "familyId": "criss-cross",
+      "prompt": "SAMPLE: 123 × 321, five slots.",
+      "expectedAnswer": 39483,
+      "thoughtChain": [
+        "3 | 8 | 14 | 8 | 3",
+        "carry the 14",
+        "39,483"
+      ]
+    },
+    {
+      "id": "fd-cc-12x18",
+      "groupId": "foundations",
+      "familyId": "criss-cross",
+      "prompt": "SAMPLE: 12 × 18 with a carry.",
+      "expectedAnswer": 216,
+      "thoughtChain": [
+        "ones 16 → 6 carry 1",
+        "cross 10 + 1 = 11 → 1 carry 1",
+        "tens 1 + 1 = 2 → 216"
+      ]
+    },
+    {
+      "id": "fd-pc-half-600",
+      "groupId": "foundations",
+      "familyId": "percent-chunks",
+      "prompt": "SAMPLE: 0.5% of 600.",
+      "expectedAnswer": 3,
+      "thoughtChain": [
+        "1% = 6",
+        "half → 3"
+      ]
+    },
+    {
+      "id": "fd-pc-two-thirds-90",
+      "groupId": "foundations",
+      "familyId": "percent-chunks",
+      "prompt": "SAMPLE: 66⅔% of 90.",
+      "expectedAnswer": 60,
+      "thoughtChain": [
+        "⅓ = 30",
+        "×2 = 60"
+      ]
+    },
+    {
+      "id": "fd-pc-20-85",
+      "groupId": "foundations",
+      "familyId": "percent-chunks",
+      "prompt": "SAMPLE: 20% of 85 as ÷5.",
+      "expectedAnswer": 17,
+      "thoughtChain": [
+        "85 ÷ 5 = 17"
+      ]
+    },
+    {
+      "id": "fd-pr-4-75",
+      "groupId": "foundations",
+      "familyId": "percent-reversible",
+      "prompt": "SAMPLE: 4% of 75.",
+      "expectedAnswer": 3,
+      "thoughtChain": [
+        "75% of 4",
+        "3"
+      ]
+    },
+    {
+      "id": "fd-fp-sixth-120",
+      "groupId": "foundations",
+      "familyId": "fraction-percent",
+      "prompt": "SAMPLE: 1/6 of 120.",
+      "expectedAnswer": 20,
+      "thoughtChain": [
+        "⅓ = 40",
+        "half = 20"
+      ]
+    },
+    {
+      "id": "fd-fp-38-dec",
+      "groupId": "foundations",
+      "familyId": "fraction-percent",
+      "prompt": "SAMPLE: 3/8 as a decimal.",
+      "expectedAnswer": 0.375,
+      "thoughtChain": [
+        "1/8 = 0.125",
+        "×3 = 0.375"
+      ]
+    },
+    {
+      "id": "fd-ed-936-24",
+      "groupId": "foundations",
+      "familyId": "easy-division",
+      "prompt": "SAMPLE: 936 ÷ 24. Partial quotient.",
+      "expectedAnswer": 39,
+      "thoughtChain": [
+        "24 × 40 = 960",
+        "one 24 too many",
+        "39"
+      ]
+    },
+    {
+      "id": "fd-ed-168-12",
+      "groupId": "foundations",
+      "familyId": "easy-division",
+      "prompt": "SAMPLE: 168 ÷ 12. 12 × what = 168?",
+      "expectedAnswer": 14,
+      "thoughtChain": [
+        "12 × 14 = 168",
+        "14"
+      ]
+    },
+    {
+      "id": "fd-ed-12.6-0.3",
+      "groupId": "foundations",
+      "familyId": "easy-division",
+      "prompt": "SAMPLE: 12.6 ÷ 0.3. Scale both.",
+      "expectedAnswer": 42,
+      "thoughtChain": [
+        "×10 → 126 ÷ 3",
+        "42"
+      ]
+    },
+    {
+      "id": "fd-ed-60-0.125",
+      "groupId": "foundations",
+      "familyId": "easy-division",
+      "prompt": "SAMPLE: 60 ÷ 0.125.",
+      "expectedAnswer": 480,
+      "thoughtChain": [
+        "÷0.125 = ×8",
+        "480"
+      ]
+    },
+    {
+      "id": "fd-ed-340-20",
+      "groupId": "foundations",
+      "familyId": "easy-division",
+      "prompt": "SAMPLE: 340 ÷ 20.",
+      "expectedAnswer": 17,
+      "thoughtChain": [
+        "halve → 170",
+        "one place left → 17"
+      ]
+    },
+    {
+      "id": "fd-ed-936-4-3",
+      "groupId": "foundations",
+      "familyId": "easy-division",
+      "prompt": "SAMPLE: 936 ÷ 12, reverse order: ÷4 first, then ÷3.",
+      "expectedAnswer": 78,
+      "thoughtChain": [
+        "936 ÷ 4 = 234",
+        "234 ÷ 3 = 78"
+      ]
+    },
+    {
+      "id": "fd-cn-sum-root",
+      "groupId": "foundations",
+      "familyId": "cast-nines",
+      "prompt": "SAMPLE: digit root of 4,738 + 2,595 (roots 4 and 3).",
+      "expectedAnswer": 7,
+      "thoughtChain": [
+        "4,738 → 4",
+        "2,595 → 3",
+        "4 + 3 = 7"
+      ]
+    },
+    {
+      "id": "fd-mg-1.7x2.4",
+      "groupId": "foundations",
+      "familyId": "magnitude",
+      "prompt": "SAMPLE: 1.7 × 2.4. Ignore the points.",
+      "expectedAnswer": 4.08,
+      "thoughtChain": [
+        "17 × 24 = 408",
+        "two places → 4.08"
+      ]
+    },
+    {
+      "id": "fd-mg-0.3x1.2",
+      "groupId": "foundations",
+      "familyId": "magnitude",
+      "prompt": "SAMPLE: 0.3 × 1.2.",
+      "expectedAnswer": 0.36,
+      "thoughtChain": [
+        "3 × 12 = 36",
+        "two places → 0.36"
+      ]
+    },
+    {
+      "id": "fd-mg-2.5x0.4",
+      "groupId": "foundations",
+      "familyId": "magnitude",
+      "prompt": "SAMPLE: 2.5 × 0.4.",
+      "expectedAnswer": 1,
+      "thoughtChain": [
+        "25 × 4 = 100",
+        "two places → 1.00"
+      ]
+    },
+    {
       "id": "op-cc-100",
       "groupId": "operator",
       "familyId": "concurrency",

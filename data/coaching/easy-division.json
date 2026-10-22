@@ -12,7 +12,7 @@
     "start": "start",
     "nodes": {
       "success": {
-        "message": "Session complete. Rewrite ÷ as × and a shift; or factor; or scale both.\n\nSAMPLE: 675÷25=27, 936÷12=78, 4.8÷0.06=80.",
+        "message": "Session complete. Rewrite ÷ as × and a shift; factor; scale both; overshoot and back off.\n\nSAMPLE: 675÷25=27, 936÷12=78, 4.8÷0.06=80, 936÷24=39.",
         "outcome": "success",
         "choices": []
       },
@@ -89,7 +89,7 @@
           {
             "id": "80",
             "label": "×100 → 480 ÷ 6 = 80",
-            "next": "success"
+            "next": "partial"
           },
           {
             "id": "8",
@@ -114,6 +114,39 @@
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "check"
+      },
+      "partial": {
+        "message": "SAMPLE: 936 ÷ 24. Partial quotient?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "overshoot",
+            "label": "24 × 40 = 960, one 24 too many → 39",
+            "next": "success"
+          },
+          {
+            "id": "forty",
+            "label": "40, since 960 is close",
+            "next": "wrong_partial_forty"
+          },
+          {
+            "id": "long",
+            "label": "Long division digit by digit",
+            "next": "wrong_partial_long"
+          }
+        ]
+      },
+      "wrong_partial_forty": {
+        "message": "Close is not done: 960 is one 24 over 936.\n\nTry the partial quotient again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "partial"
+      },
+      "wrong_partial_long": {
+        "message": "Works, slow. Jump to a round multiple and back off.\n\nTry the partial quotient again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "partial"
       }
     }
   }
