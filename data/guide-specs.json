@@ -160,5 +160,41 @@
     "familyId": "regroup-factors",
     "file": "Regroup factors.md",
     "summary": "Pair factors that make 10 or 100 before you grind."
+  },
+  {
+    "slug": "fixed-multipliers",
+    "familyId": "fixed-multipliers",
+    "file": "Fixed multipliers.md",
+    "summary": "×3 through ×1001: each multiplier is a double, a shift, or one copy off."
+  },
+  {
+    "slug": "near-base",
+    "familyId": "near-base",
+    "file": "Near-base multiplication.md",
+    "summary": "Nikhilam: distances from 100 or 1,000. Below, above, mixed."
+  },
+  {
+    "slug": "square-identities",
+    "familyId": "square-identities",
+    "file": "Square identities.md",
+    "summary": "(a±b)², ends in 5, same tens or same ones digit patterns."
+  },
+  {
+    "slug": "area-grid",
+    "familyId": "area-grid",
+    "file": "Area and partial products.md",
+    "summary": "Partial products and the area grid. Line and lattice explained."
+  },
+  {
+    "slug": "mental-abacus",
+    "familyId": "mental-abacus",
+    "file": "Soroban and anzan.md",
+    "summary": "Complements to 5 and 10 from the soroban. Rods and suanpan history."
+  },
+  {
+    "slug": "number-facts",
+    "familyId": "number-facts",
+    "file": "Number facts.md",
+    "summary": "Squares to 30, cubes to 10, powers of two, reciprocals."
   }
 ]

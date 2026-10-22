@@ -1,0 +1,153 @@
+{
+  "meta": {
+    "slug": "near-base",
+    "title": "Near-base multiplication",
+    "summary": "SAMPLE 97 × 94: distances −3 and −6 → 91 | 18 → 9,118. Nikhilam, without the label.",
+    "familyId": "near-base",
+    "tags": [
+      "intermediate"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Distances, cross, multiply the gaps; base 100 keeps two digits, base 1,000 keeps three.\n\nSAMPLE: 97×94=9,118, 98×103=10,094.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 97 × 94. Both hug 100. First move?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "gaps",
+            "label": "Write the distances: −3 and −6",
+            "next": "cross"
+          },
+          {
+            "id": "round_both",
+            "label": "Round both to 100 → 10,000",
+            "next": "wrong_start_round_both"
+          },
+          {
+            "id": "columns",
+            "label": "Long multiply in columns",
+            "next": "wrong_start_columns"
+          }
+        ]
+      },
+      "wrong_start_round_both": {
+        "message": "That throws away the gaps. Keep them: −3 and −6.\n\nReturn to the distances.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_columns": {
+        "message": "Works, but this family reads the answer off the distances.\n\nReturn to the distances.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "cross": {
+        "message": "Left part?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "cross_sub",
+            "label": "Cross subtract: 97 − 6 = 91",
+            "next": "right"
+          },
+          {
+            "id": "add_gaps",
+            "label": "3 + 6 = 9",
+            "next": "wrong_cross_add_gaps"
+          },
+          {
+            "id": "mul_left",
+            "label": "97 × 6",
+            "next": "wrong_cross_mul_left"
+          }
+        ]
+      },
+      "wrong_cross_add_gaps": {
+        "message": "The left side is one number minus the other’s gap.\n\nRevisit the cross.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "cross"
+      },
+      "wrong_cross_mul_left": {
+        "message": "No multiply here. 97 − 6 = 91.\n\nRevisit the cross.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "cross"
+      },
+      "right": {
+        "message": "Right part, base 100?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "two_digits",
+            "label": "3 × 6 = 18, two digits → 9,118",
+            "next": "mixed"
+          },
+          {
+            "id": "one_digit",
+            "label": "18 → 918",
+            "next": "wrong_right_one_digit"
+          },
+          {
+            "id": "add",
+            "label": "3 + 6 = 9 → 9,109",
+            "next": "wrong_right_add"
+          }
+        ]
+      },
+      "wrong_right_one_digit": {
+        "message": "Base 100 reserves two digits: 91 | 18.\n\nRevisit the right side.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "right"
+      },
+      "wrong_right_add": {
+        "message": "Multiply the gaps, do not add them.\n\nRevisit the right side.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "right"
+      },
+      "mixed": {
+        "message": "SAMPLE: 98 × 103. One below, one above. Finish?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "subtract",
+            "label": "98 + 3 = 101 → 10,100, gaps −2 × 3 = −6 → 10,094",
+            "next": "success"
+          },
+          {
+            "id": "glue",
+            "label": "101 | 06 → 10,106",
+            "next": "wrong_mixed_glue"
+          },
+          {
+            "id": "round",
+            "label": "Call it 10,100",
+            "next": "wrong_mixed_round"
+          }
+        ]
+      },
+      "wrong_mixed_glue": {
+        "message": "Opposite signs make a negative product. Subtract 6.\n\nTry the mixed case again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "mixed"
+      },
+      "wrong_mixed_round": {
+        "message": "Close, but the gap product still matters: −6.\n\nTry the mixed case again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "mixed"
+      }
+    }
+  }
+}

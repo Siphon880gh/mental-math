@@ -46,4 +46,22 @@ final class GuidesTest extends TestCase
             $this->assertStringContainsString('## Same idea, new numbers', $row['body'], $row['slug']);
         }
     }
+
+    public function testMoreTricksCoverageInGuideBodies(): void
+    {
+        $div = Guides::get('divisibility')['body'];
+        foreach (['203 → 20 − 6 = 14', '286 → 28 + 24 = 52', '221 → 22 − 5 = 17', '133 → 13 + 6 = 19', '31,168', '**14** = 2 and 7', '**24** = 3 and 8', '| 125 |'] as $needle) {
+            $this->assertStringContainsString($needle, $div);
+        }
+        $this->assertStringContainsString('Bharati Krishna Tirtha’s 1965 book', Guides::get('criss-cross')['body']);
+        $this->assertStringContainsString('Bharati Krishna Tirtha’s 1965 book', Guides::get('near-base')['body']);
+        $this->assertStringContainsString('no well-established Japanese origin', Guides::get('area-grid')['body']);
+        $this->assertStringContainsString('23 × 83', Guides::get('square-identities')['body']);
+        $this->assertStringContainsString('38 × 1,001 = 38,038', Guides::get('fixed-multipliers')['body']);
+        $this->assertStringContainsString('997 × 1,003', Guides::get('difference-squares')['body']);
+        $this->assertStringContainsString('| 1/6 | 0.1666… |', Guides::get('fraction-percent')['body']);
+        $this->assertStringContainsString('| 0.5% | half of 1% |', Guides::get('percent-chunks')['body']);
+        $this->assertStringContainsString('| 7 | 343 |', Guides::get('number-facts')['body']);
+        $this->assertStringContainsString('Complement to five', Guides::get('mental-abacus')['body']);
+    }
 }

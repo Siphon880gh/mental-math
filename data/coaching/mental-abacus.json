@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "mental-abacus",
+    "title": "Soroban and anzan",
+    "summary": "SAMPLE 3 + 4: five-complement → +5, −1 → 7. Complements to 5 and 10, the soroban way.",
+    "familyId": "mental-abacus",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. +4 is +5 −1; +8 is +10 −2; −6 is −10 +4. Anzan is these moves on an imagined abacus.\n\nSAMPLE: 3+4=7, 47+8=55, 52−6=46.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: a rod shows 3 ones. Add 4 with only one free bead. Move?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "five",
+            "label": "Push the five down, take one away → 7",
+            "next": "ten"
+          },
+          {
+            "id": "count",
+            "label": "Count up 4, 5, 6, 7",
+            "next": "wrong_start_count"
+          },
+          {
+            "id": "ten",
+            "label": "Add 10, take 4 away",
+            "next": "wrong_start_ten"
+          }
+        ]
+      },
+      "wrong_start_count": {
+        "message": "Counting is what the complement replaces. +4 is +5 −1.\n\nReturn to the five.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_ten": {
+        "message": "3 + 10 − 4 = 9. The ten-complement of 4 is 6, and on this rod the five-complement is the move: +5, −1.\n\nReturn to the five.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "ten": {
+        "message": "SAMPLE: 47 + 8. Ten-complement?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "plus_ten",
+            "label": "+10, then −2 → 55",
+            "next": "minus"
+          },
+          {
+            "id": "plus_minus_eight",
+            "label": "+10, then −8",
+            "next": "wrong_ten_plus_minus_eight"
+          },
+          {
+            "id": "fifty",
+            "label": "Round 47 to 50 and stop",
+            "next": "wrong_ten_fifty"
+          }
+        ]
+      },
+      "wrong_ten_plus_minus_eight": {
+        "message": "The complement of 8 is 2 (8 + 2 = 10).\n\nRevisit the ten.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "ten"
+      },
+      "wrong_ten_fifty": {
+        "message": "Close, but the move is +10 −2 → 55.\n\nRevisit the ten.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "ten"
+      },
+      "minus": {
+        "message": "SAMPLE: 52 − 6. Mirror move?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "minus_ten",
+            "label": "−10, then +4 → 46",
+            "next": "success"
+          },
+          {
+            "id": "minus_four",
+            "label": "−10, then −4",
+            "next": "wrong_minus_minus_four"
+          },
+          {
+            "id": "plus_six",
+            "label": "+6",
+            "next": "wrong_minus_plus_six"
+          }
+        ]
+      },
+      "wrong_minus_minus_four": {
+        "message": "Subtracting too much means you add the complement back.\n\nTry the mirror again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "minus"
+      },
+      "wrong_minus_plus_six": {
+        "message": "That adds. You want −10 +4.\n\nTry the mirror again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "minus"
+      }
+    }
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "slug": "number-facts",
+    "title": "Number facts worth owning",
+    "summary": "SAMPLE 26²: 625 + 25 + 26 = 676. Squares to 30, cubes to 10, powers of two, reciprocals.",
+    "familyId": "number-facts",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Step from anchor squares, know cubes to 10, and keep 1/6 ≈ 0.1667 and 1/9 = 0.111….\n\nSAMPLE: 26²=676, 7³=343.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 26² for a floor plan. From which anchor?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "from25",
+            "label": "25² = 625, then + 25 + 26 → 676",
+            "next": "cube"
+          },
+          {
+            "id": "from20",
+            "label": "20² = 400, then + 6²",
+            "next": "wrong_start_from20"
+          },
+          {
+            "id": "guess",
+            "label": "About 650",
+            "next": "wrong_start_guess"
+          }
+        ]
+      },
+      "wrong_start_from20": {
+        "message": "(20 + 6)² also needs 2 × 20 × 6 = 240. The 25 anchor is closer.\n\nReturn to the anchor.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_guess": {
+        "message": "Squares to 30 are worth knowing exactly. 625 + 51 = 676.\n\nReturn to the anchor.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "cube": {
+        "message": "SAMPLE: 7³ for a box volume.",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "343",
+            "label": "49 × 7 = 343",
+            "next": "recip"
+          },
+          {
+            "id": "21",
+            "label": "7 × 3 = 21",
+            "next": "wrong_cube_21"
+          },
+          {
+            "id": "49",
+            "label": "49",
+            "next": "wrong_cube_49"
+          }
+        ]
+      },
+      "wrong_cube_21": {
+        "message": "Cubing is ×7 ×7 ×7, not ×3.\n\nRevisit the cube.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "cube"
+      },
+      "wrong_cube_49": {
+        "message": "That is 7². One more ×7.\n\nRevisit the cube.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "cube"
+      },
+      "recip": {
+        "message": "SAMPLE: split a cost six ways. Multiply by?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "sixth",
+            "label": "≈ 0.1667 (half of a third)",
+            "next": "success"
+          },
+          {
+            "id": "six_tenths",
+            "label": "0.6",
+            "next": "wrong_recip_six_tenths"
+          },
+          {
+            "id": "eighth",
+            "label": "0.125",
+            "next": "wrong_recip_eighth"
+          }
+        ]
+      },
+      "wrong_recip_six_tenths": {
+        "message": "That is 6/10. One sixth is about 0.1667.\n\nTry the reciprocal again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "recip"
+      },
+      "wrong_recip_eighth": {
+        "message": "That is 1/8.\n\nTry the reciprocal again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "recip"
+      }
+    }
+  }
+}

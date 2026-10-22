@@ -143,6 +143,12 @@ Walk **Track A first**, then Track B:
 | 51 | `utilization` | B | same |
 | 52 | `estimate-pad` | B | same |
 | 53 | `funnel-bands` | B | Guide → Coach → Drill(`operator`) → Cases(`stacked-founder` funnel) → Home |
+| 54 | `fixed-multipliers` | A | Guide → Coach → Drill(`foundations`) → Home |
+| 55 | `near-base` | A | same |
+| 56 | `square-identities` | A | same |
+| 57 | `area-grid` | A | same |
+| 58 | `mental-abacus` | A | same |
+| 59 | `number-facts` | A | same |
 
 **Echo edge rules**
 

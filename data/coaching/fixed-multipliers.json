@@ -1,0 +1,153 @@
+{
+  "meta": {
+    "slug": "fixed-multipliers",
+    "title": "Fixed multipliers",
+    "summary": "SAMPLE 42 × 19: ×20 minus one copy → 798. Each multiplier is a double, a shift, or one copy off.",
+    "familyId": "fixed-multipliers",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Neighbors of round numbers add or remove one copy; ×6, ×12, ×15 are small builds.\n\nSAMPLE: 42×19=798, 43×6=258, 46×15=690, 38×1,001=38,038.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 42 seats at $19 each. Which shape is ×19?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "round_minus",
+            "label": "×20, then minus one 42 → 840 − 42 = 798",
+            "next": "sixes"
+          },
+          {
+            "id": "ten_nine",
+            "label": "×10 plus ×9 by columns",
+            "next": "wrong_start_ten_nine"
+          },
+          {
+            "id": "round_plus",
+            "label": "×20, then plus 42",
+            "next": "wrong_start_round_plus"
+          }
+        ]
+      },
+      "wrong_start_ten_nine": {
+        "message": "Works, but two partial products. 19 is one copy below 20.\n\nReturn to the neighbor.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_round_plus": {
+        "message": "×19 is one copy fewer than ×20, so subtract.\n\nReturn to the neighbor.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "sixes": {
+        "message": "SAMPLE: 43 × 6. Fastest build?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "five_plus",
+            "label": "×5 is 215, plus one 43 → 258",
+            "next": "fifteen"
+          },
+          {
+            "id": "double_triple",
+            "label": "Double three times",
+            "next": "wrong_sixes_double_triple"
+          },
+          {
+            "id": "ten_minus",
+            "label": "×10 minus 43",
+            "next": "wrong_sixes_ten_minus"
+          }
+        ]
+      },
+      "wrong_sixes_double_triple": {
+        "message": "Three doubles is ×8, not ×6.\n\nRevisit ×6.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "sixes"
+      },
+      "wrong_sixes_ten_minus": {
+        "message": "×10 − ×1 is ×9. ×6 is ×5 + ×1.\n\nRevisit ×6.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "sixes"
+      },
+      "fifteen": {
+        "message": "SAMPLE: 46 × 15. Build?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "ten_half",
+            "label": "×10 = 460, plus half of that 230 → 690",
+            "next": "big"
+          },
+          {
+            "id": "fifteen_cols",
+            "label": "Write 46 × 15 in columns",
+            "next": "wrong_fifteen_fifteen_cols"
+          },
+          {
+            "id": "ten_plus_five",
+            "label": "460 + 5 = 465",
+            "next": "wrong_fifteen_ten_plus_five"
+          }
+        ]
+      },
+      "wrong_fifteen_fifteen_cols": {
+        "message": "Slow. ×15 is ×10 plus half of ×10.\n\nTry ×15 again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "fifteen"
+      },
+      "wrong_fifteen_ten_plus_five": {
+        "message": "Add ×5 of 46 (230), not the digit 5.\n\nTry ×15 again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "fifteen"
+      },
+      "big": {
+        "message": "SAMPLE: 38 × 1,001. What happens?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "park",
+            "label": "38,000 + 38 → 38,038 (the number twice)",
+            "next": "success"
+          },
+          {
+            "id": "times_thousand",
+            "label": "38,000 and stop",
+            "next": "wrong_big_times_thousand"
+          },
+          {
+            "id": "minus",
+            "label": "38,000 − 38",
+            "next": "wrong_big_minus"
+          }
+        ]
+      },
+      "wrong_big_times_thousand": {
+        "message": "×1,001 is ×1,000 plus one more copy.\n\nTry ×1,001 again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "big"
+      },
+      "wrong_big_minus": {
+        "message": "That is ×999. ×1,001 adds the copy.\n\nTry ×1,001 again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "big"
+      }
+    }
+  }
+}

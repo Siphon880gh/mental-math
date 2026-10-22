@@ -12,7 +12,7 @@ final class Tracks
     ];
 
     public const BLURB = [
-        'quick' => 'Shortcuts you run in your head: percents, zeros, complements, divisibility, 80/20, invert revenue.',
+        'quick' => 'Shortcuts you run in your head: percents, zeros, complements, divisibility, fixed multipliers, near-base, squares, 80/20, invert revenue.',
         'stakeholder' => 'Numbers you use in a planning discussion: runway, NRR, dilution, TAM, stacked infra, concurrency, capacity.',
     ];
 
@@ -56,6 +56,12 @@ final class Tracks
         'cast-nines',
         'approx-sqrt',
         'regroup-factors',
+        'fixed-multipliers',
+        'near-base',
+        'square-identities',
+        'area-grid',
+        'mental-abacus',
+        'number-facts',
     ];
 
     public const EXTRA_STARTUP_FAMILY_IDS = [

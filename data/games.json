@@ -222,6 +222,30 @@
     {
       "familyId": "funnel-bands",
       "reason": "no_mechanic"
+    },
+    {
+      "familyId": "fixed-multipliers",
+      "reason": "no_mechanic"
+    },
+    {
+      "familyId": "near-base",
+      "reason": "no_mechanic"
+    },
+    {
+      "familyId": "square-identities",
+      "reason": "no_mechanic"
+    },
+    {
+      "familyId": "area-grid",
+      "reason": "no_mechanic"
+    },
+    {
+      "familyId": "mental-abacus",
+      "reason": "no_mechanic"
+    },
+    {
+      "familyId": "number-facts",
+      "reason": "no_mechanic"
     }
   ]
 }

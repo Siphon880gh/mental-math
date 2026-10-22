@@ -782,5 +782,141 @@
     "rule": "Visit→signup ~10–30%, signup→paid ~2–10%. Mid smell: 20% then 5%.",
     "example": "10,000 visits → ~2,000 signups → ~100 paid (20% then 5%).",
     "category": "Advanced"
+  },
+  {
+    "id": "fixed-multipliers-neighbors",
+    "familyId": "fixed-multipliers",
+    "title": "Round neighbors: one copy off",
+    "rule": "×9, ×19, ×99, ×999 are round minus one copy. ×11, ×101, ×1,001 are round plus one copy.",
+    "example": "42 × 19 → 840 − 42 = 798. 74 × 999 → 73,926. 38 × 1,001 → 38,038.",
+    "category": "Foundations"
+  },
+  {
+    "id": "fixed-multipliers-builds",
+    "familyId": "fixed-multipliers",
+    "title": "Small builds: ×3, ×6, ×12, ×15, ×18",
+    "rule": "×3 = double + original. ×6 = ×5 + original. ×12 = ×10 + ×2. ×15 = ×10 + half of it. ×18 = ×20 − ×2.",
+    "example": "43 × 6 → 215 + 43 = 258. 37 × 12 → 370 + 74 = 444. 46 × 15 → 460 + 230 = 690.",
+    "category": "Foundations"
+  },
+  {
+    "id": "fixed-multipliers-fractions",
+    "familyId": "fixed-multipliers",
+    "title": "Fractions of a power of ten: ×20, ×25, ×50, ×75, ×125",
+    "rule": "×20 = double, shift. ×25 = ×100 ÷ 4. ×50 = ×100 ÷ 2. ×75 = ¾ of ×100. ×125 = ×1,000 ÷ 8.",
+    "example": "28 × 75 → 2,800 × ¾ = 2,100. 46 × 20 = 920.",
+    "category": "Foundations"
+  },
+  {
+    "id": "near-base-below",
+    "familyId": "near-base",
+    "title": "Below the base: cross subtract, multiply the gaps",
+    "rule": "Distances from 100 (or 1,000). Left = one number minus the other’s gap. Right = gap product with as many digits as the base has zeros.",
+    "example": "97 × 94 → 91 | 18 → 9,118.",
+    "category": "Foundations"
+  },
+  {
+    "id": "near-base-above-mixed",
+    "familyId": "near-base",
+    "title": "Above, or one of each",
+    "rule": "Above: cross add and glue the gap product. One above and one below: the gap product is negative, so subtract it.",
+    "example": "103 × 107 → 110 | 21 → 11,021. 98 × 103 → 10,100 − 6 = 10,094.",
+    "category": "Foundations"
+  },
+  {
+    "id": "near-base-thousand",
+    "familyId": "near-base",
+    "title": "Base 1,000 keeps three digits on the right",
+    "rule": "Same moves; the right side is three digits wide.",
+    "example": "996 × 988 → 984 | 048 → 984,048.",
+    "category": "Foundations"
+  },
+  {
+    "id": "square-identities-split",
+    "familyId": "square-identities",
+    "title": "(a + b)² and (a − b)²",
+    "rule": "Square the round part, add or subtract twice the cross term, add the small square.",
+    "example": "43² → 1,600 + 240 + 9 = 1,849. 98² → 10,000 − 400 + 4 = 9,604.",
+    "category": "Foundations"
+  },
+  {
+    "id": "square-identities-same-ones",
+    "familyId": "square-identities",
+    "title": "Same ones digit, tens add to 10",
+    "rule": "Left: tens product + the ones digit. Right: ones digit squared, two places.",
+    "example": "23 × 83 → 2×8 + 3 = 19 | 09 → 1,909.",
+    "category": "Foundations"
+  },
+  {
+    "id": "square-identities-ends-5",
+    "familyId": "square-identities",
+    "title": "Ends in 5 for any size",
+    "rule": "n5² → n × (n+1), then glue 25.",
+    "example": "125² → 12 × 13 = 156 → 15,625.",
+    "category": "Foundations"
+  },
+  {
+    "id": "area-grid-place-value",
+    "familyId": "area-grid",
+    "title": "Place-value partial products",
+    "rule": "Split one factor by place, multiply each part, add the big partial first.",
+    "example": "48 × 32 → 1,440 + 96 = 1,536. 67 × 34 → 2,010 + 268 = 2,278.",
+    "category": "Foundations"
+  },
+  {
+    "id": "area-grid-rectangle",
+    "familyId": "area-grid",
+    "title": "Area grid: split both sides",
+    "rule": "Every product is a rectangle. Split both factors by place, fill the cells, add.",
+    "example": "23 × 14 → 200 + 30 + 80 + 12 = 322.",
+    "category": "Foundations"
+  },
+  {
+    "id": "area-grid-line-lattice",
+    "familyId": "area-grid",
+    "title": "Line and lattice are the same grid drawn",
+    "rule": "Line multiplication counts crossings by diagonal; lattice adds cell digits by diagonal. Good for seeing, slow for big numbers.",
+    "example": "12 × 32 by lines → 3 | 8 | 4 → 384.",
+    "category": "Foundations"
+  },
+  {
+    "id": "mental-abacus-five",
+    "familyId": "mental-abacus",
+    "title": "Five-complement: +4 is +5 −1",
+    "rule": "When the ones run out, add a five and take the complement back. +3 is +5 −2.",
+    "example": "3 + 4 → push the five, take one → 7.",
+    "category": "Foundations"
+  },
+  {
+    "id": "mental-abacus-ten",
+    "familyId": "mental-abacus",
+    "title": "Ten-complement: +8 is +10 −2",
+    "rule": "+9 = +10 −1, +8 = +10 −2, +7 = +10 −3, +6 = +10 −4. Subtract the mirror way.",
+    "example": "47 + 8 → 57 − 2 = 55. 52 − 6 → 42 + 4 = 46.",
+    "category": "Foundations"
+  },
+  {
+    "id": "number-facts-squares",
+    "familyId": "number-facts",
+    "title": "Squares 1–30",
+    "rule": "Anchor 15², 20², 25², 30²; step to neighbors with (n+1)² = n² + n + (n+1).",
+    "example": "26² → 625 + 25 + 26 = 676.",
+    "category": "Foundations"
+  },
+  {
+    "id": "number-facts-cubes-powers",
+    "familyId": "number-facts",
+    "title": "Cubes to 10 and powers of two",
+    "rule": "Cubes 1, 8, 27, 64, 125, 216, 343, 512, 729, 1,000. Powers of two to 1,024.",
+    "example": "7³ = 343. 2⁹ = 512 = 8³.",
+    "category": "Foundations"
+  },
+  {
+    "id": "number-facts-reciprocals",
+    "familyId": "number-facts",
+    "title": "Common reciprocals",
+    "rule": "1/2 .5, 1/3 .333, 1/4 .25, 1/5 .2, 1/6 ≈ .1667, 1/8 .125, 1/9 .111, 1/10 .1.",
+    "example": "÷8 is ×0.125. 1/9 of 45 = 5.",
+    "category": "Foundations"
   }
 ]

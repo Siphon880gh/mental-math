@@ -43,6 +43,12 @@ Do not duplicate the original ladder (anchors, magnitude, percent shortcuts, ÷5
 | Casting nines | `cast-nines` | A — quick math |
 | Approximate square roots | `approx-sqrt` | A — quick math |
 | Regroup factors | `regroup-factors` | A — quick math |
+| Fixed multipliers | `fixed-multipliers` | A — quick math |
+| Near-base multiplication (Nikhilam) | `near-base` | A — quick math |
+| Square identities | `square-identities` | A — quick math |
+| Area and partial products (incl. line, lattice) | `area-grid` | A — quick math |
+| Soroban and anzan (complements to 5/10, rods, suanpan) | `mental-abacus` | A — quick math |
+| Number facts (squares to 30, cubes, reciprocals) | `number-facts` | A — quick math |
 
 These families are **not** on the Beginner Reflex Path. They live on the Guides hub under the matching track, then drills/cases via `LOOPS/` and E9.
 

@@ -1,0 +1,153 @@
+{
+  "meta": {
+    "slug": "area-grid",
+    "title": "Area and partial products",
+    "summary": "SAMPLE 48 × 32: 1,440 + 96 = 1,536. Split by place, add the big piece first.",
+    "familyId": "area-grid",
+    "tags": [
+      "beginner"
+    ]
+  },
+  "tree": {
+    "start": "start",
+    "nodes": {
+      "success": {
+        "message": "Session complete. Every product is a rectangle: partial products, grid, lines, and lattice all add the same cells.\n\nSAMPLE: 48×32=1,536, 23×14=322, 12×32=384.",
+        "outcome": "success",
+        "choices": []
+      },
+      "start": {
+        "message": "SAMPLE: 48 people at $32. First split?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "place",
+            "label": "48 × 30 = 1,440 and 48 × 2 = 96",
+            "next": "add"
+          },
+          {
+            "id": "round_both",
+            "label": "50 × 30 = 1,500 and stop",
+            "next": "wrong_start_round_both"
+          },
+          {
+            "id": "digits",
+            "label": "4 × 3 and 8 × 2 only",
+            "next": "wrong_start_digits"
+          }
+        ]
+      },
+      "wrong_start_round_both": {
+        "message": "That is an estimate. Partial products keep it exact.\n\nReturn to the split.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "wrong_start_digits": {
+        "message": "You lost the cross pieces. Split one factor by place and multiply all of the other.\n\nReturn to the split.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "start"
+      },
+      "add": {
+        "message": "Combine?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "sum",
+            "label": "1,440 + 96 = 1,536",
+            "next": "grid"
+          },
+          {
+            "id": "mult",
+            "label": "1,440 × 96",
+            "next": "wrong_add_mult"
+          },
+          {
+            "id": "drop",
+            "label": "1,440",
+            "next": "wrong_add_drop"
+          }
+        ]
+      },
+      "wrong_add_mult": {
+        "message": "Partial products add.\n\nRevisit the sum.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "add"
+      },
+      "wrong_add_drop": {
+        "message": "The 96 is part of the product.\n\nRevisit the sum.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "add"
+      },
+      "grid": {
+        "message": "SAMPLE: 23 × 14 as an area grid. Cells?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "four",
+            "label": "200, 30, 80, 12 → 322",
+            "next": "line"
+          },
+          {
+            "id": "two",
+            "label": "20 × 10 and 3 × 4 → 212",
+            "next": "wrong_grid_two"
+          },
+          {
+            "id": "three",
+            "label": "200 + 80 + 12",
+            "next": "wrong_grid_three"
+          }
+        ]
+      },
+      "wrong_grid_two": {
+        "message": "A grid has four cells. You skipped 3 × 10 and 20 × 4.\n\nRevisit the grid.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "grid"
+      },
+      "wrong_grid_three": {
+        "message": "Missing the 3 × 10 = 30 cell.\n\nRevisit the grid.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "grid"
+      },
+      "line": {
+        "message": "SAMPLE: 12 × 32 drawn as lines. What do the crossings in the middle groups count?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "cross_terms",
+            "label": "The cross terms 1×2 + 2×3 = 8 (tens place)",
+            "next": "success"
+          },
+          {
+            "id": "ones",
+            "label": "The ones digit 2 × 2",
+            "next": "wrong_line_ones"
+          },
+          {
+            "id": "magic",
+            "label": "A special Japanese rule",
+            "next": "wrong_line_magic"
+          }
+        ]
+      },
+      "wrong_line_ones": {
+        "message": "That is the right-hand group.\n\nTry the lines again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "line"
+      },
+      "wrong_line_magic": {
+        "message": "It is the distributive law drawn with lines, and its Japanese origin is not established.\n\nTry the lines again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "line"
+      }
+    }
+  }
+}

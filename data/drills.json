@@ -2589,6 +2589,51 @@
       ]
     },
     {
+      "id": "fd-ab-five-3p4",
+      "groupId": "foundations",
+      "familyId": "mental-abacus",
+      "prompt": "SAMPLE: 3 + 4 with a five-complement. +4 is +5 then −?",
+      "expectedAnswer": 1,
+      "thoughtChain": [
+        "3 ones, one bead free",
+        "+4 = +5 −1",
+        "take back 1 → 7"
+      ]
+    },
+    {
+      "id": "fd-ab-ten-47p8",
+      "groupId": "foundations",
+      "familyId": "mental-abacus",
+      "prompt": "SAMPLE: 47 + 8 as +10 then −2.",
+      "expectedAnswer": 55,
+      "thoughtChain": [
+        "47 + 10 = 57",
+        "57 − 2 = 55"
+      ]
+    },
+    {
+      "id": "fd-ab-ten-52m6",
+      "groupId": "foundations",
+      "familyId": "mental-abacus",
+      "prompt": "SAMPLE: 52 − 6 as −10 then +4.",
+      "expectedAnswer": 46,
+      "thoughtChain": [
+        "52 − 10 = 42",
+        "42 + 4 = 46"
+      ]
+    },
+    {
+      "id": "fd-ab-ten-38p7",
+      "groupId": "foundations",
+      "familyId": "mental-abacus",
+      "prompt": "SAMPLE: 38 + 7 as +10 then −3.",
+      "expectedAnswer": 45,
+      "thoughtChain": [
+        "38 + 10 = 48",
+        "48 − 3 = 45"
+      ]
+    },
+    {
       "id": "fd-dh-peasant-27x18",
       "groupId": "foundations",
       "familyId": "double-half",
@@ -2642,6 +2687,162 @@
       "thoughtChain": [
         "3,600",
         "÷4 = 900"
+      ]
+    },
+    {
+      "id": "fd-fm-x3",
+      "groupId": "foundations",
+      "familyId": "fixed-multipliers",
+      "prompt": "SAMPLE: 47 × 3.",
+      "expectedAnswer": 141,
+      "thoughtChain": [
+        "double 94",
+        "+47 = 141"
+      ]
+    },
+    {
+      "id": "fd-fm-x6",
+      "groupId": "foundations",
+      "familyId": "fixed-multipliers",
+      "prompt": "SAMPLE: 43 × 6.",
+      "expectedAnswer": 258,
+      "thoughtChain": [
+        "×5 = 215",
+        "+43 = 258"
+      ]
+    },
+    {
+      "id": "fd-fm-x12",
+      "groupId": "foundations",
+      "familyId": "fixed-multipliers",
+      "prompt": "SAMPLE: 37 × 12.",
+      "expectedAnswer": 444,
+      "thoughtChain": [
+        "×10 = 370",
+        "×2 = 74",
+        "444"
+      ]
+    },
+    {
+      "id": "fd-fm-x15",
+      "groupId": "foundations",
+      "familyId": "fixed-multipliers",
+      "prompt": "SAMPLE: 46 × 15.",
+      "expectedAnswer": 690,
+      "thoughtChain": [
+        "×10 = 460",
+        "half = 230",
+        "690"
+      ]
+    },
+    {
+      "id": "fd-fm-x18",
+      "groupId": "foundations",
+      "familyId": "fixed-multipliers",
+      "prompt": "SAMPLE: 37 × 18.",
+      "expectedAnswer": 666,
+      "thoughtChain": [
+        "×20 = 740",
+        "−×2 74 = 666"
+      ]
+    },
+    {
+      "id": "fd-fm-x19",
+      "groupId": "foundations",
+      "familyId": "fixed-multipliers",
+      "prompt": "SAMPLE: 42 × 19.",
+      "expectedAnswer": 798,
+      "thoughtChain": [
+        "×20 = 840",
+        "−42 = 798"
+      ]
+    },
+    {
+      "id": "fd-fm-x20",
+      "groupId": "foundations",
+      "familyId": "fixed-multipliers",
+      "prompt": "SAMPLE: 46 × 20.",
+      "expectedAnswer": 920,
+      "thoughtChain": [
+        "double 92",
+        "shift → 920"
+      ]
+    },
+    {
+      "id": "fd-fm-x75",
+      "groupId": "foundations",
+      "familyId": "fixed-multipliers",
+      "prompt": "SAMPLE: 28 × 75.",
+      "expectedAnswer": 2100,
+      "thoughtChain": [
+        "×100 = 2,800",
+        "¾ → 2,100"
+      ]
+    },
+    {
+      "id": "fd-fm-x999",
+      "groupId": "foundations",
+      "familyId": "fixed-multipliers",
+      "prompt": "SAMPLE: 74 × 999.",
+      "expectedAnswer": 73926,
+      "thoughtChain": [
+        "×1,000 = 74,000",
+        "−74 = 73,926"
+      ]
+    },
+    {
+      "id": "fd-fm-x1001",
+      "groupId": "foundations",
+      "familyId": "fixed-multipliers",
+      "prompt": "SAMPLE: 38 × 1,001.",
+      "expectedAnswer": 38038,
+      "thoughtChain": [
+        "38,000 + 38",
+        "38,038"
+      ]
+    },
+    {
+      "id": "fd-fm-x50",
+      "groupId": "foundations",
+      "familyId": "fixed-multipliers",
+      "prompt": "SAMPLE: 34 × 50.",
+      "expectedAnswer": 1700,
+      "thoughtChain": [
+        "3,400",
+        "half → 1,700"
+      ]
+    },
+    {
+      "id": "fd-fm-x125",
+      "groupId": "foundations",
+      "familyId": "fixed-multipliers",
+      "prompt": "SAMPLE: 48 × 125.",
+      "expectedAnswer": 6000,
+      "thoughtChain": [
+        "48,000",
+        "÷8 = 6,000"
+      ]
+    },
+    {
+      "id": "fd-fm-x99",
+      "groupId": "foundations",
+      "familyId": "fixed-multipliers",
+      "prompt": "SAMPLE: 63 × 99.",
+      "expectedAnswer": 6237,
+      "thoughtChain": [
+        "6,300",
+        "−63 = 6,237"
+      ]
+    },
+    {
+      "id": "fd-fm-x101",
+      "groupId": "foundations",
+      "familyId": "fixed-multipliers",
+      "prompt": "SAMPLE: 47 × 101.",
+      "expectedAnswer": 4747,
+      "thoughtChain": [
+        "4,700 + 47",
+        "4,747"
       ]
     },
     {
@@ -2744,6 +2945,177 @@
       "thoughtChain": [
         "60 + 42",
         "102"
+      ]
+    },
+    {
+      "id": "fd-ag-48x32",
+      "groupId": "foundations",
+      "familyId": "area-grid",
+      "prompt": "SAMPLE: 48 × 32. Place-value partial products.",
+      "expectedAnswer": 1536,
+      "thoughtChain": [
+        "48 × 30 = 1,440",
+        "48 × 2 = 96",
+        "1,536"
+      ]
+    },
+    {
+      "id": "fd-ag-67x34",
+      "groupId": "foundations",
+      "familyId": "area-grid",
+      "prompt": "SAMPLE: 67 × 34. Partial products.",
+      "expectedAnswer": 2278,
+      "thoughtChain": [
+        "67 × 30 = 2,010",
+        "67 × 4 = 268",
+        "2,278"
+      ]
+    },
+    {
+      "id": "fd-ag-23x14",
+      "groupId": "foundations",
+      "familyId": "area-grid",
+      "prompt": "SAMPLE: 23 × 14 on an area grid.",
+      "expectedAnswer": 322,
+      "thoughtChain": [
+        "200 + 30",
+        "80 + 12",
+        "322"
+      ]
+    },
+    {
+      "id": "fd-ag-line-12x32",
+      "groupId": "foundations",
+      "familyId": "area-grid",
+      "prompt": "SAMPLE: 12 × 32 by line multiplication. Middle crossings?",
+      "expectedAnswer": 8,
+      "thoughtChain": [
+        "tens 1×3 = 3",
+        "middle 1×2 + 2×3 = 8",
+        "ones 2×2 = 4 → 384"
+      ]
+    },
+    {
+      "id": "fd-nb-97x94",
+      "groupId": "foundations",
+      "familyId": "near-base",
+      "prompt": "SAMPLE: 97 × 94. Distances from 100.",
+      "expectedAnswer": 9118,
+      "thoughtChain": [
+        "−3, −6",
+        "97 − 6 = 91",
+        "3×6 = 18",
+        "9,118"
+      ]
+    },
+    {
+      "id": "fd-nb-103x107",
+      "groupId": "foundations",
+      "familyId": "near-base",
+      "prompt": "SAMPLE: 103 × 107.",
+      "expectedAnswer": 11021,
+      "thoughtChain": [
+        "+3, +7",
+        "103 + 7 = 110",
+        "3×7 = 21",
+        "11,021"
+      ]
+    },
+    {
+      "id": "fd-nb-98x103",
+      "groupId": "foundations",
+      "familyId": "near-base",
+      "prompt": "SAMPLE: 98 × 103. One below, one above.",
+      "expectedAnswer": 10094,
+      "thoughtChain": [
+        "−2, +3",
+        "98 + 3 = 101 → 10,100",
+        "−2×3 = −6",
+        "10,094"
+      ]
+    },
+    {
+      "id": "fd-nb-996x988",
+      "groupId": "foundations",
+      "familyId": "near-base",
+      "prompt": "SAMPLE: 996 × 988. Base 1,000.",
+      "expectedAnswer": 984048,
+      "thoughtChain": [
+        "−4, −12",
+        "996 − 12 = 984",
+        "4×12 = 048",
+        "984,048"
+      ]
+    },
+    {
+      "id": "fd-nb-98x97",
+      "groupId": "foundations",
+      "familyId": "near-base",
+      "prompt": "SAMPLE: 98 × 97.",
+      "expectedAnswer": 9506,
+      "thoughtChain": [
+        "−2, −3",
+        "95 | 06",
+        "9,506"
+      ]
+    },
+    {
+      "id": "fd-sq-43sq",
+      "groupId": "foundations",
+      "familyId": "square-identities",
+      "prompt": "SAMPLE: 43² as (40+3)².",
+      "expectedAnswer": 1849,
+      "thoughtChain": [
+        "1,600",
+        "+240",
+        "+9 = 1,849"
+      ]
+    },
+    {
+      "id": "fd-sq-98sq",
+      "groupId": "foundations",
+      "familyId": "square-identities",
+      "prompt": "SAMPLE: 98² as (100−2)².",
+      "expectedAnswer": 9604,
+      "thoughtChain": [
+        "10,000",
+        "−400",
+        "+4 = 9,604"
+      ]
+    },
+    {
+      "id": "fd-sq-23x83",
+      "groupId": "foundations",
+      "familyId": "square-identities",
+      "prompt": "SAMPLE: 23 × 83. Same ones, tens add to 10.",
+      "expectedAnswer": 1909,
+      "thoughtChain": [
+        "2×8 + 3 = 19",
+        "3² = 09",
+        "1,909"
+      ]
+    },
+    {
+      "id": "fd-sq-64x44",
+      "groupId": "foundations",
+      "familyId": "square-identities",
+      "prompt": "SAMPLE: 64 × 44.",
+      "expectedAnswer": 2816,
+      "thoughtChain": [
+        "6×4 + 4 = 28",
+        "4² = 16",
+        "2,816"
+      ]
+    },
+    {
+      "id": "fd-sq-125sq",
+      "groupId": "foundations",
+      "familyId": "square-identities",
+      "prompt": "SAMPLE: 125².",
+      "expectedAnswer": 15625,
+      "thoughtChain": [
+        "12 × 13 = 156",
+        "glue 25 → 15,625"
       ]
     },
     {
@@ -2979,6 +3351,50 @@
       "thoughtChain": [
         "25 × 4 = 100",
         "two places → 1.00"
+      ]
+    },
+    {
+      "id": "fd-nf-26sq",
+      "groupId": "foundations",
+      "familyId": "number-facts",
+      "prompt": "SAMPLE: 26². Step from 25² = 625.",
+      "expectedAnswer": 676,
+      "thoughtChain": [
+        "625 + 25 + 26",
+        "676"
+      ]
+    },
+    {
+      "id": "fd-nf-7cube",
+      "groupId": "foundations",
+      "familyId": "number-facts",
+      "prompt": "SAMPLE: 7³.",
+      "expectedAnswer": 343,
+      "thoughtChain": [
+        "49 × 7",
+        "343"
+      ]
+    },
+    {
+      "id": "fd-nf-2p9",
+      "groupId": "foundations",
+      "familyId": "number-facts",
+      "prompt": "SAMPLE: 2⁹.",
+      "expectedAnswer": 512,
+      "thoughtChain": [
+        "2¹⁰ = 1,024",
+        "half → 512"
+      ]
+    },
+    {
+      "id": "fd-nf-29sq",
+      "groupId": "foundations",
+      "familyId": "number-facts",
+      "prompt": "SAMPLE: 29². Step down from 30² = 900.",
+      "expectedAnswer": 841,
+      "thoughtChain": [
+        "900 − 30 − 29",
+        "841"
       ]
     },
     {
