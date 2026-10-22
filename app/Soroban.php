@@ -15,7 +15,7 @@ final class Soroban
     {
         $digits = ltrim($digits, '0') === '' ? '0' : ltrim($digits, '0');
         $label = 'Soroban showing ' . number_format((int) $digits);
-        $html = '<figure class="soroban" role="img" aria-label="' . e($label) . '"><div class="soroban__frame">';
+        $html = '<figure class="soroban"><div class="soroban__frame" role="img" aria-label="' . e($label) . '">';
         foreach (str_split($digits) as $char) {
             $html .= self::rod((int) $char);
         }

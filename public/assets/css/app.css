@@ -419,6 +419,11 @@ a:focus-visible {
   color: var(--muted);
 }
 
+.md ul {
+  margin: 0;
+  padding: 0;
+}
+
 .md li {
   margin-left: 1.1rem;
 }

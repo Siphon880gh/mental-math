@@ -36,4 +36,16 @@ final class MarkdownTest extends TestCase
         $this->assertStringContainsString('aria-label="Soroban showing 0"', $html);
         $this->assertStringContainsString('<p><span>::soroban x</span></p>', $html);
     }
+
+    public function testListItemsSitInsideAList(): void
+    {
+        $html = Markdown::render("Intro.\n- one\n- two\n\nMiddle.\n- three");
+        $this->assertSame('<div class="md"><p><span>Intro.</span></p><ul><li><span>one</span></li><li><span>two</span></li></ul><p><span>Middle.</span></p><ul><li><span>three</span></li></ul></div>', $html);
+    }
+
+    public function testSorobanLabelSitsOnTheDrawingNotTheFigure(): void
+    {
+        $html = Markdown::render('::soroban 47 | Before: 47.');
+        $this->assertStringContainsString('<figure class="soroban"><div class="soroban__frame" role="img" aria-label="Soroban showing 47">', $html);
+    }
 }

@@ -48,10 +48,18 @@ final class Markdown
         }
 
         $html = '<div class="md">';
+        $inList = false;
         foreach ($blocks as $block) {
             [$type, $level, $text] = $block;
             if ($type === 'gap') {
                 continue;
+            }
+            if ($type === 'li' && !$inList) {
+                $html .= '<ul>';
+                $inList = true;
+            } elseif ($type !== 'li' && $inList) {
+                $html .= '</ul>';
+                $inList = false;
             }
             if ($type === 'soroban') {
                 $html .= Soroban::html($text[0], $text[1]);
@@ -73,7 +81,7 @@ final class Markdown
             }
         }
 
-        return $html . '</div>';
+        return $html . ($inList ? '</ul>' : '') . '</div>';
     }
 
     /** @return list<string> */
