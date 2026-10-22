@@ -84,10 +84,12 @@ final class ContentQualityTest extends TestCase
         foreach (Tracks::allCurriculumFamilyIds() as $familyId) {
             $guideNumbers = array_fill_keys(self::numbers(Guides::forFamilyOne($familyId)['body']), true);
             $fresh = 0;
+            $total = 0;
             foreach (Drills::items() as $drill) {
                 if ($drill['familyId'] !== $familyId) {
                     continue;
                 }
+                $total++;
                 $all = [...self::numbers((string) $drill['prompt']), self::answer($drill['expectedAnswer'])];
                 foreach ($all as $n) {
                     if (!isset($guideNumbers[$n])) {
@@ -96,7 +98,8 @@ final class ContentQualityTest extends TestCase
                     }
                 }
             }
-            $this->assertGreaterThanOrEqual(2, $fresh, $familyId . ' drills only repeat the guide');
+            $this->assertGreaterThanOrEqual(3, $fresh, $familyId . ' drills only repeat the guide');
+            $this->assertLessThanOrEqual(0.6, ($total - $fresh) / $total, $familyId . ': most drills only repeat the guide');
         }
     }
 

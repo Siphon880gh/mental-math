@@ -551,15 +551,15 @@
       ]
     },
     {
-      "id": "pct-75-400",
+      "id": "pct-75-640",
       "groupId": "percents",
       "familyId": "percent-chunks",
-      "prompt": "SAMPLE: 75% of 400.",
-      "expectedAnswer": 300,
+      "prompt": "SAMPLE: 75% of 640.",
+      "expectedAnswer": 480,
       "thoughtChain": [
-        "50%=200",
-        "25%=100",
-        "300"
+        "50% = 320",
+        "25% = 160",
+        "480"
       ]
     },
     {
@@ -672,14 +672,15 @@
       "unit": "usd"
     },
     {
-      "id": "pct-20-2000",
+      "id": "pct-45-1800",
       "groupId": "percents",
       "familyId": "percent-chunks",
-      "prompt": "SAMPLE: 20% of 2,000.",
-      "expectedAnswer": 400,
+      "prompt": "SAMPLE: 45% of 1,800.",
+      "expectedAnswer": 810,
       "thoughtChain": [
-        "10%=200 twice",
-        "400"
+        "25% = 450",
+        "20% = 360",
+        "810"
       ]
     },
     {
@@ -1181,14 +1182,14 @@
       ]
     },
     {
-      "id": "fd-82-47",
+      "id": "fd-93-58",
       "groupId": "foundations",
       "familyId": "left-to-right",
-      "prompt": "SAMPLE: 82 − 47.",
+      "prompt": "SAMPLE: 93 − 58.",
       "expectedAnswer": 35,
       "thoughtChain": [
-        "80−40=40",
-        "2−7=−5",
+        "90 − 50 = 40",
+        "3 − 8 = −5",
         "35"
       ]
     },
@@ -1309,13 +1310,14 @@
       ]
     },
     {
-      "id": "fd-72-9",
+      "id": "fd-72-3",
       "groupId": "foundations",
       "familyId": "rule-of-72",
-      "prompt": "SAMPLE: years to double at 9%.",
-      "expectedAnswer": 8,
+      "prompt": "SAMPLE: years to double at 3%.",
+      "expectedAnswer": 24,
       "thoughtChain": [
-        "72÷9=8"
+        "72 ÷ 3",
+        "24 years"
       ]
     },
     {
@@ -1363,13 +1365,14 @@
       ]
     },
     {
-      "id": "fd-72-8",
+      "id": "fd-72-2.4",
       "groupId": "foundations",
       "familyId": "rule-of-72",
-      "prompt": "SAMPLE: years to double at 8%.",
-      "expectedAnswer": 9,
+      "prompt": "SAMPLE: years to double at 2.4%.",
+      "expectedAnswer": 30,
       "thoughtChain": [
-        "72÷8=9"
+        "72 ÷ 2.4 = 720 ÷ 24",
+        "30 years"
       ]
     },
     {
@@ -1384,14 +1387,14 @@
       ]
     },
     {
-      "id": "fd-72-rate-18y",
+      "id": "fd-72-rate-16y",
       "groupId": "foundations",
       "familyId": "rule-of-72",
-      "prompt": "SAMPLE: money doubles in 18 years. About what annual rate?",
-      "expectedAnswer": 4,
+      "prompt": "SAMPLE: money doubles in 16 years. About what annual rate?",
+      "expectedAnswer": 4.5,
       "thoughtChain": [
         "rate ≈ 72 ÷ years",
-        "72 ÷ 18 = 4%"
+        "72 ÷ 16 = 4.5%"
       ]
     },
     {
@@ -1951,13 +1954,14 @@
       ]
     },
     {
-      "id": "st-dil-10",
+      "id": "st-dil-1.5-7.5",
       "groupId": "startup",
       "familyId": "dilution",
-      "prompt": "SAMPLE: raise $1M at $10M post.",
-      "expectedAnswer": 10,
+      "prompt": "SAMPLE: raise $1.5M at $7.5M post. Percent sold?",
+      "expectedAnswer": 20,
       "thoughtChain": [
-        "1/10=10%"
+        "1.5 / 7.5 = 1/5",
+        "20%"
       ]
     },
     {
@@ -2386,23 +2390,25 @@
       "unit": "usd"
     },
     {
-      "id": "fd-div-4731",
+      "id": "fd-div-5862",
       "groupId": "foundations",
       "familyId": "divisibility",
-      "prompt": "SAMPLE: digit sum of 4,731 (the ÷3 test).",
-      "expectedAnswer": 15,
+      "prompt": "SAMPLE: digit sum of 5,862 (the ÷3 test).",
+      "expectedAnswer": 21,
       "thoughtChain": [
-        "4+7+3+1=15"
+        "5+8+6+2 = 21",
+        "21 ÷ 3 → yes"
       ]
     },
     {
-      "id": "fd-div-7316",
+      "id": "fd-div-9348",
       "groupId": "foundations",
       "familyId": "divisibility",
-      "prompt": "SAMPLE: last two digits of 7,316 (the ÷4 test).",
-      "expectedAnswer": 16,
+      "prompt": "SAMPLE: last two digits of 9,348 (the ÷4 test).",
+      "expectedAnswer": 48,
       "thoughtChain": [
-        "last two → 16"
+        "last two → 48",
+        "48 ÷ 4 = 12 → yes"
       ]
     },
     {
@@ -2441,15 +2447,15 @@
       ]
     },
     {
-      "id": "fd-cc-31x12",
+      "id": "fd-cc-41x13",
       "groupId": "foundations",
       "familyId": "criss-cross",
-      "prompt": "SAMPLE: 31 × 12.",
-      "expectedAnswer": 372,
+      "prompt": "SAMPLE: 41 × 13.",
+      "expectedAnswer": 533,
       "thoughtChain": [
-        "ones 2",
-        "cross 7",
-        "tens 3 → 372"
+        "ones 1 × 3 = 3",
+        "cross 4×3 + 1×1 = 13 → 3, carry 1",
+        "tens 4 + 1 = 5 → 533"
       ]
     },
     {
@@ -2465,15 +2471,15 @@
       ]
     },
     {
-      "id": "fd-ds-47x53",
+      "id": "fd-ds-56x64",
       "groupId": "foundations",
       "familyId": "difference-squares",
-      "prompt": "SAMPLE: 47 × 53.",
-      "expectedAnswer": 2491,
+      "prompt": "SAMPLE: 56 × 64.",
+      "expectedAnswer": 3584,
       "thoughtChain": [
-        "50²=2,500",
-        "3²=9",
-        "2,491"
+        "60² = 3,600",
+        "4² = 16",
+        "3,584"
       ]
     },
     {
@@ -2608,13 +2614,15 @@
       ]
     },
     {
-      "id": "fd-xc-3",
+      "id": "fd-xc-14-15-45-28",
       "groupId": "foundations",
       "familyId": "cross-cancel",
-      "prompt": "SAMPLE: 8/12 × 9/2 after cancel.",
-      "expectedAnswer": 3,
+      "prompt": "SAMPLE: 14/15 × 45/28 after cancel.",
+      "expectedAnswer": 1.5,
       "thoughtChain": [
-        "2/3 × 9/2 = 3"
+        "14 and 28 share 14 → 1/2",
+        "45 and 15 share 15 → 3/1",
+        "1/2 × 3 = 1.5"
       ]
     },
     {
@@ -2785,25 +2793,25 @@
       ]
     },
     {
-      "id": "fd-rg-37000",
+      "id": "fd-rg-8x43x125",
       "groupId": "foundations",
       "familyId": "regroup-factors",
-      "prompt": "SAMPLE: 8 × 37 × 125.",
-      "expectedAnswer": 37000,
+      "prompt": "SAMPLE: 8 × 43 × 125.",
+      "expectedAnswer": 43000,
       "thoughtChain": [
-        "8×125=1,000",
-        "×37=37,000"
+        "8 × 125 = 1,000",
+        "× 43 = 43,000"
       ]
     },
     {
-      "id": "fd-rg-1200",
+      "id": "fd-rg-25x76",
       "groupId": "foundations",
       "familyId": "regroup-factors",
-      "prompt": "SAMPLE: 25 × 48.",
-      "expectedAnswer": 1200,
+      "prompt": "SAMPLE: 25 × 76.",
+      "expectedAnswer": 1900,
       "thoughtChain": [
-        "25×4×12",
-        "100×12=1,200"
+        "76 = 4 × 19",
+        "25 × 4 = 100 → × 19 = 1,900"
       ]
     },
     {
@@ -2819,15 +2827,15 @@
       ]
     },
     {
-      "id": "fd-div-13-286",
+      "id": "fd-div-13-377",
       "groupId": "foundations",
       "familyId": "divisibility",
-      "prompt": "SAMPLE: 286 for ÷13. Trim: 28 + 4×6 = ?",
-      "expectedAnswer": 52,
+      "prompt": "SAMPLE: 377 for ÷13. Trim: 37 + 4×7 = ?",
+      "expectedAnswer": 65,
       "thoughtChain": [
-        "drop 6 → 28",
-        "28 + 24 = 52",
-        "52 = 4×13 → yes"
+        "drop 7 → 37",
+        "37 + 28 = 65",
+        "65 = 5×13 → yes"
       ]
     },
     {
@@ -2842,14 +2850,15 @@
       ]
     },
     {
-      "id": "fd-div-19-133",
+      "id": "fd-div-19-247",
       "groupId": "foundations",
       "familyId": "divisibility",
-      "prompt": "SAMPLE: 133 for ÷19. Trim: 13 + 2×3 = ?",
-      "expectedAnswer": 19,
+      "prompt": "SAMPLE: 247 for ÷19. Trim: 24 + 2×7 = ?",
+      "expectedAnswer": 38,
       "thoughtChain": [
-        "drop 3 → 13",
-        "13 + 6 = 19 → yes"
+        "drop 7 → 24",
+        "24 + 14 = 38",
+        "38 = 2×19 → yes"
       ]
     },
     {
@@ -2874,13 +2883,13 @@
       ]
     },
     {
-      "id": "fd-div-9-7236",
+      "id": "fd-div-9-8415",
       "groupId": "foundations",
       "familyId": "divisibility",
-      "prompt": "SAMPLE: digit sum of 7,236 (the ÷9 test).",
+      "prompt": "SAMPLE: digit sum of 8,415 (the ÷9 test).",
       "expectedAnswer": 18,
       "thoughtChain": [
-        "7+2+3+6 = 18",
+        "8+4+1+5 = 18",
         "18 ÷ 9 → yes"
       ]
     },
@@ -3010,25 +3019,25 @@
       ]
     },
     {
-      "id": "fd-ab-ten-52m6",
+      "id": "fd-ab-ten-63m7",
       "groupId": "foundations",
       "familyId": "mental-abacus",
-      "prompt": "SAMPLE: 52 − 6 as −10 then +4.",
-      "expectedAnswer": 46,
+      "prompt": "SAMPLE: 63 − 7 as −10 then +3.",
+      "expectedAnswer": 56,
       "thoughtChain": [
-        "52 − 10 = 42",
-        "42 + 4 = 46"
+        "63 − 10 = 53",
+        "53 + 3 = 56"
       ]
     },
     {
-      "id": "fd-ab-ten-38p7",
+      "id": "fd-ab-ten-76p9",
       "groupId": "foundations",
       "familyId": "mental-abacus",
-      "prompt": "SAMPLE: 38 + 7 as +10 then −3.",
-      "expectedAnswer": 45,
+      "prompt": "SAMPLE: 76 + 9 as +10 then −1.",
+      "expectedAnswer": 85,
       "thoughtChain": [
-        "38 + 10 = 48",
-        "48 − 3 = 45"
+        "76 + 10 = 86",
+        "86 − 1 = 85"
       ]
     },
     {
@@ -3043,14 +3052,14 @@
       ]
     },
     {
-      "id": "fd-ab-five-2p3",
+      "id": "fd-ab-five-1p4",
       "groupId": "foundations",
       "familyId": "mental-abacus",
-      "prompt": "SAMPLE: 2 + 3 on one rod. +3 is +5, then take back how many?",
-      "expectedAnswer": 2,
+      "prompt": "SAMPLE: 1 + 4 on one rod. +4 is +5, then take back how many?",
+      "expectedAnswer": 1,
       "thoughtChain": [
-        "2 lower beads up, only 2 free",
-        "+3 = +5 − 2 → rod shows 5"
+        "1 lower bead up, only 3 free",
+        "+4 = +5 − 1 → rod shows 5"
       ]
     },
     {
@@ -3143,25 +3152,25 @@
       ]
     },
     {
-      "id": "fd-fm-x3",
+      "id": "fd-fm-x3-68",
       "groupId": "foundations",
       "familyId": "fixed-multipliers",
-      "prompt": "SAMPLE: 47 × 3.",
-      "expectedAnswer": 141,
+      "prompt": "SAMPLE: 68 × 3.",
+      "expectedAnswer": 204,
       "thoughtChain": [
-        "double 94",
-        "+47 = 141"
+        "double 136",
+        "+68 = 204"
       ]
     },
     {
-      "id": "fd-fm-x6",
+      "id": "fd-fm-x6-57",
       "groupId": "foundations",
       "familyId": "fixed-multipliers",
-      "prompt": "SAMPLE: 43 × 6.",
-      "expectedAnswer": 258,
+      "prompt": "SAMPLE: 57 × 6.",
+      "expectedAnswer": 342,
       "thoughtChain": [
-        "×5 = 215",
-        "+43 = 258"
+        "×5 = 285",
+        "+57 = 342"
       ]
     },
     {
@@ -3177,26 +3186,26 @@
       ]
     },
     {
-      "id": "fd-fm-x15",
+      "id": "fd-fm-x15-58",
       "groupId": "foundations",
       "familyId": "fixed-multipliers",
-      "prompt": "SAMPLE: 46 × 15.",
-      "expectedAnswer": 690,
+      "prompt": "SAMPLE: 58 × 15.",
+      "expectedAnswer": 870,
       "thoughtChain": [
-        "×10 = 460",
-        "half = 230",
-        "690"
+        "×10 = 580",
+        "half = 290",
+        "870"
       ]
     },
     {
-      "id": "fd-fm-x18",
+      "id": "fd-fm-x18-43",
       "groupId": "foundations",
       "familyId": "fixed-multipliers",
-      "prompt": "SAMPLE: 37 × 18.",
-      "expectedAnswer": 666,
+      "prompt": "SAMPLE: 43 × 18.",
+      "expectedAnswer": 774,
       "thoughtChain": [
-        "×20 = 740",
-        "−×2 74 = 666"
+        "×20 = 860",
+        "−×2 86 = 774"
       ]
     },
     {
@@ -3211,14 +3220,14 @@
       ]
     },
     {
-      "id": "fd-fm-x20",
+      "id": "fd-fm-x20-73",
       "groupId": "foundations",
       "familyId": "fixed-multipliers",
-      "prompt": "SAMPLE: 46 × 20.",
-      "expectedAnswer": 920,
+      "prompt": "SAMPLE: 73 × 20.",
+      "expectedAnswer": 1460,
       "thoughtChain": [
-        "double 92",
-        "shift → 920"
+        "double 146",
+        "shift → 1,460"
       ]
     },
     {
@@ -3255,14 +3264,14 @@
       ]
     },
     {
-      "id": "fd-fm-x50",
+      "id": "fd-fm-x50-86",
       "groupId": "foundations",
       "familyId": "fixed-multipliers",
-      "prompt": "SAMPLE: 34 × 50.",
-      "expectedAnswer": 1700,
+      "prompt": "SAMPLE: 86 × 50.",
+      "expectedAnswer": 4300,
       "thoughtChain": [
-        "3,400",
-        "half → 1,700"
+        "8,600",
+        "half → 4,300"
       ]
     },
     {
@@ -3277,25 +3286,25 @@
       ]
     },
     {
-      "id": "fd-fm-x99",
+      "id": "fd-fm-x99-58",
       "groupId": "foundations",
       "familyId": "fixed-multipliers",
-      "prompt": "SAMPLE: 63 × 99.",
-      "expectedAnswer": 6237,
+      "prompt": "SAMPLE: 58 × 99.",
+      "expectedAnswer": 5742,
       "thoughtChain": [
-        "6,300",
-        "−63 = 6,237"
+        "5,800",
+        "−58 = 5,742"
       ]
     },
     {
-      "id": "fd-fm-x101",
+      "id": "fd-fm-x101-86",
       "groupId": "foundations",
       "familyId": "fixed-multipliers",
-      "prompt": "SAMPLE: 47 × 101.",
-      "expectedAnswer": 4747,
+      "prompt": "SAMPLE: 86 × 101.",
+      "expectedAnswer": 8686,
       "thoughtChain": [
-        "4,700 + 47",
-        "4,747"
+        "8,600 + 86",
+        "8,686"
       ]
     },
     {
@@ -3338,15 +3347,15 @@
       ]
     },
     {
-      "id": "fd-mn-347x11",
+      "id": "fd-mn-438x11",
       "groupId": "foundations",
       "familyId": "multiply-near",
-      "prompt": "SAMPLE: 347 × 11. Neighbor sums.",
-      "expectedAnswer": 3817,
+      "prompt": "SAMPLE: 438 × 11. Neighbor sums.",
+      "expectedAnswer": 4818,
       "thoughtChain": [
-        "3 | 3+4 | 4+7 | 7",
-        "3 | 7 | 11 | 7 → carry",
-        "3,817"
+        "4 | 4+3 | 3+8 | 8",
+        "4 | 7 | 11 | 8 → carry",
+        "4,818"
       ]
     },
     {
@@ -3520,14 +3529,15 @@
       ]
     },
     {
-      "id": "fd-rg-17x6",
+      "id": "fd-rg-19x7",
       "groupId": "foundations",
       "familyId": "regroup-factors",
-      "prompt": "SAMPLE: 17 × 6. Flip to six 17s or split 17.",
-      "expectedAnswer": 102,
+      "prompt": "SAMPLE: 19 × 7. Split 19 into 10 + 9.",
+      "expectedAnswer": 133,
       "thoughtChain": [
-        "60 + 42",
-        "102"
+        "70",
+        "63",
+        "133"
       ]
     },
     {
@@ -3555,15 +3565,15 @@
       ]
     },
     {
-      "id": "fd-ag-67x34",
+      "id": "fd-ag-58x26",
       "groupId": "foundations",
       "familyId": "area-grid",
-      "prompt": "SAMPLE: 67 × 34. Partial products.",
-      "expectedAnswer": 2278,
+      "prompt": "SAMPLE: 58 × 26. Partial products.",
+      "expectedAnswer": 1508,
       "thoughtChain": [
-        "67 × 30 = 2,010",
-        "67 × 4 = 268",
-        "2,278"
+        "58 × 20 = 1,160",
+        "58 × 6 = 348",
+        "1,508"
       ]
     },
     {
@@ -3735,15 +3745,15 @@
       ]
     },
     {
-      "id": "fd-sq-98sq",
+      "id": "fd-sq-97sq",
       "groupId": "foundations",
       "familyId": "square-identities",
-      "prompt": "SAMPLE: 98² as (100−2)².",
-      "expectedAnswer": 9604,
+      "prompt": "SAMPLE: 97² as (100−3)².",
+      "expectedAnswer": 9409,
       "thoughtChain": [
         "10,000",
-        "−400",
-        "+4 = 9,604"
+        "−600",
+        "+9 = 9,409"
       ]
     },
     {
@@ -3759,15 +3769,15 @@
       ]
     },
     {
-      "id": "fd-sq-64x44",
+      "id": "fd-sq-46x66",
       "groupId": "foundations",
       "familyId": "square-identities",
-      "prompt": "SAMPLE: 64 × 44.",
-      "expectedAnswer": 2816,
+      "prompt": "SAMPLE: 46 × 66.",
+      "expectedAnswer": 3036,
       "thoughtChain": [
-        "6×4 + 4 = 28",
-        "4² = 16",
-        "2,816"
+        "4×6 + 6 = 30",
+        "6² = 36",
+        "3,036"
       ]
     },
     {
@@ -3794,25 +3804,25 @@
       ]
     },
     {
-      "id": "fd-si-85sq",
+      "id": "fd-si-115sq",
       "groupId": "foundations",
       "familyId": "square-identities",
-      "prompt": "SAMPLE: 85².",
-      "expectedAnswer": 7225,
+      "prompt": "SAMPLE: 115².",
+      "expectedAnswer": 13225,
       "thoughtChain": [
-        "8 × 9 = 72",
-        "glue 25 → 7,225"
+        "11 × 12 = 132",
+        "glue 25 → 13,225"
       ]
     },
     {
-      "id": "fd-si-37x77",
+      "id": "fd-si-28x88",
       "groupId": "foundations",
       "familyId": "square-identities",
-      "prompt": "SAMPLE: 37 × 77. Same ones, tens add to 10.",
-      "expectedAnswer": 2849,
+      "prompt": "SAMPLE: 28 × 88. Same ones, tens add to 10.",
+      "expectedAnswer": 2464,
       "thoughtChain": [
-        "3 × 7 + 7 = 28",
-        "7² = 49 → 2,849"
+        "2 × 8 + 8 = 24",
+        "8² = 64 → 2,464"
       ]
     },
     {
@@ -3839,37 +3849,37 @@
       ]
     },
     {
-      "id": "fd-ds-73x77",
+      "id": "fd-ds-83x87",
       "groupId": "foundations",
       "familyId": "difference-squares",
-      "prompt": "SAMPLE: 73 × 77. Center 75.",
-      "expectedAnswer": 5621,
+      "prompt": "SAMPLE: 83 × 87. Center 85.",
+      "expectedAnswer": 7221,
       "thoughtChain": [
-        "75² = 5,625",
+        "85² = 7,225",
         "gap 2 → −4",
-        "5,621"
+        "7,221"
       ]
     },
     {
-      "id": "fd-ds-99x101",
+      "id": "fd-ds-199x201",
       "groupId": "foundations",
       "familyId": "difference-squares",
-      "prompt": "SAMPLE: 99 × 101.",
-      "expectedAnswer": 9999,
+      "prompt": "SAMPLE: 199 × 201.",
+      "expectedAnswer": 39999,
       "thoughtChain": [
-        "100² − 1²",
-        "9,999"
+        "200² − 1²",
+        "40,000 − 1 = 39,999"
       ]
     },
     {
-      "id": "fd-ds-997x1003",
+      "id": "fd-ds-995x1005",
       "groupId": "foundations",
       "familyId": "difference-squares",
-      "prompt": "SAMPLE: 997 × 1,003.",
-      "expectedAnswer": 999991,
+      "prompt": "SAMPLE: 995 × 1,005.",
+      "expectedAnswer": 999975,
       "thoughtChain": [
-        "1,000² − 3²",
-        "999,991"
+        "1,000² − 5²",
+        "1,000,000 − 25 = 999,975"
       ]
     },
     {
@@ -3954,14 +3964,14 @@
       ]
     },
     {
-      "id": "fd-pc-half-600",
+      "id": "fd-pc-half-3400",
       "groupId": "foundations",
       "familyId": "percent-chunks",
-      "prompt": "SAMPLE: 0.5% of 600.",
-      "expectedAnswer": 3,
+      "prompt": "SAMPLE: 0.5% of 3,400.",
+      "expectedAnswer": 17,
       "thoughtChain": [
-        "1% = 6",
-        "half → 3"
+        "1% = 34",
+        "half → 17"
       ]
     },
     {
@@ -4362,14 +4372,14 @@
       ]
     },
     {
-      "id": "fd-nf-29sq",
+      "id": "fd-nf-51sq",
       "groupId": "foundations",
       "familyId": "number-facts",
-      "prompt": "SAMPLE: 29². Step down from 30² = 900.",
-      "expectedAnswer": 841,
+      "prompt": "SAMPLE: 51². Step up from 50² = 2,500.",
+      "expectedAnswer": 2601,
       "thoughtChain": [
-        "900 − 30 − 29",
-        "841"
+        "2,500 + 50 + 51",
+        "2,601"
       ]
     },
     {

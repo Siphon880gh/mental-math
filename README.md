@@ -85,14 +85,14 @@ If the document root is `public/` instead, `public/index.php` still works.
 ./vendor/bin/phpunit
 ```
 
-`tests/ContentQualityTest.php` guards the content itself: every prompt says SAMPLE, no drill repeats another in its family, no case reuses a drill's numbers, every family has at least two drills beyond its guide's worked examples plus a case and a scenario, and every case pack has an advanced case.
+`tests/ContentQualityTest.php` guards the content itself: every prompt says SAMPLE, no drill repeats another in its family, no case reuses a drill's numbers, every family has at least three drills beyond its guide's worked examples (and no more than 60% that only repeat them) plus a case and a scenario, every case pack and every Track A family with a real chain has an advanced case, every Track B guide has a worked example, the why, and where it goes wrong, and every Track B family has at least three trick cards. `tests/CoachingTest.php` also checks that the coach does not always show the right move first and that step counts follow how hard the technique is.
 
 ### JS and browser tests (optional, Node 18+)
 
 PHPUnit does not need Node. The game logic and a browser click-through have their own runners:
 
 ```bash
-npm run test:js        # node --test tests/js/*.test.mjs — seeded round generators and soroban bead rules; no install needed
+npm run test:js        # node --test tests/js/*.test.mjs — seeded round generators (including runway check and ARR read) and soroban bead rules; no install needed
 npm install            # once: playwright-core only (no browser download)
 npm run test:browser   # starts php -S on a free port with router.php, runs tests/browser/*.spec.mjs, stops the server
 ```
