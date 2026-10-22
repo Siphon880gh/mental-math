@@ -2,7 +2,7 @@
   "meta": {
     "slug": "cfo-runway",
     "title": "Runway is cash ÷ monthly burn",
-    "summary": "SAMPLE $120k cash, $20k burn → 6 months. Directional, not a close.",
+    "summary": "SAMPLE $120k cash, $35k spend, $15k revenue → $20k net burn → 6 months. Start the raise six months before zero.",
     "familyId": "cfo-runway",
     "tags": [
       "intermediate"
@@ -12,105 +12,171 @@
     "start": "start",
     "nodes": {
       "success": {
-        "message": "Session complete. Runway ≈ cash ÷ monthly burn. Directional SAMPLE math, not a board close.\n\nSAMPLE: 120/20=6 months, 50/25=2.",
+        "message": "Session complete. Net burn = spend − revenue. Runway ≈ cash ÷ net burn. Start the raise at runway − 6, and pad costs once.\n\nSAMPLE: 120 ÷ 20 = 6 months, padded ≈ 4; 50 ÷ 25 = 2.",
         "outcome": "success",
         "choices": []
       },
       "start": {
-        "message": "SAMPLE: $120k in the bank, $20k net burn a month.\n\nRunway shape?",
+        "message": "SAMPLE: $120k in the bank. You spend $35k a month and bring in $15k.\n\nFirst move?",
         "outcome": "continue",
         "choices": [
           {
             "id": "div",
-            "label": "Cash ÷ monthly burn",
+            "label": "Net burn: 35 − 15 = $20k a month",
             "next": "months"
           },
           {
-            "id": "times",
-            "label": "Cash × burn",
-            "next": "wrong_start_times"
+            "id": "gross",
+            "label": "Cash ÷ spend: 120 ÷ 35 ≈ 3.4 months",
+            "next": "wrong_start_gross"
           },
           {
             "id": "revenue",
-            "label": "Ignore burn; use cash ÷ revenue",
+            "label": "Cash ÷ revenue: 120 ÷ 15 = 8 months",
             "next": "wrong_start_revenue"
           }
         ]
       },
-      "wrong_start_times": {
-        "message": "That is a nonsense product. Months = cash / burn.\n\nReturn to the shape.",
+      "wrong_start_gross": {
+        "message": "That ignores the $15k coming in. Runway runs on net burn: 35 − 15 = $20k.\n\nReturn to net burn.",
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "start"
       },
       "wrong_start_revenue": {
-        "message": "Revenue is not what empties the account. Burn is.\n\nReturn to the shape.",
+        "message": "Revenue is not what empties the account. Net burn does.\n\nReturn to net burn.",
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "start"
       },
       "months": {
-        "message": "120 ÷ 20.\n\nMonths?",
+        "message": "120 ÷ 20.\n\nMonths of runway?",
         "outcome": "continue",
         "choices": [
           {
             "id": "six",
             "label": "6 months",
-            "next": "check"
+            "next": "raise"
           },
           {
-            "id": "12",
-            "label": "12 months — treated 20 as 10",
-            "next": "wrong_months_12"
+            "id": "minus",
+            "label": "100 — 120 − 20",
+            "next": "wrong_months_minus"
           },
           {
-            "id": "20",
-            "label": "20 months — copied the burn",
-            "next": "wrong_months_20"
+            "id": "flip",
+            "label": "0.17 — 20 ÷ 120",
+            "next": "wrong_months_flip"
           }
         ]
       },
-      "wrong_months_12": {
-        "message": "120/20=6.\n\nRevisit the divide.",
+      "wrong_months_minus": {
+        "message": "Subtracting gives the cash left after one month, not the months. Divide: 120 ÷ 20 = 6.\n\nRevisit the divide.",
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "months"
       },
-      "wrong_months_20": {
-        "message": "Burn is the denominator, not the answer.\n\nRevisit the divide.",
+      "wrong_months_flip": {
+        "message": "That is burn ÷ cash. Runway is cash ÷ burn = 6.\n\nRevisit the divide.",
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "months"
+      },
+      "raise": {
+        "message": "Six months of runway. A raise takes about six months.\n\nWhen do you start?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "now",
+            "label": "Now — runway − 6 = 0 months of slack",
+            "next": "pad"
+          },
+          {
+            "id": "later",
+            "label": "In about five months, when cash gets tight",
+            "next": "wrong_raise_later"
+          },
+          {
+            "id": "customer",
+            "label": "After the next big customer lands",
+            "next": "wrong_raise_customer"
+          }
+        ]
+      },
+      "wrong_raise_later": {
+        "message": "A raise takes about six months. Starting at month five means raising on an empty account.\n\nRevisit the timing.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "raise"
+      },
+      "wrong_raise_customer": {
+        "message": "Hope is not a plan. Runway − 6 = 0: the raise starts now.\n\nRevisit the timing.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "raise"
+      },
+      "pad": {
+        "message": "Costs usually run over. Pad the $35k spend by 30%.\n\nNew runway?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "once",
+            "label": "35 × 1.3 ≈ $45.5k spend → $30.5k net → about 4 months",
+            "next": "check"
+          },
+          {
+            "id": "twice",
+            "label": "Pad the spend, then pad the net burn again",
+            "next": "wrong_pad_twice"
+          },
+          {
+            "id": "revenue",
+            "label": "Pad revenue up 30% too",
+            "next": "wrong_pad_revenue"
+          }
+        ]
+      },
+      "wrong_pad_twice": {
+        "message": "Pad once. Padding spend and then net burn counts the same overrun twice.\n\nRevisit the pad.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "pad"
+      },
+      "wrong_pad_revenue": {
+        "message": "Padding is caution: costs go up, revenue never does. About 4 months.\n\nRevisit the pad.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "pad"
       },
       "check": {
-        "message": "$50k cash, $25k burn.\n\nMonths?",
+        "message": "Check: $50k cash, $40k spend, $15k revenue.\n\nMonths?",
         "outcome": "continue",
         "choices": [
           {
             "id": "two",
-            "label": "2 months — short",
+            "label": "50 ÷ 25 = 2 months — the raise is already late",
             "next": "success"
           },
           {
-            "id": "25",
-            "label": "25 months",
-            "next": "wrong_check_25"
+            "id": "gross",
+            "label": "50 ÷ 40 = 1.25 months",
+            "next": "wrong_check_gross"
           },
           {
-            "id": "half",
-            "label": "0.5 months — inverted the ratio",
-            "next": "wrong_check_half"
+            "id": "revenue",
+            "label": "50 ÷ 15 ≈ 3.3 months",
+            "next": "wrong_check_revenue"
           }
         ]
       },
-      "wrong_check_25": {
-        "message": "50/25=2.\n\nTry the check again.",
+      "wrong_check_gross": {
+        "message": "Use net burn: 40 − 15 = $25k → 2 months.\n\nTry the check again.",
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "check"
       },
-      "wrong_check_half": {
-        "message": "That would be burn/cash. Runway is cash/burn.\n\nTry the check again.",
+      "wrong_check_revenue": {
+        "message": "Revenue is not the burn. Net burn is $25k → 2 months.\n\nTry the check again.",
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "check"

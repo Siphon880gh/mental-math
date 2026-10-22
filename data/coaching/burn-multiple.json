@@ -9,12 +9,45 @@
     ]
   },
   "tree": {
-    "start": "start",
+    "start": "net",
     "nodes": {
       "success": {
-        "message": "Session complete. Burn multiple = net burn ÷ net new ARR. 1–2× vs 5×+.\n\nSAMPLE: $2M/$1M=2×; $5M/$1M=5×.",
+        "message": "Session complete. Net burn = spend − collections. Burn multiple = net burn ÷ net new ARR. 1–2× vs 5×+.\n\nSAMPLE: 2.6 − 0.6 = $2M; $2M/$1M = 2×; $5M/$1M = 5×.",
         "outcome": "success",
         "choices": []
+      },
+      "net": {
+        "message": "SAMPLE: this year you spent $2.6M and collected $0.6M from customers.\n\nNet burn?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "net",
+            "label": "2.6 − 0.6 = $2M",
+            "next": "start"
+          },
+          {
+            "id": "gross",
+            "label": "$2.6M — the spend",
+            "next": "wrong_net_gross"
+          },
+          {
+            "id": "add",
+            "label": "$3.2M — spend plus collections",
+            "next": "wrong_net_add"
+          }
+        ]
+      },
+      "wrong_net_gross": {
+        "message": "Collections offset spend. Net burn = 2.6 − 0.6 = $2M.\n\nReturn to net burn.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "net"
+      },
+      "wrong_net_add": {
+        "message": "Collections come in; subtract them: $2M.\n\nReturn to net burn.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "net"
       },
       "start": {
         "message": "SAMPLE: net burn $2M, net new ARR $1M this period.\n\nBurn multiple?",

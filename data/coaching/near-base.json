@@ -9,12 +9,45 @@
     ]
   },
   "tree": {
-    "start": "start",
+    "start": "spot",
     "nodes": {
       "success": {
-        "message": "Session complete. Distances, cross, multiply the gaps; base 100 keeps two digits, base 1,000 keeps three.\n\nSAMPLE: 97×94=9,118, 98×103=10,094.",
+        "message": "Session complete. Spot two numbers that hug a power of ten. Distances, cross, multiply the gaps; base 100 keeps two digits, base 1,000 keeps three.\n\nSAMPLE: 97×94=9,118, 98×103=10,094, 994×988=982,072.",
         "outcome": "success",
         "choices": []
+      },
+      "spot": {
+        "message": "SAMPLE: three products on a quote sheet. Which one is a near-base job?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "hug",
+            "label": "96 × 93 — both a few under 100",
+            "next": "start"
+          },
+          {
+            "id": "equal",
+            "label": "47 × 53 — both 3 from 50",
+            "next": "wrong_spot_equal"
+          },
+          {
+            "id": "round",
+            "label": "64 × 25 — one round factor",
+            "next": "wrong_spot_round"
+          }
+        ]
+      },
+      "wrong_spot_equal": {
+        "message": "Equal gaps around a center is a difference of squares: 50² − 3² = 2,491. Near-base wants both numbers close to 100 or 1,000.\n\nReturn to the spot.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "spot"
+      },
+      "wrong_spot_round": {
+        "message": "×25 is ÷4 then ×100 → 1,600. Near-base is for two numbers that both hug a power of ten.\n\nReturn to the spot.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "spot"
       },
       "start": {
         "message": "SAMPLE: 97 × 94. Both hug 100. First move?",
@@ -122,7 +155,7 @@
           {
             "id": "subtract",
             "label": "98 + 3 = 101 → 10,100, gaps −2 × 3 = −6 → 10,094",
-            "next": "success"
+            "next": "thousand"
           },
           {
             "id": "glue",
@@ -147,6 +180,39 @@
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "mixed"
+      },
+      "thousand": {
+        "message": "SAMPLE: 994 × 988. Base 1,000, gaps −6 and −12. Finish?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "three",
+            "label": "994 − 12 = 982 | 6 × 12 = 072 → 982,072",
+            "next": "success"
+          },
+          {
+            "id": "two",
+            "label": "982 | 72 → 98,272",
+            "next": "wrong_thousand_two"
+          },
+          {
+            "id": "own_gap",
+            "label": "994 − 6 = 988 | 072 → 988,072",
+            "next": "wrong_thousand_own_gap"
+          }
+        ]
+      },
+      "wrong_thousand_two": {
+        "message": "Base 1,000 keeps three digits on the right: 072 → 982,072.\n\nTry the base 1,000 pair again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "thousand"
+      },
+      "wrong_thousand_own_gap": {
+        "message": "Cross with the other number’s gap: 994 − 12, not 994 − 6. → 982,072.\n\nTry the base 1,000 pair again.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "thousand"
       }
     }
   }

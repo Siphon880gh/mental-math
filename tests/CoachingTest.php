@@ -105,6 +105,17 @@ final class CoachingTest extends TestCase
             'double-half' => ['peasant', 'egypt'],
             'criss-cross' => ['three'],
             'fixed-multipliers' => ['trach12', 'trach12b', 'trach6'],
+            'near-base' => ['spot', 'thousand'],
+            'square-identities' => ['spot', 'fifty'],
+            'difference-squares' => ['spot'],
+            'mental-abacus' => ['spot'],
+            'stacked-founder' => ['cover'],
+            'cfo-runway' => ['raise', 'pad'],
+            'dilution' => ['pool', 'rounds'],
+            'nrr' => ['grr'],
+            'churn' => ['base'],
+            'cac-payback' => ['cac'],
+            'burn-multiple' => ['net'],
         ];
         foreach ($expected as $slug => $nodeIds) {
             $loaded = Sessions::load($slug);
@@ -193,5 +204,20 @@ final class CoachingTest extends TestCase
         $this->assertGreaterThan(50, $steps);
         $this->assertLessThan(0.5, $rightFirst / $steps, "right move first in {$rightFirst} of {$steps} steps");
         $this->assertSame(Sessions::load('near-base')['session'], Sessions::load('near-base')['session']);
+    }
+
+    public function testStepCountsFollowTechniqueDifficulty(): void
+    {
+        $steps = [];
+        foreach (Sessions::all() as $slug => $session) {
+            $steps[$slug] = count(array_filter($session['tree']['nodes'], static fn (array $n) => $n['outcome'] === 'continue'));
+        }
+        $this->assertGreaterThanOrEqual(4, count(array_unique($steps)));
+        foreach (['fixed-multipliers', 'easy-division', 'near-base', 'square-identities', 'cfo-runway', 'dilution'] as $slug) {
+            $this->assertGreaterThanOrEqual(5, $steps[$slug], $slug);
+        }
+        foreach (['div-by-5', 'month-day', 'percent-tens'] as $slug) {
+            $this->assertSame(3, $steps[$slug], $slug);
+        }
     }
 }

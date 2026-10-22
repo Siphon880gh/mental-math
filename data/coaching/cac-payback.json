@@ -9,12 +9,45 @@
     ]
   },
   "tree": {
-    "start": "start",
+    "start": "cac",
     "nodes": {
       "success": {
-        "message": "Session complete. Payback months = CAC ÷ monthly gross profit. Aim ≤12. Not list price.\n\nSAMPLE: 240/40=6; 240/15=16.",
+        "message": "Session complete. CAC = all acquisition spend ÷ customers won. Payback months = CAC ÷ monthly gross profit. Aim ≤12. Not list price, and not margin twice.\n\nSAMPLE: 36k ÷ 150 = 240; 240/40 = 6; 240/15 = 16.",
         "outcome": "success",
         "choices": []
+      },
+      "cac": {
+        "message": "SAMPLE: last month $21k of ads plus $15k of sales salaries won 150 customers.\n\nCAC?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "all",
+            "label": "(21k + 15k) ÷ 150 = $240",
+            "next": "start"
+          },
+          {
+            "id": "ads",
+            "label": "Ads only: 21,000 ÷ 150 = $140",
+            "next": "wrong_cac_ads"
+          },
+          {
+            "id": "months",
+            "label": "36,000 ÷ 12 = $3,000",
+            "next": "wrong_cac_months"
+          }
+        ]
+      },
+      "wrong_cac_ads": {
+        "message": "Salespeople’s pay is acquisition cost too. Include it: $240.\n\nReturn to CAC.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "cac"
+      },
+      "wrong_cac_months": {
+        "message": "CAC divides spend by customers won, not by months.\n\nReturn to CAC.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "cac"
       },
       "start": {
         "message": "SAMPLE: CAC $240, $40/mo gross profit after COGS.\n\nPayback months?",
@@ -31,9 +64,9 @@
             "next": "wrong_start_price"
           },
           {
-            "id": "year",
-            "label": "240 months because CAC is 240",
-            "next": "wrong_start_year"
+            "id": "double",
+            "label": "240 ÷ (40 × 80%) = 7.5 months",
+            "next": "wrong_start_double"
           }
         ]
       },
@@ -43,8 +76,8 @@
         "choices": [],
         "rewind_to": "start"
       },
-      "wrong_start_year": {
-        "message": "You copied CAC as months. Divide by monthly GP.\n\nReturn to GP.",
+      "wrong_start_double": {
+        "message": "The $40 is already gross profit after COGS. Do not apply the margin twice: 6 months.\n\nReturn to GP.",
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "start"

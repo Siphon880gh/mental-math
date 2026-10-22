@@ -12,7 +12,7 @@
     "start": "start",
     "nodes": {
       "success": {
-        "message": "Session complete. NRR = later revenue from the same customers ÷ starting revenue. Can be over 100%.\n\nSAMPLE: 130%; new logos stay out.",
+        "message": "Session complete. NRR = later revenue from the same customers ÷ starting revenue, and can top 100%. GRR leaves expansion out and cannot.\n\nSAMPLE: 130% NRR with 80% GRR; new logos stay out.",
         "outcome": "success",
         "choices": []
       },
@@ -56,7 +56,7 @@
           {
             "id": "no",
             "label": "No — NRR is the starting cohort only",
-            "next": "check"
+            "next": "grr"
           },
           {
             "id": "yes",
@@ -81,6 +81,39 @@
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "new"
+      },
+      "grr": {
+        "message": "The $100k cohort lost $20k to churn and added $50k of expansion (NRR 130%).\n\nGRR?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "eighty",
+            "label": "80% — leave the expansion out",
+            "next": "check"
+          },
+          {
+            "id": "same",
+            "label": "130% — same as NRR",
+            "next": "wrong_grr_same"
+          },
+          {
+            "id": "subtract",
+            "label": "30% — subtract churn and expansion",
+            "next": "wrong_grr_subtract"
+          }
+        ]
+      },
+      "wrong_grr_same": {
+        "message": "GRR ignores expansion, so it can never top 100%: (100 − 20) ÷ 100 = 80%.\n\nRevisit GRR.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "grr"
+      },
+      "wrong_grr_subtract": {
+        "message": "Expansion is left out, not subtracted: 80%.\n\nRevisit GRR.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "grr"
       },
       "check": {
         "message": "Start $100k, later $80k from those accounts (churn/contraction).\n\nNRR?",

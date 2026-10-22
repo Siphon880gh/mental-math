@@ -9,12 +9,45 @@
     ]
   },
   "tree": {
-    "start": "start",
+    "start": "spot",
     "nodes": {
       "success": {
-        "message": "Session complete. +4 is +5 −1; +8 is +10 −2; −6 is −10 +4. Anzan is these moves on an imagined abacus.\n\nSAMPLE: 3+4=7, 47+8=55, 52−6=46.",
+        "message": "Session complete. First ask whether the beads are free; if not, +4 is +5 −1, +8 is +10 −2, −6 is −10 +4. Anzan is these moves on an imagined abacus.\n\nSAMPLE: 6+3=9, 3+4=7, 47+8=55, 52−6=46.",
         "outcome": "success",
         "choices": []
+      },
+      "spot": {
+        "message": "SAMPLE: the rod shows 6 (five bead down, one earth bead up). Add 3. Which move?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "direct",
+            "label": "Direct: push three more earth beads up → 9",
+            "next": "start"
+          },
+          {
+            "id": "five",
+            "label": "Five-complement: +5, then −2",
+            "next": "wrong_spot_five"
+          },
+          {
+            "id": "ten",
+            "label": "Ten-complement: +10, then −7",
+            "next": "wrong_spot_ten"
+          }
+        ]
+      },
+      "wrong_spot_five": {
+        "message": "Five-complements are for when the earth beads run out. Three are free here, so just push them.\n\nReturn to the rod.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "spot"
+      },
+      "wrong_spot_ten": {
+        "message": "Ten-complements are for when the rod would pass 9. 6 + 3 = 9 still fits on the rod.\n\nReturn to the rod.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "spot"
       },
       "start": {
         "message": "SAMPLE: a rod shows 3 ones. Add 4 with only one free bead. Move?",

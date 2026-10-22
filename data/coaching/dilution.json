@@ -12,7 +12,7 @@
     "start": "start",
     "nodes": {
       "success": {
-        "message": "Session complete. Post-money = pre + cash. Percent sold ≈ cash / post. Ask pre vs post.\n\nSAMPLE: $2M on $10M post = 20%.",
+        "message": "Session complete. Post-money = pre + cash. Percent sold ≈ cash ÷ post. Ask pre vs post, count the pool once, and multiply stakes across rounds.\n\nSAMPLE: $2M on $10M post = 20%; with a 10% pool founders keep 70%; 50% → 40% after a 20% round.",
         "outcome": "success",
         "choices": []
       },
@@ -31,9 +31,9 @@
             "next": "wrong_start_pre"
           },
           {
-            "id": "two",
-            "label": "2% because they put in $2M",
-            "next": "wrong_start_two"
+            "id": "minus",
+            "label": "8 − 2 = $6M, so 2 ÷ 6 ≈ 33%",
+            "next": "wrong_start_minus"
           }
         ]
       },
@@ -43,8 +43,8 @@
         "choices": [],
         "rewind_to": "start"
       },
-      "wrong_start_two": {
-        "message": "Dollars are not percents. 2/10=20%.\n\nReturn to post.",
+      "wrong_start_minus": {
+        "message": "Cash adds to the pre-money; it does not come out of it. Post = 8 + 2 = $10M → 20%.\n\nReturn to post.",
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "start"
@@ -89,7 +89,7 @@
           {
             "id": "twenty",
             "label": "20% of post ($10M)",
-            "next": "success"
+            "next": "pool"
           },
           {
             "id": "25",
@@ -114,6 +114,72 @@
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "check"
+      },
+      "pool": {
+        "message": "Same round, but a 10% option pool must sit inside the post-money.\n\nFounders end with?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "seventy",
+            "label": "100 − 20 − 10 = 70%",
+            "next": "rounds"
+          },
+          {
+            "id": "investor",
+            "label": "80% — the investor absorbs the pool",
+            "next": "wrong_pool_investor"
+          },
+          {
+            "id": "double",
+            "label": "60% — take the pool off twice",
+            "next": "wrong_pool_double"
+          }
+        ]
+      },
+      "wrong_pool_investor": {
+        "message": "Pool terms like this put the pool on the existing holders: 100 − 20 − 10 = 70%.\n\nRevisit the pool.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "pool"
+      },
+      "wrong_pool_double": {
+        "message": "Count the pool once: 100 − 20 − 10 = 70%.\n\nRevisit the pool.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "pool"
+      },
+      "rounds": {
+        "message": "A founder holds 50% after the seed. The Series A sells 20% of the company.\n\nFounder stake after?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "multiply",
+            "label": "50 × 0.8 = 40%",
+            "next": "success"
+          },
+          {
+            "id": "subtract",
+            "label": "30% — 50 − 20",
+            "next": "wrong_rounds_subtract"
+          },
+          {
+            "id": "same",
+            "label": "50% — the founder did not sell",
+            "next": "wrong_rounds_same"
+          }
+        ]
+      },
+      "wrong_rounds_subtract": {
+        "message": "Points do not subtract. Every holder shrinks by the same factor: 50 × 0.8 = 40%.\n\nRevisit the second round.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "rounds"
+      },
+      "wrong_rounds_same": {
+        "message": "New shares dilute everyone, sellers or not: 40%.\n\nRevisit the second round.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "rounds"
       }
     }
   }

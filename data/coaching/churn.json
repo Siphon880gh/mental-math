@@ -12,7 +12,7 @@
     "start": "start",
     "nodes": {
       "success": {
-        "message": "Session complete. Lifetime months ≈ 1 / monthly churn. Name the period.\n\nSAMPLE: 5%→~20 months, 2%→~50.",
+        "message": "Session complete. Churn = lost ÷ customers at the start. Lifetime months ≈ 1 ÷ monthly churn. Name the period.\n\nSAMPLE: 24 ÷ 800 = 3%; 5% → ~20 months, 2% → ~50.",
         "outcome": "success",
         "choices": []
       },
@@ -23,7 +23,7 @@
           {
             "id": "inv",
             "label": "1 / 0.05 ≈ 20 months",
-            "next": "mix"
+            "next": "base"
           },
           {
             "id": "times",
@@ -31,9 +31,9 @@
             "next": "wrong_start_times"
           },
           {
-            "id": "five",
-            "label": "5 months because the number is 5",
-            "next": "wrong_start_five"
+            "id": "retention",
+            "label": "95 months — 100 − 5",
+            "next": "wrong_start_retention"
           }
         ]
       },
@@ -43,11 +43,44 @@
         "choices": [],
         "rewind_to": "start"
       },
-      "wrong_start_five": {
-        "message": "The 5 is a percent, not a month count. 1/0.05=20.\n\nReturn to 1/churn.",
+      "wrong_start_retention": {
+        "message": "That is the retention percent, not a lifetime. Invert the churn: 1 ÷ 0.05 = 20.\n\nReturn to 1/churn.",
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "start"
+      },
+      "base": {
+        "message": "You started the month with 800 customers, signed 200, and lost 24.\n\nMonthly churn?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "start_count",
+            "label": "24 ÷ 800 = 3%",
+            "next": "mix"
+          },
+          {
+            "id": "with_new",
+            "label": "24 ÷ 1,000 = 2.4%",
+            "next": "wrong_base_with_new"
+          },
+          {
+            "id": "end",
+            "label": "24 ÷ 976 ≈ 2.5% — the end-of-month count",
+            "next": "wrong_base_end"
+          }
+        ]
+      },
+      "wrong_base_with_new": {
+        "message": "New signups had no chance to churn yet. Divide by the start: 800 → 3%.\n\nRevisit the denominator.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "base"
+      },
+      "wrong_base_end": {
+        "message": "Divide by customers at the start of the month: 3%.\n\nRevisit the denominator.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "base"
       },
       "mix": {
         "message": "Someone quotes 5% churn without saying monthly vs yearly.\n\nWhat do you do?",

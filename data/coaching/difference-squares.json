@@ -23,7 +23,7 @@
           {
             "id": "mid",
             "label": "50² minus 2² → 2,500 − 4 = 2,496",
-            "next": "tens"
+            "next": "spot"
           },
           {
             "id": "fifty_sq",
@@ -48,6 +48,39 @@
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "start"
+      },
+      "spot": {
+        "message": "SAMPLE: which product is a clean difference of squares?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "equal",
+            "label": "38 × 42 — both 2 from 40 → 1,600 − 4",
+            "next": "tens"
+          },
+          {
+            "id": "odd",
+            "label": "37 × 44 — near 40",
+            "next": "wrong_spot_odd"
+          },
+          {
+            "id": "round",
+            "label": "40 × 42 — close together",
+            "next": "wrong_spot_round"
+          }
+        ]
+      },
+      "wrong_spot_odd": {
+        "message": "The center is 40.5 (the sum 81 is odd), so the gap is 3.5. Clean centers need an even sum.\n\nReturn to the spot.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "spot"
+      },
+      "wrong_spot_round": {
+        "message": "One factor is round: 40 × 42 is just 4 × 42 → 1,680. No identity needed.\n\nReturn to the spot.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "spot"
       },
       "tens": {
         "message": "43 × 47. Same tens, ones add to 10. Glue?",

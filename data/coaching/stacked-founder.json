@@ -5,14 +5,14 @@
     "summary": "SAMPLE $1/hr and $40/mo: ×720 then ÷ price → ~18 users per server.",
     "familyId": "stacked-founder",
     "tags": [
-      "beginner"
+      "intermediate"
     ]
   },
   "tree": {
     "start": "start",
     "nodes": {
       "success": {
-        "message": "Session complete. Track B sentence, Track A links: ×720, ÷price, percent chunks.\n\nSAMPLE: ~18 users/server; 10k×5%=500 customers.",
+        "message": "Session complete. Track B sentence, Track A links: ×720, ÷ price, then ÷ per-box, then percent chunks. Say the unit at every link.\n\nSAMPLE: ~18 users/server; 3,000 ÷ 25 = 120 users → 4 boxes; 10k × 5% = 500 customers.",
         "outcome": "success",
         "choices": []
       },
@@ -56,7 +56,7 @@
           {
             "id": "18",
             "label": "About 18",
-            "next": "funnel"
+            "next": "cover"
           },
           {
             "id": "180",
@@ -64,9 +64,9 @@
             "next": "wrong_users_180"
           },
           {
-            "id": "40",
-            "label": "40 — copied the price",
-            "next": "wrong_users_40"
+            "id": "gross",
+            "label": "18 — and that is profit per box",
+            "next": "wrong_users_gross"
           }
         ]
       },
@@ -76,11 +76,44 @@
         "choices": [],
         "rewind_to": "users"
       },
-      "wrong_users_40": {
-        "message": "Users = monthly cost ÷ price, not the price itself.\n\nRevisit the divide.",
+      "wrong_users_gross": {
+        "message": "At 18 users the box only pays for itself: 18 × $40 = $720 = its cost. Profit starts at user 19.\n\nRevisit the divide.",
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "users"
+      },
+      "cover": {
+        "message": "SAMPLE: $3,000/mo of fixed costs, $25 a user, 30 users fit on a box. Users to break even, then boxes?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "chain",
+            "label": "3,000 ÷ 25 = 120 users → 120 ÷ 30 = 4 boxes",
+            "next": "funnel"
+          },
+          {
+            "id": "skip",
+            "label": "3,000 ÷ 30 = 100 boxes",
+            "next": "wrong_cover_skip"
+          },
+          {
+            "id": "stop",
+            "label": "120 boxes",
+            "next": "wrong_cover_stop"
+          }
+        ]
+      },
+      "wrong_cover_skip": {
+        "message": "Cost ÷ price comes first (users). Then users ÷ per-box limit: 120 → 4 boxes.\n\nRevisit the chain.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "cover"
+      },
+      "wrong_cover_stop": {
+        "message": "120 is the user count. Each box holds 30: 4 boxes.\n\nRevisit the chain.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "cover"
       },
       "funnel": {
         "message": "Second SAMPLE chain: 10k visitors, 5% conversion. Customers?",
