@@ -21,6 +21,7 @@ final class App
             return Response::redirect(url('/track-a'));
         }
 
+        Pages::takeStatus();
         $html = null;
         if ($path === '/') {
             $html = Pages::home($request);
@@ -56,6 +57,6 @@ final class App
             return Response::html(Pages::notFound($request), 404);
         }
 
-        return Response::html($html);
+        return Response::html($html, Pages::takeStatus());
     }
 }

@@ -131,6 +131,33 @@ final class RoutesTest extends TestCase
         $this->assertSame('/index.php?route=%2Ftrack-a', $guides->headers['Location']);
     }
 
+    public function testUnknownSlugsReturn404(): void
+    {
+        $paths = [
+            '/guides/not-a-guide',
+            '/coach/not-a-family',
+            '/drills/not-a-group',
+            '/cases/ar-nope',
+            '/scenarios/not-a-scenario',
+            '/games/not-a-game',
+            '/no-such-page',
+        ];
+        foreach ($paths as $path) {
+            $res = App::handle(Request::get($path));
+            $this->assertSame(404, $res->status, $path);
+            $this->assertStringContainsString('<html', $res->body, $path);
+        }
+        $this->assertStringContainsString('Unknown case.', App::handle(Request::get('/cases/ar-nope'))->body);
+    }
+
+    public function testKnownSlugsReturn200AfterA404(): void
+    {
+        $this->assertSame(404, App::handle(Request::get('/cases/ar-nope'))->status);
+        foreach (['/guides/dilution', '/coach/anchors', '/drills/foundations', '/cases/ar-seats-19', '/scenarios/seats-nineteen-year', '/games/eleven-neighbors', '/toolbox'] as $path) {
+            $this->assertSame(200, App::handle(Request::get($path))->status, $path);
+        }
+    }
+
     public function testTrackAAndB(): void
     {
         $a = $this->html('/track-a');

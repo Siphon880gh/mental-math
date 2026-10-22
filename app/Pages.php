@@ -20,6 +20,26 @@ use Reflex\Http\Request;
 
 final class Pages
 {
+    /** @var int Status for the page just rendered; missing slugs set 404. */
+    private static $status = 200;
+
+    /** Return the status of the last rendered page and reset it for the next request. */
+    public static function takeStatus(): int
+    {
+        $status = self::$status;
+        self::$status = 200;
+
+        return $status;
+    }
+
+    /** @param array<string, mixed> $data */
+    private static function missing(Request $request, string $view, array $data): string
+    {
+        self::$status = 404;
+
+        return View::page($view, self::layout($request, $data));
+    }
+
     public static function home(Request $request): string
     {
         $progress = Progress::defaultProgress();
@@ -52,7 +72,7 @@ final class Pages
     {
         $guide = Guides::get($slug);
         if ($guide === null) {
-            return View::page('missing-guide', self::layout($request, ['page' => 'guide']));
+            return self::missing($request, 'missing-guide', ['page' => 'guide']);
         }
 
         return View::page('guide', self::layout($request, [
@@ -70,6 +90,11 @@ final class Pages
         $guide = Guides::get($slug);
         $loaded = Sessions::load($slug);
         if ($loaded['ok'] !== true) {
+            // A known guide keeps its coach slot (200); an unknown slug is a real 404.
+            if ($guide === null) {
+                self::$status = 404;
+            }
+
             return View::page('coach-missing', self::layout($request, [
                 'page' => 'coach',
                 'section' => $guide ? ($guide['track'] === 'quick' ? 'track-a' : 'track-b') : null,
@@ -115,7 +140,7 @@ final class Pages
     {
         $group = Drills::group($groupId);
         if ($group === null) {
-            return View::page('missing-drill', self::layout($request, ['page' => 'drill']));
+            return self::missing($request, 'missing-drill', ['page' => 'drill']);
         }
         $items = Drills::itemsForGroup($groupId);
         $progress = Progress::defaultProgress();
@@ -151,7 +176,7 @@ final class Pages
     {
         $study = Cases::get($caseId);
         if ($study === null) {
-            return View::page('missing-case', self::layout($request, ['page' => 'case']));
+            return self::missing($request, 'missing-case', ['page' => 'case']);
         }
 
         return View::page('case', self::layout($request, [
@@ -176,7 +201,7 @@ final class Pages
     {
         $study = Scenarios::get($scenarioId);
         if ($study === null) {
-            return View::page('missing-scenario', self::layout($request, ['page' => 'scenario']));
+            return self::missing($request, 'missing-scenario', ['page' => 'scenario']);
         }
 
         return View::page('scenario', self::layout($request, [
@@ -200,10 +225,10 @@ final class Pages
         $meta = Games::get($slug);
         $known = ['decimal-shift', 'percent-swap', 'percent-chips', 'pair-hundred', 'eleven-neighbors', 'near-base-gaps'];
         if ($meta === null || !in_array($slug, $known, true)) {
-            return View::page('missing-game', self::layout($request, [
+            return self::missing($request, 'missing-game', [
                 'page' => 'game',
                 'slug' => $slug,
-            ]));
+            ]);
         }
 
         return View::page('game-' . $slug, self::layout($request, [
