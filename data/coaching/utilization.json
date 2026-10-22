@@ -12,7 +12,7 @@
     "start": "start",
     "nodes": {
       "success": {
-        "message": "Session complete. Safe load ≈ 0.7 × advertised max.\n\nSAMPLE: 10/sec → 7; 100 seats → 70.",
+        "message": "Session complete. Safe load ≈ 0.7 × advertised max.\n\nSAMPLE: 10/sec → 7; 100 seats → 70. 450 users at 35 safe a box → 13 boxes, rounded up.",
         "outcome": "success",
         "choices": []
       },
@@ -89,7 +89,7 @@
           {
             "id": "70seats",
             "label": "70 filled",
-            "next": "success"
+            "next": "round"
           },
           {
             "id": "100seats",
@@ -114,6 +114,39 @@
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "check"
+      },
+      "round": {
+        "message": "450 users on at once. A box holds 50 at max.\n\nHow many boxes do you plan?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "thirteen",
+            "label": "13 — 450 ÷ 35 = 12.9, round up",
+            "next": "success"
+          },
+          {
+            "id": "nine",
+            "label": "9 — 450 ÷ 50",
+            "next": "wrong_round_nine"
+          },
+          {
+            "id": "twelve",
+            "label": "12 — 12.9 rounds down",
+            "next": "wrong_round_twelve"
+          }
+        ]
+      },
+      "wrong_round_nine": {
+        "message": "That plans at 100%. Safe is 35 a box, so 450 ÷ 35 ≈ 12.9 → 13.\n\nBack to sizing the boxes.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "round"
+      },
+      "wrong_round_twelve": {
+        "message": "You cannot buy 0.9 of a box. Round up to 13.\n\nBack to sizing the boxes.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "round"
       }
     }
   }

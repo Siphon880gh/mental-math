@@ -12,7 +12,7 @@
     "start": "start",
     "nodes": {
       "success": {
-        "message": "Session complete. Rule of 40 ≈ growth% + margin%. Later-stage smell, not a law of physics.\n\nSAMPLE: 30+15=45 pass; 80−50=30 miss.",
+        "message": "Session complete. Rule of 40 ≈ growth% + margin%. Later-stage smell, not a law of physics.\n\nSAMPLE: 30+15=45 pass; 80−50=30 miss. Solve for the gap: 25% growth needs a +15% margin.",
         "outcome": "success",
         "choices": []
       },
@@ -89,7 +89,7 @@
           {
             "id": "thirty",
             "label": "30 — misses 40 even with hot growth",
-            "next": "success"
+            "next": "solve"
           },
           {
             "id": "80",
@@ -114,6 +114,39 @@
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "check"
+      },
+      "solve": {
+        "message": "Growth is 25%.\n\nWhat margin do you need to reach 40?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "fifteen",
+            "label": "A 15% profit margin",
+            "next": "success"
+          },
+          {
+            "id": "sixtyfive",
+            "label": "A 65% margin — 40 + 25",
+            "next": "wrong_solve_sixtyfive"
+          },
+          {
+            "id": "loss",
+            "label": "A 15% loss is fine — the gap is 15 either way",
+            "next": "wrong_solve_loss"
+          }
+        ]
+      },
+      "wrong_solve_sixtyfive": {
+        "message": "40 is the target sum, not something to add on. 40 − 25 = 15.\n\nBack to solving for the margin.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "solve"
+      },
+      "wrong_solve_loss": {
+        "message": "A loss subtracts: 25 − 15 = 10. You need +15%.\n\nBack to solving for the margin.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "solve"
       }
     }
   }

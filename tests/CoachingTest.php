@@ -116,6 +116,12 @@ final class CoachingTest extends TestCase
             'churn' => ['base'],
             'cac-payback' => ['cac'],
             'burn-multiple' => ['net'],
+            'markup' => ['margin'],
+            'break-even' => ['variable'],
+            'rule-of-72' => ['backward'],
+            'rule-of-40' => ['solve'],
+            'take-rate' => ['fees'],
+            'utilization' => ['round'],
         ];
         foreach ($expected as $slug => $nodeIds) {
             $loaded = Sessions::load($slug);

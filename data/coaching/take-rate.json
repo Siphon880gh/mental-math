@@ -12,7 +12,7 @@
     "start": "start",
     "nodes": {
       "success": {
-        "message": "Session complete. Marketplace revenue = GMV × take. Never quote GMV as if it were yours.\n\nSAMPLE: $2M at 15%=$300k.",
+        "message": "Session complete. Marketplace revenue = GMV × take. Never quote GMV as if it were yours.\n\nSAMPLE: $2M at 15%=$300k. Card fees come off GMV: 300k − 60k = $240k.",
         "outcome": "success",
         "choices": []
       },
@@ -89,7 +89,7 @@
           {
             "id": "100k",
             "label": "$100k revenue",
-            "next": "success"
+            "next": "fees"
           },
           {
             "id": "1m",
@@ -114,6 +114,39 @@
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "check"
+      },
+      "fees": {
+        "message": "$2M GMV, 15% take, and card fees of 3% on every charge.\n\nNet revenue?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "net240",
+            "label": "$240k — fees run on the full $2M",
+            "next": "success"
+          },
+          {
+            "id": "net291",
+            "label": "$291k — 3% of your $300k",
+            "next": "wrong_fees_net291"
+          },
+          {
+            "id": "net360",
+            "label": "$360k — add the fees on",
+            "next": "wrong_fees_net360"
+          }
+        ]
+      },
+      "wrong_fees_net291": {
+        "message": "Card fees hit the whole charge, not your slice: 3% of $2M = $60k. 300 − 60 = $240k.\n\nBack to the card fees.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "fees"
+      },
+      "wrong_fees_net360": {
+        "message": "Fees are a cost to you. Subtract: 300 − 60 = $240k.\n\nBack to the card fees.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "fees"
       }
     }
   }

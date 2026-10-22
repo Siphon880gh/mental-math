@@ -12,7 +12,7 @@
     "start": "start",
     "nodes": {
       "success": {
-        "message": "Session complete. Years to double ≈ 72 ÷ annual percent (compounding).\n\nSAMPLE: 6%→12 years, 9%→8, 10%→~7.",
+        "message": "Session complete. Years to double ≈ 72 ÷ annual percent (compounding).\n\nSAMPLE: 6%→12 years, 9%→8, 10%→~7. Backward: doubled in 6 years → about 12%.",
         "outcome": "success",
         "choices": []
       },
@@ -89,7 +89,7 @@
           {
             "id": "seven",
             "label": "72÷10 ≈ 7 years, so 5 years is too aggressive",
-            "next": "success"
+            "next": "backward"
           },
           {
             "id": "agree",
@@ -114,6 +114,39 @@
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "check"
+      },
+      "backward": {
+        "message": "A fund doubled in 6 years.\n\nRoughly what yearly rate?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "twelve",
+            "label": "About 12% — 72 ÷ 6",
+            "next": "success"
+          },
+          {
+            "id": "seventeen",
+            "label": "About 17% — 100 ÷ 6",
+            "next": "wrong_backward_seventeen"
+          },
+          {
+            "id": "six",
+            "label": "About 6% — the years are the rate",
+            "next": "wrong_backward_six"
+          }
+        ]
+      },
+      "wrong_backward_seventeen": {
+        "message": "That is the simple-interest guess. Compounding doubles sooner, so the rate is lower: 72 ÷ 6 = 12%.\n\nBack to running 72 backward.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "backward"
+      },
+      "wrong_backward_six": {
+        "message": "Years and rate trade places through 72: 72 ÷ 6 = 12%.\n\nBack to running 72 backward.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "backward"
       }
     }
   }

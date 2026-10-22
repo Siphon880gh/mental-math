@@ -12,7 +12,7 @@
     "start": "start",
     "nodes": {
       "success": {
-        "message": "Session complete. Break-even users = cost ÷ price; reduce both sides first.\n\nSAMPLE: 3,000/50=60, 1,000/50=20.",
+        "message": "Session complete. Break-even users = cost ÷ price; reduce both sides first.\n\nSAMPLE: 3,000/50=60, 1,000/50=20. With a per-sale cost, divide by what each sale keeps: 3,000 ÷ 30 = 100.",
         "outcome": "success",
         "choices": []
       },
@@ -89,7 +89,7 @@
           {
             "id": "20",
             "label": "20",
-            "next": "success"
+            "next": "variable"
           },
           {
             "id": "50",
@@ -114,6 +114,39 @@
         "outcome": "wrong",
         "choices": [],
         "rewind_to": "check"
+      },
+      "variable": {
+        "message": "Now each sale also costs $20 to serve. Fixed $3,000, price $50.\n\nSales to break even?",
+        "outcome": "continue",
+        "choices": [
+          {
+            "id": "hundred",
+            "label": "100 — 3,000 ÷ (50 − 20)",
+            "next": "success"
+          },
+          {
+            "id": "sixty",
+            "label": "60 — same as before",
+            "next": "wrong_variable_sixty"
+          },
+          {
+            "id": "fortythree",
+            "label": "43 — 3,000 ÷ (50 + 20)",
+            "next": "wrong_variable_fortythree"
+          }
+        ]
+      },
+      "wrong_variable_sixty": {
+        "message": "60 ignores the $20 each sale eats. Each sale keeps $30, so 3,000 ÷ 30 = 100.\n\nBack to the per-sale cost.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "variable"
+      },
+      "wrong_variable_fortythree": {
+        "message": "Adding the cost makes each sale look richer. Subtract it: 50 − 20 = 30.\n\nBack to the per-sale cost.",
+        "outcome": "wrong",
+        "choices": [],
+        "rewind_to": "variable"
       }
     }
   }
