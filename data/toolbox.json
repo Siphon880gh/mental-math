@@ -1,0 +1,211 @@
+{
+  "intro": "Most fast methods are not a bag of tricks. They reduce to a handful of ideas: place value, complements, the distributive law, factoring, doubling and halving, and remainders. These twelve skills carry most of the benefit; every guide in Track A is one of them in costume.",
+  "masters": [
+    {
+      "id": "complements",
+      "title": "Complements to 10, 100, 1,000",
+      "rule": "Know instantly what is missing to the next round number.",
+      "familyIds": [
+        "complements",
+        "mental-abacus"
+      ]
+    },
+    {
+      "id": "place-value",
+      "title": "Place-value decomposition",
+      "rule": "Split numbers by place and handle the big place first.",
+      "familyIds": [
+        "left-to-right",
+        "magnitude",
+        "area-grid"
+      ]
+    },
+    {
+      "id": "distributive",
+      "title": "Distributive property",
+      "rule": "a × (b + c) = ab + ac. Break a factor into easy pieces.",
+      "familyIds": [
+        "regroup-factors",
+        "area-grid",
+        "criss-cross"
+      ]
+    },
+    {
+      "id": "round-compensate",
+      "title": "Round and compensate",
+      "rule": "Use the nearby round number, then pay back the gap.",
+      "familyIds": [
+        "round-compensate",
+        "equal-adjust"
+      ]
+    },
+    {
+      "id": "double-half",
+      "title": "Double and halve",
+      "rule": "×4, ×8, ×5, ×25, ×50, ×125 are doubles, halves, and shifts.",
+      "familyIds": [
+        "double-half",
+        "fixed-multipliers"
+      ]
+    },
+    {
+      "id": "factor",
+      "title": "Factor before calculating",
+      "rule": "Replace a multiplier or divisor with its factors; pair factors that make 10 or 100.",
+      "familyIds": [
+        "regroup-factors",
+        "easy-division",
+        "cross-cancel"
+      ]
+    },
+    {
+      "id": "difference-squares",
+      "title": "Difference of squares",
+      "rule": "(a − b)(a + b) = a² − b². Name the center.",
+      "familyIds": [
+        "difference-squares",
+        "square-identities"
+      ]
+    },
+    {
+      "id": "near-base",
+      "title": "Near-base multiplication",
+      "rule": "Work with distances from 10, 100, or 1,000.",
+      "familyIds": [
+        "near-base",
+        "multiply-near"
+      ]
+    },
+    {
+      "id": "divisibility",
+      "title": "Divisibility rules",
+      "rule": "Last digits, digit sums, and small trims tell you if a cut is clean.",
+      "familyIds": [
+        "divisibility"
+      ]
+    },
+    {
+      "id": "division-as-multiplication",
+      "title": "Convert division into multiplication",
+      "rule": "÷5 is ×2 then shift; 168 ÷ 12 is “12 × what?”.",
+      "familyIds": [
+        "easy-division",
+        "div-by-5"
+      ]
+    },
+    {
+      "id": "number-facts",
+      "title": "Memorize squares, powers, common fractions",
+      "rule": "Squares to 30, cubes to 10, powers of two, the fraction table.",
+      "familyIds": [
+        "number-facts",
+        "anchors",
+        "fraction-percent"
+      ]
+    },
+    {
+      "id": "estimate-check",
+      "title": "Estimate and independently check",
+      "rule": "Lock the magnitude first; check with digit roots or last digits.",
+      "familyIds": [
+        "round-compensate",
+        "cast-nines",
+        "approx-sqrt"
+      ]
+    }
+  ],
+  "progression": [
+    {
+      "step": 1,
+      "title": "Divisibility",
+      "familyIds": [
+        "divisibility"
+      ]
+    },
+    {
+      "step": 2,
+      "title": "Complements",
+      "familyIds": [
+        "complements",
+        "mental-abacus"
+      ]
+    },
+    {
+      "step": 3,
+      "title": "Doubling and halving",
+      "familyIds": [
+        "double-half"
+      ]
+    },
+    {
+      "step": 4,
+      "title": "×5, ×9, ×11, ×25, ×50, ×125 and friends",
+      "familyIds": [
+        "fixed-multipliers",
+        "multiply-near"
+      ]
+    },
+    {
+      "step": 5,
+      "title": "Compensation",
+      "familyIds": [
+        "round-compensate",
+        "equal-adjust",
+        "regroup-factors"
+      ]
+    },
+    {
+      "step": 6,
+      "title": "Near-base multiplication",
+      "familyIds": [
+        "near-base"
+      ]
+    },
+    {
+      "step": 7,
+      "title": "Difference of squares and square identities",
+      "familyIds": [
+        "difference-squares",
+        "square-identities"
+      ]
+    },
+    {
+      "step": 8,
+      "title": "Criss-cross and the area grid",
+      "familyIds": [
+        "criss-cross",
+        "area-grid"
+      ]
+    },
+    {
+      "step": 9,
+      "title": "Percentage and fraction conversions",
+      "familyIds": [
+        "percent-chunks",
+        "percent-reversible",
+        "fraction-percent"
+      ]
+    },
+    {
+      "step": 10,
+      "title": "Mental-abacus technique",
+      "familyIds": [
+        "mental-abacus"
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "title": "“Vedic Mathematics”",
+      "body": "The modern system called Vedic Mathematics comes from Bharati Krishna Tirtha’s 1965 book. Its arithmetic methods (vertical-and-crosswise, Nikhilam near-base, ends-in-5 squares) are legitimate. The claim that its 16 sutras come directly from ancient Vedic texts is historically disputed."
+    },
+    {
+      "title": "“Japanese” line multiplication",
+      "body": "The viral line-drawing method has no well-established Japanese origin. Japan’s documented rapid-calculation tradition is the soroban and mental-abacus calculation (anzan)."
+    },
+    {
+      "title": "Chinese counting rods and the suanpan",
+      "body": "China calculated with counting rods on place-value boards, including multiplication, division, and square-root algorithms. The later suanpan bead abacus influenced Japan’s soroban."
+    }
+  ]
+}

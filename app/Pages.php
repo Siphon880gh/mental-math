@@ -11,6 +11,7 @@ use Reflex\Catalog\Guides;
 use Reflex\Catalog\LearningPaths;
 use Reflex\Catalog\Scenarios;
 use Reflex\Catalog\ThinkingModeTips;
+use Reflex\Catalog\Toolbox;
 use Reflex\Catalog\Tracks;
 use Reflex\Catalog\Tricks;
 use Reflex\Coaching\Navigate;
@@ -88,6 +89,15 @@ final class Pages
             'session' => $session,
             'state' => $state,
             'node' => $node,
+        ]));
+    }
+
+    public static function toolbox(Request $request): string
+    {
+        return View::page('toolbox', self::layout($request, [
+            'page' => 'toolbox',
+            'section' => 'toolbox',
+            'toolbox' => Toolbox::data(),
         ]));
     }
 

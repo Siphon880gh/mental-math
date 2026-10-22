@@ -84,6 +84,7 @@ $caption = $activeTrack ? Tracks::LABEL[$activeTrack] : "\u{00A0}";
             <li>
               <a href="<?= e(url('/track-b')) ?>" class="<?= $activeTrack === 'stakeholder' ? 'is-current' : '' ?>" data-track="stakeholder">Track B</a>
             </li>
+            <li><a href="<?= e(url('/toolbox')) ?>"<?= ($section ?? null) === 'toolbox' ? ' class="is-current"' : '' ?>>Toolbox</a></li>
             <li><a href="<?= e(url('/drills')) ?>">Drills</a></li>
             <li><a href="<?= e(url('/cases')) ?>">Cases</a></li>
             <li><a href="<?= e(url('/scenarios')) ?>">Scenarios</a></li>

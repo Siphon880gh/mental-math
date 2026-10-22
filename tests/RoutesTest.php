@@ -196,6 +196,28 @@ final class RoutesTest extends TestCase
         $this->assertStringContainsString('1% of 8,500', $drill);
     }
 
+    public function testToolboxPage(): void
+    {
+        $html = $this->html('/toolbox');
+        $this->assertStringContainsString('Twelve master techniques', $html);
+        $this->assertStringContainsString('Suggested progression', $html);
+        $this->assertStringContainsString('Bharati Krishna Tirtha', $html);
+        $this->assertStringContainsString('href="/index.php?route=%2Fguides%2Fnear-base"', $html);
+        $this->assertMatchesRegularExpression('/href="\/index\.php\?route=%2Ftoolbox" class="is-current">Toolbox</', $html);
+        $home = $this->html('/');
+        $this->assertStringContainsString('>Toolbox<', $home);
+    }
+
+    public function testGuideTablesRender(): void
+    {
+        $html = $this->html('/guides/fixed-multipliers');
+        $this->assertStringContainsString('<table>', $html);
+        $this->assertStringContainsString('<td><span>1001</span></td>', $html);
+        $this->assertStringContainsString('Open coach: fixed-multipliers', $html);
+        $coach = $this->html('/coach/near-base');
+        $this->assertStringContainsString('97 × 94', $coach);
+    }
+
     public function testNavActiveOnGuide(): void
     {
         $html = $this->html('/guides/anchors');

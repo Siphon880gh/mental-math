@@ -32,6 +32,8 @@ final class App
             $html = Pages::guide($request, $m[1]);
         } elseif (preg_match('#^/coach/([^/]+)$#', $path, $m)) {
             $html = Pages::coach($request, $m[1]);
+        } elseif ($path === '/toolbox') {
+            $html = Pages::toolbox($request);
         } elseif ($path === '/drills') {
             $html = Pages::drills($request);
         } elseif (preg_match('#^/drills/([^/]+)$#', $path, $m)) {
