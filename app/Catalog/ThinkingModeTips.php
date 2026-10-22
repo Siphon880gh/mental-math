@@ -24,5 +24,14 @@ final class ThinkingModeTips
         'dilution' => 'Cash ÷ post-money. Ask pre vs post. /coach/dilution.',
         'tam_fermi' => 'Customers × yearly price, then a slice. /guides/tam-fermi.',
         'nrr_read' => 'Same-customer revenue later. /guides/nrr.',
+        'fixed_multiplier' => '×19 is ×20 minus one copy; ×12 is ×10 plus ×2. /guides/fixed-multipliers.',
+        'near_base' => 'Distances from 100, cross, multiply the gaps. /coach/near-base.',
+        'square_shape' => '(a + b)² = a² + 2ab + b². /guides/square-identities.',
+        'divisibility_split' => 'Trim or digit-sum before you divide. /guides/divisibility.',
+        'partial_products' => 'Split by place, add the big piece first. /guides/area-grid.',
+        'complement_count' => 'Count × average for an even run. /guides/complements.',
+        'decimal_shift' => 'Multiply digits, then park the decimal places. /guides/magnitude.',
+        'division_rewrite' => 'Overshoot to a round multiple, then back off. /coach/easy-division.',
+        'digit_check' => 'Digit roots add for sums. A mismatch is a hard fail. /guides/cast-nines.',
     ];
 }
