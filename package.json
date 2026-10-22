@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "test:js": "node --test tests/js/*.test.mjs",
-    "test:browser": "node tests/browser/run.mjs"
+    "test:browser": "node tests/browser/run.mjs",
+    "screenshots": "node tests/browser/screenshots.mjs"
   },
   "devDependencies": {
     "playwright-core": "1.55.0"

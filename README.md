@@ -39,15 +39,39 @@ Mini-games teach one motion: decimal shift, percent swap, percent chips, pair to
 
 ![Mini-game — Decimal shifter](docs/screenshots/game.png)
 
+Pair to 100 deals six invoices; a wrong pair names the partner the first tile needed.
+
+![Mini-game — Pair to 100](docs/screenshots/pair-hundred.png)
+
+Eleven neighbors fills one slot at a time (first digit, neighbor sums, last digit); a wrong slot says why.
+
+![Mini-game — Eleven neighbors](docs/screenshots/eleven-neighbors.png)
+
+Near-base gaps shows the distances from 100 or 1,000, then asks for the cross, the product of the gaps, and the join.
+
+![Mini-game — Near-base gaps](docs/screenshots/near-base-gaps.png)
+
 The soroban rod draws the beads for each add or take-away and asks which move does it: beads straight on or off, the five-complement, or the ten-complement (carry or borrow). The Soroban guide uses the same bead diagrams.
 
 ![Mini-game — Soroban rod](docs/screenshots/soroban.png)
 
+Runway check and ARR read are the Track B games: net burn, months of runway, and when to start a raise; then MRR with the setup fee left out, ×12, and a percent of ARR for a budget line.
+
+![Mini-game — Runway check](docs/screenshots/runway-check.png)
+
+![Mini-game — ARR read](docs/screenshots/arr-read.png)
+
 The Toolbox lists the twelve master techniques, a suggested progression, and history notes (Vedic Mathematics, “Japanese” line multiplication, Trachtenberg).
+
+![Toolbox — twelve master techniques](docs/screenshots/toolbox.png)
+
+Every case pack has advanced cases that chain several moves. Type a number and the debrief lists the thought chain step by step.
+
+![Advanced case — stacked-founder fleet bill](docs/screenshots/case-advanced.png)
 
 ## How it works
 
-Open a track, read the shortcut, walk the coach, then drill until the number is a reflex. Cases ask you to type a number in a conversation, then show the thought chain. Scenarios mix skills from the same track; the longer ones chain three or four. Games isolate one mechanic. The Toolbox ties the arithmetic families together and says where each idea really comes from.
+Open a track, read the shortcut, walk the coach, then drill until the number is a reflex. Cases ask you to type a number in a conversation, then show the thought chain. Scenarios mix skills; the longer ones chain three or four, sometimes pulling a Track A move into a Track B question. Games isolate one mechanic. The Toolbox ties the arithmetic families together and says where each idea really comes from.
 
 PHP server-renders every URL. Progress and pass tags live in the browser (`localStorage`). Internal name: REFLEX_CORE.
 
@@ -95,6 +119,7 @@ PHPUnit does not need Node. The game logic and a browser click-through have thei
 npm run test:js        # node --test tests/js/*.test.mjs — seeded round generators (including runway check and ARR read) and soroban bead rules; no install needed
 npm install            # once: playwright-core only (no browser download)
 npm run test:browser   # starts php -S on a free port with router.php, runs tests/browser/*.spec.mjs, stops the server
+npm run screenshots    # re-shoots the newer README screenshots (games, Toolbox, advanced case) at 1315×717 @2×, dark; add names to shoot only some
 ```
 
 The browser suite drives the installed Google Chrome headless. It checks `router.php` asset serving (including refused `../` paths), clicks through every game with wrong then right answers, loads the main pages, checks unknown slugs return 404, and fails on any console error or PHP warning. Options: `PHP_BIN=/Applications/MAMP/bin/php/php7.4.33/bin/php` to test the PHP 7.4 floor, `BROWSER_CHANNEL=chromium` after `npx playwright-core install chromium` if Chrome is not installed, `HEADED=1` to watch, `VERBOSE=1` to list every check.
