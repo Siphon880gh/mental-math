@@ -19,7 +19,7 @@ The script shallow-clones (`--depth 1`) into `context/apps/`. If a folder is alr
 | Folder | Upstream | Use for |
 |--------|----------|---------|
 | `apps/Stocks-Trainer` | [Siphon880gh/Stocks-Trainer](https://github.com/Siphon880gh/Stocks-Trainer) | React/Vite trainer: learning paths, literacy quizzes, graded cases, coach sessions, progress store |
-| `apps/leetcode-coach` | [Siphon880gh/leetcode-coach](https://github.com/Siphon880gh/leetcode-coach) | PHP Algo Learning IDE: guides, mini games, step-by-step coaching trees, harness skill |
+| `apps/leetcode-coach` | [Siphon880gh/leetcode-coach](https://github.com/Siphon880gh/leetcode-coach) | PHP Leetcode Practice Coach IDE: guides, mini games, step-by-step coaching trees, harness skill |
 
 ## Authoring
 
