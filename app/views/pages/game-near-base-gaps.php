@@ -6,7 +6,7 @@
     the gaps), then put them together.
   </p>
   <noscript><p>SAMPLE: 97 × 94 → 97 − 6 = 91, 3 × 6 = 18 → 9,118.</p></noscript>
-  <p class="coach-message js-nb-prompt" style="font-size: 2rem" aria-live="polite"></p>
+  <p class="coach-message figure js-nb-prompt" aria-live="polite"></p>
   <p class="js-nb-gaps"></p>
   <p class="coach-message js-nb-status"></p>
   <p class="eyebrow js-nb-step"></p>

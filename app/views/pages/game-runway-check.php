@@ -5,7 +5,7 @@
     then when to start a raise that takes about six months.
   </p>
   <noscript><p>SAMPLE: $240k cash, $35k spend, $15k revenue → $20k net burn → 12 months → start the raise in 6.</p></noscript>
-  <p class="coach-message js-step-prompt" style="font-size: 2rem" aria-live="polite"></p>
+  <p class="coach-message figure js-step-prompt" aria-live="polite"></p>
   <p class="js-step-info"></p>
   <p class="coach-message js-step-status"></p>
   <p class="eyebrow js-step-label"></p>

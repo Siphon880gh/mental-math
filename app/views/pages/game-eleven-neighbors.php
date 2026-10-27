@@ -5,8 +5,8 @@
     neighbor sums, last digit. Then carry any 10 one place left.
   </p>
   <noscript><p>SAMPLE: 347 × 11 → 3 | 7 | 11 | 7 → carry → 3,817.</p></noscript>
-  <p class="coach-message js-eleven-prompt" style="font-size: 2rem" aria-live="polite"></p>
-  <p class="coach-message js-eleven-slots"></p>
+  <p class="coach-message figure js-eleven-prompt" aria-live="polite"></p>
+  <p class="coach-message figure figure--slots js-eleven-slots"></p>
   <p class="eyebrow js-eleven-step"></p>
   <p class="coach-controls js-eleven-choices"></p>
   <p class="coach-wrong coach-panel js-eleven-miss" hidden aria-live="polite"></p>

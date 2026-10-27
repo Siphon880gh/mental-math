@@ -157,7 +157,10 @@ function applyFilters() {
       count.hidden = selected.length === 0;
       count.textContent = String(selected.length);
     }
-    if (clear) clear.disabled = selected.length === 0;
+    if (clear) {
+      clear.disabled = selected.length === 0;
+      clear.title = selected.length === 0 ? "No tags selected." : "Clear selected tags.";
+    }
     paintRows(bar ?? section, selected);
 
     const cards = [...section.querySelectorAll(".cards")];

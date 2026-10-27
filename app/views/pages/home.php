@@ -39,7 +39,7 @@ $gated = Progress::areCasesLocked($progress);
       <li data-milestone-id="<?= e($node['id']) ?>">
         <strong><?= e($node['title']) ?></strong>
         <p>
-          <span class="js-ms-status"><?= e($progress['milestones'][$node['id']] ?? 'locked') ?></span>
+          <span class="js-ms-status" data-status="<?= e($progress['milestones'][$node['id']] ?? 'locked') ?>"><?= e($progress['milestones'][$node['id']] ?? 'locked') ?></span>
           · <?= e($node['coachTip']) ?>
         </p>
         <p class="example">

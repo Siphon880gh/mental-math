@@ -56,7 +56,8 @@ export function initDashboard() {
           return `${sep}<a href="${hrefForRef(ref)}">${ref.replace(":", " ")}</a>`;
         })
         .join("");
-      li.innerHTML = `<strong>${node.title}</strong><p>${progress.milestones[node.id] ?? "locked"} · ${node.coachTip}</p><p class="example">${refs}</p>`;
+      const status = progress.milestones[node.id] ?? "locked";
+      li.innerHTML = `<strong>${node.title}</strong><p><span class="js-ms-status" data-status="${status}">${status}</span> · ${node.coachTip}</p><p class="example">${refs}</p>`;
       list.append(li);
     });
 

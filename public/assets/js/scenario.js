@@ -26,7 +26,10 @@ export function initScenario() {
       li.textContent = text;
       hints.append(li);
     });
-    if (hintCount >= study.hints.length) hintBtn.disabled = true;
+    if (hintCount >= study.hints.length) {
+      hintBtn.disabled = true;
+      hintBtn.title = "No hints left.";
+    }
     revealSkills();
   });
   cheatBtn.addEventListener("click", () => {
@@ -34,6 +37,7 @@ export function initScenario() {
     cheat.hidden = false;
     cheat.textContent = study.cheat;
     cheatBtn.disabled = true;
+    cheatBtn.title = "Cheat is already open.";
     revealSkills();
     paintChoices();
   });

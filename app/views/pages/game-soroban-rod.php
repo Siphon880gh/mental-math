@@ -11,7 +11,7 @@ use Reflex\Soroban;
     the ten-complement (carry or borrow one ten, then give some back).
   </p>
   <div class="js-soroban-board"><?= Soroban::html('47') ?></div>
-  <p class="coach-message js-soroban-prompt" style="font-size: 2rem"></p>
+  <p class="coach-message figure js-soroban-prompt"></p>
   <p class="coach-controls js-soroban-choices"></p>
   <p class="coach-wrong coach-panel js-soroban-miss" hidden aria-live="polite"></p>
   <p class="coach-success coach-panel js-soroban-ok" hidden aria-live="polite"></p>

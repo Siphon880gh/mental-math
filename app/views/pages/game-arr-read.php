@@ -5,7 +5,7 @@
     then a percent of ARR for a budget line.
   </p>
   <noscript><p>SAMPLE: 120 seats at $40/mo and a $1,000 setup fee → MRR $4,800 → ARR $57,600 → 10% = $5,760.</p></noscript>
-  <p class="coach-message js-step-prompt" style="font-size: 2rem" aria-live="polite"></p>
+  <p class="coach-message figure js-step-prompt" aria-live="polite"></p>
   <p class="js-step-info"></p>
   <p class="coach-message js-step-status"></p>
   <p class="eyebrow js-step-label"></p>

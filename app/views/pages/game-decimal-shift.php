@@ -1,7 +1,7 @@
 <section class="js-game-decimal">
   <h2>Decimal shifter</h2>
   <p class="lede">SAMPLE: start at 8,500. 10% is one place left. 1% is two.</p>
-  <p class="coach-message js-shift-value" style="font-size: 2rem">8500</p>
+  <p class="coach-message figure js-shift-value">8500</p>
   <p class="coach-controls">
     <button type="button" class="js-shift-left">Shift left</button>
     <button type="button" class="js-shift-right">Shift right</button>

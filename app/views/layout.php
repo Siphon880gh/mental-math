@@ -17,6 +17,12 @@ $caption = $activeTrack ? Tracks::LABEL[$activeTrack] : "\u{00A0}";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mental Math Trainer</title>
     <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fragment+Mono&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="<?= e(asset_url('/css/app.css')) ?>" />
     <script>
       (function () {
@@ -57,7 +63,7 @@ $caption = $activeTrack ? Tracks::LABEL[$activeTrack] : "\u{00A0}";
     </script>
   </head>
   <body>
-    <div class="shell">
+    <div class="shell" data-page="<?= e($page) ?>">
       <header class="masthead">
         <div class="app">
           <a href="<?= e(url('/')) ?>" class="brand">
@@ -80,16 +86,16 @@ $caption = $activeTrack ? Tracks::LABEL[$activeTrack] : "\u{00A0}";
         <div class="site-nav__inner">
           <ul class="site-nav__row">
             <li>
-              <a href="<?= e(url('/track-a')) ?>" class="<?= $activeTrack === 'quick' ? 'is-current' : '' ?>" data-track="quick">Track A</a>
+              <a href="<?= e(url('/track-a')) ?>"<?= $activeTrack === 'quick' ? ' aria-current="page" class="is-current"' : '' ?> data-track="quick">Track A</a>
             </li>
             <li>
-              <a href="<?= e(url('/track-b')) ?>" class="<?= $activeTrack === 'stakeholder' ? 'is-current' : '' ?>" data-track="stakeholder">Track B</a>
+              <a href="<?= e(url('/track-b')) ?>"<?= $activeTrack === 'stakeholder' ? ' aria-current="page" class="is-current"' : '' ?> data-track="stakeholder">Track B</a>
             </li>
-            <li><a href="<?= e(url('/toolbox')) ?>"<?= ($section ?? null) === 'toolbox' ? ' class="is-current"' : '' ?>>Toolbox</a></li>
-            <li><a href="<?= e(url('/drills')) ?>">Drills</a></li>
-            <li><a href="<?= e(url('/cases')) ?>">Cases</a></li>
-            <li><a href="<?= e(url('/scenarios')) ?>">Scenarios</a></li>
-            <li><a href="<?= e(url('/games')) ?>">Games</a></li>
+            <li><a<?= ($section ?? null) === 'toolbox' ? ' aria-current="page"' : '' ?> href="<?= e(url('/toolbox')) ?>"<?= ($section ?? null) === 'toolbox' ? ' class="is-current"' : '' ?>>Toolbox</a></li>
+            <li><a href="<?= e(url('/drills')) ?>"<?= ($section ?? null) === 'drills' ? ' aria-current="page" class="is-current"' : '' ?>>Drills</a></li>
+            <li><a href="<?= e(url('/cases')) ?>"<?= ($section ?? null) === 'cases' ? ' aria-current="page" class="is-current"' : '' ?>>Cases</a></li>
+            <li><a href="<?= e(url('/scenarios')) ?>"<?= ($section ?? null) === 'scenarios' ? ' aria-current="page" class="is-current"' : '' ?>>Scenarios</a></li>
+            <li><a href="<?= e(url('/games')) ?>"<?= ($section ?? null) === 'games' ? ' aria-current="page" class="is-current"' : '' ?>>Games</a></li>
           </ul>
           <p class="site-nav__caption" data-visible="<?= $activeTrack ? 'true' : 'false' ?>" aria-live="polite">
             <span class="site-nav__caption-text"><?= $activeTrack ? e(Tracks::LABEL[$activeTrack]) : '&nbsp;' ?></span>

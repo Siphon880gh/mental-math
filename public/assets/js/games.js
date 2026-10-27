@@ -138,8 +138,11 @@ export function initGames() {
     const win = swap.querySelector(".js-swap-win");
     const paint = () => {
       msg.textContent = (swapped ? "50% of 14" : "14% of 50") + (halved ? " = 7" : "");
-      swap.querySelector(".js-swap").disabled = swapped;
+      const swapBtn = swap.querySelector(".js-swap");
+      swapBtn.disabled = swapped;
+      swapBtn.title = swapped ? "Already swapped. Take 50% next." : "";
       half.disabled = !swapped || halved;
+      half.title = halved ? "Already halved." : swapped ? "" : "Swap A% of B first.";
       win.hidden = !halved;
     };
     swap.querySelector(".js-swap").addEventListener("click", () => {
