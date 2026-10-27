@@ -33,9 +33,11 @@ use Reflex\Catalog\Cases;
         <ul class="cards js-cases-open">
           <?php foreach ($allRows as $row): ?>
             <li data-resource-key="case:<?= e($row['id']) ?>">
-              <a href="<?= e(url('/cases/' . $row['id'])) ?>"><?= e($row['id']) ?></a>
+              <a class="case-line" href="<?= e(url('/cases/' . $row['id'])) ?>"><?= e($row['prompt']) ?></a>
               <p>
-                <?= e($row['difficulty']) ?> · <?= e($row['thinkingMode']) ?>
+                <?= e(ucfirst((string) $row['difficulty'])) ?>
+                ·
+                <?= e(ucwords(str_replace('_', ' ', (string) $row['thinkingMode']))) ?>
               </p>
               <?= resource_tagger('case:' . $row['id']) ?>
             </li>

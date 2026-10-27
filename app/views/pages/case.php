@@ -1,7 +1,13 @@
 <?php
 
+use Reflex\Catalog\Cases;
+
 /** @var array<string, mixed> $study */
 /** @var string $tip */
+
+$pack = Cases::pack((string) $study['packId']);
+$packTitle = $pack['title'] ?? (string) $study['packId'];
+$modeLabel = ucwords(str_replace('_', ' ', (string) $study['thinkingMode']));
 ?>
 <section class="js-case-player">
   <div class="js-cases-locked">
@@ -12,7 +18,7 @@
   <div class="js-cases-open">
     <?= peek_banner('case', true) ?>
     <p class="eyebrow">
-      <?= e($study['packId']) ?> · <?= e($study['difficulty']) ?> · <?= e($study['thinkingMode']) ?>
+      <?= e($packTitle) ?> · <?= e(ucfirst((string) $study['difficulty'])) ?> · <?= e($modeLabel) ?>
     </p>
     <h2><?= e($study['prompt']) ?></h2>
     <p class="example">

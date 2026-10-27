@@ -575,6 +575,16 @@ a:hover {
   background: color-mix(in oklch, var(--item-moss) 62%, var(--bg));
 }
 
+[data-filter-section="cases"] .cards a.case-line {
+  font-size: 1.12rem;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+}
+
+[data-filter-section="cases"] .track-block .cards p {
+  color: var(--text);
+}
+
 /* -------- Shortcuts -------- */
 
 .shortcut {
