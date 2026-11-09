@@ -108,6 +108,7 @@ $caption = $activeTrack ? Tracks::LABEL[$activeTrack] : "\u{00A0}";
     </div>
     <?= json_script('pass-tags-catalog', PassTags::TAGS) ?>
     <?= json_script('track-labels', Tracks::LABEL) ?>
+    <script src="<?= e(asset_url('/js/harness-ai.js')) ?>" defer data-folder="<?= e(basename(dirname(__DIR__, 2))) ?>" data-app="Mental Math Trainer" data-theme="dark" data-accent="#f6a04d" data-ask="<?= e('Ask it to add a step-by-step coaching session for a guide with the `add-coaching-session` skill (`.agents/skills/`), or to read and edit the guides, drills, and cases. Reload to see the change.') ?>"></script>
     <script type="module" src="<?= e(asset_url('/js/main.js')) ?>"></script>
   </body>
 </html>
